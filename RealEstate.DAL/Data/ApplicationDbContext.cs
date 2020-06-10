@@ -12,28 +12,24 @@ namespace RealEstate.DAL.Data
         {
         }
 
-        public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Property> Properties { get; set; }
+        public DbSet<AgentProfile> AgentProfiles { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
-        public DbSet<AgentProperty> AgentProperties { get; set; }
+        public DbSet<Offer> Offers { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+        public DbSet<PropertyPhoto> PropertyPhotos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfiguration(new UserProfileConfiguration());
             modelBuilder.ApplyConfiguration(new FeedbackConfiguration());
             modelBuilder.ApplyConfiguration(new PropertyConfiguration());
-            modelBuilder.Entity<AgentProperty>()
-                .HasKey(ap => new { ap.AgentId, ap.PropertyId });
-            modelBuilder.Entity<AgentProperty>()
-                .HasOne(ap => ap.Agent)
-                .WithMany(u => u.AgentProperties)
-                .HasForeignKey(ap => ap.AgentId);
-            modelBuilder.Entity<AgentProperty>()
-                .HasOne(ap => ap.Property)
-                .WithMany(p => p.AgentsProperty)
-                .HasForeignKey(ap => ap.PropertyId);
-            modelBuilder.ApplyConfiguration(new AgentPropertyConfiguration());
+            modelBuilder.ApplyConfiguration(new AgentProfileConfiguration());
+            modelBuilder.ApplyConfiguration(new AnswerConfiguration());
+            modelBuilder.ApplyConfiguration(new OfferConfiguration());
+            modelBuilder.ApplyConfiguration(new PropertyPhotoConfiguration());
+            modelBuilder.ApplyConfiguration(new QuestionConfiguration());
         }
     }
 }

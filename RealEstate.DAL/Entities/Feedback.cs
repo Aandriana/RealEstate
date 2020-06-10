@@ -3,15 +3,14 @@ using System.Collections.Generic;
 
 namespace RealEstate.DAL.Entities
 {
-    public class Feedback
+    public class Feedback: BaseEntity
     {
-        public int Id { get; set; }
-        public string Text { get; set; }
+        public string Comment { get; set; }
         public DateTime Date { get; set; }
-        public string SenderId { get; set; }
-        public string ReceiverId { get; set; }
-        public UserProfile SenderProfile { get; set; }
-        public UserProfile ReceiverProfile { get; set;}
+        public string UserId { get; set; }
+        public string AgentId { get; set; }
+        public User User { get; set; }
+        public AgentProfile Agent { get; set;}
     }
 
 }

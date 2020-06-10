@@ -9,6 +9,12 @@
     <Compile Remove="Migrations\20200608155605_UserFixMigration.Designer.cs" />
     <Compile Remove="Migrations\20200608160145_UserFixMigration.cs" />
     <Compile Remove="Migrations\20200608160145_UserFixMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200610203741_NewTables.cs" />
+    <Compile Remove="Migrations\20200610203741_NewTables.Designer.cs" />
+    <Compile Remove="Migrations\20200610204250_NewTables.cs" />
+    <Compile Remove="Migrations\20200610204250_NewTables.Designer.cs" />
+    <Compile Remove="Migrations\20200610204510_NewTables.cs" />
+    <Compile Remove="Migrations\20200610204510_NewTables.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -10,6 +10,8 @@ namespace RealEstate.DAL.Configuration
         {
             builder.ToTable("Properties");
             builder.HasKey(p => p.Id);
-        }
+            builder.HasOne(p => p.User).WithMany(u => u.Properties).HasForeignKey(p => p.UserId);
+            builder.HasOne(p => p.Agent).WithMany(a => a.Properties).HasForeignKey(p => p.AgentId);
+        }   
     }
 }
