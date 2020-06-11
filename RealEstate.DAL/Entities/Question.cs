@@ -9,5 +9,6 @@ namespace RealEstate.DAL.Entities
         public string QuestionText { get; set; }
         public int PropertyId { get; set;  }
         public Property Property { get; set; }
+        public Answer Answer { get; set; }
     }
 }
