@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate.DAL", "RealEstat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.BLL", "RealEstate.BLL\RealEstate.BLL.csproj", "{E8916A6B-55F6-4E06-9425-43B5D2C069C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{00607017-9860-4C74-94AA-39257644461F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E8916A6B-55F6-4E06-9425-43B5D2C069C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8916A6B-55F6-4E06-9425-43B5D2C069C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8916A6B-55F6-4E06-9425-43B5D2C069C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00607017-9860-4C74-94AA-39257644461F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00607017-9860-4C74-94AA-39257644461F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00607017-9860-4C74-94AA-39257644461F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00607017-9860-4C74-94AA-39257644461F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
