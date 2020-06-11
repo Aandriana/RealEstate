@@ -16,6 +16,8 @@ using System;
 using Common.Configurations;
 using RealEstate.BLL.Interfaces;
 using RealEstate.BLL.Services;
+using AutoMapper;
+using RealEstateIdentity.Mappers;
 
 namespace RealEstateIdentity
 {
@@ -67,6 +69,14 @@ namespace RealEstateIdentity
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
+
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
             services.AddTransient<IAuthenticationService, AuthenticationService>();
         }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using RealEstate.BLL.Interfaces;
 using RealEstate.DAL.Entities;
 using RealEstateIdentity.ViewModels;
+using RealEstateIdentity.Mappers;
 
 namespace RealEstateIdentity.Controllers
 {
@@ -15,16 +17,19 @@ namespace RealEstateIdentity.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
         private readonly IAuthenticationService _authentication;
+        private readonly IMapper _mapper;
 
         public AccountController(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
-            IAuthenticationService authentication
+            IAuthenticationService authentication,
+            IMapper mapper
             )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _authentication = authentication;
+            _mapper = mapper;
         }
 
         [HttpPost("login")]
@@ -44,15 +49,13 @@ namespace RealEstateIdentity.Controllers
         [HttpPost("register")]
         public async Task<object> Register([FromBody] RegisterViewModel model)
         {
-            var user = new User
-            {
-                UserName = model.Email,
-                Email = model.Email
-            };
+            var user = _mapper.Map<User>(model);
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
             {
+                var currentUser =await  _userManager.FindByNameAsync(user.UserName);
+                await _userManager.AddToRoleAsync(currentUser, model.RoleName);
                 await _signInManager.SignInAsync(user, false);
                 return await _authentication.GenerateJwtToken(model.Email, user);
             }
