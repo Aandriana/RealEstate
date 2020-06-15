@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace RealEstate.DAL.Entities
+namespace RealEstateIdentity.ViewModels
 {
-    public class Answer : BaseEntity
+    public class AnswerViewModel
     {
         public string AnswerText { get; set; }
         public int OfferId { get; set; }
-        public Offer Offer { get; set; }
         public string Question { get; set; }
     }
-
 }

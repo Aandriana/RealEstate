@@ -12,7 +12,7 @@ namespace RealEstate.DAL.Configuration
             builder.HasKey(a => a.Id);
             builder
                 .HasOne(a => a.User)
-                .WithOne(u => u.AgentPrifile)
+                .WithOne(u => u.AgentProfile)
                 .HasForeignKey<AgentProfile>(a => a.UserId);
         }
     }

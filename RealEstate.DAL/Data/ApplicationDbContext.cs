@@ -31,7 +31,6 @@ namespace RealEstate.DAL.Data
             modelBuilder.ApplyConfiguration(new OfferConfiguration());
             modelBuilder.ApplyConfiguration(new PropertyPhotoConfiguration());
             modelBuilder.ApplyConfiguration(new QuestionConfiguration());
-            modelBuilder.Entity<IdentityUserRole<string>>().HasKey(p => new { p.UserId, p.RoleId });
         }
     }
 }

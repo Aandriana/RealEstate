@@ -13,7 +13,7 @@ namespace RealEstate.DAL.Entities
         public int FailedSales { get; set; }
         public User User { get; set; }
         public string UserId { get; set; }
-        public virtual ICollection<Property> Properties { get; set; }
+        public double Rating { get; set; }
         public virtual ICollection<Feedback> Feedbacks { get; set; }
         public virtual ICollection<Offer> Offers { get; set; }
     }

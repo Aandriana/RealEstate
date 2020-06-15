@@ -15,8 +15,6 @@ namespace RealEstate.DAL.Entities
         public int Status { get; set; }
         public string UserId { get; set; }
         public User User { get; set; }
-        public string AgentId { get; set; }
-        public AgentProfile Agent { get; set; }
         public virtual ICollection<Offer> Offers { get; set; }
         public virtual ICollection<PropertyPhoto> Photos { get; set; }
         public virtual ICollection<Question> Questions { get; set; }

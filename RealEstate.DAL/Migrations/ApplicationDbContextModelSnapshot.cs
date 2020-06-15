@@ -170,6 +170,9 @@ namespace RealEstate.DAL.Migrations
                     b.Property<int>("FailedSales")
                         .HasColumnType("int");
 
+                    b.Property<double>("Rating")
+                        .HasColumnType("float");
+
                     b.Property<int>("SuccessSales")
                         .HasColumnType("int");
 
@@ -195,6 +198,9 @@ namespace RealEstate.DAL.Migrations
                     b.Property<string>("AnswerText")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Archive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("CreatedById")
                         .HasColumnType("nvarchar(max)");
 
@@ -203,6 +209,9 @@ namespace RealEstate.DAL.Migrations
 
                     b.Property<int>("OfferId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Question")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedById")
                         .HasColumnType("nvarchar(max)");
@@ -227,6 +236,9 @@ namespace RealEstate.DAL.Migrations
                     b.Property<string>("AgentId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<bool>("Archive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
@@ -238,6 +250,9 @@ namespace RealEstate.DAL.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
 
                     b.Property<string>("UpdatedById")
                         .HasColumnType("nvarchar(max)");
@@ -266,6 +281,9 @@ namespace RealEstate.DAL.Migrations
 
                     b.Property<string>("AgentProfileId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("Archive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
@@ -310,8 +328,8 @@ namespace RealEstate.DAL.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("AgentId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<bool>("Archive")
+                        .HasColumnType("bit");
 
                     b.Property<int>("BuildYear")
                         .HasColumnType("int");
@@ -354,8 +372,6 @@ namespace RealEstate.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AgentId");
-
                     b.HasIndex("UserId");
 
                     b.ToTable("Properties");
@@ -367,6 +383,9 @@ namespace RealEstate.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Archive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("CreatedById")
                         .HasColumnType("nvarchar(max)");
@@ -399,6 +418,9 @@ namespace RealEstate.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Archive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("CreatedById")
                         .HasColumnType("nvarchar(max)");
@@ -553,7 +575,7 @@ namespace RealEstate.DAL.Migrations
             modelBuilder.Entity("RealEstate.DAL.Entities.AgentProfile", b =>
                 {
                     b.HasOne("RealEstate.DAL.Entities.User", "User")
-                        .WithOne("AgentPrifile")
+                        .WithOne("AgentProfile")
                         .HasForeignKey("RealEstate.DAL.Entities.AgentProfile", "UserId");
                 });
 
@@ -592,10 +614,6 @@ namespace RealEstate.DAL.Migrations
 
             modelBuilder.Entity("RealEstate.DAL.Entities.Property", b =>
                 {
-                    b.HasOne("RealEstate.DAL.Entities.AgentProfile", "Agent")
-                        .WithMany("Properties")
-                        .HasForeignKey("AgentId");
-
                     b.HasOne("RealEstate.DAL.Entities.User", "User")
                         .WithMany("Properties")
                         .HasForeignKey("UserId");

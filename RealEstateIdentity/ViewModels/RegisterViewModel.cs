@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
+﻿
 namespace RealEstateIdentity.ViewModels
 {
     public class RegisterViewModel
-    { 
+    {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -14,6 +10,5 @@ namespace RealEstateIdentity.ViewModels
         public string ConfirmPassword { get; set; }
         public string PhoneNumber { get; set; }
         public string ImagePath { get; set; }
-        public string RoleName { get; set; }
     }
 }

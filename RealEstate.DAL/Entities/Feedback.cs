@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace RealEstate.DAL.Entities
 {
@@ -11,6 +10,7 @@ namespace RealEstate.DAL.Entities
         public string AgentId { get; set; }
         public User User { get; set; }
         public AgentProfile Agent { get; set;}
+        public int Rating { get; set; }
     }
 
 }

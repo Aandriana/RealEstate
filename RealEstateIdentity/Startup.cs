@@ -18,6 +18,11 @@ using RealEstate.BLL.Interfaces;
 using RealEstate.BLL.Services;
 using AutoMapper;
 using RealEstateIdentity.Mappers;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using RealEstateIdentity.ViewModels;
+using RealEstateIdentity.Validators;
+using RealEstate.DAL.UnitOfWork;
 
 namespace RealEstateIdentity
 {
@@ -57,14 +62,17 @@ namespace RealEstateIdentity
                     cfg.SaveToken = true;
                     cfg.TokenValidationParameters = new TokenValidationParameters
                     {
+                        ValidateIssuerSigningKey = true,
                         ValidIssuer = token.JwtIssuer,
                         ValidAudience = token.JwtIssuer,
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(token.JwtKey)),
-                        ClockSkew = TimeSpan.Zero // remove delay of token when expire
+                        ClockSkew = TimeSpan.Zero,
+                        ValidateIssuer = true,
+                        ValidateAudience = true
                     };
                 });
 
-            services.AddMvc(option => option.EnableEndpointRouting = false);
+            services.AddMvc(option => option.EnableEndpointRouting = false).AddFluentValidation();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
@@ -75,10 +83,17 @@ namespace RealEstateIdentity
                 mc.AddProfile(new MappingProfile());
             });
 
+            services.AddTransient<IUnitOfWork, UnitOfWork>(provider =>
+                new UnitOfWork(provider.GetRequiredService<ApplicationDbContext>()));
+
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
 
             services.AddTransient<IAuthenticationService, AuthenticationService>();
+            services.AddTransient<IValidator<RegisterViewModel>, RegisterViewModelValidator>();
+            services.AddTransient<IValidator<LoginViewModel>, LoginViewModelValidator>();
+            services.AddTransient<IFileService, LocalFileService>();
+            services.AddTransient<IPropertyService, PropertyService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

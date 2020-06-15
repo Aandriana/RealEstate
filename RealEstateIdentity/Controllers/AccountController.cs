@@ -33,34 +33,41 @@ namespace RealEstateIdentity.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<object> Login([FromBody] LoginViewModel model)
+        public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
-            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
-
-            if (result.Succeeded)
+            if (ModelState.IsValid)
             {
-                var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
-                return await _authentication.GenerateJwtToken(model.Email, appUser);
-            }
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
 
-            throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
+                if (result.Succeeded)
+                {
+                    var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
+                    var token = await _authentication.GenerateJwtToken(appUser);
+                    return Ok(new { Token = token });
+                }
+            }
+            return BadRequest();
         }
 
         [HttpPost("register")]
-        public async Task<object> Register([FromBody] RegisterViewModel model)
+        public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
         {
-            var user = _mapper.Map<User>(model);
-            var result = await _userManager.CreateAsync(user, model.Password);
-
-            if (result.Succeeded)
+            if (ModelState.IsValid)
             {
-                var currentUser =await  _userManager.FindByNameAsync(user.UserName);
-                await _userManager.AddToRoleAsync(currentUser, model.RoleName);
-                await _signInManager.SignInAsync(user, false);
-                return await _authentication.GenerateJwtToken(model.Email, user);
+                var user = _mapper.Map<User>(model);
+                var result = await _userManager.CreateAsync(user, model.Password);
+
+                if (result.Succeeded)
+                {
+                    var currentUser = await _userManager.FindByNameAsync(user.UserName);
+                    await _userManager.AddToRoleAsync(currentUser, "User");
+                    await _signInManager.SignInAsync(user, false);
+                    var token = await _authentication.GenerateJwtToken(user);
+                    return Ok(new { Token = token});
+                }
             }
 
-            throw new ApplicationException("UNKNOWN_ERROR");
+            return BadRequest();
         }
     }
 }

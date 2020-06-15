@@ -1,12 +1,12 @@
 ﻿using Common.Configurations;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using RealEstate.BLL.Interfaces;
+using RealEstate.DAL.Entities;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,18 +15,21 @@ namespace RealEstate.BLL.Services
     public class AuthenticationService: IAuthenticationService
     {
         private readonly TokenManagement _tokenManagement;
-        public AuthenticationService(IOptions<TokenManagement> tokenManagement)
+        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<User> _userManager;
+        private readonly IHttpContextAccessor _context;
+        public AuthenticationService(IOptions<TokenManagement> tokenManagement, SignInManager<User> signInManager, UserManager<User> userManager, IHttpContextAccessor context)
         {
             _tokenManagement = tokenManagement.Value;
+            _signInManager = signInManager;
+            _userManager = userManager;
+            _context = context;
+
         }
-        public async Task<string> GenerateJwtToken(string email, IdentityUser user)
+        public async Task<string> GenerateJwtToken(User user)
         {
-            var claims = new List<Claim>
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.NameIdentifier, user.Id)
-            };
+            var userPrincipal = await _signInManager.CreateUserPrincipalAsync(user);
+            var claims = userPrincipal.Claims;
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenManagement.JwtKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -43,5 +46,7 @@ namespace RealEstate.BLL.Services
             var jwttoken = new JwtSecurityTokenHandler().WriteToken(token);
             return jwttoken;
         }
+
+          public Task<User> GetCurrentUserAsync() => _userManager.GetUserAsync(_context.HttpContext.User);
     }
 }

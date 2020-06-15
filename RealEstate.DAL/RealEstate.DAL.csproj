@@ -5,21 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200608155605_UserFixMigration.cs" />
-    <Compile Remove="Migrations\20200608155605_UserFixMigration.Designer.cs" />
-    <Compile Remove="Migrations\20200608160145_UserFixMigration.cs" />
-    <Compile Remove="Migrations\20200608160145_UserFixMigration.Designer.cs" />
-    <Compile Remove="Migrations\20200610203741_NewTables.cs" />
-    <Compile Remove="Migrations\20200610203741_NewTables.Designer.cs" />
-    <Compile Remove="Migrations\20200610204250_NewTables.cs" />
-    <Compile Remove="Migrations\20200610204250_NewTables.Designer.cs" />
-    <Compile Remove="Migrations\20200610204510_NewTables.cs" />
-    <Compile Remove="Migrations\20200610204510_NewTables.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
-    <PackageReference Include="FluentValidation" Version="8.6.2" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
