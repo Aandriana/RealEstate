@@ -94,6 +94,9 @@ namespace RealEstateIdentity
             services.AddTransient<IValidator<LoginViewModel>, LoginViewModelValidator>();
             services.AddTransient<IFileService, LocalFileService>();
             services.AddTransient<IPropertyService, PropertyService>();
+            services.AddTransient<IValidator<PropertyCreateViewModel>, PropertyCreateViewModelValidator>();
+            services.AddTransient<IValidator<PropertyUpdateViewModel>, PropertyUpdateViewModelValidator>();
+            services.AddTransient<IValidator<UserDetailsViewModel>, UserDetailsViewModelValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -2,8 +2,8 @@
 {
     public enum  PropertyStatus
     {
-       LookingForOffer = 0,
-       FoundOffer = 1,
+       Frozen = 0,
+       ForSale = 1,
        Sold =2
     }
 }

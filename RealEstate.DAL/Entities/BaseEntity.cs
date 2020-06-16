@@ -15,7 +15,5 @@ namespace RealEstate.DAL.Entities
         public DateTime CreatedDateUtc { get; set; }
 
         public DateTime? UpdatedDateUtc { get; set; }
-
-        public bool Archive { get; set; }
     }
 }

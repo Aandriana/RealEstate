@@ -19,7 +19,7 @@ namespace RealEstate.DAL.UnitOfWork
 
         public IRepository<TEntity> Repository<TEntity>() where TEntity : class
         {
-            return new Repository<TEntity>(_context.Set<TEntity>());
+            return new Repository<TEntity>(_context.Set<TEntity>(), _context);
         }
 
         public async Task<int> SaveChangesAsync()

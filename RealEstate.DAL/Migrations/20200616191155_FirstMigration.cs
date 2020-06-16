@@ -190,7 +190,6 @@ namespace RealEstate.DAL.Migrations
                     UpdatedById = table.Column<string>(nullable: true),
                     CreatedDateUtc = table.Column<DateTime>(nullable: false),
                     UpdatedDateUtc = table.Column<DateTime>(nullable: true),
-                    Archive = table.Column<bool>(nullable: false),
                     Size = table.Column<double>(nullable: false),
                     Сategory = table.Column<int>(nullable: false),
                     FloorsNumber = table.Column<int>(nullable: false),
@@ -223,7 +222,6 @@ namespace RealEstate.DAL.Migrations
                     UpdatedById = table.Column<string>(nullable: true),
                     CreatedDateUtc = table.Column<DateTime>(nullable: false),
                     UpdatedDateUtc = table.Column<DateTime>(nullable: true),
-                    Archive = table.Column<bool>(nullable: false),
                     Comment = table.Column<string>(nullable: true),
                     Date = table.Column<DateTime>(nullable: false),
                     UserId = table.Column<string>(nullable: true),
@@ -257,7 +255,6 @@ namespace RealEstate.DAL.Migrations
                     UpdatedById = table.Column<string>(nullable: true),
                     CreatedDateUtc = table.Column<DateTime>(nullable: false),
                     UpdatedDateUtc = table.Column<DateTime>(nullable: true),
-                    Archive = table.Column<bool>(nullable: false),
                     Comment = table.Column<string>(nullable: true),
                     Rate = table.Column<double>(nullable: false),
                     PropertyId = table.Column<int>(nullable: false),
@@ -291,7 +288,6 @@ namespace RealEstate.DAL.Migrations
                     UpdatedById = table.Column<string>(nullable: true),
                     CreatedDateUtc = table.Column<DateTime>(nullable: false),
                     UpdatedDateUtc = table.Column<DateTime>(nullable: true),
-                    Archive = table.Column<bool>(nullable: false),
                     Path = table.Column<string>(nullable: true),
                     PropertyId = table.Column<int>(nullable: false)
                 },
@@ -316,7 +312,6 @@ namespace RealEstate.DAL.Migrations
                     UpdatedById = table.Column<string>(nullable: true),
                     CreatedDateUtc = table.Column<DateTime>(nullable: false),
                     UpdatedDateUtc = table.Column<DateTime>(nullable: true),
-                    Archive = table.Column<bool>(nullable: false),
                     QuestionText = table.Column<string>(nullable: true),
                     PropertyId = table.Column<int>(nullable: false)
                 },
@@ -341,7 +336,6 @@ namespace RealEstate.DAL.Migrations
                     UpdatedById = table.Column<string>(nullable: true),
                     CreatedDateUtc = table.Column<DateTime>(nullable: false),
                     UpdatedDateUtc = table.Column<DateTime>(nullable: true),
-                    Archive = table.Column<bool>(nullable: false),
                     AnswerText = table.Column<string>(nullable: true),
                     OfferId = table.Column<int>(nullable: false),
                     Question = table.Column<string>(nullable: true)

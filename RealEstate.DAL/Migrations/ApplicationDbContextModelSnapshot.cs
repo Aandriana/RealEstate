@@ -198,9 +198,6 @@ namespace RealEstate.DAL.Migrations
                     b.Property<string>("AnswerText")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Archive")
-                        .HasColumnType("bit");
-
                     b.Property<string>("CreatedById")
                         .HasColumnType("nvarchar(max)");
 
@@ -235,9 +232,6 @@ namespace RealEstate.DAL.Migrations
 
                     b.Property<string>("AgentId")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<bool>("Archive")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
@@ -282,9 +276,6 @@ namespace RealEstate.DAL.Migrations
                     b.Property<string>("AgentProfileId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<bool>("Archive")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
@@ -327,9 +318,6 @@ namespace RealEstate.DAL.Migrations
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Archive")
-                        .HasColumnType("bit");
 
                     b.Property<int>("BuildYear")
                         .HasColumnType("int");
@@ -384,9 +372,6 @@ namespace RealEstate.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("Archive")
-                        .HasColumnType("bit");
-
                     b.Property<string>("CreatedById")
                         .HasColumnType("nvarchar(max)");
 
@@ -418,9 +403,6 @@ namespace RealEstate.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("Archive")
-                        .HasColumnType("bit");
 
                     b.Property<string>("CreatedById")
                         .HasColumnType("nvarchar(max)");

@@ -13,8 +13,6 @@ namespace RealEstateIdentity.ViewModels
         public string City { get; set; }
         public string Address { get; set; }
         public int BuildYear { get; set; }
-        public int Status { get; set; }
-        public string UserId { get; set; }
         public virtual ICollection<OfferViewModel> OfferDtos { get; set; }
         public virtual ICollection<IFormFile> PhotosDtos { get; set; }
         public virtual ICollection<QuestionViewModel> QuestionsDtos { get; set; }

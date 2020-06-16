@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Common.Enums;
 using Microsoft.AspNetCore.Http;
 using RealEstate.BLL.DTO;
 using RealEstate.BLL.Interfaces;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace RealEstate.BLL.Services
 {
-   public class PropertyService: IPropertyService
+    public class PropertyService : IPropertyService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IFileService _fileService;
@@ -39,7 +40,76 @@ namespace RealEstate.BLL.Services
                 property.Photos.Add(await UploadImage(image));
             }
 
+            property.Status = (int)PropertyStatus.Frozen;
+            property.CreatedById = user.Id;
+
             await _unitOfWork.Repository<Property>().AddAsync(property);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task DeleteProperty(int id)
+        {
+            var property = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == id);
+
+            if (property == null) throw new NullReferenceException();
+            var user = await _authentication.GetCurrentUserAsync();
+            if (property.UserId != user.Id) throw new AccessViolationException();
+
+            property.Status = (int)PropertyStatus.ForSale;
+            await _unitOfWork.Repository<Property>().UpdateAsync(property);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task UpdateProperty(int id, PropertyUpdateDto property)
+        {
+            var propertyToUpdate = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id);
+            if (propertyToUpdate == null) throw new NullReferenceException();
+            var user = await _authentication.GetCurrentUserAsync();
+            if (propertyToUpdate.UserId != user.Id) throw new AccessViolationException();
+
+            propertyToUpdate.Address = property.Address;
+            propertyToUpdate.BuildYear = property.BuildYear;
+            propertyToUpdate.City = property.City;
+            propertyToUpdate.UpdatedById = user.Id;
+            propertyToUpdate.FloorsNumber = property.FloorsNumber;
+            propertyToUpdate.Price = property.Price;
+            propertyToUpdate.Size = property.Size;
+            propertyToUpdate.Сategory = property.Сategory;
+            propertyToUpdate.Floors = property.Floors;
+
+            if (propertyToUpdate.Photos != null)
+            {
+                foreach (var photos in propertyToUpdate.Photos)
+                {
+                    if (!property.NotDeletedContentImageUrls.Contains(photos.Path))
+                    {
+                        await DeleteImage(photos);
+                    }
+                }
+            }
+
+            if (property.AddedContentImages != null)
+            {
+                foreach (var photos in property.AddedContentImages)
+                {
+                    propertyToUpdate.Photos.Add(await UploadImage(photos));
+                }
+            }
+
+            await _unitOfWork.Repository<Property>().UpdateAsync(propertyToUpdate);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task RestoreProperty(int id)
+        {
+            var property = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == id);
+            if (property == null) throw new NullReferenceException();
+            var user = await _authentication.GetCurrentUserAsync();
+            if (property.UserId != user.Id) throw new AccessViolationException();
+
+            property.Status = (int)PropertyStatus.ForSale;
+
+            await _unitOfWork.Repository<Property>().UpdateAsync(property);
             await _unitOfWork.SaveChangesAsync();
         }
 
@@ -54,6 +124,16 @@ namespace RealEstate.BLL.Services
                 var uploadedImage = new PropertyPhoto() { Path = imageUrl.ToString() };
                 return uploadedImage;
             }
+        }
+        private async Task DeleteImage(PropertyPhoto photo)
+        {
+            await DeleteImageFile(photo.Path);
+            _unitOfWork.Repository<PropertyPhoto>().Remove(photo);
+        }
+
+        private async Task DeleteImageFile(string path)
+        {
+            await _fileService.RemoveFile(path);
         }
     }
 }

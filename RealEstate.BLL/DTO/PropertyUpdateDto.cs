@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace RealEstate.BLL.DTO
 {
-    public class PropertyCreateDto
+    public class PropertyUpdateDto
     {
         public double Size { get; set; }
         public int Сategory { get; set; }
@@ -13,8 +13,7 @@ namespace RealEstate.BLL.DTO
         public string City { get; set; }
         public string Address { get; set; }
         public int BuildYear { get; set; }
-        public virtual ICollection<OfferDto> OfferDtos { get; set; }
-        public virtual ICollection<IFormFile> PhotosDtos { get; set; } 
-        public virtual ICollection<QuestionsDto> QuestionsDtos { get; set; }
+        public ICollection<IFormFile> AddedContentImages { get; set; }
+        public ICollection<string> NotDeletedContentImageUrls { get; set; }
     }
 }
