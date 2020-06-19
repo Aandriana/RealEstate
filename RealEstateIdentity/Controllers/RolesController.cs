@@ -1,8 +1,6 @@
 ﻿//using System.Threading.Tasks;
 //using Microsoft.AspNetCore.Identity;
 //using Microsoft.AspNetCore.Mvc;
-//using RealEstate.DAL.Entities;
-//using RealEstateIdentity.ViewModels;
 
 //namespace RealEstateIdentity.Controllers
 //{
@@ -10,33 +8,18 @@
 //    public class RolesController : Controller
 //    {
 //        RoleManager<IdentityRole> _roleManager;
-//        UserManager<User> _userManager;
 
-//        public RolesController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
+//        public RolesController(RoleManager<IdentityRole> roleManager)
 //        {
 //            _roleManager = roleManager;
-//            _userManager = userManager;
 //        }
 
 //        [HttpPost]
-//        public async Task<IActionResult> Create([FromBody] CreateNewRoleViewModel Role)
+//        public async Task<IActionResult> Create()
 //        {
-//            if (!string.IsNullOrEmpty(Role.Name))
-//            {
-//                IdentityResult result = await _roleManager.CreateAsync(new IdentityRole(Role.Name));
-//                if (result.Succeeded)
-//                {
-//                    return Ok();
-//                }
-//                else
-//                {
-//                    foreach (var error in result.Errors)
-//                    {
-//                        ModelState.AddModelError(string.Empty, error.Description);
-//                    }
-//                }
-//            }
-//            return BadRequest();
+//            await _roleManager.CreateAsync(new IdentityRole("User"));
+//            await _roleManager.CreateAsync(new IdentityRole("Agent"));
+//            return Ok();
 //        }
 //    }
 //}

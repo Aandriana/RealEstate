@@ -3,7 +3,8 @@
     public enum  PropertyStatus
     {
        Frozen = 0,
-       ForSale = 1,
-       Sold =2
+       LookingForAgent = 1,
+       FoundAgent = 2,
+       Sold = 3 
     }
 }

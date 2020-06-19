@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Common.FilterClasses;
 using RealEstate.BLL.DTO;
-using RealEstate.DAL.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RealEstate.BLL.Interfaces
@@ -11,5 +11,8 @@ namespace RealEstate.BLL.Interfaces
         Task DeleteProperty(int id);
         Task UpdateProperty(int id, PropertyUpdateDto property);
         Task RestoreProperty(int id);
+        Task UpdatePhotos(int id, PropertyUpdatePhotosDto photosDto);
+        Task<IEnumerable<PropertyListDto>> GetProperties(PropertyListFilter filter);
+        Task<GetPropertyDto> GetPropertyById(int id);
     }
 }

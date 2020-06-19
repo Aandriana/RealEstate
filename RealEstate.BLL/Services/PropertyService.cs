@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Common.Enums;
+using Common.FilterClasses;
 using Microsoft.AspNetCore.Http;
 using RealEstate.BLL.DTO;
 using RealEstate.BLL.Interfaces;
@@ -17,31 +18,31 @@ namespace RealEstate.BLL.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IFileService _fileService;
         private readonly IAuthenticationService _authentication;
+        private readonly IMapper _mapper;
 
-        public PropertyService(IUnitOfWork unitOfWork, IFileService fileService, IAuthenticationService authentication)
+        public PropertyService(IUnitOfWork unitOfWork, IFileService fileService, IAuthenticationService authentication, IMapper mapper)
         {
             _authentication = authentication;
             _fileService = fileService;
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task AddProperty(PropertyCreateDto propertyDto)
         {
             var user = await _authentication.GetCurrentUserAsync();
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<PropertyCreateDto, Property>()
-               .ForMember(p => p.UserId, pdto => pdto.MapFrom(u => user.Id)))
-                .CreateMapper();
 
-            var property = mapper.Map<PropertyCreateDto, Property>(propertyDto);
+            var property = _mapper.Map<Property>(propertyDto);
             property.Photos = new List<PropertyPhoto>();
 
-            foreach (var image in propertyDto.PhotosDtos)
+            foreach (var image in propertyDto.Photos)
             {
                 property.Photos.Add(await UploadImage(image));
             }
 
             property.Status = (int)PropertyStatus.Frozen;
             property.CreatedById = user.Id;
+            property.UserId = user.Id;
 
             await _unitOfWork.Repository<Property>().AddAsync(property);
             await _unitOfWork.SaveChangesAsync();
@@ -55,7 +56,7 @@ namespace RealEstate.BLL.Services
             var user = await _authentication.GetCurrentUserAsync();
             if (property.UserId != user.Id) throw new AccessViolationException();
 
-            property.Status = (int)PropertyStatus.ForSale;
+            property.Status = (int)PropertyStatus.Frozen;
             await _unitOfWork.Repository<Property>().UpdateAsync(property);
             await _unitOfWork.SaveChangesAsync();
         }
@@ -77,20 +78,31 @@ namespace RealEstate.BLL.Services
             propertyToUpdate.Сategory = property.Сategory;
             propertyToUpdate.Floors = property.Floors;
 
+            await _unitOfWork.Repository<Property>().UpdateAsync(propertyToUpdate);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task UpdatePhotos(int id, PropertyUpdatePhotosDto photosDto)
+        {
+            var propertyToUpdate = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id);
+            if (propertyToUpdate == null) throw new NullReferenceException();
+            var user = await _authentication.GetCurrentUserAsync();
+            if (propertyToUpdate.UserId != user.Id) throw new AccessViolationException();
+
             if (propertyToUpdate.Photos != null)
             {
                 foreach (var photos in propertyToUpdate.Photos)
                 {
-                    if (!property.NotDeletedContentImageUrls.Contains(photos.Path))
+                    if (!photosDto.NotDeletedContentImageUrls.Contains(photos.Path))
                     {
                         await DeleteImage(photos);
                     }
                 }
             }
 
-            if (property.AddedContentImages != null)
+            if (photosDto.AddedContentImages != null)
             {
-                foreach (var photos in property.AddedContentImages)
+                foreach (var photos in photosDto.AddedContentImages)
                 {
                     propertyToUpdate.Photos.Add(await UploadImage(photos));
                 }
@@ -107,10 +119,56 @@ namespace RealEstate.BLL.Services
             var user = await _authentication.GetCurrentUserAsync();
             if (property.UserId != user.Id) throw new AccessViolationException();
 
-            property.Status = (int)PropertyStatus.ForSale;
+            property.Status = (int)PropertyStatus.LookingForAgent;
 
             await _unitOfWork.Repository<Property>().UpdateAsync(property);
             await _unitOfWork.SaveChangesAsync();
+        }
+
+
+        public async Task<IEnumerable<PropertyListDto>> GetProperties(PropertyListFilter filter)
+        {
+            var user = await _authentication.GetCurrentUserAsync();
+            var userRoles = await _authentication.GetCurrentUserRolesAsync(user);
+            var userIsAgent = false;
+
+            foreach (var role in userRoles)
+            {
+                if (role == "Agent") userIsAgent = true;
+            }
+
+            var properties = await _unitOfWork.Repository<Property>().GetAllAsync();
+
+            if (!userIsAgent)  properties = await _unitOfWork.Repository<Property>().GetAllAsync(p => p.UserId == user.Id);
+            properties = await _unitOfWork.PropertyRepository().GetFilteredProperties(filter);
+            var propertiesDto = new List<PropertyListDto>();
+
+            foreach (var property in properties)
+            {
+                var propertyDto = _mapper.Map<PropertyListDto>(property);
+                propertiesDto.Add(propertyDto);
+            }
+
+            return propertiesDto;
+        }
+
+        public async Task<GetPropertyDto> GetPropertyById(int id)
+        {
+            var user = await _authentication.GetCurrentUserAsync();
+            var userRoles = await _authentication.GetCurrentUserRolesAsync(user);
+            var userIsAgent = false;
+
+            foreach (var role in userRoles)
+            {
+                if (role == "Agent") userIsAgent = true;
+            }
+
+            var property = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id);
+
+            if (!userIsAgent && property.UserId != user.Id) throw new FieldAccessException();
+            var propertyDto = _mapper.Map<GetPropertyDto>(property);
+
+            return propertyDto;
         }
 
         private async Task<PropertyPhoto> UploadImage(IFormFile image)

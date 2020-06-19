@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RealEstateIdentity.ViewModels
 {
-    public class PropertyUpdateViewModel
+    public class PropertyCreateViewModel
     {
         public double Size { get; set; }
         public int Сategory { get; set; }
@@ -16,8 +13,8 @@ namespace RealEstateIdentity.ViewModels
         public string City { get; set; }
         public string Address { get; set; }
         public int BuildYear { get; set; }
-        public ICollection<IFormFile> AddedContentImages { get; set; }
-        public ICollection<string> NotDeletedContentImageUrls { get; set; }
-
+        public virtual ICollection<OfferPropertyAdedViewModel> Offers { get; set; }
+        public virtual ICollection<IFormFile> Photos { get; set; }
+        public virtual ICollection<QuestionViewModel> Questions { get; set; }
     }
 }

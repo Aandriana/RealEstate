@@ -17,11 +17,8 @@ using Common.Configurations;
 using RealEstate.BLL.Interfaces;
 using RealEstate.BLL.Services;
 using AutoMapper;
-using RealEstateIdentity.Mappers;
+using RealEstateIdentity.Mapping;
 using FluentValidation.AspNetCore;
-using FluentValidation;
-using RealEstateIdentity.ViewModels;
-using RealEstateIdentity.Validators;
 using RealEstate.DAL.UnitOfWork;
 
 namespace RealEstateIdentity
@@ -72,7 +69,10 @@ namespace RealEstateIdentity
                     };
                 });
 
-            services.AddMvc(option => option.EnableEndpointRouting = false).AddFluentValidation();
+            services.AddMvc(option => option.EnableEndpointRouting = false).AddFluentValidation(fvc =>
+                fvc.RegisterValidatorsFromAssemblyContaining<Startup>()
+            
+);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
@@ -90,13 +90,8 @@ namespace RealEstateIdentity
             services.AddSingleton(mapper);
 
             services.AddTransient<IAuthenticationService, AuthenticationService>();
-            services.AddTransient<IValidator<RegisterViewModel>, RegisterViewModelValidator>();
-            services.AddTransient<IValidator<LoginViewModel>, LoginViewModelValidator>();
             services.AddTransient<IFileService, LocalFileService>();
             services.AddTransient<IPropertyService, PropertyService>();
-            services.AddTransient<IValidator<PropertyCreateViewModel>, PropertyCreateViewModelValidator>();
-            services.AddTransient<IValidator<PropertyUpdateViewModel>, PropertyUpdateViewModelValidator>();
-            services.AddTransient<IValidator<UserDetailsViewModel>, UserDetailsViewModelValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -9,6 +9,7 @@ namespace RealEstate.DAL.UnitOfWork
     public interface IUnitOfWork : IDisposable
     {
         IRepository<TEntity> Repository<TEntity>() where TEntity : class;
+        IPropertyRepository PropertyRepository();
         Task<int> SaveChangesAsync();
     }
 }

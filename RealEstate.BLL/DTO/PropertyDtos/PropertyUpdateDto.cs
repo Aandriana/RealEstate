@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace RealEstate.BLL.DTO
 {
@@ -13,7 +12,6 @@ namespace RealEstate.BLL.DTO
         public string City { get; set; }
         public string Address { get; set; }
         public int BuildYear { get; set; }
-        public ICollection<IFormFile> AddedContentImages { get; set; }
-        public ICollection<string> NotDeletedContentImageUrls { get; set; }
+        public virtual ICollection<QuestionsDto> QuestionsDtos { get; set; }
     }
 }

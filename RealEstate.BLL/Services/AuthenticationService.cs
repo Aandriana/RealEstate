@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using RealEstate.BLL.Interfaces;
 using RealEstate.DAL.Entities;
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,5 +49,6 @@ namespace RealEstate.BLL.Services
         }
 
           public Task<User> GetCurrentUserAsync() => _userManager.GetUserAsync(_context.HttpContext.User);
+          public async Task<IList<string>> GetCurrentUserRolesAsync(User user) => await _userManager.GetRolesAsync(user);
     }
 }

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RealEstate.DAL.Data;
 using RealEstate.DAL.Entities;
 using RealEstate.DAL.Repository.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -12,8 +12,8 @@ namespace RealEstate.DAL.Repository.Implementations
 {
     public class Repository<TEntity>: IRepository<TEntity> where TEntity: class
     {
-        private readonly DbSet<TEntity> _dbSet;
-        private readonly IdentityDbContext<User>  _dbContext;
+        protected readonly DbSet<TEntity> _dbSet;
+        protected readonly IdentityDbContext<User>  _dbContext;
 
         public Repository(DbSet<TEntity> dbSet, IdentityDbContext<User> DbContext)
         {
@@ -45,6 +45,22 @@ namespace RealEstate.DAL.Repository.Implementations
             var query = _dbSet.AsQueryable();
             query = _dbContext.Model.FindEntityType(typeof(TEntity)).GetNavigations().Aggregate(query, (current, property) => current.Include(property.Name));
             return query.FirstOrDefault(where);
+        }
+
+        public IQueryable<TEntity> GetAll()
+        {
+            return _dbSet.AsQueryable();
+        }
+
+        public async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate = null)
+        {
+            var query = GetAll();
+            if (predicate != null)
+            {
+                query = query.Where(predicate);
+            }
+
+            return await query.ToListAsync();
         }
     }
 }

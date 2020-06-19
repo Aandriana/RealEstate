@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using Common.FilterClasses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RealEstate.BLL.DTO;
 using RealEstate.BLL.Interfaces;
 using RealEstateIdentity.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RealEstateIdentity.Controllers
@@ -13,13 +15,15 @@ namespace RealEstateIdentity.Controllers
     public class PropertyController : Controller
     {
         private readonly IPropertyService _propertyService;
+        private readonly IMapper _mapper;
 
-        public PropertyController(IPropertyService propertyService)
+        public PropertyController(IPropertyService propertyService, IMapper mapper)
         {
             _propertyService = propertyService;
+            _mapper = mapper;
         }
 
-        [HttpPost("create")]
+        [HttpPost]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> AddProperty([FromForm] PropertyCreateViewModel property)
         {
@@ -29,9 +33,7 @@ namespace RealEstateIdentity.Controllers
             }
             if (ModelState.IsValid)
             {
-
-                var mapper = new MapperConfiguration(cfg => cfg.CreateMap<PropertyCreateViewModel, PropertyCreateDto>()).CreateMapper();
-                var propertyDto = mapper.Map<PropertyCreateViewModel, PropertyCreateDto>(property);
+                var propertyDto = _mapper.Map<PropertyCreateDto>(property);
                 await _propertyService.AddProperty(propertyDto);
                 return Ok();
             }
@@ -39,7 +41,7 @@ namespace RealEstateIdentity.Controllers
             return BadRequest();
         }
 
-        [HttpPost("{id}/delete")]
+        [HttpPatch("{id}/delete")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> DeleteProperty(int id)
         {
@@ -47,7 +49,7 @@ namespace RealEstateIdentity.Controllers
             return Ok();
         }
 
-        [HttpPost("{id}/update")]
+        [HttpPut("{id}")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> UpdateProperty(int id, [FromForm]PropertyUpdateViewModel property)
         {
@@ -58,9 +60,12 @@ namespace RealEstateIdentity.Controllers
 
             if (ModelState.IsValid)
             {
-                var mapper = new MapperConfiguration(cfg => cfg.CreateMap<PropertyUpdateViewModel, PropertyUpdateDto>()).CreateMapper();
-                var propertyDto = mapper.Map<PropertyUpdateDto>(property);
-
+                var propertyDto = _mapper.Map<PropertyUpdateDto>(property);
+                foreach(var question in property.Questions)
+                {
+                    var questionDto = _mapper.Map<QuestionsDto>(question);
+                    propertyDto.QuestionsDtos.Add(questionDto);
+                }
                 await _propertyService.UpdateProperty(id, propertyDto);
                 return Ok();
             }
@@ -68,12 +73,45 @@ namespace RealEstateIdentity.Controllers
             return BadRequest();
         }
 
-        [HttpPost("{id}/restore")]
+        [HttpPatch("{id}/restore")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> RestoreProperty(int id)
         {
             await _propertyService.RestoreProperty(id);
             return Ok();
         }
+
+        [HttpPut("{id}/photos")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> UpdatePropertyPhotos(int id, PropertyUpdatePhotosViewModel updatePhotos)
+        {
+            var updatePhotosDto = _mapper.Map<PropertyUpdatePhotosDto>(updatePhotos);
+            await _propertyService.UpdatePhotos(id, updatePhotosDto);
+            return Ok();
+        }
+
+        // GET: api/property?pageNumber=2&pageSize=10&Category=1&Status=2
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> GetProperties([FromQuery] PropertyListFilter filter)
+        {
+            var propertiesDto = await _propertyService.GetProperties(filter);
+            var propertiesVM = new List<PropertyListViewModel>();
+            foreach (var propertyDto in propertiesDto)
+            {
+                var propertyVm = _mapper.Map<PropertyListViewModel>(propertyDto);
+                propertiesVM.Add(propertyVm);
+            }
+            return Ok(propertiesVM);
+        }
+
+        [HttpGet("{id}")]
+        [Authorize]
+        public async Task<IActionResult> GetPropertyById(int id)
+        {
+            var property = await _propertyService.GetPropertyById(id);
+            return Ok(property);
+        }
+
     }
 }

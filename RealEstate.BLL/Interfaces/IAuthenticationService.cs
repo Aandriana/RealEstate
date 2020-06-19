@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
-using RealEstate.DAL.Entities;
+﻿using RealEstate.DAL.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RealEstate.BLL.Interfaces
@@ -8,5 +8,6 @@ namespace RealEstate.BLL.Interfaces
     {
         Task<string> GenerateJwtToken(User user);
         Task<User> GetCurrentUserAsync();
+        Task<IList<string>> GetCurrentUserRolesAsync(User user);
     }
 }

@@ -53,7 +53,7 @@ namespace RealEstateIdentity.Controllers
             return BadRequest();
         }
 
-        [HttpPost("register")]
+        [HttpPost]
         public async Task<IActionResult> Register([FromForm] RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -82,7 +82,35 @@ namespace RealEstateIdentity.Controllers
             return BadRequest();
         }
 
-        [HttpPut("edit")]
+        [HttpPost("agent")]
+        public async Task<IActionResult> AgentRegister([FromForm] AgentRegisterViewModel agentRegister)
+        {
+            if(ModelState.IsValid)
+            {
+                var agent = _mapper.Map<User>(agentRegister);
+                if (agentRegister.Image != null)
+                {
+                    var imagePath = await _fileService.SaveFile(agentRegister.Image.OpenReadStream(),
+                        Path.GetExtension(agentRegister.Image.FileName));
+                    agent.ImagePath = imagePath.ToString();
+                    agent.AgentProfile.Id = agent.Id;
+                    var result = await _userManager.CreateAsync(agent, agentRegister.Password);
+
+                    if (result.Succeeded)
+                    {
+                        var currentUser = await _userManager.FindByNameAsync(agent.UserName);
+                        await _userManager.AddToRoleAsync(currentUser, "Agent");
+                        await _signInManager.SignInAsync(agent, false);
+                        var token = await _authentication.GenerateJwtToken(agent);
+                        return Ok(new { Token = token });
+                    }
+                }
+            }
+
+            return BadRequest();
+        }
+
+        [HttpPut]
         [Authorize]
         public async Task<IActionResult> EditProfile([FromForm] UserDetailsViewModel editUser)
         {
