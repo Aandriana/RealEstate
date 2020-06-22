@@ -92,6 +92,7 @@ namespace RealEstateIdentity
             services.AddTransient<IAuthenticationService, AuthenticationService>();
             services.AddTransient<IFileService, LocalFileService>();
             services.AddTransient<IPropertyService, PropertyService>();
+            services.AddTransient<IOfferService, OfferServise>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

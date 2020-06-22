@@ -12,7 +12,7 @@ namespace RealEstate.BLL.DTO
         public string City { get; set; }
         public string Address { get; set; }
         public int BuildYear { get; set; }
-        public virtual ICollection<OfferPropertyAdedDto> OfferDtos { get; set; }
+        public virtual ICollection<OfferDto> OfferDtos { get; set; }
         public virtual ICollection<string> PhotosDtos { get; set; }
         public virtual ICollection<QuestionsDto> QuestionsDtos { get; set; }
     }

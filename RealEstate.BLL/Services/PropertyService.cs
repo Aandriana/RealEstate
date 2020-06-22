@@ -2,6 +2,7 @@
 using Common.Enums;
 using Common.FilterClasses;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using RealEstate.BLL.DTO;
 using RealEstate.BLL.Interfaces;
 using RealEstate.DAL.Entities;
@@ -19,16 +20,18 @@ namespace RealEstate.BLL.Services
         private readonly IFileService _fileService;
         private readonly IAuthenticationService _authentication;
         private readonly IMapper _mapper;
+        private readonly IOfferService _offerService;
 
-        public PropertyService(IUnitOfWork unitOfWork, IFileService fileService, IAuthenticationService authentication, IMapper mapper)
+        public PropertyService(IUnitOfWork unitOfWork, IFileService fileService, IAuthenticationService authentication, IMapper mapper, IOfferService offerService)
         {
             _authentication = authentication;
             _fileService = fileService;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _offerService = offerService;
         }
 
-        public async Task AddProperty(PropertyCreateDto propertyDto)
+        public async Task AddProperty([FromForm]PropertyCreateDto propertyDto)
         {
             var user = await _authentication.GetCurrentUserAsync();
 
@@ -39,11 +42,9 @@ namespace RealEstate.BLL.Services
             {
                 property.Photos.Add(await UploadImage(image));
             }
-
-            property.Status = (int)PropertyStatus.Frozen;
+            property.Status = (int)PropertyStatus.LookingForAgent;
             property.CreatedById = user.Id;
             property.UserId = user.Id;
-
             await _unitOfWork.Repository<Property>().AddAsync(property);
             await _unitOfWork.SaveChangesAsync();
         }
@@ -77,6 +78,8 @@ namespace RealEstate.BLL.Services
             propertyToUpdate.Size = property.Size;
             propertyToUpdate.Сategory = property.Сategory;
             propertyToUpdate.Floors = property.Floors;
+            propertyToUpdate.UpdatedById = user.Id;
+            propertyToUpdate.UpdatedDateUtc = DateTime.Now;
 
             await _unitOfWork.Repository<Property>().UpdateAsync(propertyToUpdate);
             await _unitOfWork.SaveChangesAsync();
@@ -112,86 +115,143 @@ namespace RealEstate.BLL.Services
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task RestoreProperty(int id)
+        public async Task UpdateQuestions(int id, QuestionsUpdateDto questions)
         {
-            var property = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == id);
-            if (property == null) throw new NullReferenceException();
+            var propertyToUpdate = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id);
+            if (propertyToUpdate == null) throw new NullReferenceException();
             var user = await _authentication.GetCurrentUserAsync();
-            if (property.UserId != user.Id) throw new AccessViolationException();
+            if (propertyToUpdate.UserId != user.Id) throw new AccessViolationException();
 
-            property.Status = (int)PropertyStatus.LookingForAgent;
-
-            await _unitOfWork.Repository<Property>().UpdateAsync(property);
-            await _unitOfWork.SaveChangesAsync();
-        }
-
-
-        public async Task<IEnumerable<PropertyListDto>> GetProperties(PropertyListFilter filter)
-        {
-            var user = await _authentication.GetCurrentUserAsync();
-            var userRoles = await _authentication.GetCurrentUserRolesAsync(user);
-            var userIsAgent = false;
-
-            foreach (var role in userRoles)
+            var Questions = new List<Question>();
+            if (questions.Questions != null)
             {
-                if (role == "Agent") userIsAgent = true;
+                foreach (var questionDto in questions.Questions)
+                {
+                    var question = _mapper.Map<Question>(questionDto);
+                    Questions.Add(question);
+                }
             }
 
-            var properties = await _unitOfWork.Repository<Property>().GetAllAsync();
-
-            if (!userIsAgent)  properties = await _unitOfWork.Repository<Property>().GetAllAsync(p => p.UserId == user.Id);
-            properties = await _unitOfWork.PropertyRepository().GetFilteredProperties(filter);
-            var propertiesDto = new List<PropertyListDto>();
-
-            foreach (var property in properties)
+            if (propertyToUpdate.Questions != null)
             {
-                var propertyDto = _mapper.Map<PropertyListDto>(property);
-                propertiesDto.Add(propertyDto);
+                foreach (var question in propertyToUpdate.Questions)
+                {
+                    if (!Questions.Contains(question))
+                    {
+                        _unitOfWork.Repository<Question>().Remove(question);
+                    }
+                }
             }
 
-            return propertiesDto;
-        }
-
-        public async Task<GetPropertyDto> GetPropertyById(int id)
-        {
-            var user = await _authentication.GetCurrentUserAsync();
-            var userRoles = await _authentication.GetCurrentUserRolesAsync(user);
-            var userIsAgent = false;
-
-            foreach (var role in userRoles)
             {
-                if (role == "Agent") userIsAgent = true;
+                foreach (var question in Questions)
+                {
+                    propertyToUpdate.Questions.Add(question);
+                }
             }
+        
 
-            var property = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id);
+        await _unitOfWork.Repository<Property>().UpdateAsync(propertyToUpdate);
+        await _unitOfWork.SaveChangesAsync();
+    }
 
-            if (!userIsAgent && property.UserId != user.Id) throw new FieldAccessException();
-            var propertyDto = _mapper.Map<GetPropertyDto>(property);
 
-            return propertyDto;
+    public async Task RestoreProperty(int id)
+    {
+        var property = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == id);
+        if (property == null) throw new NullReferenceException();
+        var user = await _authentication.GetCurrentUserAsync();
+        if (property.UserId != user.Id) throw new AccessViolationException();
+
+        property.Status = (int)PropertyStatus.LookingForAgent;
+
+        await _unitOfWork.Repository<Property>().UpdateAsync(property);
+        await _unitOfWork.SaveChangesAsync();
+    }
+
+
+    public async Task<IEnumerable<PropertyListDto>> GetProperties(PropertyListFilter filter)
+    {
+        var user = await _authentication.GetCurrentUserAsync();
+        var userRoles = await _authentication.GetCurrentUserRolesAsync(user);
+        var userIsAgent = false;
+
+        foreach (var role in userRoles)
+        {
+            if (role == "Agent") userIsAgent = true;
         }
 
-        private async Task<PropertyPhoto> UploadImage(IFormFile image)
-        {
-            if (image == null) throw new ArgumentNullException();
+        var properties = await _unitOfWork.Repository<Property>().GetAllAsync();
 
-            using (var fileStream = image.OpenReadStream())
-            {
-                var imageExtension = Path.GetExtension(image.FileName);
-                var imageUrl = await _fileService.SaveFile(fileStream, imageExtension);
-                var uploadedImage = new PropertyPhoto() { Path = imageUrl.ToString() };
-                return uploadedImage;
-            }
-        }
-        private async Task DeleteImage(PropertyPhoto photo)
+        if (!userIsAgent) properties = await _unitOfWork.Repository<Property>().GetAllAsync(p => p.UserId == user.Id);
+        properties = await _unitOfWork.PropertyRepository().GetFilteredProperties(filter);
+        var propertiesDto = new List<PropertyListDto>();
+
+        foreach (var property in properties)
         {
-            await DeleteImageFile(photo.Path);
-            _unitOfWork.Repository<PropertyPhoto>().Remove(photo);
+            var propertyDto = _mapper.Map<PropertyListDto>(property);
+            propertiesDto.Add(propertyDto);
         }
 
-        private async Task DeleteImageFile(string path)
+        return propertiesDto;
+    }
+
+    public async Task<GetPropertyDto> GetPropertyById(int id)
+    {
+        var user = await _authentication.GetCurrentUserAsync();
+        var userRoles = await _authentication.GetCurrentUserRolesAsync(user);
+        var userIsAgent = false;
+
+        foreach (var role in userRoles)
         {
-            await _fileService.RemoveFile(path);
+            if (role == "Agent") userIsAgent = true;
+        }
+
+        var property = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id);
+
+        if (!userIsAgent && property.UserId != user.Id) throw new FieldAccessException();
+        var propertyDto = _mapper.Map<GetPropertyDto>(property);
+
+        return propertyDto;
+    }
+
+    public async Task<List<OfferDto>> GetPropertyOffers(int id, OfferListFilter offerFilter)
+    {
+        var user = await _authentication.GetCurrentUserAsync();
+        var propepty = await _unitOfWork.PropertyRepository().GetAsync(p => p.Id == id);
+        if (propepty.UserId != user.Id) throw new FieldAccessException();
+
+        var offers = await _unitOfWork.OfferRepository().GetFilteredOffersForUser(offerFilter, id);
+        var offerDtos = new List<OfferDto>();
+        foreach (var offer in offers)
+        {
+            var offerDto = _mapper.Map<OfferDto>(offer);
+            offerDtos.Add(offerDto);
+        }
+        return offerDtos;
+    }
+
+    private async Task<PropertyPhoto> UploadImage(IFormFile image)
+    {
+        if (image == null) throw new ArgumentNullException();
+
+        using (var fileStream = image.OpenReadStream())
+        {
+            var imageExtension = Path.GetExtension(image.FileName);
+            var imageUrl = await _fileService.SaveFile(fileStream, imageExtension);
+            var uploadedImage = new PropertyPhoto() { Path = imageUrl.ToString() };
+            return uploadedImage;
         }
     }
+    private async Task DeleteImage(PropertyPhoto photo)
+    {
+        await DeleteImageFile(photo.Path);
+        _unitOfWork.Repository<PropertyPhoto>().Remove(photo);
+    }
+
+    private async Task DeleteImageFile(string path)
+    {
+        await _fileService.RemoveFile(path);
+    }
+}
 }

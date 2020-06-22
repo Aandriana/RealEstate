@@ -14,5 +14,7 @@ namespace RealEstate.BLL.Interfaces
         Task UpdatePhotos(int id, PropertyUpdatePhotosDto photosDto);
         Task<IEnumerable<PropertyListDto>> GetProperties(PropertyListFilter filter);
         Task<GetPropertyDto> GetPropertyById(int id);
+        Task<List<OfferDto>> GetPropertyOffers(int id, OfferListFilter offerFilter);
+        Task UpdateQuestions(int id, QuestionsUpdateDto questions);
     }
 }

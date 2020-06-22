@@ -10,6 +10,7 @@ namespace RealEstate.DAL.UnitOfWork
     {
         IRepository<TEntity> Repository<TEntity>() where TEntity : class;
         IPropertyRepository PropertyRepository();
+        IOfferRepository OfferRepository();
         Task<int> SaveChangesAsync();
     }
 }

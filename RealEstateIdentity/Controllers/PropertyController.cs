@@ -61,7 +61,7 @@ namespace RealEstateIdentity.Controllers
             if (ModelState.IsValid)
             {
                 var propertyDto = _mapper.Map<PropertyUpdateDto>(property);
-                foreach(var question in property.Questions)
+                foreach (var question in property.Questions)
                 {
                     var questionDto = _mapper.Map<QuestionsDto>(question);
                     propertyDto.QuestionsDtos.Add(questionDto);
@@ -111,6 +111,28 @@ namespace RealEstateIdentity.Controllers
         {
             var property = await _propertyService.GetPropertyById(id);
             return Ok(property);
+        }
+
+        [HttpGet("{id}/offers")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> GetOffersForProperty(int id, [FromQuery]OfferListFilter listFilter)
+        {
+            var offers = await  _propertyService.GetPropertyOffers(id, listFilter);
+            return Ok(offers);
+        }
+
+        [HttpPut("{id}/questions")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> UpdateQuestions(int id,[FromBody] QuestionsUpdateViewModel questionsVm)
+        {
+            if (ModelState.IsValid)
+            {
+                var questionsDto = _mapper.Map<QuestionsUpdateDto>(questionsVm);
+                await _propertyService.UpdateQuestions(id, questionsDto);
+                return Ok();
+            }
+
+            return BadRequest();
         }
 
     }

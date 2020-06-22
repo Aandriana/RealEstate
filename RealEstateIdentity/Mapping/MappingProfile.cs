@@ -42,7 +42,7 @@ namespace RealEstateIdentity.Mapping
                 .ForMember(p => p.Price, map => map.MapFrom(vm => vm.Price))
                 .ForMember(p => p.City, map => map.MapFrom(vm => vm.City))
                 .ForMember(p => p.BuildYear, map => map.MapFrom(vm => vm.BuildYear))
-                .ForMember(p => p.OfferDtos, opt => opt.MapFrom(vm => vm.Offers.AsQueryable()))
+                .ForMember(p => p.DefaultOfferDtos, opt => opt.MapFrom(vm => vm.Offers.AsQueryable()))
                 .ForMember(p => p.Photos, map => map.MapFrom(p => p.Photos))
                 .ForMember(p => p.QuestionsDtos, map => map.MapFrom(vm => vm.Questions.AsQueryable()));
 
@@ -55,7 +55,7 @@ namespace RealEstateIdentity.Mapping
                 .ForMember(p => p.Price, map => map.MapFrom(vm => vm.Price))
                 .ForMember(p => p.City, map => map.MapFrom(vm => vm.City))
                 .ForMember(p => p.BuildYear, map => map.MapFrom(vm => vm.BuildYear))
-                .ForMember(p => p.QuestionsDtos, map => map.MapFrom(p=> p.Questions.AsQueryable()));
+                .ForMember(p => p.QuestionsDtos, map => map.MapFrom(p => p.Questions.AsQueryable()));
 
             CreateMap<PropertyUpdatePhotosViewModel, PropertyUpdatePhotosDto>()
                 .ForMember(p => p.NotDeletedContentImageUrls, map => map.MapFrom(vm => vm.NotDeletedContentImageUrls))
@@ -70,7 +70,7 @@ namespace RealEstateIdentity.Mapping
                 .ForMember(p => p.Price, map => map.MapFrom(vm => vm.Price))
                 .ForMember(p => p.City, map => map.MapFrom(vm => vm.City))
                 .ForMember(p => p.BuildYear, map => map.MapFrom(vm => vm.BuildYear))
-                .ForMember(p => p.Offers, map => map.MapFrom(p => p.OfferDtos.AsQueryable()))
+                .ForMember(p => p.Offers, map => map.MapFrom(p => p.DefaultOfferDtos.AsQueryable()))
                 .ForMember(p => p.Photos, map => map.Ignore())
                 .ForMember(p => p.Questions, map => map.MapFrom(o => o.QuestionsDtos.AsQueryable()));
 
@@ -83,7 +83,7 @@ namespace RealEstateIdentity.Mapping
                 .ForMember(p => p.Price, map => map.MapFrom(vm => vm.Price))
                 .ForMember(p => p.City, map => map.MapFrom(vm => vm.City))
                 .ForMember(p => p.BuildYear, map => map.MapFrom(vm => vm.BuildYear))
-                .ForMember(p => p.OfferDtos, map => map.MapFrom(p => p.Offers.AsQueryable()))
+                .ForMember(p => p.DefaultOfferDtos, map => map.MapFrom(p => p.Offers.AsQueryable()))
                 .ForMember(p => p.Photos, map => map.Ignore())
                 .ForMember(p => p.QuestionsDtos, map => map.MapFrom(p => p.Questions.AsQueryable())); ;
 
@@ -99,6 +99,13 @@ namespace RealEstateIdentity.Mapping
     .ForMember(p => p.OfferDtos, map => map.MapFrom(p => p.Offers.AsQueryable()))
     .ForMember(p => p.PhotosDtos, opt => opt.MapFrom(vm => vm.Photos.Select(p => p.Path)))
     .ForMember(p => p.QuestionsDtos, map => map.MapFrom(p => p.Questions.AsQueryable()));
+
+            CreateMap<Offer, OfferDto>()
+                 .ForMember(o => o.Status, map => map.Ignore())
+                .ForMember(o => o.Comment, map => map.MapFrom(o => o.Comment))
+                .ForMember(o => o.Rate, map => map.MapFrom(o => o.Rate))
+                .ForMember(o => o.PropertyId, map => map.MapFrom(o => o.PropertyId))
+                .ForMember(o => o.AgentProfileId, map => map.MapFrom(o => o.AgentProfileId));
 
             CreateMap<PropertyListDto, PropertyListViewModel>()
                 .ForMember(p => p.Address, map => map.MapFrom(vm => vm.Address))
@@ -120,22 +127,10 @@ namespace RealEstateIdentity.Mapping
                 .ForMember(p => p.City, map => map.MapFrom(vm => vm.City))
                 .ForMember(p => p.BuildYear, map => map.MapFrom(vm => vm.BuildYear));
 
-            CreateMap<Offer, OfferPropertyAdedDto>()
-                .ForMember(o => o.Comment, map => map.MapFrom(o => o.Comment))
-                .ForMember(o => o.Rate, map => map.MapFrom(o => o.Rate));
-
             CreateMap<Answer, AnswerDto>()
                 .ForMember(a => a.AnswerText, map => map.MapFrom(a => a.AnswerText))
                 .ForMember(a => a.Question, map => map.MapFrom(a => a.Question));
 
-            CreateMap<OfferPropertyAdedDto, Offer>()
-                .ForMember(o => o.Comment, map => map.MapFrom(o => o.Comment))
-                .ForMember(o => o.Answers, map => map.Ignore())
-                .ForMember(o => o.Rate, map => map.MapFrom(o => o.Rate));
-
-            CreateMap<OfferPropertyAdedViewModel, OfferPropertyAdedDto>()
-    .ForMember(o => o.Comment, map => map.MapFrom(o => o.Comment))
-    .ForMember(o => o.Rate, map => map.MapFrom(o => o.Rate));
 
             CreateMap<AnswerDto, Answer>()
                 .ForMember(a => a.AnswerText, map => map.MapFrom(a => a.AnswerText))
@@ -173,8 +168,51 @@ namespace RealEstateIdentity.Mapping
                 .ForMember(u => u.UserName, map => map.MapFrom(u => u.Email))
                 .ForMember(u => u.AgentProfile, map => map.MapFrom(a => a.AgentProfile));
 
+            CreateMap<OfferFromUserViewModel, OfferFromUserDto>()
+                .ForMember(o => o.Comment, map => map.MapFrom(o => o.Comment))
+                .ForMember(o => o.Rate, map => map.MapFrom(o => o.Rate))
+                .ForMember(o => o.PropertyId, map => map.MapFrom(o => o.PropertyId))
+                .ForMember(o => o.AgentProfileId, map => map.MapFrom(o => o.AgentProfileId));
+
+            CreateMap<OfferFromUserDto, Offer>()
+                 .ForMember(o => o.Status, map => map.Ignore())
+                .ForMember(o => o.Comment, map => map.MapFrom(o => o.Comment))
+                .ForMember(o => o.Rate, map => map.MapFrom(o => o.Rate))
+                .ForMember(o => o.PropertyId, map => map.MapFrom(o => o.PropertyId))
+                .ForMember(o => o.AgentProfileId, map => map.MapFrom(o => o.AgentProfileId));
+
+            CreateMap<OfferFromAdminViewModel, OfferFromAdminDto>()
+                .ForMember(o => o.Comment, map => map.MapFrom(o => o.Comment))
+                .ForMember(o => o.Rate, map => map.MapFrom(o => o.Rate))
+                .ForMember(o => o.PropertyId, map => map.MapFrom(o => o.PropertyId))
+                .ForMember(o => o.Answers, map => map.MapFrom(o => o.Answers.AsQueryable()));
+
+            CreateMap<OfferFromAdminDto, Offer>()
+                .ForMember(o => o.Comment, map => map.MapFrom(o => o.Comment))
+                .ForMember(o => o.Rate, map => map.MapFrom(o => o.Rate))
+                .ForMember(o => o.PropertyId, map => map.MapFrom(o => o.PropertyId))
+                .ForMember(o => o.Answers, map => map.MapFrom(o => o.Answers.AsQueryable()))
+                .ForMember(o => o.Status, map => map.Ignore());
+
+            CreateMap<OfferResponseViewModel, OfferResponseDto>()
+                .ForMember(o => o.Response, map => map.MapFrom(o => o.Response));
+
+            CreateMap<Offer, OfferDto>()
+                 .ForMember(o => o.Comment, map => map.MapFrom(o => o.Comment))
+                .ForMember(o => o.Rate, map => map.MapFrom(o => o.Rate))
+                .ForMember(o => o.PropertyId, map => map.MapFrom(o => o.PropertyId))
+                .ForMember(o => o.Status, map => map.MapFrom(o => o.Status))
+                .ForMember(o => o.AgentProfileId, map => map.MapFrom(o => o.AgentProfileId));
+
+            CreateMap<QuestionsUpdateViewModel, QuestionsUpdateDto>()
+                .ForMember(q => q.Questions, map => map.MapFrom(q => q.Questions.AsQueryable()));
+
+            CreateMap<QuestionsUpdateDto, QuestionsUpdateViewModel>()
+                .ForMember(q => q.Questions, map => map.MapFrom(q => q.Questions.AsQueryable()));
+
 
         }
     }
 }
+
 
