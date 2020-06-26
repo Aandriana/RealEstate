@@ -39,11 +39,11 @@ namespace RealEstateIdentity.Controllers
 
         [HttpPost("agent")]
         [Authorize(Roles = "Agent")]
-        public async Task<IActionResult> SendOfferAsAnAgent([FromBody]OfferFromAdminViewModel offer)
+        public async Task<IActionResult> SendOfferAsAnAgent([FromBody]OfferFromAgentViewModel offer)
         {
             if (ModelState.IsValid)
             {
-                var offerDto = _mapper.Map<OfferFromAdminDto>(offer);
+                var offerDto = _mapper.Map<OfferFromAgentDto>(offer);
                 await _offerService.OfferFromAdmin(offerDto);
                 return Ok();
             }
@@ -67,11 +67,11 @@ namespace RealEstateIdentity.Controllers
 
         [HttpPut("agent/{id}")]
         [Authorize(Roles = "Agent")]
-        public async Task<IActionResult> AgentResponse(int id, [FromBody] OfferResponseViewModel responseVm)
+        public async Task<IActionResult> AgentResponse(int id, [FromBody]AgentOfferResponseViewModel responseVm)
         {
             if (ModelState.IsValid)
             {
-                var responceDto = _mapper.Map<OfferResponseDto>(responseVm);
+                var responceDto = _mapper.Map<AgentOfferResponseDto>(responseVm);
                 await _offerService.AgentResponse(id, responceDto);
                 return Ok();
             }

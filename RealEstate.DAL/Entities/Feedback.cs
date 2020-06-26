@@ -12,5 +12,4 @@ namespace RealEstate.DAL.Entities
         public AgentProfile Agent { get; set;}
         public int Rating { get; set; }
     }
-
 }

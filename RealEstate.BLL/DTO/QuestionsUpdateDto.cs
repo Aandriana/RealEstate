@@ -2,8 +2,8 @@
 
 namespace RealEstate.BLL.DTO
 {
-    public class QuestionsUpdateDto
+    public class QuestionUpdateDto
     {
-        public virtual ICollection<QuestionsDto> Questions { get; set; }
+        public string  Question { get; set; }
     }
 }

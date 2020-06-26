@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace RealEstateIdentity.ViewModels
+namespace RealEstate.BLL.DTO
 {
-    public class OfferFromAdminViewModel
+    public class AgentOfferResponseDto
     {
+        public int Response { get; set; }
         public string Comment { get; set; }
         public double Rate { get; set; }
         public int PropertyId { get; set; }
-        public virtual ICollection<AnswerViewModel> Answers { get; set; }
+        public virtual ICollection<AnswerDto> Answers { get; set; }
     }
 }

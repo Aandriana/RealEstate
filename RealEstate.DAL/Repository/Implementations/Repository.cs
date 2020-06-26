@@ -47,20 +47,16 @@ namespace RealEstate.DAL.Repository.Implementations
             return query.FirstOrDefault(where);
         }
 
-        public IQueryable<TEntity> GetAll()
+ 
+        public async Task<IQueryable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate = null)
         {
-            return _dbSet.AsQueryable();
-        }
-
-        public async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate = null)
-        {
-            var query = GetAll();
+            var query = _dbSet.AsQueryable();
             if (predicate != null)
             {
                 query = query.Where(predicate);
             }
 
-            return await query.ToListAsync();
+            return query;
         }
     }
 }

@@ -22,16 +22,6 @@ namespace RealEstate.DAL.UnitOfWork
             return new Repository<TEntity>(_context.Set<TEntity>(), _context);
         }
 
-        public IPropertyRepository PropertyRepository()
-        {
-            return new PropertyRepository(_context.Set<Property>(), _context);
-        }
-
-        public IOfferRepository OfferRepository()
-        {
-            return new OfferRepository(_context.Set<Offer>(), _context);
-        }
-
         public async Task<int> SaveChangesAsync()
         {
             var entries = _context.ChangeTracker

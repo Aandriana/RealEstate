@@ -2,6 +2,7 @@
 {
    public class PropertyListDto
     {
+        public int Id { get; set; }
         public double Size { get; set; }
         public int Сategory { get; set; }
         public int FloorsNumber { get; set; }

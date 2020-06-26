@@ -16,11 +16,13 @@ namespace RealEstateIdentity.Controllers
     {
         private readonly IPropertyService _propertyService;
         private readonly IMapper _mapper;
+        private readonly IQuestionService _questionService;
 
-        public PropertyController(IPropertyService propertyService, IMapper mapper)
+        public PropertyController(IPropertyService propertyService, IMapper mapper, IQuestionService questionService)
         {
             _propertyService = propertyService;
             _mapper = mapper;
+            _questionService = questionService;
         }
 
         [HttpPost]
@@ -90,12 +92,27 @@ namespace RealEstateIdentity.Controllers
             return Ok();
         }
 
-        // GET: api/property?pageNumber=2&pageSize=10&Category=1&Status=2
-        [HttpGet]
-        [Authorize]
-        public async Task<IActionResult> GetProperties([FromQuery] PropertyListFilter filter)
+        // GET: api/property/user?pageNumber=2&pageSize=10&Category=1&Status=2
+        [HttpGet("user")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> GetPropertiesForUser([FromQuery]PropertyListFilter filter)
         {
-            var propertiesDto = await _propertyService.GetProperties(filter);
+            var propertiesDto = await _propertyService.GetPropertiesForUser(filter);
+            var propertiesVM = new List<PropertyListViewModel>();
+            foreach (var propertyDto in propertiesDto)
+            {
+                var propertyVm = _mapper.Map<PropertyListViewModel>(propertyDto);
+                propertiesVM.Add(propertyVm);
+            }
+            return Ok(propertiesVM);
+        }
+
+        // GET: api/property/agent?pageNumber=2&pageSize=10&
+        [HttpGet("agent")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetProperties([FromQuery]PaginationParameters paginationParameters)
+        {
+            var propertiesDto = await _propertyService.GetPropertiesForAgent(paginationParameters);
             var propertiesVM = new List<PropertyListViewModel>();
             foreach (var propertyDto in propertiesDto)
             {
@@ -117,22 +134,39 @@ namespace RealEstateIdentity.Controllers
         [Authorize(Roles = "User")]
         public async Task<IActionResult> GetOffersForProperty(int id, [FromQuery]OfferListFilter listFilter)
         {
-            var offers = await  _propertyService.GetPropertyOffers(id, listFilter);
+            var offers = await _propertyService.GetPropertyOffers(id, listFilter);
             return Ok(offers);
         }
 
-        [HttpPut("{id}/questions")]
+        [HttpPost("{id}/questions")]
         [Authorize(Roles = "User")]
-        public async Task<IActionResult> UpdateQuestions(int id,[FromBody] QuestionsUpdateViewModel questionsVm)
+        public async Task<IActionResult> AddQuestions(int id, [FromBody] AddQuestionViewModel questionsVm)
         {
             if (ModelState.IsValid)
             {
-                var questionsDto = _mapper.Map<QuestionsUpdateDto>(questionsVm);
-                await _propertyService.UpdateQuestions(id, questionsDto);
+                var questionsDto = _mapper.Map<AddQuestionDto>(questionsVm);
+                await _propertyService.AddNewQuestions(id, questionsDto);
                 return Ok();
             }
 
             return BadRequest();
+        }
+
+        [HttpDelete("question/{id}")]
+        [Authorize(Roles ="User")]
+        public async Task<IActionResult> RemoveQuestion(int id)
+        {
+            await _questionService.DeleteQuestion(id);
+            return Ok();
+        }
+        
+        [HttpPut("question/{id}")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> UpdateQuestion(int id,[FromBody] QuestionUpdateViewModel updateViewModel)
+        {
+            var updateDto = _mapper.Map<QuestionUpdateDto>(updateViewModel);
+            await _questionService.UpdateQuestion(id, updateDto);
+            return Ok();
         }
 
     }

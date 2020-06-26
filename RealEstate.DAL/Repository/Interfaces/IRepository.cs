@@ -14,8 +14,7 @@ namespace RealEstate.DAL.Repository.Interfaces
         Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> where);
         Task<TEntity> GetIncludingAll(Expression<Func<TEntity, bool>> where);
         void Remove(TEntity entity);
-        IQueryable<TEntity> GetAll();
-        Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate = null);
+        Task<IQueryable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate = null);
 
     }
 }

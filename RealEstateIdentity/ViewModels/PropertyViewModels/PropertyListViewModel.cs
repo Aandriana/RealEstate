@@ -7,6 +7,7 @@ namespace RealEstateIdentity.ViewModels
 {
     public class PropertyListViewModel
     {
+        public int Id { get; set; }
         public double Size { get; set; }
         public int Сategory { get; set; }
         public int FloorsNumber { get; set; }

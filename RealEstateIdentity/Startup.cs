@@ -1,25 +1,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using RealEstate.DAL.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RealEstate.DAL.Entities;
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Identity;
-using System.IdentityModel.Tokens.Jwt;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using System;
-using Common.Configurations;
 using RealEstate.BLL.Interfaces;
 using RealEstate.BLL.Services;
 using AutoMapper;
 using RealEstateIdentity.Mapping;
 using FluentValidation.AspNetCore;
-using RealEstate.DAL.UnitOfWork;
+using RealEstate.BLL.Infrastructure;
 
 namespace RealEstateIdentity
 {
@@ -35,43 +25,15 @@ namespace RealEstateIdentity
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<User, IdentityRole>()
-                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.Configure<TokenManagement>(Configuration.GetSection("tokenManagement"));
-            var token = Configuration.GetSection("tokenManagement").Get<TokenManagement>();
+            services.AddMainContext("DefaultConnection", Configuration);
+            services.AddIdentityFromBll();
+            services.AddAuthenticationFromBll(Configuration);
 
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
-            services
-                .AddAuthentication(options =>
-                {
-                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-
-                })
-                .AddJwtBearer(cfg =>
-                {
-                    cfg.RequireHttpsMetadata = false;
-                    cfg.SaveToken = true;
-                    cfg.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        ValidIssuer = token.JwtIssuer,
-                        ValidAudience = token.JwtIssuer,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(token.JwtKey)),
-                        ClockSkew = TimeSpan.Zero,
-                        ValidateIssuer = true,
-                        ValidateAudience = true
-                    };
-                });
 
             services.AddMvc(option => option.EnableEndpointRouting = false).AddFluentValidation(fvc =>
                 fvc.RegisterValidatorsFromAssemblyContaining<Startup>()
-            
+
 );
             services.AddSwaggerGen(c =>
             {
@@ -83,8 +45,11 @@ namespace RealEstateIdentity
                 mc.AddProfile(new MappingProfile());
             });
 
-            services.AddTransient<IUnitOfWork, UnitOfWork>(provider =>
-                new UnitOfWork(provider.GetRequiredService<ApplicationDbContext>()));
+    //        services.AddControllersWithViews()
+    //.AddNewtonsoftJson(options =>
+    //options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+            services.AddUnitOfWork();
 
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
@@ -93,6 +58,8 @@ namespace RealEstateIdentity
             services.AddTransient<IFileService, LocalFileService>();
             services.AddTransient<IPropertyService, PropertyService>();
             services.AddTransient<IOfferService, OfferServise>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IQuestionService, QuestionService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
