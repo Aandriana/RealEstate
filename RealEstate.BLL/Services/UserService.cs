@@ -168,36 +168,27 @@ namespace RealEstate.BLL.Services
 
         public async Task<GetAgentByIdInfoDto> GetAgentById(string agentId)
         {
-            try
+            var agent = await _unitOfWork.Repository<AgentProfile>().GetAsync(a => a.Id == agentId);
+            var userAgent = await _userManager.FindByIdAsync(agentId);
+            var agentDto = _mapper.Map<GetAgentByIdInfoDto>(agent);
+
+            var feedbacks = await _unitOfWork.Repository<Feedback>().GetAllAsync(o => o.AgentId == agentId);
+            var feedbacksDto = agentDto.FeedBacks;
+            foreach (var feedback in feedbacks)
             {
-                var agent = await _unitOfWork.Repository<AgentProfile>().GetAsync(a => a.Id == agentId);
-                var userAgent = await _userManager.FindByIdAsync(agentId);
-                var agentDto = _mapper.Map<GetAgentByIdInfoDto>(agent);
-
-                var feedbacks = await _unitOfWork.Repository<Feedback>().GetAllAsync(o => o.AgentId == agentId);
-                var feedbacksDto = agentDto.FeedBacks;
-                foreach (var feedback in feedbacks)
-                {
-                    var feedbackDto = _mapper.Map<FeedbackListDto>(feedback);
-                    var user = await _userManager.FindByIdAsync(feedback.UserId);
-                    feedbackDto.FirstName = user.FirstName;
-                    feedbackDto.LastName = user.LastName;
-                    feedbackDto.ImagePath = user.ImagePath;
-                    feedbacksDto.Add(feedbackDto);
-                }
-
-             
-                agentDto.ImagePath = userAgent.ImagePath;
-                agentDto.FirstName = userAgent.FirstName;
-                agentDto.LastName = userAgent.LastName;
-
-                return agentDto;
+                var feedbackDto = _mapper.Map<FeedbackListDto>(feedback);
+                var user = await _userManager.FindByIdAsync(feedback.UserId);
+                feedbackDto.FirstName = user.FirstName;
+                feedbackDto.LastName = user.LastName;
+                feedbackDto.ImagePath = user.ImagePath;
+                feedbacksDto.Add(feedbackDto);
             }
-            catch(Exception ex)
-            {
-                Console.WriteLine($"Exrption message: {ex}");
-            }
-            return null;
+
+
+            agentDto.ImagePath = userAgent.ImagePath;
+            agentDto.FirstName = userAgent.FirstName;
+            agentDto.LastName = userAgent.LastName;
+            return agentDto;
         }
 
         public async Task AddFeedBackForAgent(FeedBackDto feedBackDto)
@@ -218,7 +209,40 @@ namespace RealEstate.BLL.Services
             await _unitOfWork.SaveChangesAsync();
         }
 
+        public async Task<GetAgentByIdInfoDto> GetCurrentAgent()
+        {
+            var agent = await _authentication.GetCurrentUserAsync();
+            var userAgent = await _unitOfWork.Repository<AgentProfile>().GetAsync(a => a.Id == agent.Id);
+            var agentDto = _mapper.Map<GetAgentByIdInfoDto>(userAgent);
+            agentDto.FeedBacks = null;
+            agentDto.ImagePath = agent.ImagePath;
+            agentDto.FirstName = agent.FirstName;
+            agentDto.LastName = agent.LastName;
+            return agentDto;
+        }
+
+        public async Task<List<FeedbackListDto>> GetCurrentAgentFeedbacks()
+        {
+            var agent = await _authentication.GetCurrentUserAsync();
+
+            var feedbacksDto = new List<FeedbackListDto>();
+            var feedbacks = await _unitOfWork.Repository<Feedback>().GetAllAsync(o => o.AgentId == agent.Id);
+
+            foreach (var feedback in feedbacks)
+            {
+                var feedbackDto = _mapper.Map<FeedbackListDto>(feedback);
+                var user = await _userManager.FindByIdAsync(feedback.UserId);
+                feedbackDto.FirstName = user.FirstName;
+                feedbackDto.LastName = user.LastName;
+                feedbackDto.ImagePath = user.ImagePath;
+                feedbacksDto.Add(feedbackDto);
+            }
+
+            return feedbacksDto;
+        }
+
     }
+
 
 
 }

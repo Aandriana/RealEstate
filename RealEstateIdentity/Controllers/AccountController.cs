@@ -155,5 +155,22 @@ namespace RealEstateIdentity.Controllers
             }
             return BadRequest();
         }
+
+        [HttpGet("agent")]
+        [Authorize(Roles = "Agent")]
+        public async Task<IActionResult> GetMyAgentProfile()
+        {
+            var agentDto = await _userService.GetCurrentAgent();
+            var agentVm = _mapper.Map<GetAgentByIdInfoViewModel>(agentDto);
+            return Ok(agentVm);
+        }
+
+        [HttpGet("my/feedbacks")]
+        [Authorize(Roles = "Agent")]
+        public async Task<IActionResult> GetMyFeedbacks()
+        {
+            var feetbacks = await _userService.GetCurrentAgentFeedbacks();
+            return Ok(feetbacks);
+        }
     }
 }

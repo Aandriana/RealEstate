@@ -17,5 +17,7 @@ namespace RealEstate.BLL.Interfaces
         Task<string> EditAgentProfile(EditUserProfileDto editUser);
         Task<GetAgentByIdInfoDto> GetAgentById(string agentId);
         Task AddFeedBackForAgent(FeedBackDto feedBackDto);
+        Task<GetAgentByIdInfoDto> GetCurrentAgent();
+        Task<List<FeedbackListDto>> GetCurrentAgentFeedbacks();
     }
 }
