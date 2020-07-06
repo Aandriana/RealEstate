@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace RealEstate.DAL.Entities
 {
     public class AgentProfile
     {
         public string Id { get; set; }
-        public int Age { get; set; }
+        public DateTime BirthDate { get; set; }
         public string City { get; set; }
         public string Description { get; set; }
         public double DefaultRate { get; set; }

@@ -151,7 +151,7 @@ namespace RealEstate.BLL.Services
             await _userManager.UpdateAsync(user);
 
             var agent = await _unitOfWork.Repository<AgentProfile>().GetAsync(a => a.Id == user.Id);
-            agent.Age = editUser.AgentProfile.Age;
+            agent.BirthDate = editUser.AgentProfile.BirthDate;
             agent.City = editUser.AgentProfile.City;
             agent.DefaultRate = editUser.AgentProfile.DefaultRate;
             agent.Description = editUser.AgentProfile.Description;

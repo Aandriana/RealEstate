@@ -1,1 +1,145 @@
+:host {
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:linear-gradient(#31D9E4FF,#8B00F6FF);
+  background-size: cover;
+}
+input{
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  width: 400px;
+}
+mat-card{
+  height: 700px;
+  width: 700px;
+  padding: 100px 50px;
+  align-items: center;
+  justify-content: center;
+  background-color: #2F3B52FF;
+
+}
+.material-icons{
+  color: #31D9E4FF;
+  size: 3px;
+}
+::ng-deep .mat-form-field{
+  align-items: center;
+  color:white !important;
+  font-family: Montserrat;
+  width: 550px;
+}
+
+@media screen and (max-width: 750px) {
+  .mat-card {
+    box-shadow: 0px 0px 0px 0px;
+  }
+  .sign-up-button{
+    width: 350px !important;
+    height: 35px !important;
+  }
+  :host {
+    background: #2F3B52FF;
+    height: 1100px;
+  }
+  ::ng-deep .mat-form-field{
+    width: 350px;
+  }
+  .info, mat-card-subtitle, mat-card-footer{
+    padding-left: unset;
+    justify-content: center !important;
+  }
+  mat-card-footer{
+    background: #2F3B52FF;
+  }
+}
+
+
+mat-card-title{
+  padding-bottom: 30px;
+}
+
+.mat-form-field {
+  align-items: start;
+  justify-content: start;
+}
+
+::ng-deep .mat-form-field-underline{
+  background-color:#31D9E4FF !important;
+}
+::ng-deep .mat-form-field-label{
+  color:#31D9E4FF !important;
+  font-family: Montserrat;
+}
+::ng-deep .mat-form-field-underline .mat-form-field-ripple{
+  background-color: #31D9E4FF;
+}
+
+.hide{
+  background-color:#2F3B52FF;
+  border: none;
+  font-size: 15px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  align-items: center;
+  width: 550px;
+  justify-content: normal;
+  padding-left: 75px;
+  font-family: Montserrat;
+  align-content: center;
+  font-size: 45px;
+  display: flex;
+  color: #31D9E4FF;
+}
+mat-card-subtitle{
+  width: 550px;
+  font-family: Montserrat;
+  color: white;
+  display: flex;
+  font-size: 13px;
+  padding-bottom: 15px;
+  padding-left: 75px;
+}
+.sign-up-button{
+  width: 550px;
+  height: 40px;
+  background:linear-gradient(45deg, #8F47EEFF,#8B00F6FF);
+  font-family: Montserrat;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  align-content: center;
+  margin-top: 15px;
+}
+.sign-up-button:hover{
+  background:linear-gradient(45deg, #31D9E4FF,#8F47EEFF);
+}
+a{
+  color: #31D9E4FF;
+}
+mat-card-footer
+{
+  font-family: Montserrat;
+  width: 550px;
+  padding-top: 5px;
+  padding-left: 90px;
+  display: flex;
+  color: white;
+}
+.real-estate{
+  color: #7275EBFF;
+}
+
+
+
 
