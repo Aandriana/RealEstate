@@ -11,7 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {LoginModule} from './login/login.module';
 import {UserModule} from './user/user.module';
 import { JwtModule } from '@auth0/angular-jwt';
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({

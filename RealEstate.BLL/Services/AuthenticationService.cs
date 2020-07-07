@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace RealEstate.BLL.Services
 {
-    public class AuthenticationService: IAuthenticationService
+    public class AuthenticationService : IAuthenticationService
     {
         private readonly TokenManagement _tokenManagement;
         private readonly SignInManager<User> _signInManager;
@@ -48,7 +48,7 @@ namespace RealEstate.BLL.Services
             return jwttoken;
         }
 
-          public Task<User> GetCurrentUserAsync() => _userManager.GetUserAsync(_context.HttpContext.User);
-          public async Task<IList<string>> GetCurrentUserRolesAsync(User user) => await _userManager.GetRolesAsync(user);
+        public Task<User> GetCurrentUserAsync() => _userManager.GetUserAsync(_context.HttpContext.User);
+        public async Task<IList<string>> GetCurrentUserRolesAsync(User user) => await _userManager.GetRolesAsync(user);
     }
 }

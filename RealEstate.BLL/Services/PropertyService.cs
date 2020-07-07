@@ -3,6 +3,7 @@ using Common.Enums;
 using Common.FilterClasses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RealEstate.BLL.DTO;
 using RealEstate.BLL.Interfaces;
 using RealEstate.DAL.Entities;
@@ -10,9 +11,8 @@ using RealEstate.DAL.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace RealEstate.BLL.Services
 {
@@ -143,7 +143,7 @@ namespace RealEstate.BLL.Services
             var user = await _authentication.GetCurrentUserAsync();
             if (propertyToUpdate.UserId != user.Id) throw new FieldAccessException();
 
-            foreach(var questionDto in questionsDto.Questions)
+            foreach (var questionDto in questionsDto.Questions)
             {
                 var question = _mapper.Map<Question>(questionDto);
                 question.PropertyId = propertyId;

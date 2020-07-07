@@ -14,7 +14,7 @@ namespace RealEstate.BLL.DTO
         public string Address { get; set; }
         public int BuildYear { get; set; }
         public ICollection<string> AgentsId { get; set; }
-        public virtual ICollection<IFormFile> Photos { get; set; } 
+        public virtual ICollection<IFormFile> Photos { get; set; }
         public virtual ICollection<QuestionsDto> QuestionsDtos { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace RealEstate.BLL.DTO.UserDtos
 {
-   public  class UserDetailsDto
+    public class UserDetailsDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

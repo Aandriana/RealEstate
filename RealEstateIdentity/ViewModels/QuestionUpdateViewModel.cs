@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace RealEstateIdentity.ViewModels
+﻿namespace RealEstateIdentity.ViewModels
 {
     public class QuestionUpdateViewModel
     {
-        public string  Question { get; set; }
+        public string Question { get; set; }
     }
 }

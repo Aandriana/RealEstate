@@ -2,7 +2,7 @@
 
 namespace RealEstate.BLL.DTO
 {
-   public  class EditAgentProfileDto
+    public class EditAgentProfileDto
     {
         public DateTime BirthDate { get; set; }
         public string City { get; set; }

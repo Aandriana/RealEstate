@@ -5,8 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using RealEstate.BLL.DTO;
 using RealEstate.BLL.Interfaces;
 using RealEstateIdentity.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RealEstateIdentity.Controllers
@@ -81,7 +79,7 @@ namespace RealEstateIdentity.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Agent")]
-        public async Task<IActionResult> GetOffersForAgent (OfferListFilter filter)
+        public async Task<IActionResult> GetOffersForAgent(OfferListFilter filter)
         {
             var offers = await _offerService.GetAllOffersForAgent(filter);
             return Ok(offers);

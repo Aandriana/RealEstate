@@ -1,9 +1,9 @@
 ﻿using RealEstate.BLL.DTO;
 using RealEstate.BLL.DTO.UserDtos;
-using RealEstateIdentity.ViewModels;
-using System.Linq;
 using RealEstate.BLL.Mapping;
+using RealEstateIdentity.ViewModels;
 using RealEstateIdentity.ViewModels.UserViewModels;
+using System.Linq;
 
 namespace RealEstateIdentity.Mapping
 {
@@ -32,7 +32,8 @@ namespace RealEstateIdentity.Mapping
             CreateMap<AnswerViewModel, AnswerDto>();
             CreateMap<QuestionViewModel, QuestionsDto>();
             CreateMap<QuestionsDto, QuestionViewModel>();
-            CreateMap<AgentRegisterProfileViewModel, AgentRegisterProfileDto>();
+            CreateMap<AgentRegisterProfileViewModel, AgentRegisterProfileDto>()
+                .ForMember(a => a.DefaultRate, map => map.Ignore());
 
             CreateMap<AgentRegisterViewModel, AgentRegisterDto>()
                 .ForMember(u => u.ImagePath, map => map.Ignore());

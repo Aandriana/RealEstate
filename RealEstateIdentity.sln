@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateIdentity", "RealE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate.DAL", "RealEstate.DAL\RealEstate.DAL.csproj", "{3BA244BF-1269-4C4D-9E54-84A43B06A053}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.BLL", "RealEstate.BLL\RealEstate.BLL.csproj", "{E8916A6B-55F6-4E06-9425-43B5D2C069C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate.BLL", "RealEstate.BLL\RealEstate.BLL.csproj", "{E8916A6B-55F6-4E06-9425-43B5D2C069C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{00607017-9860-4C74-94AA-39257644461F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{00607017-9860-4C74-94AA-39257644461F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate", "RealEstate\RealEstate.csproj", "{C549BB6B-3E54-4622-8DE4-CF77A6F80F2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{00607017-9860-4C74-94AA-39257644461F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00607017-9860-4C74-94AA-39257644461F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00607017-9860-4C74-94AA-39257644461F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C549BB6B-3E54-4622-8DE4-CF77A6F80F2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C549BB6B-3E54-4622-8DE4-CF77A6F80F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C549BB6B-3E54-4622-8DE4-CF77A6F80F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C549BB6B-3E54-4622-8DE4-CF77A6F80F2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

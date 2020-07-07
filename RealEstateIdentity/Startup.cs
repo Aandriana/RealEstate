@@ -1,15 +1,16 @@
+using AutoMapper;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using RealEstate.BLL.Infrastructure;
 using RealEstate.BLL.Interfaces;
 using RealEstate.BLL.Services;
-using AutoMapper;
 using RealEstateIdentity.Mapping;
-using FluentValidation.AspNetCore;
-using RealEstate.BLL.Infrastructure;
 
 namespace RealEstateIdentity
 {
@@ -29,6 +30,11 @@ namespace RealEstateIdentity
             services.AddMainContext("DefaultConnection", Configuration);
             services.AddIdentityFromBll();
             services.AddAuthenticationFromBll(Configuration);
+
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ClientApp/dist";
+            });
 
 
             services.AddMvc(option => option.EnableEndpointRouting = false).AddFluentValidation(fvc =>
@@ -88,6 +94,19 @@ namespace RealEstateIdentity
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
+            app.UseSpa(spa =>
+            {
+                // To learn more about options for serving an Angular SPA from ASP.NET Core,
+                // see https://go.microsoft.com/fwlink/?linkid=864501
+
+                spa.Options.SourcePath = "ClientApp";
+
+                if (env.IsDevelopment())
+                {
+                    spa.UseAngularCliServer(npmScript: "start");
+                }
             });
         }
     }

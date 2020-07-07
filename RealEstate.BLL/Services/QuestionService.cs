@@ -2,12 +2,12 @@
 using RealEstate.BLL.Interfaces;
 using RealEstate.DAL.Entities;
 using RealEstate.DAL.UnitOfWork;
-using System.Threading.Tasks;
 using System;
+using System.Threading.Tasks;
 
 namespace RealEstate.BLL.Services
 {
-    public class QuestionService: IQuestionService
+    public class QuestionService : IQuestionService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IAuthenticationService _authenticationService;

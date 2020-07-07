@@ -153,16 +153,16 @@ namespace RealEstateIdentity.Controllers
         }
 
         [HttpDelete("question/{id}")]
-        [Authorize(Roles ="User")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> RemoveQuestion(int id)
         {
             await _questionService.DeleteQuestion(id);
             return Ok();
         }
-        
+
         [HttpPut("question/{id}")]
         [Authorize(Roles = "User")]
-        public async Task<IActionResult> UpdateQuestion(int id,[FromBody] QuestionUpdateViewModel updateViewModel)
+        public async Task<IActionResult> UpdateQuestion(int id, [FromBody] QuestionUpdateViewModel updateViewModel)
         {
             var updateDto = _mapper.Map<QuestionUpdateDto>(updateViewModel);
             await _questionService.UpdateQuestion(id, updateDto);

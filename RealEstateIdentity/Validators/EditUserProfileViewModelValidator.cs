@@ -3,7 +3,7 @@ using RealEstateIdentity.ViewModels.UserViewModels;
 
 namespace RealEstateIdentity.Validators
 {
-    public class EditUserProfileViewModelValidator: AbstractValidator<EditUserProfileViewModel>
+    public class EditUserProfileViewModelValidator : AbstractValidator<EditUserProfileViewModel>
     {
         public EditUserProfileViewModelValidator()
         {

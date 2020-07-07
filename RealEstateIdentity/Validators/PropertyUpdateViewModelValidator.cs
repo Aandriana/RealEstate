@@ -3,7 +3,7 @@ using RealEstateIdentity.ViewModels;
 
 namespace RealEstateIdentity.Validators
 {
-    public class PropertyUpdateViewModelValidator: AbstractValidator<PropertyUpdateViewModel>
+    public class PropertyUpdateViewModelValidator : AbstractValidator<PropertyUpdateViewModel>
     {
         public PropertyUpdateViewModelValidator()
         {

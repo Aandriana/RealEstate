@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace RealEstateIdentity.ViewModels
+﻿namespace RealEstateIdentity.ViewModels
 {
     public class LoginViewModel
     {

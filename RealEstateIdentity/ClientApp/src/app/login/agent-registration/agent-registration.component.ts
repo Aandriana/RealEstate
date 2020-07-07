@@ -24,7 +24,7 @@ export class AgentRegistrationComponent implements OnInit {
     ConfirmPassword: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
     FirstName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]),
     LastName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]),
-    PhoneNumber: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(15)]),
+    PhoneNumber: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(15), Validators.pattern(/^\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})$/g)]),
     Image: new FormControl(null,[Validators.required, Validators.max(1)])
 });
   maxDate: Date;

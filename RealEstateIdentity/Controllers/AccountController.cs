@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Common.FilterClasses;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using RealEstate.BLL.DTO;
 using RealEstate.BLL.DTO.UserDtos;
 using RealEstate.BLL.Interfaces;
 using RealEstateIdentity.ViewModels;
 using RealEstateIdentity.ViewModels.UserViewModels;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace RealEstateIdentity.Controllers
 {

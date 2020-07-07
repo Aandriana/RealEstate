@@ -3,7 +3,7 @@ using RealEstateIdentity.ViewModels;
 
 namespace RealEstateIdentity.Validators
 {
-    public class AgentRegisterViewModelValidator: AbstractValidator<AgentRegisterViewModel>
+    public class AgentRegisterViewModelValidator : AbstractValidator<AgentRegisterViewModel>
     {
         public AgentRegisterViewModelValidator()
         {

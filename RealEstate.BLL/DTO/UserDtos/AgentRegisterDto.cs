@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-
-namespace RealEstate.BLL.DTO.UserDtos
+﻿namespace RealEstate.BLL.DTO.UserDtos
 {
-   public  class AgentRegisterDto
+    public class AgentRegisterDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

@@ -13,12 +13,12 @@ using System.Threading.Tasks;
 
 namespace RealEstate.BLL.Services
 {
-    public class OfferServise: IOfferService
+    public class OfferServise : IOfferService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IAuthenticationService _authenticationService;
-        
+
         public OfferServise(IUnitOfWork unitOfWork, IMapper mapper, IAuthenticationService authentication)
         {
             _unitOfWork = unitOfWork;
@@ -40,7 +40,7 @@ namespace RealEstate.BLL.Services
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task OfferFromAdmin (OfferFromAgentDto offerDto)
+        public async Task OfferFromAdmin(OfferFromAgentDto offerDto)
         {
             var offer = _mapper.Map<Offer>(offerDto);
             var agent = await _authenticationService.GetCurrentUserAsync();
@@ -77,7 +77,7 @@ namespace RealEstate.BLL.Services
                 agent.FailedSales++;
             }
 
-            if(offer.Status == (int)OfferStatus.Sold)
+            if (offer.Status == (int)OfferStatus.Sold)
             {
                 property.Status = (int)PropertyStatus.Sold;
                 await _unitOfWork.Repository<Property>().UpdateAsync(property);
@@ -103,7 +103,7 @@ namespace RealEstate.BLL.Services
 
             foreach (var answerDto in response.Answers)
             {
-               var answer = _mapper.Map<Answer>(answerDto);
+                var answer = _mapper.Map<Answer>(answerDto);
                 answer.CreatedById = agent.Id;
                 answer.OfferId = id;
                 await _unitOfWork.Repository<Answer>().AddAsync(answer);

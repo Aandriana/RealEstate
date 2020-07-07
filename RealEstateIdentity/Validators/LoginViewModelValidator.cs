@@ -3,7 +3,7 @@ using RealEstateIdentity.ViewModels;
 
 namespace RealEstateIdentity.Validators
 {
-    public class LoginViewModelValidator: AbstractValidator<LoginViewModel>
+    public class LoginViewModelValidator : AbstractValidator<LoginViewModel>
     {
         public LoginViewModelValidator()
         {

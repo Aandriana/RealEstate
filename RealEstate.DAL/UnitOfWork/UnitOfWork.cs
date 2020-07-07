@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using RealEstate.DAL.Entities;
 using RealEstate.DAL.Repository.Implementations;
 using RealEstate.DAL.Repository.Interfaces;
-using System.Threading.Tasks;
 using System;
 using System.Linq;
-using RealEstate.DAL.Entities;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace RealEstate.DAL.UnitOfWork
 {

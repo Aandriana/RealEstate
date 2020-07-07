@@ -1,6 +1,6 @@
 ﻿namespace RealEstate.BLL.DTO
 {
-   public class PropertyListDto
+    public class PropertyListDto
     {
         public int Id { get; set; }
         public double Size { get; set; }

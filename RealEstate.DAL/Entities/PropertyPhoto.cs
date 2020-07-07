@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RealEstate.DAL.Entities
+﻿namespace RealEstate.DAL.Entities
 {
-   public  class PropertyPhoto : BaseEntity
+    public class PropertyPhoto : BaseEntity
     {
         public string Path { get; set; }
         public int PropertyId { get; set; }

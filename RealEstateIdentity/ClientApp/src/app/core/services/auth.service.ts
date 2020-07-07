@@ -8,6 +8,7 @@ import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {delay, tap} from 'rxjs/operators';
 import {FileInput} from 'ngx-material-file-input';
+import {toR3Reference} from '@angular/compiler-cli/src/ngtsc/annotations/src/util';
 @Injectable({
   providedIn: 'root'
 })
@@ -71,9 +72,13 @@ export class AuthService {
     formData.append('ConfirmPassword', registerForm.ConfirmPassword);
     formData.append('PhoneNumber', registerForm.PhoneNumber);
     formData.append('Image', file);
-    formData.append('AgentProfile[BirthDate]', agentRegisterForm.Age);
+    formData.append('AgentProfile[BirthDate]', agentRegisterForm.BirthDate);
     formData.append('AgentProfile[City]', agentRegisterForm.City);
     formData.append('AgentProfile[Description]', agentRegisterForm.Description);
+    if (registerForm.BirthDate !== '') {
+      const date = new Date(registerForm.BirthDate);
+      formData.append('AgentProfile[BirthDate]', date.toString());
+    }
     formData.append('Description[DefaultRate]', agentRegisterForm.DefaultRate);
     this.http.post(`${this.baseUrl}/agent`, formData).subscribe((response: JwtResponseModel) => {
       this.jwtService.AddTokenToLS(response.token.result);

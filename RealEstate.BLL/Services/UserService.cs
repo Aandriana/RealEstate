@@ -1,16 +1,16 @@
-﻿using RealEstate.BLL.Interfaces;
-using Microsoft.AspNetCore.Identity;
-using RealEstate.DAL.Entities;
-using System.Threading.Tasks;
-using RealEstate.BLL.DTO.UserDtos;
-using System.Linq;
-using AutoMapper;
-using System.IO;
-using System;
-using RealEstate.BLL.DTO;
-using System.Collections.Generic;
-using RealEstate.DAL.UnitOfWork;
+﻿using AutoMapper;
 using Common.FilterClasses;
+using Microsoft.AspNetCore.Identity;
+using RealEstate.BLL.DTO;
+using RealEstate.BLL.DTO.UserDtos;
+using RealEstate.BLL.Interfaces;
+using RealEstate.DAL.Entities;
+using RealEstate.DAL.UnitOfWork;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace RealEstate.BLL.Services
 {
@@ -68,6 +68,7 @@ namespace RealEstate.BLL.Services
             var agent = _mapper.Map<User>(agentRegister);
 
             agent.AgentProfile.Id = agent.Id;
+            agent.AgentProfile.DefaultRate = Convert.ToDouble(agentRegister.AgentProfile.DefaultRate);
             var result = await _userManager.CreateAsync(agent, agentRegister.Password);
 
             if (result.Succeeded)

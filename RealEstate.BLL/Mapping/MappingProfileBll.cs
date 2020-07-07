@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace RealEstate.BLL.Mapping
 {
-   public  class MappingProfileBll : Profile
+    public class MappingProfileBll : Profile
     {
         public MappingProfileBll()
         {

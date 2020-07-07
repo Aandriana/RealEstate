@@ -3,7 +3,7 @@ using RealEstateIdentity.ViewModels;
 
 namespace RealEstateIdentity.Validators
 {
-    public class FeedBackViewModelValidator: AbstractValidator<FeedBackViewModel>
+    public class FeedBackViewModelValidator : AbstractValidator<FeedBackViewModel>
     {
         public FeedBackViewModelValidator()
         {
