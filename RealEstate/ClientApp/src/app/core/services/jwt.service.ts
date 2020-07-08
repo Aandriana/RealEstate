@@ -9,15 +9,15 @@ export class JwtService {
     private jwtHelper: JwtHelperService, private http: HttpClient,
   ) {}
 
-  AddTokenToLS(token): void
+  public addTokenToLS(token): void
   {
     localStorage.setItem('jwt', token);
   }
-  RemoveToken(): void
+  public removeToken(): void
   {
     localStorage.removeItem('jwt');
   }
-   CheckToken(): boolean
+   public checkToken(): boolean
    {
   const token: string = localStorage.getItem('jwt');
   return token && !this.jwtHelper.isTokenExpired(token);

@@ -21,18 +21,18 @@ export class AuthService {
   readonly baseUrl = accountUrl;
 
   logout(): void{
-    this.jwtService.RemoveToken();
+    this.jwtService.removeToken();
     this.isLoggedIn = false;
     this.router.navigateByUrl('/login');
   }
 
   isAuthenticated(): boolean {
-    return this.jwtService.CheckToken();
+    return this.jwtService.checkToken();
   }
 
   login(loginData): Observable<boolean> {
     this.http.post(`${this.baseUrl}/login`, loginData).subscribe((response: JwtResponseModel) => {
-      this.jwtService.AddTokenToLS(response.token.result);
+      this.jwtService.addTokenToLS(response.token.result);
       console.log(response.token);
     }, error => {
       console.log(error);
@@ -55,7 +55,7 @@ export class AuthService {
     formData.append('PhoneNumber', registerForm.PhoneNumber);
     formData.append('Image', file);
     this.http.post(`${this.baseUrl}`, formData).subscribe((response: JwtResponseModel) => {
-      this.jwtService.AddTokenToLS(response.token.result);
+      this.jwtService.addTokenToLS(response.token.result);
       console.log(response.token);
     }, error => {
       console.log(error);
@@ -81,7 +81,7 @@ export class AuthService {
     }
     formData.append('Description[DefaultRate]', agentRegisterForm.DefaultRate);
     this.http.post(`${this.baseUrl}/agent`, formData).subscribe((response: JwtResponseModel) => {
-      this.jwtService.AddTokenToLS(response.token.result);
+      this.jwtService.addTokenToLS(response.token.result);
       console.log(response.token);
     }, error => {
       console.log(error);

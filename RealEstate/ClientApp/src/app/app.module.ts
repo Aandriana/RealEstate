@@ -12,6 +12,7 @@ import {LoginModule} from './login/login.module';
 import {UserModule} from './user/user.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {AuthGuard} from './shared/auth.guard';
 
 
 @NgModule({
@@ -36,7 +37,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
       config: {},
     }),
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
