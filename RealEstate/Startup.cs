@@ -1,11 +1,19 @@
+using AutoMapper;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using RealEstate.BLL.Infrastructure;
+using RealEstate.BLL.Interfaces;
+using RealEstate.BLL.Services;
+using RealEstateIdentity.Mapping;
+using System;
 
-namespace RealEstate
+namespace RealEstateIdentity
 {
     public class Startup
     {
@@ -19,12 +27,42 @@ namespace RealEstate
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            // In production, the Angular files will be served from this directory
+            services.AddCors();
+            services.AddMainContext("DefaultConnection", Configuration);
+            services.AddIdentityFromBll();
+            services.AddAuthenticationFromBll(Configuration);
+
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+
+            services.AddMvc(option => option.EnableEndpointRouting = false).AddFluentValidation(fvc =>
+                fvc.RegisterValidatorsFromAssemblyContaining<Startup>()
+
+);
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
+
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            services.AddUnitOfWork();
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            services.AddTransient<IAuthenticationService, AuthenticationService>();
+            services.AddTransient<IFileService, LocalFileService>();
+            services.AddTransient<IPropertyService, PropertyService>();
+            services.AddTransient<IOfferService, OfferServise>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IQuestionService, QuestionService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,22 +74,31 @@ namespace RealEstate
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
-
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
-            if (!env.IsDevelopment())
-            {
-                app.UseSpaStaticFiles();
-            }
-
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
+            app.UseSwagger();
 
-            app.UseEndpoints(endpoints =>
+            app.UseMvc(routes =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
+                routes.MapRoute(
+                    "default",
+                    "{controller=home}/{action=index}/{id?}");
+
+            });
+
+
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
             app.UseSpa(spa =>
@@ -60,10 +107,11 @@ namespace RealEstate
                 // see https://go.microsoft.com/fwlink/?linkid=864501
 
                 spa.Options.SourcePath = "ClientApp";
+                spa.Options.StartupTimeout = new TimeSpan(0, 1, 30);
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseAngularCliServer(npmScript: "start");
+                    spa.UseAngularCliServer("start");
                 }
             });
         }
