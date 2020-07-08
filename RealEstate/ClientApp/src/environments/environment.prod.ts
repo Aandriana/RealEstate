@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:52833/'
+  apiUrl: 'https://realestate20200708014452.azurewebsites.net/'
 };
