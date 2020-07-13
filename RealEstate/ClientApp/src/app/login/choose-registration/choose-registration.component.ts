@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-choose-registration',
   templateUrl: './choose-registration.component.html',
-  styleUrls: ['./choose-registration.component.css']
+  styleUrls: ['./choose-registration.component.scss']
 })
 export class ChooseRegistrationComponent implements OnInit {
   private breakpoint: number;

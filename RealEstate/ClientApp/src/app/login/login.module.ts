@@ -17,28 +17,31 @@ import {FlexModule} from '@angular/flex-layout';
 import {MaterialFileInputModule} from 'ngx-material-file-input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatStepperModule} from '@angular/material/stepper';
+import {ApiService} from '../core/services/api.service';
 
 
 
 @NgModule({
   declarations: [LoginComponent, RegistrationComponent, AgentRegistrationComponent, ChooseRegistrationComponent],
-  imports: [
-    CommonModule,
-    MatCardModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    LoginRoutingModule,
-    MatInputModule,
-    MatIconModule,
-    MatGridListModule,
-    FlexModule,
-    MaterialFileInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule
-  ],
+    imports: [
+        CommonModule,
+        MatCardModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        LoginRoutingModule,
+        MatInputModule,
+        MatIconModule,
+        MatGridListModule,
+        FlexModule,
+        MaterialFileInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatStepperModule
+    ],
   exports: [
     MatDatepickerModule
   ],
-  providers: [ AuthService, JwtService, MatDatepickerModule]
+  providers: [ AuthService, JwtService, MatDatepickerModule, ApiService]
 })
 export class LoginModule { }

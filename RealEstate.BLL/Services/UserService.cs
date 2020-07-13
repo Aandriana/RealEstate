@@ -68,10 +68,9 @@ namespace RealEstate.BLL.Services
             var agent = _mapper.Map<User>(agentRegister);
 
             agent.AgentProfile.Id = agent.Id;
-            agent.AgentProfile.DefaultRate = Convert.ToDouble(agentRegister.AgentProfile.DefaultRate);
             var result = await _userManager.CreateAsync(agent, agentRegister.Password);
 
-            if (result.Succeeded)
+             if (result.Succeeded)
             {
                 var currentUser = await _userManager.FindByNameAsync(agent.UserName);
                 await _userManager.AddToRoleAsync(currentUser, "Agent");

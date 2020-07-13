@@ -5,17 +5,19 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-agent-registration',
   templateUrl: './agent-registration.component.html',
-  styleUrls: ['./agent-registration.component.css']
+  styleUrls: ['./agent-registration.component.scss']
 })
 export class AgentRegistrationComponent implements OnInit {
   hide = true;
+  isEditable = false;
   imageSrc: string | ArrayBuffer;
+  isLinear = false;
   returnUrl: string;
   AgentProfile = new FormGroup({
     BirthDate: new FormControl(''),
   City: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
   Description: new FormControl('', Validators.maxLength(400)),
-  DefaultRate: new FormControl('', Validators.required)
+    DefaultRate: new FormControl('', [Validators.required, Validators.pattern(/^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/)])
 })
 
   registrationForm = new FormGroup({
@@ -32,8 +34,16 @@ export class AgentRegistrationComponent implements OnInit {
   ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
+  onFirstSubmit(): void{
+    this.authService.firstStep(this.registrationForm.value);
+  }
+  onSecondSubmit(): void{
+    this.authService.secondStep(this.AgentProfile.value);
+  }
   onSubmit(): void {
-    this.authService.registerAgent(this.registrationForm.value, this.AgentProfile.value);
-    this.router.navigateByUrl('');
+    this.authService.registerAgent(this.registrationForm.value).subscribe(res => {
+      if (!res) console.error('error');
+      this.router.navigateByUrl('/home');
+    });
   }
 }

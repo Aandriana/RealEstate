@@ -1,10 +1,11 @@
-<div class = "page">
-  <mat-card>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="registrationForm">
     <mat-card-title class = "info">
       <span class="material-icons real-estate">home_work</span>Real estate
     </mat-card-title>
     <mat-card-subtitle><span>Want to sign up fill out this form!</span></mat-card-subtitle>
-    <mat-card-content>
+    <mat-card>
+      <mat-card-content>
       <form [formGroup]="registrationForm" autocomplete="off">
         <p>
           <mat-form-field>
@@ -65,7 +66,6 @@
                     [attr.aria-pressed]="'hide'">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
-
           </mat-form-field>
         </p>
         <p>
@@ -84,22 +84,30 @@
             </button>
           </mat-form-field>
         </p>
-        <p>
-          <mat-form-field>
-            <ngx-mat-file-input formControlName="Image" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add photo">
-            </ngx-mat-file-input>
-            <span matSuffix class="material-icons">add_a_photo</span>
-          </mat-form-field>
-        </p>
-
+        <div>
+          <button  (click)="onFirstSubmit()" mat-button matStepperNext class = "next-button first">Next</button>
+        </div>
+      </form>
+      </mat-card-content>
+      <mat-card-footer>
+        <p>Already have an account? <a href="/login"> Log in</a></p>
+      </mat-card-footer>
+    </mat-card>
+  </mat-step>
+  <mat-step  [stepControl]="AgentProfile">
+<mat-card>
+  <mat-card-content>
         <form [formGroup]="AgentProfile" autocomplete="off">
           <p>
           <mat-form-field>
             <input matInput [matDatepicker]="picker" matInput [max]="maxDate" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Birthday date (mm/dd/yy)" formControlName="BirthDate">
+            <mat-error *ngIf="AgentProfile.get('BirthDate').errors?.required">
+              required field</mat-error>
             <mat-datepicker-toggle class="calendar" matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker  #picker></mat-datepicker>
           </mat-form-field>
           </p>
+
           <p>
             <mat-form-field>
               <span class="material-icons">location_on</span>
@@ -118,18 +126,43 @@
             <mat-form-field>
               <span class="material-icons">rate_review</span>
               <input formControlName="DefaultRate" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default rate">
+              <mat-error *ngIf="AgentProfile.get('DefaultRate').errors?.pattern">
+                 should be float number</mat-error>
+              <mat-error *ngIf="AgentProfile.get('DefaultRate').errors?.required">
+                required field</mat-error>
             </mat-form-field>
           </p>
+          <div>
+            <button mat-button matStepperPrevious class = "back-button">Back</button>
+            <button mat-button matStepperNext class = "next-button" (click)="onSecondSubmit()">Next</button>
+          </div>
+        </form>
+  </mat-card-content>
+  </mat-card>
+  </mat-step>
+  <mat-step>
+    <mat-card>
+      <mat-card-content>
+    <form [formGroup]="registrationForm" autocomplete="off">
+      <mat-form-field>
+        <ngx-mat-file-input formControlName="Image" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add photo">
+        </ngx-mat-file-input>
+        <span matSuffix class="material-icons">add_a_photo</span>
+      </mat-form-field>
+    <div>
+      <button mat-button matStepperPrevious class = "back-button">Back</button>
+      <button mat-button (click)="stepper.reset()" class = "next-button">Reset</button>
+    </div>
 
-      </form>
         <div class="button">
           <button mat-raised-button  class="sign-up-button" type="submit"
                   (click)="onSubmit()">Sign up</button>
         </div>
       </form>
-    </mat-card-content>
-    <mat-card-footer>
-      <p>Already have an account? <a href="/login"> Log in</a></p>
-    </mat-card-footer>
-  </mat-card>
-</div>
+      </mat-card-content>
+    </mat-card>
+  </mat-step>
+
+</mat-horizontal-stepper>
+
+

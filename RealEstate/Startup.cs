@@ -11,7 +11,6 @@ using RealEstate.BLL.Infrastructure;
 using RealEstate.BLL.Interfaces;
 using RealEstate.BLL.Services;
 using RealEstateIdentity.Mapping;
-using System;
 
 namespace RealEstateIdentity
 {
@@ -78,10 +77,13 @@ namespace RealEstateIdentity
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200", "http://localhost:52833").AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSpaStaticFiles();
+            if (!env.IsDevelopment())
+            {
+                app.UseSpaStaticFiles();
+            }
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
@@ -102,19 +104,21 @@ namespace RealEstateIdentity
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
-            app.UseSpa(spa =>
+            if (!env.IsDevelopment())
             {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
-
-                spa.Options.SourcePath = "ClientApp";
-                spa.Options.StartupTimeout = new TimeSpan(0, 1, 30);
-
-                if (env.IsDevelopment())
+                app.UseSpa(spa =>
                 {
-                    spa.UseAngularCliServer("start");
-                }
-            });
+                    // To learn more about options for serving an Angular SPA from ASP.NET Core,
+                    // see https://go.microsoft.com/fwlink/?linkid=864501
+
+                    spa.Options.SourcePath = "ClientApp";
+
+                    if (env.IsDevelopment())
+                    {
+                        spa.UseAngularCliServer("start");
+                    }
+                });
+            }
         }
     }
 }

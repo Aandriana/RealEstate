@@ -1,7 +1,4 @@
 export interface JwtResponseModel {
-  token: Token;
+  token: string;
 }
 
-export interface Token {
-  result: string;
-}

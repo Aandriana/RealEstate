@@ -7,6 +7,7 @@ using RealEstate.BLL.DTO.UserDtos;
 using RealEstate.BLL.Interfaces;
 using RealEstateIdentity.ViewModels;
 using RealEstateIdentity.ViewModels.UserViewModels;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -39,8 +40,8 @@ namespace RealEstateIdentity.Controllers
             if (ModelState.IsValid)
             {
                 var loginDto = _mapper.Map<LoginDto>(model);
-                var token = _userService.Login(loginDto);
-                if (token != null) return Ok(new { Token = token });
+                var token = await _userService.Login(loginDto);
+                if (!string.IsNullOrEmpty(token)) return Ok(new { Token = token });
             }
             return BadRequest();
         }
@@ -58,8 +59,8 @@ namespace RealEstateIdentity.Controllers
                         Path.GetExtension(model.Image.FileName));
                     user.ImagePath = imagePath.ToString();
                 }
-                var token = _userService.Register(user);
-                if (token != null) return Ok(new { Token = token });
+                var token = await _userService.Register(user);
+                if (!string.IsNullOrEmpty(token)) return Ok(new { Token = token });
             }
 
             return BadRequest();
@@ -68,9 +69,11 @@ namespace RealEstateIdentity.Controllers
         [HttpPost("agent")]
         public async Task<IActionResult> AgentRegister([FromForm] AgentRegisterViewModel agentRegister)
         {
-            if (ModelState.IsValid)
+                if (ModelState.IsValid)
             {
                 var agent = _mapper.Map<AgentRegisterDto>(agentRegister);
+                agent.AgentProfile.DefaultRate = Convert.ToDouble(agentRegister.AgentProfile.DefaultRate);
+
                 if (agentRegister.Image != null)
                 {
                     var imagePath = await _fileService.SaveFile(agentRegister.Image.OpenReadStream(),
@@ -79,7 +82,7 @@ namespace RealEstateIdentity.Controllers
                 }
 
                 var token = await _userService.AgentRegister(agent);
-                if (token != null) return Ok(new { Token = token });
+                if (!string.IsNullOrEmpty(token)) return Ok(new { Token = token });
             }
 
             return BadRequest();
