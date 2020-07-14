@@ -1,2 +1,2 @@
 export * from './jwt-response.model';
-export * from './agent-model';
+export * from './menu-item';

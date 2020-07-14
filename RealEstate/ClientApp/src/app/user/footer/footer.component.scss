@@ -1,0 +1,47 @@
+@import "src/app/app.component.scss";
+footer{
+  width: 100%;
+  background: $primary-color-purple;
+;
+}
+
+.main-block {
+  height: 150px;
+  padding-top: 25px;
+}
+
+.color-black {
+  color: black;
+}
+
+.logo {
+  height: 95px;
+  border: 1px solid black;
+}
+.info {
+  font-family: Montserrat;
+  font-size: 45px;
+  padding-left: 45px;
+;
+  color: $primary-color-aqua;
+}
+
+.real-estate {
+  font-size: 35px !important;
+}
+.bottom-line {
+  height: 40px;
+  font-size: 13px;
+  color: white;
+  background-color: $primary-color-background-dark;
+}
+
+.phone-icon {
+  margin-right: 5px;
+}
+
+.block {
+  height: 95px;
+}
+
+

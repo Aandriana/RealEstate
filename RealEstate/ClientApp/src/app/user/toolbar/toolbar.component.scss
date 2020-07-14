@@ -1,0 +1,53 @@
+@import "src/app/app.component.scss";
+mat-toolbar{
+  background: $primary-color-background-dark !important;
+  justify-content: center !important;
+  align-content: center !important;
+}
+mat-menu{
+  background: $primary-color-background!important;
+  justify-content: center;
+}
+::ng-deep .mat-menu-content{
+  background-color:$primary-color-background !important;
+}
+.info {
+  font-family: Montserrat;
+  font-size: 45px;
+  display: flex;
+  color: $primary-color-aqua;
+}
+
+.real-estate{
+  font-size: 35px !important;
+}
+
+.mat-menu-item{
+  justify-content: center !important;
+  color: white;
+  font-family: Montserrat;
+  font-size: 20px;
+}
+
+.toolbar-items {
+  width: 100%;
+}
+
+.fill-toolbar-space {
+  height: 7vh;
+}
+
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  padding: 0 !important;
+}
+@media screen and (max-width: 750px) {
+  mat-toolbar{
+    padding-right: unset;
+  }
+}
+
