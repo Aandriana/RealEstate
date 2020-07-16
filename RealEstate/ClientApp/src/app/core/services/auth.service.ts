@@ -22,7 +22,6 @@ export class AuthService {
   ) {}
   agentRegister = new FormData();
   isLoggedIn = false;
-  redirectUrl: string;
   readonly baseUrl = accountUrl;
 
   logout(): void{
@@ -93,5 +92,10 @@ export class AuthService {
       this.isLoggedIn = true;
       return true;
     }));
+  }
+
+  getRole(): string{
+   const role = this.jwtService.getRole();
+   return role;
   }
 }

@@ -41,7 +41,6 @@ import {ApiService} from '../core/services/api.service';
     ],
   exports: [
     MatDatepickerModule
-  ],
-  providers: [ AuthService, JwtService, MatDatepickerModule, ApiService]
+  ]
 })
 export class LoginModule { }

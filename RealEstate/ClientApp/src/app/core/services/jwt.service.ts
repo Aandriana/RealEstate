@@ -22,6 +22,16 @@ export class JwtService {
   if (!this.jwtHelper.isTokenExpired(token)) { return  true; }
   return false;
     }
-
+    public getRole(): string
+    {
+      const token: string = localStorage.getItem('jwt');
+      if (!this.jwtHelper.isTokenExpired(token)) {
+        const role = this.jwtHelper.decodeToken(token)[
+          'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
+          ];
+        return role;
+      }
+      return null;
+    }
 }
 

@@ -11,7 +11,8 @@ svg {
   padding-bottom: 15%;
   vertical-align: middle;
   overflow: hidden;
-  background:linear-gradient( #B2E7F9FF, $primary-color-blue-purple);
+  background:linear-gradient( $primary-color-aqua, $primary-color-blue-purple);
+  justify-content: center;
 }
 .image{
   padding-left: 40px;
@@ -19,7 +20,7 @@ svg {
   max-height: 700px;
 }
 .nextimage{
-  max-height: 600px;
+  max-height: 800px;
 }
 
 @media screen and (max-width: 1400px)
@@ -31,20 +32,14 @@ svg {
   {
     width: 250px !important;
     height: 70px !important;
-  justify-content: center !important;
-  }
-
-  .nextimage{
-    height: 300px!important;
-  }
-}
-@media screen and (max-width: 1400px)
-{
-  button{
     margin-top: 300px !important;
+    margin-left: unset !important;
+  }
+  .button{
+    justify-content: center !important;
+    display: flex;
   }
 }
-
 
 button{
   margin-top: 550px;
@@ -69,6 +64,20 @@ button:hover{
   background:linear-gradient( $primary-color-background, $primary-color-background-dark) !important;
 
 }
+.button{
+  justify-content: center;
+  align-content: center;
+
+}
+.content {
+  justify-content: center;
+  align-content: center;
+}
+.bottom{
+  background: $primary-color-background;
+}
+
+
 
 
 
