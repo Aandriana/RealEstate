@@ -1,0 +1,26 @@
+@import "src/app/app.component.scss";
+mat-grid-list {
+  background: $primary-color-background-dark;
+}
+
+mat-card{
+  background: $primary-color-background;
+  border-radius: 8px;
+  width: 400px;
+}
+mat-card:hover{
+  box-shadow: 0px 0px 15px rgba(49,217,228, 0.2);
+}
+
+mat-card-title{
+  justify-content: center;
+  display: flex;
+}
+
+mat-card-content{
+  justify-content: center;
+  font-family: Montserrat;
+  color: white;
+  font-size: 15px;
+}
+

@@ -1,4 +1,5 @@
 export interface PropertyListModel {
+  id: number;
   size: number;
   category: number;
   floorsNumber: number;
@@ -7,4 +8,5 @@ export interface PropertyListModel {
   city: string;
   address: string;
   buildYear: number;
+  image: string;
 }

@@ -178,6 +178,9 @@ namespace RealEstate.BLL.Services
             foreach (var property in properties)
             {
                 var propertyDto = _mapper.Map<PropertyListDto>(property);
+                var photo = await _unitOfWork.Repository<PropertyPhoto>().GetAsync(p => p.PropertyId == property.Id);
+                if(photo != null)
+                propertyDto.Image = photo.Path;
                 propertiesDto.Add(propertyDto);
             }
 

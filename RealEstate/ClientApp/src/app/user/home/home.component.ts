@@ -1,4 +1,5 @@
 import {Component, HostListener, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,6 @@ import {Component, HostListener, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   scrolled = 0;
-
   @HostListener('window:scroll', ['$event'])
   onWindowScroll($event): any {
     const numb = window.scrollY;
@@ -19,9 +19,18 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
+  }
+  myProperties(): any{
+    return this.router.navigateByUrl('/properties');
+  }
+  addProperty(): any{
+    return this.router.navigateByUrl('property/add');
+  }
+  agentsList(): any{
+    return this.router.navigateByUrl('agents');
   }
 
 }

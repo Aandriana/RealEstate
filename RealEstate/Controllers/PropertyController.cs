@@ -96,7 +96,7 @@ namespace RealEstateIdentity.Controllers
         [HttpGet("user")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> GetPropertiesForUser([FromQuery]PropertyListFilter filter)
-        {
+            {
             var propertiesDto = await _propertyService.GetPropertiesForUser(filter);
             var propertiesVM = new List<PropertyListViewModel>();
             foreach (var propertyDto in propertiesDto)

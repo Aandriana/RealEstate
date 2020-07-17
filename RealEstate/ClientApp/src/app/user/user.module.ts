@@ -12,10 +12,15 @@ import {MatButtonModule} from '@angular/material/button';
 import { FooterComponent } from './footer/footer.component';
 import {NgsRevealModule} from 'ngx-scrollreveal';
 import { PropertyListComponent } from './property-list/property-list.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { AddPropertyComponent } from './add-property/add-property.component';
+import { AgentListComponent } from './agent-list/agent-list.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent],
+  declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent, AddPropertyComponent, AgentListComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
@@ -27,6 +32,9 @@ import { PropertyListComponent } from './property-list/property-list.component';
     FlexModule,
     MatButtonModule,
     NgsRevealModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatGridListModule,
   ],
   providers: []
 })

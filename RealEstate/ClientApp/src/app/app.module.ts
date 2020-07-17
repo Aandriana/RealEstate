@@ -14,7 +14,10 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatStepperIntl} from '@angular/material/stepper';
 import {AuthGuard} from './shared/auth';
-
+import {MaterialFileInputModule} from 'ngx-material-file-input';
+export function tokenGetter(): string {
+  return localStorage.getItem('jwt');
+}
 
 @NgModule({
   declarations: [
@@ -36,6 +39,14 @@ import {AuthGuard} from './shared/auth';
     FlexLayoutModule,
     JwtModule.forRoot({
       config: {},
+    }),
+    MaterialFileInputModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter,
+        whitelistedDomains: ['localhost:52833'],
+        blacklistedRoutes: []
+      }
     }),
   ],
   providers: [

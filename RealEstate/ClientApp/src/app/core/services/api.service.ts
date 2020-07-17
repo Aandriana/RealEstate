@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 
 @Injectable({
@@ -12,8 +12,9 @@ export class ApiService {
     return this.http.post(url, postData);
   }
 
-  get(url): any{
-    return this.http.get(url);
+  get(url, params): any{
+    return this.http.get(url, {params});
   }
+
 
 }

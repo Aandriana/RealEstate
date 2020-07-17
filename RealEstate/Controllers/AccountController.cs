@@ -8,6 +8,7 @@ using RealEstate.BLL.Interfaces;
 using RealEstateIdentity.ViewModels;
 using RealEstateIdentity.ViewModels.UserViewModels;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -116,7 +117,13 @@ namespace RealEstateIdentity.Controllers
         public async Task<IActionResult> GetAllAgents(PaginationParameters pagination)
         {
             var agentDtos = await _userService.GetAllAgents(pagination);
-            return Ok(agentDtos);
+            var agentsVm = new List<UsersListViewModel>();
+            foreach (var agentDto in agentDtos)
+            {
+                var agentVm = _mapper.Map<UsersListViewModel>(agentDto);
+                agentsVm.Add(agentVm);
+            }
+            return Ok(agentsVm);
         }
 
         [HttpPut("agent")]
