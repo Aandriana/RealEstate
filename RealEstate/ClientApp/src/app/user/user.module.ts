@@ -17,10 +17,13 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { AddPropertyComponent } from './add-property/add-property.component';
 import { AgentListComponent } from './agent-list/agent-list.component';
+import { PropertCardComponent } from './property-list/propert-card/propert-card.component';
+import { AgentCardComponent } from './agent-list/agent-card/agent-card.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
-  declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent, AddPropertyComponent, AgentListComponent],
+  declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent, AddPropertyComponent, AgentListComponent, PropertCardComponent, AgentCardComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
@@ -35,6 +38,7 @@ import { AgentListComponent } from './agent-list/agent-list.component';
     MatPaginatorModule,
     MatCardModule,
     MatGridListModule,
+    ReactiveFormsModule,
   ],
   providers: []
 })

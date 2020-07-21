@@ -1,61 +1,16 @@
-<mat-grid-list [cols]="4">
-  <mat-grid-tile
-    *ngFor="let user of agentList"
-    [colspan]="1"
-    [rowspan]="1">
-    <mat-card class="container user" >
-      <mat-card-content class="container">
-        <div class="main-container" fxLayout="column" fxLayout.md="column" fxLayout.sm="row" >
-          <div class="content-container" fxLayout="column" fxLayout.md="column" fxLayout.sm="column" >
-            <div class="image-container" fxLayoutAlign="center" fxLayout="column" >
-              <a [routerLink]="['/users', user.id]">
-                <img *ngIf="user.imagePath != null"
-                     class = "photo"
-                     style="width: 200px"
-                     src="{{ user.imagePath }}"
-                     alt=""
-                />
-                <img *ngIf="user.imagePath == null"
-                     class = "photo"
-                     style="width: 200px"
-                     src="assets/img/resssultпкмке.png"
-                     alt=""
-                />
-              </a>
-            </div>
-            <div class="text-conteiner info" fxLayout="column">
-              <mat-card-title>
-                <mat-icon class = "icon">perm_identity</mat-icon>
-                <span> <a class="details info"
-                          [routerLink]="['/users', user.id]">
-                 {{ user.firstName }} {{ user.lastName }}</a>
-                  <br>
-                <span class = "role">{{user.agentProfile.rating}}</span>
-                 <br>
-               </span>
-              </mat-card-title>
-
-              <div class="project-description info">
-                <p *ngIf="user.agentProfile.city != null">
-                  <mat-icon class = "icon">room</mat-icon>
-                  {{ user.agentProfile.city.substring(0, 400) }}
-                </p>
-                <p *ngIf="user.agentProfile.defaultRate != null">
-                  <mat-icon class = "icon">today</mat-icon> {{ user.agentProfile.defaultRate | date: 'shortDate' }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </mat-card-content>
-      <button>select</button>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
-
+<div class="main"><app-toolbar></app-toolbar></div>
+<div class="main" fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+  <app-agent-card fxFlex="0 1 calc(20% - 32px)"
+                    fxFlex.lt-md="0 1 calc(50% - 32px)"
+                    fxFlex.lt-sm="100%"
+                  *ngFor="let user of agentList"
+  [user]="user" >
+  </app-agent-card>
+</div>
 <mat-paginator [length]="100"
                [pageSize]="this.pageSize"
                [pageIndex]="this.pageNumber"
-               [pageSizeOptions]="[5, 10, 25, 100]"
+               [pageSizeOptions]="[5, 25, 50, 100]"
                (page)="onPageFired($event)">
 </mat-paginator>
+<div><app-footer></app-footer></div>

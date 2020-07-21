@@ -1,27 +1,14 @@
-<mat-grid-list cols = "4">
-  <mat-grid-tile
-    *ngFor="let property of PropertyListModel">
-    <mat-card class="container" >
-      <mat-card-title>
-        <img *ngIf="property.image!= null" style="width: 200px" src="{{property.image}}"/>
-        <img *ngIf="property.image== null"  style="width: 200px" src="assets/img/resssultпкмке.png"/>
-      </mat-card-title>
-      <mat-card-content class="container">
-              <p>size: {{property.size}}</p>
-              <p>category: {{property.category}}</p>
-              <p>floor number: {{property.floorsNumber}}</p>
-              <p>floors: {{property.floors}}</p>
-              <p>price: {{property.price}}</p>
-              <p>city: {{property.city}}</p>
-              <p>address: {{property.address}}</p>
-              <p>build year: {{property.buildYear}}</p>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="main"><app-toolbar></app-toolbar></div>
+<div class="main" fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+   <app-propert-card fxFlex="0 1 calc(25% - 32px)"
+     fxFlex.lt-md="0 1 calc(50% - 32px)"
+     fxFlex.lt-sm="100%" *ngFor="let property of PropertyListModel"
+   [property]="property"> </app-propert-card>
+</div>
 <mat-paginator [length]="100"
                [pageSize]="this.pageSize"
                [pageIndex]="this.pageNumber"
-               [pageSizeOptions]="[5, 10, 25, 100]"
+               [pageSizeOptions]="[16, 32, 64, 96]"
                (page)="onPageFired($event)">
 </mat-paginator>
+<div><app-footer></app-footer></div>

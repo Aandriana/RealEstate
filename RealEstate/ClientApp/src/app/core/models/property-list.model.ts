@@ -9,4 +9,5 @@ export interface PropertyListModel {
   address: string;
   buildYear: number;
   image: string;
+  status: number;
 }

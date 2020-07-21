@@ -1,1 +1,3 @@
-<p>add-property works!</p>
+<div *ngFor="let control of questions.controls; index as i">
+  <input [formControl]="questions.controls[i]" />
+</div>

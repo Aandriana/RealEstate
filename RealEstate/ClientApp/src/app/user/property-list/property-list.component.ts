@@ -10,7 +10,7 @@ import { MatPaginator } from '@angular/material/paginator';
 export class PropertyListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   PropertyListModel: PropertyListModel[];
-  pageSize = 5;
+  pageSize = 16;
   pageNumber = 0;
 
   constructor(private propertyService: PropertyService) {

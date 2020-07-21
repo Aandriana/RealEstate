@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title>
+    <p>{{property.city}}</p>
+  </mat-card-title>
+  <mat-card-title>
+    <img *ngIf="property.image!= null" style="width: 400px" src="{{property.image}}"/>
+    <img *ngIf="property.image== null"  style="width: 400px" src="assets/img/DefaultHousePhoto.png"/>
+  </mat-card-title>
+  <mat-card-content>
+    <p>{{property.size}} m<sup>2</sup></p>
+    <p class="status">{{getStatus()}}</p>
+    <p class="price"><span class="material-icons">
+attach_money
+</span>{{property.price}}</p>
+    <button>More details</button>
+  </mat-card-content>
+</mat-card>

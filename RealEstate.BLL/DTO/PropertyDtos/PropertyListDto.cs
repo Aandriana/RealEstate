@@ -11,6 +11,7 @@
         public string City { get; set; }
         public string Address { get; set; }
         public int BuildYear { get; set; }
-        public string Image { get; set; }
+        public string Image { get; set;}
+        public int Status { get; set; }
     }
 }

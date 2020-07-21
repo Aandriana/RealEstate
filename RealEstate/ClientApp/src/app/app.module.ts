@@ -44,7 +44,7 @@ export function tokenGetter(): string {
     JwtModule.forRoot({
       config: {
         tokenGetter,
-        whitelistedDomains: ['localhost:52833'],
+        whitelistedDomains: ['localhost:52833', 'https://realestate20200708014452.azurewebsites.net', 'realestate20200708014452.azurewebsites.net'],
         blacklistedRoutes: []
       }
     }),

@@ -1,26 +1,18 @@
 @import "src/app/app.component.scss";
-mat-grid-list {
+.main{
   background: $primary-color-background-dark;
-}
-
-mat-card{
-  background: $primary-color-background;
-  border-radius: 8px;
-  width: 400px;
-}
-mat-card:hover{
-  box-shadow: 0px 0px 15px rgba(49,217,228, 0.2);
-}
-
-mat-card-title{
   justify-content: center;
+  align-content: center;
   display: flex;
 }
-
-mat-card-content{
+app-propert-card{
   justify-content: center;
-  font-family: Montserrat;
+  align-content: center;
+  display: flex;
+}
+:host ::ng-deep.mat-paginator .mat-paginator-container{
+  background:linear-gradient(45deg,$primary-color-blue-purple , $primary-color-purple);
   color: white;
-  font-size: 15px;
+  font-family: Montserrat;
 }
 

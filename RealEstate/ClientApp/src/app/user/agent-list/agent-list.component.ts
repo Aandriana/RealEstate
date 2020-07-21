@@ -9,7 +9,7 @@ import {AgentService} from '../../core/services/agent.service';
 })
 export class AgentListComponent implements OnInit {
 agentList: AgentListModel[];
-  pageSize = 5;
+  pageSize = 25;
   pageNumber = 0;
   constructor(private agentService: AgentService) { }
 

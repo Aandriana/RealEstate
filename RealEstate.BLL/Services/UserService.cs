@@ -49,6 +49,7 @@ namespace RealEstate.BLL.Services
         public async Task<string> Register(RegisterDto model)
         {
             var user = _mapper.Map<User>(model);
+            user.ImagePath = model.ImagePath;
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
@@ -66,7 +67,7 @@ namespace RealEstate.BLL.Services
         public async Task<string> AgentRegister(AgentRegisterDto agentRegister)
         {
             var agent = _mapper.Map<User>(agentRegister);
-
+            agent.ImagePath = agentRegister.ImagePath;
             agent.AgentProfile.Id = agent.Id;
             var result = await _userManager.CreateAsync(agent, agentRegister.Password);
 

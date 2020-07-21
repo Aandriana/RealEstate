@@ -152,6 +152,7 @@ mat-card-subtitle{
 }
 .sign-up-button:hover{
   background:linear-gradient(45deg, $primary-color-aqua,$primary-color-purple);
+  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
 }
 a{
   color: $primary-color-aqua;
@@ -190,6 +191,9 @@ mat-step {
   margin-top: 15px;
   margin-left: 410px;
 }
+.next-button:hover{
+  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+}
 .first{
   width: 130px;
 }
@@ -204,6 +208,10 @@ mat-step {
   align-content: start;
   margin-top: 15px;
 }
+.back-button:hover{
+  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+}
+
 
 
 
