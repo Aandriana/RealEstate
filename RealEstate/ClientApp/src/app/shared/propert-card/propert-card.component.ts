@@ -11,10 +11,4 @@ export class PropertCardComponent implements OnInit {
   constructor() { }
   ngOnInit(): void {
   }
-getStatus(): string{
-    if (this.property.status === 0) { return 'Frozen'; }
-    if (this.property.status === 1) { return 'Looking for agent'; }
-    if (this.property.status === 2) { return 'Found agent'; }
-    if (this.property.status === 3) { return 'Sold'; }
-}
 }

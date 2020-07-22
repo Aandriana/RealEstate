@@ -8,7 +8,7 @@
   </mat-card-title>
   <mat-card-content>
     <p>{{property.size}} m<sup>2</sup></p>
-    <p class="status">{{getStatus()}}</p>
+    <p class="status">{{property.status | propertyStatus}}</p>
     <p class="price"><span class="material-icons">
 attach_money
 </span>{{property.price}}</p>

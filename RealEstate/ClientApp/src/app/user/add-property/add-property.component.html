@@ -121,12 +121,33 @@
       <mat-card-content>
           <div>
             <button mat-button matStepperPrevious class = "back-button">Back</button>
-            <button mat-button matStepperNext class = "next-button" (click)="onThirtSubmit()">Next</button>
+            <button mat-button matStepperNext class = "next-button" (click)="onThirdSubmit()">Next</button>
           </div>
       </mat-card-content>
     </mat-card>
   </mat-step>
-  <mat-step>
+  <mat-step [stepControl]="addPropertyForm">
+    <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+      <app-agent-card  fxFlex="0 1 calc(20% - 32px)"
+                       fxFlex.lt-md="0 1 calc(50% - 32px)"
+                       fxFlex.lt-sm="100%"
+                       *ngFor="let user of agentList"
+                       [user]="user" [button]="button" (onComplete)="addAgent(user.id.toString())" >
+      </app-agent-card>
+      <button type="button" (click)="addProperty()"> Send </button>
+    </div>
+    <mat-paginator [length]="100"
+                   [pageSize]="this.pageSize"
+                   [pageIndex]="this.pageNumber"
+                   [pageSizeOptions]="[5]"
+                   (page)="onPageFired($event)">
+    </mat-paginator>
+  <div>
+    <button mat-button matStepperPrevious class = "back-button">Back</button>
+    <button mat-button matStepperNext class = "next-button" (click)="onFourhtSubmit()">Next</button>
+  </div>
+  </mat-step>
+  <mat-step [stepControl]="addPropertyForm">
     <mat-card>
       <mat-card-content>
         <form [formGroup]="addPropertyForm" autocomplete="off">
@@ -139,10 +160,9 @@
             <button mat-button matStepperPrevious class = "back-button">Back</button>
             <button mat-button (click)="stepper.reset()" class = "next-button">Reset</button>
           </div>
-
           <div class="button">
-            <button mat-raised-button  class="sign-up-button" type="submit"
-                    (click)="onSubmit()">Add property</button>
+            <button mat-raised-button  class="sign-up-button" type="button"
+                    (click)="addProperty()">Add</button>
           </div>
         </form>
       </mat-card-content>

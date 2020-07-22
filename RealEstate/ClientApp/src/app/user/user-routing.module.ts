@@ -22,7 +22,7 @@ const routes: Routes = [
         }},
       {path: 'agents', component: AgentListComponent, canActivate: [AuthGuard], data: {
           expectedRole: 'User'
-        }}
+        }},
     ]}
 ];
 

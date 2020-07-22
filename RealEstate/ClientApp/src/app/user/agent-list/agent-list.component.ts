@@ -26,5 +26,4 @@ agentList: AgentListModel[];
     this.agentService.getAgents(event.pageIndex, event.pageSize)
       .subscribe(data => this.agentList = data);
   }
-
 }

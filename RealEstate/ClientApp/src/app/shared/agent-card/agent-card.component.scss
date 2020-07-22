@@ -30,7 +30,11 @@ button:hover{
   box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
   background:linear-gradient(45deg,$primary-color-blue-purple , $primary-color-aqua);
 }
-
+.isClicked{
+  border: unset;
+  color: black;
+  background:$primary-color-aqua;
+}
 
 mat-card-title{
   color: $primary-color-aqua;

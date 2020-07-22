@@ -33,6 +33,6 @@
             <span class="material-icons purple">attach_money</span>{{user.agentProfile.defaultRate}} %
             </p>
           </div>
-          <button class = "button">{{button}}</button>
+          <button (click)="runOnComplete(); enableDisableRule()"  [ngClass]="{'button' : toggle, 'isClicked': !toggle}">{{button}}</button>
   </mat-card-content>
 </mat-card>

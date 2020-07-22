@@ -14,6 +14,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {AuthGuard} from './shared/auth';
 import {MaterialFileInputModule} from 'ngx-material-file-input';
+import {SharedModule} from './shared/shared.module';
 export function tokenGetter(): string {
   return localStorage.getItem('jwt');
 }
@@ -36,6 +37,7 @@ export function tokenGetter(): string {
     UserModule,
     HttpClientModule,
     FlexLayoutModule,
+    SharedModule,
     JwtModule.forRoot({
       config: {},
     }),
