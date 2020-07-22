@@ -37,17 +37,17 @@ export class PropertyService {
       this.propertyForm.append(`Questions[${i}][QuestionText]`, questionsArray.at(i).value);
     }
   }
-  fourthStep(length, agentsArray): any {
+  addProperty(length, agentsArray): Observable<any> {
     for (let i = 0; i < length; i++) {
       this.propertyForm.append(`AgentsId[${i}]`, agentsArray.at(i).value);
     }
+    return this.http.post(`${this.baseUrl}`, this.propertyForm);
   }
-  addProperty(files): Observable<any> {
+  fourthStep(files): any {
     if (files.length > 0) {
-      for (let i = 0; i < length; i++) {
+      for (let i = 0; i < files.length; i++) {
         this.propertyForm.append('Photos', files[i]);
       }
     }
-    return this.http.post(`${this.baseUrl}`, this.propertyForm);
   }
 }

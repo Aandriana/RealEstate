@@ -25,10 +25,11 @@ import {AnimateModule} from '../animate/animate.module';
 import {MaterialFileInputModule} from 'ngx-material-file-input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { AddAgentsComponent } from './add-property/add-agents/add-agents.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent, AddPropertyComponent, AgentListComponent, MainComponent],
+  declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent, AddPropertyComponent, AgentListComponent, MainComponent, AddAgentsComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

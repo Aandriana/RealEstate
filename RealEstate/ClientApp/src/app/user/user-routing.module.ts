@@ -6,6 +6,7 @@ import {PropertyListComponent} from './property-list/property-list.component';
 import {AddPropertyComponent} from './add-property/add-property.component';
 import {AgentListComponent} from './agent-list/agent-list.component';
 import {MainComponent} from './main/main.component';
+import {AddAgentsComponent} from './add-property/add-agents/add-agents.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,9 @@ const routes: Routes = [
           expectedRole: 'User'
         }},
       {path: 'agents', component: AgentListComponent, canActivate: [AuthGuard], data: {
+          expectedRole: 'User'
+        }},
+      {path: 'property/add/agents', component: AddAgentsComponent, canActivate: [AuthGuard], data: {
           expectedRole: 'User'
         }},
     ]}
