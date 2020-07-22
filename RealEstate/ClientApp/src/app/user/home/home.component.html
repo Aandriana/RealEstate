@@ -1,20 +1,19 @@
-<div class="main"><app-toolbar></app-toolbar></div>
 <div class="container">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <path fill="#242E42FF" fill-opacity="1" d="M0,32L30,42.7C60,53,120,75,180,96C240,117,300,139,360,154.7C420,171,480,181,540,160C600,139,660,85,720,96C780,107,840,181,900,202.7C960,224,1020,192,1080,160C1140,128,1200,96,1260,90.7C1320,85,1380,107,1410,117.3L1440,128L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path>
   </svg>
   <div class = 'content' fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
-    <div  [fxShow]="true"  [fxShow.sm]="false" [fxShow.xs]="false" style="height: 600px"fxFlex="60"><img class="image" ng src="assets/img/newpsadge.png"></div>
-    <div  fxFlex="40" class = "button"><button (click)="myProperties()">My properties</button></div>
+    <div [fxShow]="true"  [fxShow.sm]="false" [fxShow.xs]="false" style="height: 600px"fxFlex="60"><img class="image" ng src="assets/img/newpsadge.png"></div>
+    <div fxFlex="40" class = "button"><button (click)="myProperties()">My properties</button></div>
   </div>
 </div>
 <div class="container next">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <path fill="#7275EBFF" fill-opacity="1" d="M0,96L30,133.3C60,171,120,245,180,240C240,235,300,149,360,144C420,139,480,213,540,213.3C600,213,660,139,720,122.7C780,107,840,149,900,165.3C960,181,1020,171,1080,160C1140,149,1200,139,1260,122.7C1320,107,1380,85,1410,74.7L1440,64L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path>
   </svg>
-  <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+  <div  fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
     <div  style="height: 600px" fxFlex="40" class = "button"> <button (click)="addProperty()">Add property</button></div>
-    <di [fxShow]="true"  [fxShow.sm]="false" [fxShow.xs]="false" style="height: 600px"fxFlex="60"><img class="image nextimage" src="assets/img/lookforagent.png"></di>
+    <div  [fxShow]="true"  [fxShow.sm]="false" [fxShow.xs]="false" style="height: 600px"fxFlex="60"><img class="image nextimage" src="assets/img/lookforagent.png"></div>
   </div>
 </div>
 <div class="container">
@@ -31,5 +30,4 @@
     <path fill="#7275EBFF" fill-opacity="1" d="M0,96L26.7,85.3C53.3,75,107,53,160,37.3C213.3,21,267,11,320,42.7C373.3,75,427,149,480,181.3C533.3,213,587,203,640,170.7C693.3,139,747,85,800,69.3C853.3,53,907,75,960,80C1013.3,85,1067,75,1120,96C1173.3,117,1227,171,1280,170.7C1333.3,171,1387,117,1413,90.7L1440,64L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z"></path>
   </svg>
 </div>
-<div><app-footer></app-footer></div>
 

@@ -12,7 +12,6 @@ import {LoginModule} from './login/login.module';
 import {UserModule} from './user/user.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {MatStepperIntl} from '@angular/material/stepper';
 import {AuthGuard} from './shared/auth';
 import {MaterialFileInputModule} from 'ngx-material-file-input';
 export function tokenGetter(): string {

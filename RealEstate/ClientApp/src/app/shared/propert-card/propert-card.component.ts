@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PropertyListModel, PropertyStatus} from '../../../core/models';
+import {PropertyListModel} from '../../core/models';
 
 @Component({
   selector: 'app-propert-card',
@@ -8,8 +8,6 @@ import {PropertyListModel, PropertyStatus} from '../../../core/models';
 })
 export class PropertCardComponent implements OnInit {
   @Input() property: PropertyListModel;
-  @Input() Status: PropertyStatus;
-  status = this.Status;
   constructor() { }
   ngOnInit(): void {
   }

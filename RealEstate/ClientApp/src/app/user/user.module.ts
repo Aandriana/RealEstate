@@ -17,13 +17,18 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { AddPropertyComponent } from './add-property/add-property.component';
 import { AgentListComponent } from './agent-list/agent-list.component';
-import { PropertCardComponent } from './property-list/propert-card/propert-card.component';
-import { AgentCardComponent } from './agent-list/agent-card/agent-card.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {SharedModule} from '../shared/shared.module';
+import { MainComponent } from './main/main.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {AnimateModule} from '../animate/animate.module';
+import {MaterialFileInputModule} from 'ngx-material-file-input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
-  declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent, AddPropertyComponent, AgentListComponent, PropertCardComponent, AgentCardComponent],
+  declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent, AddPropertyComponent, AgentListComponent, MainComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
@@ -39,6 +44,12 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatCardModule,
     MatGridListModule,
     ReactiveFormsModule,
+    SharedModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    AnimateModule,
+    MaterialFileInputModule,
+    MatInputModule
   ],
   providers: []
 })

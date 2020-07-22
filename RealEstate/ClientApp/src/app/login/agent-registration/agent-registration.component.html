@@ -10,56 +10,56 @@
         <p>
           <mat-form-field>
             <span class="material-icons">person</span>
-            <input formControlName="FirstName" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First Name">
-            <mat-error *ngIf="registrationForm.get('FirstName').errors?.required">
+            <input formControlName="firstName" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First Name">
+            <mat-error *ngIf="registrationForm.get('firstName').errors?.required">
               required field</mat-error>
             <mat-error
-              *ngIf="registrationForm.get('FirstName').errors?.minlength || registrationForm.get('FirstName').errors?.maxlength">
+              *ngIf="registrationForm.get('firstName').errors?.minlength || registrationForm.get('firstName').errors?.maxlength">
               incorrect data</mat-error>
           </mat-form-field>
         </p>
         <p>
           <mat-form-field>
             <span class="material-icons">person</span>
-            <input formControlName="LastName" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last Name">
-            <mat-error *ngIf="registrationForm.get('LastName').errors?.required">
+            <input formControlName="lastName" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last Name">
+            <mat-error *ngIf="registrationForm.get('lastName').errors?.required">
               required field</mat-error>
             <mat-error
-              *ngIf="registrationForm.get('LastName').errors?.minlength || registrationForm.get('LastName').errors?.maxlength">
+              *ngIf="registrationForm.get('lastName').errors?.minlength || registrationForm.get('lastName').errors?.maxlength">
               incorrect data</mat-error>
           </mat-form-field>
         </p>
         <p>
           <mat-form-field>
             <span class="material-icons">call</span>
-            <input formControlName="PhoneNumber" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phone number">
-            <mat-error *ngIf="registrationForm.get('PhoneNumber').errors?.required">
+            <input formControlName="phoneNumber" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phone number">
+            <mat-error *ngIf="registrationForm.get('phoneNumber').errors?.required">
               required field</mat-error>
             <mat-error
-              *ngIf="registrationForm.get('PhoneNumber').errors?.minlength || registrationForm.get('PhoneNumber').errors?.maxlength">
+              *ngIf="registrationForm.get('phoneNumber').errors?.minlength || registrationForm.get('phoneNumber').errors?.maxlength">
               incorrect data</mat-error>
           </mat-form-field>
         </p>
         <p>
           <mat-form-field>
             <span class="material-icons">mail_outline</span>
-            <input formControlName="Email" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail Address" >
-            <mat-error *ngIf="registrationForm.get('Email').errors?.required">
+            <input formControlName="email" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail Address" >
+            <mat-error *ngIf="registrationForm.get('email').errors?.required">
               required field</mat-error>
             <mat-error
-              *ngIf="registrationForm.get('Email').errors?.minlength || registrationForm.get('Email').errors?.maxlength">
+              *ngIf="registrationForm.get('email').errors?.minlength || registrationForm.get('email').errors?.maxlength">
               incorrect data</mat-error>
           </mat-form-field>
         </p>
         <p>
           <mat-form-field>
             <span class="material-icons">lock</span>
-            <input formControlName="Password"  matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password"  matInput [type]="hide ? 'password' : 'text'">
+            <input formControlName="password"  matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password"  matInput [type]="hide ? 'password' : 'text'">
 
-            <mat-error *ngIf="registrationForm.get('Password').errors?.required">
+            <mat-error *ngIf="registrationForm.get('password').errors?.required">
               required field </mat-error>
             <mat-error
-              *ngIf="registrationForm.get('Password').errors?.minlength || registrationForm.get('Password').errors?.maxlength">
+              *ngIf="registrationForm.get('password').errors?.minlength || registrationForm.get('password').errors?.maxlength">
               incorrect data</mat-error>
 
             <button class ="hide" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
@@ -71,11 +71,11 @@
         <p>
           <mat-form-field>
             <span class="material-icons">lock</span>
-            <input type="password" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Re-type password" formControlName="ConfirmPassword" matInput [type]="hide ? 'password' : 'text'">
-            <mat-error *ngIf="registrationForm.get('ConfirmPassword').errors?.required">
+            <input type="password" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Re-type password" formControlName="confirmPassword" matInput [type]="hide ? 'password' : 'text'">
+            <mat-error *ngIf="registrationForm.get('confirmPassword').errors?.required">
               requried field </mat-error>
             <mat-error
-              *ngIf="registrationForm.get('ConfirmPassword').errors?.minlength || registrationForm.get('ConfirmPassword').errors?.maxlength">
+              *ngIf="registrationForm.get('confirmPassword').errors?.minlength || registrationForm.get('confirmPassword').errors?.maxlength">
               incorrect data</mat-error>
 
             <button mat-icon-button matSuffix class = "hide" (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
@@ -94,14 +94,14 @@
       </mat-card-footer>
     </mat-card>
   </mat-step>
-  <mat-step  [stepControl]="AgentProfile">
+  <mat-step  [stepControl]="agentProfile">
 <mat-card>
   <mat-card-content>
-        <form [formGroup]="AgentProfile" autocomplete="off">
+        <form [formGroup]="agentProfile" autocomplete="off">
           <p>
           <mat-form-field>
-            <input matInput [matDatepicker]="picker" matInput [max]="maxDate" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Birthday date (mm/dd/yy)" formControlName="BirthDate">
-            <mat-error *ngIf="AgentProfile.get('BirthDate').errors?.required">
+            <input matInput [matDatepicker]="picker" matInput [max]="maxDate" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Birthday date (mm/dd/yy)" formControlName="birthDate">
+            <mat-error *ngIf="agentProfile.get('birthDate').errors?.required">
               required field</mat-error>
             <mat-datepicker-toggle class="calendar" matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker  #picker></mat-datepicker>
@@ -111,24 +111,24 @@
           <p>
             <mat-form-field>
               <span class="material-icons">location_on</span>
-              <input formControlName="City" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City">
+              <input formControlName="city" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City">
             </mat-form-field>
           </p>
 
           <p>
             <mat-form-field>
               <span class="material-icons">description</span>
-              <input formControlName="Description" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A few words about you for customers">
+              <input formControlName="description" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A few words about you for customers">
             </mat-form-field>
           </p>
 
           <p>
             <mat-form-field>
               <span class="material-icons">rate_review</span>
-              <input formControlName="DefaultRate" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default rate">
-              <mat-error *ngIf="AgentProfile.get('DefaultRate').errors?.pattern">
+              <input formControlName="defaultRate" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default rate">
+              <mat-error *ngIf="agentProfile.get('defaultRate').errors?.pattern">
                  should be float number</mat-error>
-              <mat-error *ngIf="AgentProfile.get('DefaultRate').errors?.required">
+              <mat-error *ngIf="agentProfile.get('defaultRate').errors?.required">
                 required field</mat-error>
             </mat-form-field>
           </p>
@@ -145,7 +145,7 @@
       <mat-card-content>
     <form [formGroup]="registrationForm" autocomplete="off">
       <mat-form-field>
-        <ngx-mat-file-input formControlName="Image" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add photo">
+        <ngx-mat-file-input formControlName="image" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add photo">
         </ngx-mat-file-input>
         <span matSuffix class="material-icons">add_a_photo</span>
       </mat-form-field>

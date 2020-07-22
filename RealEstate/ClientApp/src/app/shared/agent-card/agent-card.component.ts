@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AgentListModel} from '../../../core/models';
+import {AgentListModel} from '../../core/models';
 
 @Component({
   selector: 'app-agent-card',
@@ -8,6 +8,7 @@ import {AgentListModel} from '../../../core/models';
 })
 export class AgentCardComponent implements OnInit {
   @Input() user: AgentListModel;
+  @Input() button: string;
   constructor() { }
 
   ngOnInit(): void {

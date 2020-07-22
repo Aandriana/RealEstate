@@ -3,7 +3,8 @@
   <a class="mat-menu-item" mat-button *ngFor="let item of menuItems"
           [fxShow]="item.showOnDesktop"
           [fxShow.xs]="item.showOnMobile"
-          [fxShow.sm]="item.showOnTablet">
+          [fxShow.sm]="item.showOnTablet"
+     (click)="onClick(item.click)">
     {{item.label}}
   </a>
   <ng-container>
@@ -14,7 +15,8 @@
       <ng-container *ngFor="let item of menuItems">
         <div [fxShow]="!item.showOnDesktop"
              [fxShow.sm]="!item.showOnTablet"
-             [fxShow.xs]="!item.showOnMobile">
+             [fxShow.xs]="!item.showOnMobile"
+             (click)="onClick(item.click)">
           <button mat-menu-item>
             {{item.label}}
           </button>

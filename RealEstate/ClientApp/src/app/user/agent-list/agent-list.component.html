@@ -1,10 +1,9 @@
-<div class="main"><app-toolbar></app-toolbar></div>
 <div class="main" fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
-  <app-agent-card fxFlex="0 1 calc(20% - 32px)"
+  <app-agent-card  fxFlex="0 1 calc(20% - 32px)"
                     fxFlex.lt-md="0 1 calc(50% - 32px)"
                     fxFlex.lt-sm="100%"
                   *ngFor="let user of agentList"
-  [user]="user" >
+  [user]="user" [button]="button" >
   </app-agent-card>
 </div>
 <mat-paginator [length]="100"
@@ -13,4 +12,3 @@
                [pageSizeOptions]="[5, 25, 50, 100]"
                (page)="onPageFired($event)">
 </mat-paginator>
-<div><app-footer></app-footer></div>

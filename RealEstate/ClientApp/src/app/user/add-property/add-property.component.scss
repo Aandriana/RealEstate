@@ -1,0 +1,218 @@
+@import "src/app/app.component.scss";
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:linear-gradient($primary-color-aqua,$primary-color-purple-dark);
+  background-size: cover;
+  height: 100%;
+}
+input{
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  width: 400px;
+}
+
+mat-horizontal-stepper{
+  align-items: center;
+  justify-content: center;
+  background-color: $primary-color-background;
+
+}
+.material-icons{
+  color: $primary-color-aqua;
+  size: 3px;
+}
+
+>>> .mat-datepicker-toggle {
+  color: $primary-color-aqua !important;
+  size: 5px !important;
+}
+
+::ng-deep .mat-form-field{
+  align-items: center;
+  color:white !important;
+  font-family: Montserrat;
+  width: 550px;
+}
+
+@media screen and (max-width: 750px) {
+  .mat-card {
+    box-shadow: 0px 0px 0px 0px;
+  }
+  .sign-up-button{
+    width: 350px !important;
+    height: 35px !important;
+  }
+  :host {
+    background: $primary-color-background;
+    height: 100%;
+    background-size: cover;
+  }
+  ::ng-deep .mat-form-field{
+    width: 350px;
+  }
+  .info, mat-card-subtitle, mat-card-footer{
+    padding-left: unset;
+    justify-content: center !important;
+  }
+  mat-card-footer{
+    background: $primary-color-background;
+  }
+  mat-stepper-horizontal{
+    align-content: start;
+    justify-content: center;
+  }
+  ::ng-deep .mat-horizontal-stepper-header-container {
+    display: none !important;
+  }
+  .next-button{
+    margin-left: unset !important;
+  }
+
+  .back-button{
+    margin-left: unset !important;
+  }
+  .first{
+    width: unset;
+  }
+}
+mat-card-title{
+  padding-top: 40px;
+  padding-bottom: 15px;
+}
+
+.mat-form-field {
+  align-items: start;
+  justify-content: start;
+}
+
+mat-card{
+  align-items: center;
+  justify-content: center;
+  background-color: $primary-color-background;
+
+}
+
+::ng-deep .mat-form-field-underline{
+  background-color:$primary-color-aqua !important;
+}
+::ng-deep .mat-form-field-label{
+  color:$primary-color-aqua !important;
+  font-family: Montserrat;
+}
+::ng-deep .mat-form-field-underline .mat-form-field-ripple{
+  background-color: $primary-color-aqua;
+}
+
+.hide{
+  background-color:$primary-color-background;
+  border: none;
+  font-size: 15px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  align-items: center;
+  width: 550px;
+  justify-content: normal;
+  padding-left: 70px;
+  font-family: Montserrat;
+  align-content: center;
+  font-size: 45px;
+  display: flex;
+  color: $primary-color-aqua;
+}
+mat-card-subtitle{
+  width: 550px;
+  font-family: Montserrat;
+  color: white;
+  display: flex;
+  font-size: 13px;
+  padding-bottom: 15px;
+  padding-left: 70px;
+}
+.sign-up-button{
+  width: 550px;
+  height: 40px;
+  background:linear-gradient(45deg, $primary-color-purple,$primary-color-purple-dark);
+  font-family: Montserrat;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  align-content: center;
+  margin-top: 15px;
+}
+.sign-up-button:hover{
+  background:linear-gradient(45deg, $primary-color-aqua,$primary-color-purple);
+  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+}
+a{
+  color: $primary-color-aqua;
+}
+mat-card-footer
+{
+  font-family: Montserrat;
+  padding-left: 40px;
+  padding-bottom: 20px;
+  padding-top: 5px;
+  display: flex;
+  color: white;
+}
+.real-estate{
+  color: $primary-color-blue-purple;
+}
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+mat-step {
+  align-content: center;
+  justify-content: center;
+}
+::ng-deep .mat-horizontal-stepper-header-container {
+  margin-left: 50px !important;
+}
+.next-button {
+  width: 70px;
+  height: 30px;
+  background:linear-gradient(45deg, $primary-color-purple,$primary-color-purple-dark) !important;
+  font-family: Montserrat;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  align-content: end;
+  margin-top: 15px;
+  margin-left: 410px;
+}
+.next-button:hover{
+  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+}
+.first{
+  width: 130px;
+}
+.back-button{
+  width: 70px;
+  height: 30px;
+  background:linear-gradient(45deg, $primary-color-purple,$primary-color-purple-dark)!important;
+  font-family: Montserrat;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  align-content: start;
+  margin-top: 15px;
+}
+.back-button:hover{
+  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+}
+
+
+
+
+

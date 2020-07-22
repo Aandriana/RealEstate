@@ -10,7 +10,7 @@
             <img *ngIf="user.imagePath == null"
                  class = "photo"
                  style="width: 200px"
-                 src="assets/img/defaultuser.jpg"
+                 src="./assets/img/defaultuser.jpg"
                  alt=""
             />
           </a>
@@ -25,14 +25,14 @@
           <mat-card-content>
           <div>
             <p class="rating">{{user.agentProfile.rating}}<span class="material-icons">star_border</span></p>
-            <p class = "info"*ngIf="user.agentProfile.city != null">
+            <p class = "info" *ngIf="user.agentProfile.city != null">
               <mat-icon class = "icon purple">room</mat-icon>
               {{ user.agentProfile.city.substring(0, 400) }}
             </p>
             <p class = "info">
-            <span class="material-icons purple">attach_money</span>{{user.agentProfile.defaultRate}}
+            <span class="material-icons purple">attach_money</span>{{user.agentProfile.defaultRate}} %
             </p>
           </div>
-          <button class = "button">More details</button>
+          <button class = "button">{{button}}</button>
   </mat-card-content>
 </mat-card>

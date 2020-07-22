@@ -3,4 +3,5 @@ export interface MenuItem {
   showOnMobile: boolean;
   showOnTablet: boolean;
   showOnDesktop: boolean;
+  click: string;
 }

@@ -1,3 +1,153 @@
-<div *ngFor="let control of questions.controls; index as i">
-  <input [formControl]="questions.controls[i]" />
-</div>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="addPropertyForm">
+    <mat-card-title class = "info">
+      <span class="material-icons real-estate">home_work</span>Real estate
+    </mat-card-title>
+    <mat-card-subtitle><span>Want to sign up fill out this form!</span></mat-card-subtitle>
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="addPropertyForm" autocomplete="off">
+          <p>
+            <mat-form-field>
+              <span class="material-icons">person</span>
+              <input matInput formControlName="size" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Size">
+              <mat-error *ngIf="addPropertyForm.get('size').errors?.required">
+                required field</mat-error>
+              <mat-error *ngIf="addPropertyForm.get('size').errors?.pattern">
+                should be float number</mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+              <span class="material-icons">person</span>
+              <input  formControlName="category" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Category">
+              <mat-error *ngIf="addPropertyForm.get('category').errors?.required">
+                required field</mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+              <span class="material-icons">call</span>
+              <label>
+                <input  formControlName="floorsNumber" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Floors number">
+              </label>
+              <mat-error *ngIf="addPropertyForm.get('floorsNumber').errors?.required">
+                required field</mat-error>
+              <mat-error *ngIf="addPropertyForm.get('floorsNumber').errors?.pattern">
+                should be integer</mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+              <span class="material-icons">mail_outline</span>
+              <input formControlName="floors" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Floors" >
+              <mat-error *ngIf="addPropertyForm.get('floors').errors?.required">
+                required field</mat-error>
+              <mat-error *ngIf="addPropertyForm.get('floors').errors?.pattern">
+                should be integer</mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+              <span class="material-icons">lock</span>
+              <input formControlName="price"  matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price">
+              <mat-error *ngIf="addPropertyForm.get('price').errors?.required">
+                required field </mat-error>
+              <mat-error *ngIf="addPropertyForm.get('price').errors?.pattern">
+                should be float number</mat-error>
+            </mat-form-field>
+          </p>
+          <div>
+            <button  (click)="onFirstSubmit()" mat-button matStepperNext class = "next-button first">Next</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-step>
+  <mat-step [stepControl]="addPropertyForm">
+    <mat-card-title class = "info">
+      <span class="material-icons real-estate">home_work</span>Real estate
+    </mat-card-title>
+    <mat-card-subtitle><span>Want to sign up fill out this form!</span></mat-card-subtitle>
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="addPropertyForm" autocomplete="off">
+          <p>
+            <mat-form-field>
+              <span class="material-icons">person</span>
+              <input matInput formControlName="city" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City">
+              <mat-error *ngIf="addPropertyForm.get('city').errors?.required">
+                required field</mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+              <span class="material-icons">person</span>
+              <input  formControlName="address" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address">
+              <mat-error *ngIf="addPropertyForm.get('address').errors?.required">
+                required field</mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+              <span class="material-icons">call</span>
+              <label>
+                <input  formControlName="buildYear" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build year">
+              </label>
+              <mat-error *ngIf="addPropertyForm.get('buildYear').errors?.required">
+                required field</mat-error>
+            </mat-form-field>
+          </p>
+          <div>
+            <button mat-button matStepperPrevious class = "back-button">Back</button>
+            <button mat-button matStepperNext class = "next-button" (click)="onSecondSubmit()">Next</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-step>
+  <mat-step  [stepControl]="addPropertyForm">
+    <mat-card>
+      <mat-card-content>
+      <div [formGroup]="addPropertyForm"  >
+        <div formArrayName="questions">
+          <button (click)="addQuestions()">add</button>
+          <div *ngFor="let question of questionsArray.controls; index as i">
+            <input [formControlName]="i" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Question" />
+          </div>
+      </div>
+      </div>
+      </mat-card-content>
+      <mat-card-content>
+          <div>
+            <button mat-button matStepperPrevious class = "back-button">Back</button>
+            <button mat-button matStepperNext class = "next-button" (click)="onThirtSubmit()">Next</button>
+          </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-step>
+  <mat-step>
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="addPropertyForm" autocomplete="off">
+          <mat-form-field>
+            <ngx-mat-file-input multiple="true" formControlName="photos" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add photos">
+            </ngx-mat-file-input>
+            <span matSuffix class="material-icons">add_a_photo</span>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious class = "back-button">Back</button>
+            <button mat-button (click)="stepper.reset()" class = "next-button">Reset</button>
+          </div>
+
+          <div class="button">
+            <button mat-raised-button  class="sign-up-button" type="submit"
+                    (click)="onSubmit()">Add property</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-step>
+</mat-horizontal-stepper>
+
+

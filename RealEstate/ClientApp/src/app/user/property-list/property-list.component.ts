@@ -22,12 +22,12 @@ export class PropertyListComponent implements OnInit {
 
   getProperties(): any {
     this.propertyService.getProperties(this.pageNumber, this.pageSize)
-      .subscribe((data: PropertyListModel[]) => this.PropertyListModel = data);
+      .subscribe(data => this.PropertyListModel = data);
   }
 
   onPageFired(event): any {
     event.pageIndex++;
     this.propertyService.getProperties(event.pageIndex, event.pageSize)
-      .subscribe((data: PropertyListModel[]) => this.PropertyListModel = data);
+      .subscribe(data => this.PropertyListModel = data);
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from '../../core/models';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -12,37 +13,45 @@ export class ToolbarComponent implements OnInit {
       label: 'Home',
       showOnMobile: false,
       showOnTablet: true,
-      showOnDesktop: true
+      showOnDesktop: true,
+      click: '/home'
     },
     {
       label: 'About',
       showOnMobile: false,
       showOnTablet: true,
-      showOnDesktop: true
+      showOnDesktop: true,
+      click: '/home'
     },
     {
       label: 'Properties',
       showOnMobile: false,
       showOnTablet: false,
-      showOnDesktop: true
+      showOnDesktop: true,
+      click: '/home'
     },
     {
       label: 'Requests',
       showOnMobile: false,
       showOnTablet: false,
-      showOnDesktop: true
+      showOnDesktop: true,
+      click: '/home'
     },
     {
       label: 'Account',
       showOnMobile: false,
       showOnTablet: false,
-      showOnDesktop: true
+      showOnDesktop: true,
+      click: '/home'
     },
   ];
-
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
   }
 
-}
+  onClick(route): any{
+    return this.router.navigateByUrl(`${route}`);
+  }
+  }
+

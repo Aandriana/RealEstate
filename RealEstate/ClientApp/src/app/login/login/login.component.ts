@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
    this.authService.login(this.loginForm.value).subscribe(res => {
-     if(!res) console.error('error');
+     if (!res) { console.error('error'); }
      this.router.navigateByUrl('/home');
    });
   }
