@@ -20,9 +20,9 @@ export class PropertyService {
     params = params.append('pageSize', pageSize);
     return this.http.get(`${this.baseUrl}/user`, params);
   }
-  firstStep(addPropertyForm): void{
+  firstStep(addPropertyForm, category): void{
     this.propertyForm.append('Size', addPropertyForm.size);
-    this.propertyForm.append('Category', addPropertyForm.category);
+    this.propertyForm.append('Сategory', category);
     this.propertyForm.append('FloorsNumber', addPropertyForm.floorsNumber);
     this.propertyForm.append('Floors', addPropertyForm.floors);
     this.propertyForm.append('Price', addPropertyForm.price);

@@ -26,32 +26,34 @@ import {MaterialFileInputModule} from 'ngx-material-file-input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { AddAgentsComponent } from './add-property/add-agents/add-agents.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
   declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent, AddPropertyComponent, AgentListComponent, MainComponent, AddAgentsComponent],
-  imports: [
-    CommonModule,
-    UserRoutingModule,
-    MatMenuModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatDividerModule,
-    ExtendedModule,
-    FlexModule,
-    MatButtonModule,
-    NgsRevealModule,
-    MatPaginatorModule,
-    MatCardModule,
-    MatGridListModule,
-    ReactiveFormsModule,
-    SharedModule,
-    MatStepperModule,
-    MatFormFieldModule,
-    AnimateModule,
-    MaterialFileInputModule,
-    MatInputModule
-  ],
+    imports: [
+        CommonModule,
+        UserRoutingModule,
+        MatMenuModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatDividerModule,
+        ExtendedModule,
+        FlexModule,
+        MatButtonModule,
+        NgsRevealModule,
+        MatPaginatorModule,
+        MatCardModule,
+        MatGridListModule,
+        ReactiveFormsModule,
+        SharedModule,
+        MatStepperModule,
+        MatFormFieldModule,
+        AnimateModule,
+        MaterialFileInputModule,
+        MatInputModule,
+        MatRadioModule
+    ],
   providers: []
 })
 

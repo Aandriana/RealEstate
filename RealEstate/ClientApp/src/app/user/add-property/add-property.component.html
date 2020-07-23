@@ -3,13 +3,20 @@
     <mat-card-title class = "info">
       <span class="material-icons real-estate">home_work</span>Real estate
     </mat-card-title>
-    <mat-card-subtitle><span>Want to sign up fill out this form!</span></mat-card-subtitle>
+    <mat-card-subtitle><span>Fill out the form to add property</span></mat-card-subtitle>
     <mat-card>
       <mat-card-content>
         <form [formGroup]="addPropertyForm" autocomplete="off">
           <p>
+            <mat-radio-group class = "radio" aria-label="Select an option" name="category">
+              <mat-radio-button (change)="onChange($event)" value=0>Flat&nbsp;&nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button (change)="onChange($event)" value=1>House&nbsp;&nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button  (change)="onChange($event)" value=3>Сortege</mat-radio-button>
+            </mat-radio-group>
+          </p>
+          <p>
             <mat-form-field>
-              <span class="material-icons">person</span>
+             <span class="material-icons">unfold_more</span>
               <input matInput formControlName="size" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Size">
               <mat-error *ngIf="addPropertyForm.get('size').errors?.required">
                 required field</mat-error>
@@ -19,18 +26,8 @@
           </p>
           <p>
             <mat-form-field>
-              <span class="material-icons">person</span>
-              <input  formControlName="category" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Category">
-              <mat-error *ngIf="addPropertyForm.get('category').errors?.required">
-                required field</mat-error>
-            </mat-form-field>
-          </p>
-          <p>
-            <mat-form-field>
-              <span class="material-icons">call</span>
-              <label>
+              <span class="material-icons">layers</span>
                 <input  formControlName="floorsNumber" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Floors number">
-              </label>
               <mat-error *ngIf="addPropertyForm.get('floorsNumber').errors?.required">
                 required field</mat-error>
               <mat-error *ngIf="addPropertyForm.get('floorsNumber').errors?.pattern">
@@ -39,7 +36,7 @@
           </p>
           <p>
             <mat-form-field>
-              <span class="material-icons">mail_outline</span>
+              <span class="material-icons">format_line_spacing</span>
               <input formControlName="floors" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Floors" >
               <mat-error *ngIf="addPropertyForm.get('floors').errors?.required">
                 required field</mat-error>
@@ -49,7 +46,7 @@
           </p>
           <p>
             <mat-form-field>
-              <span class="material-icons">lock</span>
+             <span class="material-icons">attach_money</span>
               <input formControlName="price"  matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price">
               <mat-error *ngIf="addPropertyForm.get('price').errors?.required">
                 required field </mat-error>
@@ -68,21 +65,20 @@
     <mat-card-title class = "info">
       <span class="material-icons real-estate">home_work</span>Real estate
     </mat-card-title>
-    <mat-card-subtitle><span>Want to sign up fill out this form!</span></mat-card-subtitle>
     <mat-card>
       <mat-card-content>
         <form [formGroup]="addPropertyForm" autocomplete="off">
           <p>
             <mat-form-field>
-              <span class="material-icons">person</span>
-              <input matInput formControlName="city" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City">
+              <span class="material-icons">location_on</span>
+              <input matInput formControlName="city" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City">
               <mat-error *ngIf="addPropertyForm.get('city').errors?.required">
                 required field</mat-error>
             </mat-form-field>
           </p>
           <p>
             <mat-form-field>
-              <span class="material-icons">person</span>
+              <span class="material-icons">location_searching</span>
               <input  formControlName="address" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address">
               <mat-error *ngIf="addPropertyForm.get('address').errors?.required">
                 required field</mat-error>
@@ -90,7 +86,7 @@
           </p>
           <p>
             <mat-form-field>
-              <span class="material-icons">call</span>
+              <span class="material-icons">calendar_today</span>
               <label>
                 <input  formControlName="buildYear" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build year">
               </label>
@@ -108,15 +104,25 @@
   </mat-step>
   <mat-step  [stepControl]="addPropertyForm">
     <mat-card>
+      <mat-card-subtitle>
+        You can add some questions to agents
+      </mat-card-subtitle>
       <mat-card-content>
-      <div [formGroup]="addPropertyForm"  >
+        <form [formGroup]="addPropertyForm" autocomplete="off">
+      <div>
         <div formArrayName="questions">
-          <button (click)="addQuestions()">add</button>
+          <button class="addQuestions" (click)="addQuestions()">Add</button>
           <div *ngFor="let question of questionsArray.controls; index as i">
-            <input [formControlName]="i" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Question" />
+            <mat-form-field>
+            <span class="material-icons">question_answer</span>
+            <label>
+            <input [formControlName]="i" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Question" />
+            </label>
+              </mat-form-field>
           </div>
       </div>
       </div>
+        </form>
       </mat-card-content>
       <mat-card-content>
           <div>
@@ -128,6 +134,9 @@
   </mat-step>
   <mat-step [stepControl]="addPropertyForm">
     <mat-card>
+      <mat-card-subtitle>
+        Add property photos
+      </mat-card-subtitle>
       <mat-card-content>
         <form [formGroup]="addPropertyForm" autocomplete="off">
           <mat-form-field>

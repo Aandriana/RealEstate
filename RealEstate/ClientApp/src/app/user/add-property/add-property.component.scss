@@ -208,7 +208,39 @@ mat-step {
   color: white;
   font-family: Montserrat;
 }
+.addQuestions{
+  width: 100px;
+  color: white;
+  background:linear-gradient(45deg, $primary-color-purple,$primary-color-purple-dark);
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  font-family: Montserrat;
+  font-size: 20px;
+  border: unset !important;
+  border-radius: 8px;
+}
+.addQuestions:hover{
+  background:linear-gradient(45deg, $primary-color-aqua,$primary-color-purple);
+  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+}
+/deep/ .mat-radio-outer-circle {
+  .mat-radio-checked & {
+    border-color: $primary-color-aqua !important;
+  }
+}
 
+/deep/ .mat-radio-inner-circle {
+  background-color: $primary-color-aqua !important;
+}
+.radio{
+  color: white !important;
+  font-family: Montserrat !important;
+}
+
+/deep/ .mat-radio-outer-circle {
+    border-color: white !important;
+  }
 
 
 

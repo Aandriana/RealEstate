@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./add-agents.component.scss']
 })
 export class AddAgentsComponent implements OnInit {
-  pageSize = 5;
+  pageSize = 25;
   pageNumber = 0;
   button = 'Choose';
   agentList: AgentListModel[];
@@ -39,7 +39,6 @@ export class AddAgentsComponent implements OnInit {
   addProperty(): void{
     const length = this.agentsArray.length;
     this.propertyService.addProperty(length, this.agentsArray).subscribe(res => {
-      if (!res) { console.error('error'); }
       this.router.navigateByUrl('/home');
     });
   }

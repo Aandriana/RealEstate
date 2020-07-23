@@ -3,6 +3,7 @@ import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PropertyService} from '../../core/services/property.service';
 import {Router} from '@angular/router';
 import {FileInput} from 'ngx-material-file-input';
+import {MatRadioChange} from '@angular/material/radio';
 
 @Component({
   selector: 'app-add-property',
@@ -11,6 +12,7 @@ import {FileInput} from 'ngx-material-file-input';
 })
 export class AddPropertyComponent implements OnInit {
   isLinear = false;
+   category: number;
   questionsArray = new FormArray([]);
   addPropertyForm = new FormGroup({
     size: new FormControl('', [Validators.required,  Validators.pattern(/^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/)]),
@@ -29,8 +31,11 @@ export class AddPropertyComponent implements OnInit {
   addQuestions(): any{
     this.questionsArray.push(new FormControl(''));
   }
+  onChange(mrChange: MatRadioChange): any{
+    this.category = mrChange.value;
+  }
   onFirstSubmit(): void{
-    this.propertyService.firstStep(this.addPropertyForm.value);
+    this.propertyService.firstStep(this.addPropertyForm.value, this.category);
   }
   onSecondSubmit(): void{
     this.propertyService.secondStep(this.addPropertyForm.value);
