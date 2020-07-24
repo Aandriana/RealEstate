@@ -56,3 +56,9 @@ mat-card-content{
   color: $primary-color-blue-purple;
   font-size: 15px;
 }
+.photo {
+  width: 253px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 4px;
+}

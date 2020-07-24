@@ -18,6 +18,6 @@ export class AgentService {
     let params = new HttpParams();
     params = params.append('pageNumber', pageNumber);
     params = params.append('pageSize', pageSize);
-    return this.http.get(`${this.baseUrl}/agents`, params);
+    return this.http.getWithParams(`${this.baseUrl}/agents`, params);
   }
 }

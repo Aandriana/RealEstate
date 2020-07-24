@@ -42,7 +42,7 @@ export class ToolbarComponent implements OnInit {
       showOnMobile: false,
       showOnTablet: false,
       showOnDesktop: true,
-      click: '/home'
+      click: '/profile'
     },
   ];
   constructor( private router: Router) { }

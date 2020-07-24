@@ -12,9 +12,10 @@ export class ApiService {
     return this.http.post(url, postData);
   }
 
-  get(url, params): any{
+  getWithParams(url, params): any{
     return this.http.get(url, {params});
   }
-
-
+  get(url): any{
+    return this.http.get(url);
+  }
 }

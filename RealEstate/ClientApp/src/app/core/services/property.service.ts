@@ -3,7 +3,8 @@ import {ApiService} from './api.service';
 import {Injectable} from '@angular/core';
 import {HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {PropertyListModel} from '../models';
+import {JwtResponseModel, PropertyListModel} from '../models';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,10 @@ export class PropertyService {
     let params = new HttpParams();
     params = params.append('pageNumber', pageNumber);
     params = params.append('pageSize', pageSize);
-    return this.http.get(`${this.baseUrl}/user`, params);
+    return this.http.getWithParams(`${this.baseUrl}/user`, params);
   }
   firstStep(addPropertyForm, category): void{
+    this.propertyForm = new FormData();
     this.propertyForm.append('Size', addPropertyForm.size);
     this.propertyForm.append('Сategory', category);
     this.propertyForm.append('FloorsNumber', addPropertyForm.floorsNumber);
@@ -28,9 +30,9 @@ export class PropertyService {
     this.propertyForm.append('Price', addPropertyForm.price);
   }
   secondStep(addPropertyForm): void{
-      this.propertyForm.append('City', addPropertyForm.city);
-      this.propertyForm.append('Address', addPropertyForm.address);
-      this.propertyForm.append('BuildYear', addPropertyForm.buildYear);
+    this.propertyForm.append('City', addPropertyForm.city);
+    this.propertyForm.append('Address', addPropertyForm.address);
+    this.propertyForm.append('BuildYear', addPropertyForm.buildYear);
     }
   thirdStep(length, questionsArray): void {
     for (let i = 0; i < length; i++) {
@@ -41,7 +43,7 @@ export class PropertyService {
     for (let i = 0; i < length; i++) {
       this.propertyForm.append(`AgentsId[${i}]`, agentsArray.at(i).value);
     }
-    return this.http.post(`${this.baseUrl}`, this.propertyForm);
+    return  this.http.post(`${this.baseUrl}`, this.propertyForm);
   }
   fourthStep(files): any {
     if (files.length > 0) {

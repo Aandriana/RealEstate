@@ -3,8 +3,8 @@
     <p>{{property.city}}</p>
   </mat-card-title>
   <mat-card-title>
-    <img *ngIf="property.image!= null" style="width: 400px" src="{{property.image}}"/>
-    <img *ngIf="property.image== null"  style="width: 400px" src="assets/img/DefaultHousePhoto.png"/>
+    <img class = "photo" *ngIf="property.image!= null" style="width: 400px" src="{{property.image}}"/>
+    <img class = "photo" *ngIf="property.image== null"  style="width: 400px" src="assets/img/DefaultHousePhoto.png"/>
   </mat-card-title>
   <mat-card-content>
     <p>{{property.size}} m<sup>2</sup></p>

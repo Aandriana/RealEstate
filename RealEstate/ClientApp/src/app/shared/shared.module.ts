@@ -15,6 +15,7 @@ import {PropertCardComponent} from './propert-card/propert-card.component';
 import {AgentCardComponent} from './agent-card/agent-card.component';
 import {SharedRoutingModule} from './shared-routing.module';
 import {PropertyStatusPipe} from './pipes/property-status-pipe';
+import { UserProfilePageComponent } from './user-profile-page/user-profile-page.component';
 
 
 @NgModule({
@@ -34,8 +35,8 @@ import {PropertyStatusPipe} from './pipes/property-status-pipe';
     ReactiveFormsModule,
     SharedRoutingModule
   ],
-  declarations: [PropertCardComponent, AgentCardComponent, PropertyStatusPipe],
-  exports: [PropertCardComponent, AgentCardComponent, PropertyStatusPipe],
+  declarations: [PropertCardComponent, AgentCardComponent, PropertyStatusPipe, UserProfilePageComponent],
+    exports: [PropertCardComponent, AgentCardComponent, PropertyStatusPipe, UserProfilePageComponent],
   providers: []
 })
 export class SharedModule { }

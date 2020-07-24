@@ -27,10 +27,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { AddAgentsComponent } from './add-property/add-agents/add-agents.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent, AddPropertyComponent, AgentListComponent, MainComponent, AddAgentsComponent],
+  declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent, AddPropertyComponent, AgentListComponent, MainComponent, AddAgentsComponent, MyProfileComponent],
     imports: [
         CommonModule,
         UserRoutingModule,
