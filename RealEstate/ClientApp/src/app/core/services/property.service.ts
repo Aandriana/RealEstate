@@ -3,8 +3,7 @@ import {ApiService} from './api.service';
 import {Injectable} from '@angular/core';
 import {HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {JwtResponseModel, PropertyListModel} from '../models';
-import {map} from 'rxjs/operators';
+import {PropertyByIdModel, PropertyListModel} from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +14,19 @@ export class PropertyService {
   constructor(
     private http: ApiService
   ) {}
-  getProperties(pageNumber, pageSize): Observable<PropertyListModel[]> {
+  getProperties(pageNumber, pageSize, category, status): Observable<PropertyListModel[]> {
     let params = new HttpParams();
     params = params.append('pageNumber', pageNumber);
     params = params.append('pageSize', pageSize);
+    if (category !== null) {
+      params = params.append('Category', category);
+    }
+    if (status !== null){
+      params = params.append('Status', status);
+    }
     return this.http.getWithParams(`${this.baseUrl}/user`, params);
   }
+
   firstStep(addPropertyForm, category): void{
     this.propertyForm = new FormData();
     this.propertyForm.append('Size', addPropertyForm.size);
@@ -39,17 +45,20 @@ export class PropertyService {
       this.propertyForm.append(`Questions[${i}][QuestionText]`, questionsArray.at(i).value);
     }
   }
-  addProperty(length, agentsArray): Observable<any> {
-    for (let i = 0; i < length; i++) {
-      this.propertyForm.append(`AgentsId[${i}]`, agentsArray.at(i).value);
-    }
-    return  this.http.post(`${this.baseUrl}`, this.propertyForm);
-  }
   fourthStep(files): any {
     if (files.length > 0) {
       for (let i = 0; i < files.length; i++) {
         this.propertyForm.append('Photos', files[i]);
       }
     }
+  }
+  addProperty(length, agentsArray): Observable<any> {
+    for (let i = 0; i < length; i++) {
+      this.propertyForm.append(`AgentsId[${i}]`, agentsArray.at(i).value);
+    }
+    return  this.http.post(`${this.baseUrl}`, this.propertyForm);
+  }
+  getPropertyById(id: number): Observable<PropertyByIdModel>{
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
 }

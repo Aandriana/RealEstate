@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import {AuthService} from '../../core/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import {NotificationService} from '../../core/services/notificationService';
 @Component({
   selector: 'app-agent-registration',
   templateUrl: './agent-registration.component.html',
@@ -27,7 +28,7 @@ export class AgentRegistrationComponent implements OnInit {
     image: new FormControl(null, [Validators.required, Validators.max(1)])
 });
   maxDate: Date;
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private route: ActivatedRoute, private notificationService: NotificationService) {}
   ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
@@ -39,8 +40,10 @@ export class AgentRegistrationComponent implements OnInit {
   }
   onSubmit(): void {
     this.authService.registerAgent(this.registrationForm.value).subscribe(res => {
-      if (!res) { console.error('error'); }
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/agent/home');
+    }, err => {
+      console.log(err);
+      this.notificationService.warn('Some data must be incorrect. Please, check.');
     });
   }
 }

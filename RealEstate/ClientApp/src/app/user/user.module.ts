@@ -28,10 +28,12 @@ import {MatInputModule} from '@angular/material/input';
 import { AddAgentsComponent } from './add-property/add-agents/add-agents.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { MyProfileEditComponent } from './my-profile-edit/my-profile-edit.component';
+import { PropertyForUserComponent } from './property-for-user/property-for-user.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent, AddPropertyComponent, AgentListComponent, MainComponent, AddAgentsComponent, MyProfileComponent],
+  declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent, AddPropertyComponent, AgentListComponent, MainComponent, AddAgentsComponent, MyProfileComponent, MyProfileEditComponent, PropertyForUserComponent],
     imports: [
         CommonModule,
         UserRoutingModule,

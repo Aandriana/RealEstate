@@ -17,8 +17,8 @@ export class AddPropertyComponent implements OnInit {
   addPropertyForm = new FormGroup({
     size: new FormControl('', [Validators.required,  Validators.pattern(/^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/)]),
     category: new FormControl('', [Validators.required]),
-    floorsNumber: new FormControl('', [Validators.required, Validators.pattern(/(?<=\s|^)\d+(?=\s|$)/)]),
-    floors: new FormControl('', [Validators.required,  Validators.pattern(/(?<=\s|^)\d+(?=\s|$)/)]),
+    floorsNumber: new FormControl('', [Validators.required, Validators.pattern(/(?:\s|^)\d+(?=\s|$)/)]),
+    floors: new FormControl('', [Validators.required,  Validators.pattern(/(?:\s|^)\d+(?=\s|$)/)]),
     price: new FormControl('', [Validators.required, Validators.pattern(/^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/)]),
     city: new FormControl('', Validators.required),
     address: new FormControl('', Validators.required),

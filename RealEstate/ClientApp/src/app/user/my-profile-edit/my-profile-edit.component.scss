@@ -1,0 +1,66 @@
+@import "src/app/app.component.scss";
+.main{
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  background:url("/assets/img/bacg.png") $primary-color-background-dark;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+mat-card{
+  margin: 60px;
+  background: $primary-color-background;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  padding-bottom: 40px;
+  font-family: Montserrat;
+  width: 360px;
+  border-radius: 20px;
+}
+::ng-deep .mat-form-field-underline{
+  background-color:$primary-color-aqua !important;
+}
+::ng-deep .mat-form-field-label{
+  color:$primary-color-aqua !important;
+  font-family: Montserrat;
+}
+::ng-deep .mat-form-field-underline .mat-form-field-ripple{
+  background-color: $primary-color-aqua;
+}
+::ng-deep .mat-form-field{
+  align-items: center;
+  color:white !important;
+  font-family: Montserrat;
+  width: 340px;
+}
+.material-icons{
+  color: $primary-color-aqua;
+  size: 3px;
+}
+mat-card-title{
+  margin-top: 40px;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+}
+.button{
+  align-content: center;
+  justify-content: center;
+  display: flex;
+}
+button{
+  margin-top: 15px;
+  width: 170px;
+  border: unset;
+  height: 50px;
+  border-radius: 8px;
+  background:linear-gradient(45deg, $primary-color-blue-purple, $primary-color-purple);
+  color: white;
+}
+
+button:hover{
+  border: unset;
+  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+  background:linear-gradient(45deg,$primary-color-blue-purple , $primary-color-aqua);
+}

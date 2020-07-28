@@ -8,6 +8,7 @@ import {AgentListComponent} from './agent-list/agent-list.component';
 import {MainComponent} from './main/main.component';
 import {AddAgentsComponent} from './add-property/add-agents/add-agents.component';
 import {MyProfileComponent} from './my-profile/my-profile.component';
+import {MyProfileEditComponent} from './my-profile-edit/my-profile-edit.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,9 @@ const routes: Routes = [
           expectedRole: 'User'
         }},
       {path: 'profile', component: MyProfileComponent, canActivate: [AuthGuard], data: {
+          expectedRole: 'User'
+        }},
+      {path: 'profile/edit', component: MyProfileEditComponent, canActivate: [AuthGuard], data: {
           expectedRole: 'User'
         }},
     ]}

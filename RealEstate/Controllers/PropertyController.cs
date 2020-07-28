@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RealEstate.BLL.DTO;
 using RealEstate.BLL.Interfaces;
+using RealEstate.ViewModels;
 using RealEstateIdentity.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -87,7 +88,7 @@ namespace RealEstateIdentity.Controllers
         [Authorize(Roles = "User")]
         public async Task<IActionResult> UpdatePropertyPhotos(int id, PropertyUpdatePhotosViewModel updatePhotos)
         {
-            var updatePhotosDto = _mapper.Map<PropertyUpdatePhotosDto>(updatePhotos);
+            var updatePhotosDto = _mapper.Map<PropertyUpdatePhotosDto>(updatePhotos);   
             await _propertyService.UpdatePhotos(id, updatePhotosDto);
             return Ok();
         }
@@ -127,7 +128,8 @@ namespace RealEstateIdentity.Controllers
         public async Task<IActionResult> GetPropertyById(int id)
         {
             var property = await _propertyService.GetPropertyById(id);
-            return Ok(property);
+            var propertyVm = _mapper.Map<GetPropertyViewMode>(property);
+            return Ok(propertyVm);
         }
 
         [HttpGet("{id}/offers")]

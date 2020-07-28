@@ -16,6 +16,10 @@ import {AgentCardComponent} from './agent-card/agent-card.component';
 import {SharedRoutingModule} from './shared-routing.module';
 import {PropertyStatusPipe} from './pipes/property-status-pipe';
 import { UserProfilePageComponent } from './user-profile-page/user-profile-page.component';
+import { DialogPropertyFilterComponent } from './dialog-property-filter/dialog-property-filter.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDialogModule} from '@angular/material/dialog';
+import { PropertyPageComponent } from './property-page/property-page.component';
 
 
 @NgModule({
@@ -33,9 +37,11 @@ import { UserProfilePageComponent } from './user-profile-page/user-profile-page.
     MatCardModule,
     MatGridListModule,
     ReactiveFormsModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    MatRadioModule,
+    MatDialogModule
   ],
-  declarations: [PropertCardComponent, AgentCardComponent, PropertyStatusPipe, UserProfilePageComponent],
+  declarations: [PropertCardComponent, AgentCardComponent, PropertyStatusPipe, UserProfilePageComponent, DialogPropertyFilterComponent, PropertyPageComponent],
     exports: [PropertCardComponent, AgentCardComponent, PropertyStatusPipe, UserProfilePageComponent],
   providers: []
 })

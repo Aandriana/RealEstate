@@ -254,7 +254,6 @@ namespace RealEstate.BLL.Services
             {
                 properties = properties.Where(p => p.Status == filter.Status);
             }
-
             return await properties.Skip(filter.Skip).Take(filter.Take).ToListAsync();
         }
 

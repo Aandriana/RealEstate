@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Select filter</h1>
+<div mat-dialog-content>
+  <p>Filter by category:</p>
+  <p>
+    <mat-radio-group class = "radio" aria-label="Select an option" name="category">
+      <mat-radio-button (change)="onCategoryChange($event)" value="0">Flat&nbsp;&nbsp;&nbsp;</mat-radio-button>
+      <mat-radio-button (change)="onCategoryChange($event)" value="1">House&nbsp;&nbsp;&nbsp;</mat-radio-button>
+      <mat-radio-button  (change)="onCategoryChange($event)" value="2">Сortege</mat-radio-button>
+    </mat-radio-group>
+  </p>
+  <p>Filter by status:</p>
+  <p>
+    <mat-radio-group class = "radio" aria-label="Select an option" name="status">
+      <mat-radio-button (change)="onStatusChange($event)" value="0">Frozen&nbsp;&nbsp;&nbsp;</mat-radio-button>
+      <mat-radio-button (change)="onStatusChange($event)" value="1">LookingForAgent&nbsp;&nbsp;&nbsp;</mat-radio-button>
+      <mat-radio-button  (change)="onStatusChange($event)" value="2">FoundAgent&nbsp;&nbsp;&nbsp;</mat-radio-button>
+      <mat-radio-button  (change)="onStatusChange($event)" value="3">Sold</mat-radio-button>
+    </mat-radio-group>
+  </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="getwithoutFilters(); onNoClick()">No filter</button>
+  <button mat-button [mat-dialog-close]="data"  cdkFocusInitial>Ok</button>
+</div>

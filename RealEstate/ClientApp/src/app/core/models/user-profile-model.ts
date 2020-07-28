@@ -1,4 +1,4 @@
-export class UserProfile{
+export interface UserProfile{
   firstName: string;
   lastName: string;
   phoneNumber: string;

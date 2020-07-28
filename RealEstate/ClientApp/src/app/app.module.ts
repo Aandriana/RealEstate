@@ -15,6 +15,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {AuthGuard} from './shared/auth';
 import {MaterialFileInputModule} from 'ngx-material-file-input';
 import {SharedModule} from './shared/shared.module';
+import {AgentModule} from './agent/agent.module';
+import {NotificationService} from './core/services/notificationService';
+import {MatSnackBar} from '@angular/material/snack-bar';
 export function tokenGetter(): string {
   return localStorage.getItem('jwt');
 }
@@ -38,6 +41,7 @@ export function tokenGetter(): string {
     HttpClientModule,
     FlexLayoutModule,
     SharedModule,
+    AgentModule,
     JwtModule.forRoot({
       config: {},
     }),
@@ -51,7 +55,8 @@ export function tokenGetter(): string {
     }),
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    MatSnackBar
   ],
   bootstrap: [AppComponent]
 })

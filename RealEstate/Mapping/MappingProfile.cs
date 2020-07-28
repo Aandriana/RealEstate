@@ -1,7 +1,9 @@
 ﻿using RealEstate.BLL.DTO;
 using RealEstate.BLL.DTO.UserDtos;
 using RealEstate.BLL.Mapping;
+using RealEstate.ViewModels;
 using RealEstateIdentity.ViewModels;
+using RealEstateIdentity.ViewModels.OfferViewModels;
 using RealEstateIdentity.ViewModels.UserViewModels;
 using System.Linq;
 
@@ -35,6 +37,11 @@ namespace RealEstateIdentity.Mapping
             CreateMap<AgentRegisterProfileViewModel, AgentRegisterProfileDto>()
                 .ForMember(a => a.DefaultRate, map => map.Ignore());
 
+            CreateMap<GetPropertyDto, GetPropertyViewMode>()
+                .ForMember(p => p.Offers, map => map.MapFrom(p => p.OfferDtos))
+                .ForMember(p => p.Photos, map => map.MapFrom(p => p.PhotosDtos))
+                .ForMember(p => p.Questions, map => map.MapFrom(p => p.QuestionsDtos));
+
             CreateMap<AgentRegisterViewModel, AgentRegisterDto>()
                 .ForMember(u => u.ImagePath, map => map.Ignore());
 
@@ -43,6 +50,7 @@ namespace RealEstateIdentity.Mapping
             CreateMap<OfferFromAgentViewModel, OfferFromAgentDto>();
 
             CreateMap<OfferResponseViewModel, OfferResponseDto>();
+            CreateMap<OfferDto, OfferViewModel>();
 
             CreateMap<QuestionUpdateViewModel, QuestionUpdateDto>()
                 .ForMember(q => q.Question, map => map.MapFrom(q => q.Question.AsQueryable()));

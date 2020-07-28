@@ -4,6 +4,7 @@ import {FormArray, FormControl} from '@angular/forms';
 import {PropertyService} from '../../../core/services/property.service';
 import {AgentService} from '../../../core/services/agent.service';
 import {Router} from '@angular/router';
+import {NotificationService} from '../../../core/services/notificationService';
 
 @Component({
   selector: 'app-add-agents',
@@ -16,7 +17,7 @@ export class AddAgentsComponent implements OnInit {
   button = 'Choose';
   agentList: AgentListModel[];
   agentsArray = new FormArray([]);
-  constructor(private propertyService: PropertyService, private agentService: AgentService, private router: Router) { }
+  constructor(private propertyService: PropertyService, private agentService: AgentService, private router: Router, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.getAgents();
@@ -40,6 +41,9 @@ export class AddAgentsComponent implements OnInit {
     const length = this.agentsArray.length;
     this.propertyService.addProperty(length, this.agentsArray).subscribe(res => {
       this.router.navigateByUrl('/home');
+    }, err => {
+      console.log(err);
+      this.notificationService.warn('Some data must be incorrect. Please, check it.');
     });
   }
   getAgents(): any {

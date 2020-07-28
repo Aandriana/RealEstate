@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using RealEstate.BLL.DTO;
 using RealEstate.BLL.Interfaces;
 using RealEstateIdentity.ViewModels;
+using RealEstateIdentity.ViewModels.OfferViewModels;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RealEstateIdentity.Controllers
@@ -82,7 +84,13 @@ namespace RealEstateIdentity.Controllers
         public async Task<IActionResult> GetOffersForAgent(OfferListFilter filter)
         {
             var offers = await _offerService.GetAllOffersForAgent(filter);
-            return Ok(offers);
+            var offersVm = new List<OfferViewModel>();
+            foreach(var offer in offers)
+            {
+                var offerVm = _mapper.Map<OfferViewModel>(offer);
+                offersVm.Add(offerVm);
+            }
+            return Ok(offersVm);
         }
 
     }
