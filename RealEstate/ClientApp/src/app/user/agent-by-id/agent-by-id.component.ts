@@ -26,7 +26,6 @@ export class AgentByIdComponent implements OnInit {
   getAgentById(): any {
     this.userService.getAgentById(this.id).subscribe((data: AgentById) => {
       this.agent = data;
-      this.agent.feedBacks = data.feedBacks;
     });
   }
 }

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7c98d1b4-73ab-485f-8d8a-c730f22d81ed" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/user/agent-by-id/agent-by-id.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/agent-by-id/agent-by-id.component.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="ClientApp" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1e25guyxUG4USMltn0pkmGnFRZn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/node_modules/protractor" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="ts.external.directory.path" value="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\user\add-property" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\user\property-list" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\shared" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstateIdentity\ClientApp\src\app\modules\login" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstateIdentity\ClientApp\src\app\modules" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\assets\img" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstateIdentity\ClientApp\src\assets\img" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstateIdentity\ClientApp\src\app\user" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Tests (ClientApp)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="E2E Tests (ClientApp)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-package value="$PROJECT_DIR$/node_modules/protractor" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c98d1b4-73ab-485f-8d8a-c730f22d81ed" name="Default Changelist" comment="" />
+      <created>1593506961068</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593506961068</updated>
+      <workItem from="1593506963504" duration="130771000" />
+      <workItem from="1594108259407" duration="16497000" />
+      <workItem from="1594170746695" duration="10121000" />
+      <workItem from="1594298639364" duration="110000" />
+      <workItem from="1594299043546" duration="10385000" />
+      <workItem from="1594405511148" duration="1178000" />
+      <workItem from="1594408062322" duration="8273000" />
+      <workItem from="1594482520927" duration="13790000" />
+      <workItem from="1594627737197" duration="73333000" />
+      <workItem from="1594993866782" duration="42636000" />
+      <workItem from="1595355160138" duration="38249000" />
+      <workItem from="1595494625264" duration="17497000" />
+      <workItem from="1595576356043" duration="23014000" />
+      <workItem from="1595837724493" duration="25994000" />
+      <workItem from="1595945610076" duration="102204000" />
+      <workItem from="1596530429319" duration="162000" />
+      <workItem from="1596530592996" duration="27000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/node_modules/karma/config.tpl.js" />
+      </list>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="179" key="#Compass" timestamp="1594718435805">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#Compass/0.0.1920.1040@0.0.1920.1040" timestamp="1594718435805" />
+    <state x="729" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596359682354">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="729" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596359682354" />
+    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser" timestamp="1596475724047">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596475724047" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596225622760">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596225622760" />
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1595942196400">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595942196400" />
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1596530589414">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596530589414" />
+    <state width="1899" height="388" key="GridCell.Tab.0.bottom" timestamp="1594635910555">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="388" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594635910555" />
+    <state width="1899" height="388" key="GridCell.Tab.0.center" timestamp="1594635910554">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="388" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594635910554" />
+    <state width="1899" height="388" key="GridCell.Tab.0.left" timestamp="1594635910553">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="388" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594635910553" />
+    <state width="1899" height="388" key="GridCell.Tab.0.right" timestamp="1594635910554">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="388" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594635910554" />
+    <state width="949" height="348" key="GridCell.Tab.1.bottom" timestamp="1594482413402">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413402" />
+    <state width="949" height="348" key="GridCell.Tab.1.center" timestamp="1594482413402">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413402" />
+    <state width="949" height="348" key="GridCell.Tab.1.left" timestamp="1594482413401">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413401" />
+    <state width="949" height="348" key="GridCell.Tab.1.right" timestamp="1594482413402">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413402" />
+    <state width="949" height="348" key="GridCell.Tab.2.bottom" timestamp="1594482413405">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413405" />
+    <state width="949" height="348" key="GridCell.Tab.2.center" timestamp="1594482413404">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413404" />
+    <state width="949" height="348" key="GridCell.Tab.2.left" timestamp="1594482413404">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413403" />
+    <state width="949" height="348" key="GridCell.Tab.2.right" timestamp="1594482413404">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413404" />
+    <state width="949" height="348" key="GridCell.Tab.3.bottom" timestamp="1594482413406">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="348" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413406" />
+    <state width="949" height="348" key="GridCell.Tab.3.center" timestamp="1594482413406">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="348" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413406" />
+    <state width="949" height="348" key="GridCell.Tab.3.left" timestamp="1594482413406">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="348" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413406" />
+    <state width="949" height="348" key="GridCell.Tab.3.right" timestamp="1594482413406">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="949" height="348" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413406" />
+    <state x="752" y="232" key="RollbackChangesDialog" timestamp="1594405743674">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="752" y="232" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594405743674" />
+    <state x="461" y="163" key="SettingsEditor" timestamp="1594174093628">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594174093628" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1593787311655">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1593787311655" />
+    <state x="656" y="252" width="737" height="606" key="find.popup" timestamp="1596218458899">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="252" width="737" height="606" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596218458899" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1596370853708">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596370853708" />
+    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1596224750214">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596224750214" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/core/services/property.service.ts</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/shared/agent-profile-page/agent-profile-page.component.ts</url>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
