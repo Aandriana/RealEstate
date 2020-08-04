@@ -16,12 +16,10 @@ export class JwtService {
   {
     localStorage.removeItem('jwt');
   }
-   public checkToken(): boolean
-   {
-  const token: string = localStorage.getItem('jwt');
-  if (!this.jwtHelper.isTokenExpired(token)) { return  true; }
-  return false;
-    }
+   public checkToken(): boolean {
+     const token: string = localStorage.getItem('jwt');
+     return !this.jwtHelper.isTokenExpired(token);
+   }
     public getRole(): string
     {
       const token: string = localStorage.getItem('jwt');

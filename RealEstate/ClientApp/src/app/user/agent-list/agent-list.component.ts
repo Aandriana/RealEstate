@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AgentListModel} from '../../core/models';
 import {AgentService} from '../../core/services/agent.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-agent-list',
@@ -12,7 +13,7 @@ agentList: AgentListModel[];
   pageSize = 25;
   pageNumber = 0;
   button = 'More details';
-  constructor(private agentService: AgentService) { }
+  constructor(private agentService: AgentService, private route: Router) { }
 
   ngOnInit(): void {
     this.getAgents();
@@ -25,5 +26,8 @@ agentList: AgentListModel[];
     event.pageIndex++;
     this.agentService.getAgents(event.pageIndex, event.pageSize)
       .subscribe(data => this.agentList = data);
+  }
+  getAgentById(id): any{
+    this.route.navigateByUrl(`agent/${id}`);
   }
 }

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PropertyListModel} from '../../core/models';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-propert-card',
@@ -8,7 +9,11 @@ import {PropertyListModel} from '../../core/models';
 })
 export class PropertCardComponent implements OnInit {
   @Input() property: PropertyListModel;
-  constructor() { }
+  constructor(private router: Router) { }
   ngOnInit(): void {
+  }
+
+  chooseProperty(): void{
+    this.router.navigateByUrl(`property/${this.property.id}`);
   }
 }

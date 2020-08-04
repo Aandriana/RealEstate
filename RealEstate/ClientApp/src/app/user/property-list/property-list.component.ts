@@ -37,11 +37,11 @@ export class PropertyListComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogPropertyFilterComponent, {
-      width: '250px',
+      width: '300px',
+      backdropClass: 'backdropBackground',
         data: {category: this.category, status: this.status, },
     }).afterClosed()
       .subscribe((item: Filter) => {
-        if(item.category != null)
         this.category = item.category;
         this.status = item.status;
         this.getProperties();

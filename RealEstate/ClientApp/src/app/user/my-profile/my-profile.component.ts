@@ -17,7 +17,7 @@ export class MyProfileComponent implements OnInit {
     this.getMyProfile();
   }
   getMyProfile(): any{
-   return this.userService.getMyProfile()
+    this.userService.getMyProfile()
      .subscribe(data => this.userProfile = data);
   }
   editProfile(): any{

@@ -53,10 +53,12 @@ namespace RealEstate.BLL.Services
 
             foreach (var agentId in propertyDto.AgentsId)
             {
+                var agent = await _unitOfWork.Repository<AgentProfile>().GetAsync(a => a.Id == agentId);
                 var offer = new Offer();
                 offer.AgentProfileId = agentId;
                 offer.PropertyId = property.Id;
                 offer.CreatedById = user.Id;
+                offer.Rate = agent.DefaultRate;
                 await _unitOfWork.Repository<Offer>().AddAsync(offer);
             }
 
@@ -98,7 +100,7 @@ namespace RealEstate.BLL.Services
             propertyToUpdate.FloorsNumber = property.FloorsNumber;
             propertyToUpdate.Price = property.Price;
             propertyToUpdate.Size = property.Size;
-            propertyToUpdate.Сategory = property.Сategory;
+            propertyToUpdate.Category = property.Сategory;
             propertyToUpdate.Floors = property.Floors;
             propertyToUpdate.UpdatedById = user.Id;
             propertyToUpdate.UpdatedDateUtc = DateTime.Now;
@@ -202,24 +204,30 @@ namespace RealEstate.BLL.Services
             return propertiesDto;
         }
 
-        public async Task<GetPropertyDto> GetPropertyById(int id)
+        public async Task<GetPropertyDto> GetPropertyByIdForUser(int id)
         {
             var user = await _authentication.GetCurrentUserAsync();
-            var userRoles = await _authentication.GetCurrentUserRolesAsync(user);
-            var userIsAgent = false;
-
-            foreach (var role in userRoles)
-            {
-                if (role == "Agent") userIsAgent = true;
-            }
-
             var property = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id);
-
-            if (!userIsAgent && property.UserId != user.Id) throw new FieldAccessException();
+            if (property.UserId != user.Id) throw new FieldAccessException();
             var propertyDto = _mapper.Map<GetPropertyDto>(property);
-
+            foreach(var offer in propertyDto.OfferDtos)
+            {
+                var agent = await _unitOfWork.Repository<User>().GetAsync(u => u.Id == offer.AgentProfileId);
+                offer.Image = agent.ImagePath;
+                offer.FirstName = agent.FirstName;
+                offer.LastName = agent.LastName;
+            }
             return propertyDto;
         }
+
+        public async Task<GetPropertyDto> GetPropertyByIdForAgent(int id)
+        {
+            var property = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id);
+            var propertyDto = _mapper.Map<GetPropertyDto>(property);
+            propertyDto.OfferDtos = null;
+            return propertyDto;
+        }
+
 
         public async Task<List<OfferDto>> GetPropertyOffers(int id, OfferListFilter offerFilter)
         {
@@ -231,7 +239,11 @@ namespace RealEstate.BLL.Services
             var offerDtos = new List<OfferDto>();
             foreach (var offer in offers)
             {
+                var agent = await _unitOfWork.Repository<User>().GetAsync(a => a.Id == offer.AgentProfileId);
                 var offerDto = _mapper.Map<OfferDto>(offer);
+                offerDto.Image = agent.ImagePath;
+                offerDto.FirstName = agent.FirstName;
+                offerDto.LastName = agent.LastName;
                 offerDtos.Add(offerDto);
             }
             return offerDtos;
@@ -242,12 +254,12 @@ namespace RealEstate.BLL.Services
             var properties = await _unitOfWork.Repository<Property>().GetAllAsync(p => p.UserId == userId);
             if (filter.Status != null && filter.Category != null)
             {
-                properties = properties.Where(p => p.Status == filter.Status && p.Сategory == filter.Category);
+                properties = properties.Where(p => p.Status == filter.Status && p.Category == filter.Category);
             }
 
             if (filter.Status == null && filter.Category != null)
             {
-                properties = properties.Where(p => p.Сategory == filter.Category);
+                properties = properties.Where(p => p.Category == filter.Category);
             }
 
             if (filter.Status != null && filter.Category == null)

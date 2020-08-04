@@ -8,5 +8,8 @@
         public int PropertyId { get; set; }
         public int Status { get; set; }
         public string AgentProfileId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Image { get; set; }
     }
 }

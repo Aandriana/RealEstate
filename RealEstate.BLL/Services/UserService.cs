@@ -174,21 +174,25 @@ namespace RealEstate.BLL.Services
             var agentDto = _mapper.Map<GetAgentByIdInfoDto>(agent);
 
             var feedbacks = await _unitOfWork.Repository<Feedback>().GetAllAsync(o => o.AgentId == agentId);
-            var feedbacksDto = agentDto.FeedBacks;
-            foreach (var feedback in feedbacks)
+            if (feedbacks != null)
             {
-                var feedbackDto = _mapper.Map<FeedbackListDto>(feedback);
-                var user = await _userManager.FindByIdAsync(feedback.UserId);
-                feedbackDto.FirstName = user.FirstName;
-                feedbackDto.LastName = user.LastName;
-                feedbackDto.ImagePath = user.ImagePath;
-                feedbacksDto.Add(feedbackDto);
+                var feedbacksDto = agentDto.FeedBacks;
+                foreach (var feedback in feedbacks)
+                {
+                    var feedbackDto = _mapper.Map<FeedbackListDto>(feedback);
+                    var user = await _userManager.FindByIdAsync(feedback.UserId);
+                    feedbackDto.FirstName = user.FirstName;
+                    feedbackDto.LastName = user.LastName;
+                    feedbackDto.ImagePath = user.ImagePath;
+                    feedbacksDto.Add(feedbackDto);
+                }
             }
-
 
             agentDto.ImagePath = userAgent.ImagePath;
             agentDto.FirstName = userAgent.FirstName;
             agentDto.LastName = userAgent.LastName;
+            agentDto.Email = userAgent.Email;
+            agentDto.PhoneNumber = userAgent.PhoneNumber;
             return agentDto;
         }
 

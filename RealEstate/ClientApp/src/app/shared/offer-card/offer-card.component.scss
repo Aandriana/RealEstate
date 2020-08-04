@@ -1,0 +1,51 @@
+@import "src/app/app.component.scss";
+mat-card{
+  margin: 50px;
+  width: 300px;
+  background: $primary-color-background;
+  color: white;
+  font-family: Montserrat;
+}
+mat-card:hover{
+  box-shadow: 0px 0px 40px rgba(47,59,82, 1);
+}
+
+.photo {
+  width: 253px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+mat-card-title{
+  color: $primary-color-aqua;
+  font-family: Montserrat;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  padding-top: 40px
+}
+
+mat-card-content{
+  justify-content: center;
+  font-family: Montserrat;
+  color: white;
+  font-size: 15px;
+  margin: 60px;
+  padding-bottom: 40px
+}
+.status
+{
+  color: $primary-color-blue-purple;
+  font-size: 20px;
+}
+a{
+  color: $primary-color-aqua;
+  font-family: Montserrat;
+  font-family: Montserrat;
+}
+
+p{
+  font-family: Montserrat;
+}
+

@@ -1,0 +1,64 @@
+@import "src/app/app.component.scss";
+mat-card{
+  padding-top: 60px;
+  background: linear-gradient(-90deg, $primary-color-blue-purple, #7C67EDFF);
+  align-content: center;
+ flex-flow: unset!important;
+  margin-top: 50px;
+}
+mat-card:hover{
+  box-shadow: 3px 0px 40px rgba(36,46,66, 1);
+}
+mat-card-content{
+  padding-left: 40px;
+}
+p{
+  font-family: Montserrat;
+  padding: 15px;
+  color: $primary-color-background-dark;
+}
+.name{
+  font-size: 35px;
+}
+.comment{
+  font-family:'Thasadith', sans-serif;
+  font-size: 20px;
+  color: white;
+}
+.date{
+  padding-right: 20px;
+}
+
+@media screen and (max-width: 800px)
+{
+  .photo{
+    width: 100px !important;
+    justify-content: center !important;
+    align-content: center !important;
+    display: flex !important;
+  }
+  .comment{
+    font-size: 14px;
+  }
+  .name{
+    font-size: 20px;
+    justify-content: center !important;
+    align-content: center !important;
+    display: flex !important;
+  }
+  mat-card{
+    flex-flow: column!important;
+  }
+mat-card-content {
+  padding: unset;
+}
+  mat-card-title{
+    display: flex !important;
+    align-content: center !important;
+    justify-content: center !important;
+  }
+}
+
+
+
+

@@ -27,18 +27,16 @@ export class PropertyService {
     return this.http.getWithParams(`${this.baseUrl}/user`, params);
   }
 
-  firstStep(addPropertyForm, category): void{
+  firstStep(addPropertyForm): void{
     this.propertyForm = new FormData();
-    this.propertyForm.append('Size', addPropertyForm.size);
-    this.propertyForm.append('Сategory', category);
-    this.propertyForm.append('FloorsNumber', addPropertyForm.floorsNumber);
-    this.propertyForm.append('Floors', addPropertyForm.floors);
-    this.propertyForm.append('Price', addPropertyForm.price);
+    for(const property in addPropertyForm) {
+      this.propertyForm.append(property, addPropertyForm[property]);
+    }
   }
   secondStep(addPropertyForm): void{
-    this.propertyForm.append('City', addPropertyForm.city);
-    this.propertyForm.append('Address', addPropertyForm.address);
-    this.propertyForm.append('BuildYear', addPropertyForm.buildYear);
+    for(const property in addPropertyForm) {
+      this.propertyForm.append(property, addPropertyForm[property]);
+    }
     }
   thirdStep(length, questionsArray): void {
     for (let i = 0; i < length; i++) {
@@ -58,7 +56,7 @@ export class PropertyService {
     }
     return  this.http.post(`${this.baseUrl}`, this.propertyForm);
   }
-  getPropertyById(id: number): Observable<PropertyByIdModel>{
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getPropertyById(Id): Observable<PropertyByIdModel>{
+    return this.http.get(`${this.baseUrl}/${Id}`);
   }
 }

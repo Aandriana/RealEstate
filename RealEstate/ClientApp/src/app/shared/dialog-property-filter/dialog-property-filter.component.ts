@@ -14,15 +14,15 @@ export class DialogPropertyFilterComponent{
     @Inject(MAT_DIALOG_DATA) public data: Filter) {}
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close({
+      status: null,
+      category: null,
+    });
   }
   onCategoryChange(mrChange: MatRadioChange): any{
     this.data.category = mrChange.value;
   }
   onStatusChange(mrChange: MatRadioChange): any{
     this.data.status = mrChange.value;
-  }
-  getwithoutFilters(): any{
-    this.data = null;
   }
 }

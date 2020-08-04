@@ -1,0 +1,28 @@
+<mat-toolbar fxLayout="row" color="primary">
+  <span class="info"><span class="material-icons real-estate" >home_work</span>Real estate</span>
+  <a class="mat-menu-item" mat-button *ngFor="let item of menuItems"
+     [fxShow]="item.showOnDesktop"
+     [fxShow.xs]="item.showOnMobile"
+     [fxShow.sm]="item.showOnTablet"
+     (click)="onClick(item.click)">
+    {{item.label}}
+  </a>
+  <ng-container>
+    <a mat-icon-button  class= "flex-container" [fxShow]='false' [fxShow.sm]="true" [fxShow.xs]="true" [matMenuTriggerFor]="dropMenu">
+      <mat-icon>more_vert</mat-icon>
+    </a>
+    <mat-menu  #dropMenu="matMenu">
+      <ng-container *ngFor="let item of menuItems">
+        <div [fxShow]="!item.showOnDesktop"
+             [fxShow.sm]="!item.showOnTablet"
+             [fxShow.xs]="!item.showOnMobile"
+             (click)="onClick(item.click)">
+          <button mat-menu-item>
+            {{item.label}}
+          </button>
+          <mat-divider></mat-divider>
+        </div>
+      </ng-container>
+    </mat-menu>
+  </ng-container>
+</mat-toolbar>

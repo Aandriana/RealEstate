@@ -3,6 +3,7 @@
                     fxFlex.lt-md="0 1 calc(50% - 32px)"
                     fxFlex.lt-sm="100%"
                   *ngFor="let user of agentList"
+                   (onComplete) = getAgentById(user.id)
   [user]="user" [button]="button" >
   </app-agent-card>
 </div>

@@ -88,7 +88,7 @@ namespace RealEstateIdentity.Controllers
         [Authorize(Roles = "User")]
         public async Task<IActionResult> UpdatePropertyPhotos(int id, PropertyUpdatePhotosViewModel updatePhotos)
         {
-            var updatePhotosDto = _mapper.Map<PropertyUpdatePhotosDto>(updatePhotos);   
+            var updatePhotosDto = _mapper.Map<PropertyUpdatePhotosDto>(updatePhotos);
             await _propertyService.UpdatePhotos(id, updatePhotosDto);
             return Ok();
         }
@@ -110,7 +110,7 @@ namespace RealEstateIdentity.Controllers
 
         // GET: api/property/agent?pageNumber=2&pageSize=10&
         [HttpGet("agent")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Agent")]
         public async Task<IActionResult> GetProperties([FromQuery]PaginationParameters paginationParameters)
         {
             var propertiesDto = await _propertyService.GetPropertiesForAgent(paginationParameters);
@@ -124,10 +124,19 @@ namespace RealEstateIdentity.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize]
-        public async Task<IActionResult> GetPropertyById(int id)
+        [Authorize(Roles ="User")]
+        public async Task<IActionResult> GetPropertyByIdForUser(int id)
         {
-            var property = await _propertyService.GetPropertyById(id);
+            var property = await _propertyService.GetPropertyByIdForUser(id);
+            var propertyVm = _mapper.Map<GetPropertyViewMode>(property);
+            return Ok(propertyVm);
+        }
+
+        [HttpGet("agent/{id}")]
+        [Authorize(Roles="Agent")]
+        public async Task<IActionResult> GetPropertyByIdForAgent(int id)
+        {
+            var property = await _propertyService.GetPropertyByIdForAgent(id);
             var propertyVm = _mapper.Map<GetPropertyViewMode>(property);
             return Ok(propertyVm);
         }
@@ -172,4 +181,4 @@ namespace RealEstateIdentity.Controllers
         }
 
     }
-}
+}   

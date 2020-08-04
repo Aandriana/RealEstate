@@ -2,8 +2,8 @@ import {ApiService} from './api.service';
 import {accountUrl} from '../../configs/api-endpoint.constants';
 import {Injectable} from '@angular/core';
 import {HttpParams} from '@angular/common/http';
-import {AgentListModel} from '../models';
 import {Observable} from 'rxjs';
+import {AgentListModel} from '../models';
 @Injectable({
   providedIn: 'root'
 })

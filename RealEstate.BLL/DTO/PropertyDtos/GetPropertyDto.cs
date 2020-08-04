@@ -5,7 +5,7 @@ namespace RealEstate.BLL.DTO
     public class GetPropertyDto
     {
         public double Size { get; set; }
-        public int Сategory { get; set; }
+        public int Category { get; set; }
         public int FloorsNumber { get; set; }
         public int Floors { get; set; }
         public double Price { get; set; }

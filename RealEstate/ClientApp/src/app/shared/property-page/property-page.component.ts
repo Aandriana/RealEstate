@@ -8,5 +8,11 @@ import {PropertyByIdModel} from '../../core/models';
 })
 export class PropertyPageComponent implements OnInit {
   @Input() property: PropertyByIdModel;
-ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.property.id);
+  }
+
+  buildUrl(slide: string): string {
+    return `${slide}`;
+  }
 }

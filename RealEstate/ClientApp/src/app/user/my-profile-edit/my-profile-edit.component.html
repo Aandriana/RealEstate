@@ -2,14 +2,14 @@
 <mat-card>
   <form [formGroup]="editProfileForm" autocomplete="off">
   <mat-card-title>
-    <img  *ngIf="user.imagePath == null || imageSrc != null"
+    <img  *ngIf="!user.imagePath || imageSrc"
           class = "photo"
           style="width: 200px"
           [src]="imageSrc || './assets/img/defaultuser.jpg'"
           alt=""
           (click)="avatarChange()"
     />
-    <img *ngIf="user.imagePath != null && imageSrc == null"
+    <img *ngIf="user.imagePath && !imageSrc"
          class = "photo"
          style="width: 200px"
          src="{{user.imagePath}}"

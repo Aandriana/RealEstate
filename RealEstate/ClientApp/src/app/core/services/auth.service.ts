@@ -18,7 +18,7 @@ export class AuthService {
     private jwtHelper: JwtHelperService,
     private http: ApiService,
     private jwtService: JwtService,
-    private router: Router
+    private router: Router,
   ) {}
   agentRegister = new FormData();
   isLoggedIn = false;
@@ -48,13 +48,10 @@ export class AuthService {
     const formData = new FormData();
     const Img: FileInput = registerForm.image;
     const file = Img.files[0];
-    formData.append('Email', registerForm.email);
-    formData.append('FirstName', registerForm.firstName);
-    formData.append('LastName', registerForm.lastName);
-    formData.append('Password', registerForm.password);
-    formData.append('ConfirmPassword', registerForm.confirmPassword);
-    formData.append('PhoneNumber', registerForm.phoneNumber);
-    formData.append('Image', file);
+    for(const user in registerForm) {
+      formData.append(user, registerForm[user]);
+    }
+    formData.append('image', file);
     return this.http.post(`${this.baseUrl}`, formData).pipe(map((response: JwtResponseModel) => {
       this.jwtService.addTokenToLS(response.token);
       if (!this.jwtService.checkToken()) {
@@ -66,21 +63,18 @@ export class AuthService {
   }
 
   firstStep(registerForm): void{
-    this.agentRegister.append('Email', registerForm.email);
-    this.agentRegister.append('FirstName', registerForm.firstName);
-    this.agentRegister.append('LastName', registerForm.lastName);
-    this.agentRegister.append('Password', registerForm.password);
-    this.agentRegister.append('ConfirmPassword', registerForm.confirmPassword);
-    this.agentRegister.append('PhoneNumber', registerForm.phoneNumber);
-  }
-  secondStep(agentRegisterForm): void{
-    if (agentRegisterForm.BirthDate !== '') {
-      const date = new Date(agentRegisterForm.birthDate);
-      this.agentRegister.append('AgentProfile[BirthDate]', date.toDateString());
+    for(const user in registerForm) {
+      this.agentRegister.append(user, registerForm[user]);
     }
-    this.agentRegister.append('AgentProfile[City]', agentRegisterForm.city);
-    this.agentRegister.append('AgentProfile[Description]', agentRegisterForm.description);
-    this.agentRegister.append('AgentProfile[DefaultRate]', agentRegisterForm.defaultRate);
+  }
+  secondStep(agentRegisterForm): void {
+    for (const user in agentRegisterForm) {
+      this.agentRegister.append(`agentProfile[${user}]`, agentRegisterForm[user]);
+    }
+    if (agentRegisterForm.birthDate !== '') {
+      const date = new Date(agentRegisterForm.birthDate);
+      this.agentRegister.set('agentProfile[birthDate]', date.toDateString());
+    }
   }
   registerAgent(registerForm): Observable<boolean> {
     const Img: FileInput = registerForm.image;

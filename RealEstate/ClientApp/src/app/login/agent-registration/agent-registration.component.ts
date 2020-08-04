@@ -25,8 +25,10 @@ export class AgentRegistrationComponent implements OnInit {
     firstName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]),
     lastName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]),
     phoneNumber: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(15), Validators.pattern(/^\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})$/g)]),
-    image: new FormControl(null, [Validators.required, Validators.max(1)])
 });
+  imageForm = new FormGroup({
+    image: new FormControl(null, [Validators.required, Validators.max(1)])
+  })
   maxDate: Date;
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private route: ActivatedRoute, private notificationService: NotificationService) {}
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class AgentRegistrationComponent implements OnInit {
     this.authService.secondStep(this.agentProfile.value);
   }
   onSubmit(): void {
-    this.authService.registerAgent(this.registrationForm.value).subscribe(res => {
+    this.authService.registerAgent(this.imageForm.value).subscribe(res => {
       this.router.navigateByUrl('/agent/home');
     }, err => {
       console.log(err);

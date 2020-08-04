@@ -2,7 +2,7 @@ import {ApiService} from './api.service';
 import {accountUrl} from '../../configs/api-endpoint.constants';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {JwtResponseModel, UserProfile} from '../models';
+import {AgentById, JwtResponseModel, UserProfile} from '../models';
 import {map} from 'rxjs/operators';
 import {JwtService} from './jwt.service';
 @Injectable({
@@ -21,17 +21,16 @@ export class UserService {
   }
   editMyProfile(value): Observable<boolean>{
     const formData = new FormData();
-    formData.append('FirstName', value.firstName);
-    formData.append('LastName', value.lastName);
-    formData.append('Image', value.image);
-    formData.append('PhoneNumber', value.phoneNumber);
-    formData.append('Email', value.email)
+    for (const user in value)
+    {
+      formData.append(user, value[user]);
+    }
     return this.http.put(`${this.baseUrl}`, formData).pipe(map((response: JwtResponseModel) => {
       this.jwtService.addTokenToLS(response.token);
-      if (!this.jwtService.checkToken()) {
-        return false;
-      }
-      return true;
+      return this.jwtService.checkToken();
     }));
+  }
+  getAgentById(id): Observable<AgentById> {
+    return this.http.get(`${this.baseUrl}/agent/${id}`);
   }
 }

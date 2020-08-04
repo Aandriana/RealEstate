@@ -10,9 +10,9 @@ export interface PropertyByIdModel {
   buildYear: number;
   image: string;
   status: number;
-  offers: Offers;
+  offers: Offers[];
   photos: Photos;
-  questions: Questions;
+  questions: Questions[];
 }
 export interface Offers {
 id: number;
@@ -20,6 +20,9 @@ comment: string;
 rate: number;
 status: number;
 agentProfileId: string;
+image: string;
+firstName: string;
+lastName: string;
 }
 export interface Photos {
   photos: string[];

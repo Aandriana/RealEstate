@@ -24,13 +24,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
   myProperties(): any{
-    return this.router.navigateByUrl('/properties');
+     this.router.navigateByUrl('/properties');
   }
   addProperty(): any{
-    return this.router.navigateByUrl('property/add');
+     this.router.navigateByUrl('add/property');
   }
   agentsList(): any{
-    return this.router.navigateByUrl('agents');
+     this.router.navigateByUrl('agents');
   }
 
 }

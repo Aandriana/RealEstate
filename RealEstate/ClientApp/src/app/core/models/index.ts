@@ -5,3 +5,6 @@ export * from './agent-list.model';
 export * from './user-profile-model';
 export * from './property-filter.model';
 export * from './property-by-id.model';
+export * from './error-item';
+export * from './feedback-list';
+export * from './agent-profile';

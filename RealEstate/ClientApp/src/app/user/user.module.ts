@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {UserRoutingModule} from './user-routing.module';
 import { HomeComponent } from './home/home.component';
@@ -30,10 +30,12 @@ import {MatRadioModule} from '@angular/material/radio';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { MyProfileEditComponent } from './my-profile-edit/my-profile-edit.component';
 import { PropertyForUserComponent } from './property-for-user/property-for-user.component';
+import {StarRatingModule} from 'angular-star-rating';
+import { AgentByIdComponent } from './agent-by-id/agent-by-id.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent, AddPropertyComponent, AgentListComponent, MainComponent, AddAgentsComponent, MyProfileComponent, MyProfileEditComponent, PropertyForUserComponent],
+  declarations: [HomeComponent, ToolbarComponent, FooterComponent, PropertyListComponent, AddPropertyComponent, AgentListComponent, MainComponent, AddAgentsComponent, MyProfileComponent, MyProfileEditComponent, PropertyForUserComponent, AgentByIdComponent],
     imports: [
         CommonModule,
         UserRoutingModule,
@@ -55,9 +57,10 @@ import { PropertyForUserComponent } from './property-for-user/property-for-user.
         AnimateModule,
         MaterialFileInputModule,
         MatInputModule,
-        MatRadioModule
+        MatRadioModule,
+        StarRatingModule.forRoot()
     ],
-  providers: []
+  providers: [],
 })
 
 export class UserModule { }

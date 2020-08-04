@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from '../../core/models';
 import {Router} from '@angular/router';
+import {JwtService} from '../../core/services/jwt.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -17,18 +18,11 @@ export class ToolbarComponent implements OnInit {
       click: '/home'
     },
     {
-      label: 'About',
+      label: 'Properties',
       showOnMobile: false,
       showOnTablet: true,
       showOnDesktop: true,
-      click: '/home'
-    },
-    {
-      label: 'Properties',
-      showOnMobile: false,
-      showOnTablet: false,
-      showOnDesktop: true,
-      click: '/home'
+      click: '/properties'
     },
     {
       label: 'Requests',
@@ -44,14 +38,26 @@ export class ToolbarComponent implements OnInit {
       showOnDesktop: true,
       click: '/profile'
     },
+    {
+      label: 'Logout',
+      showOnMobile: false,
+      showOnTablet: false,
+      showOnDesktop: true,
+      click: '/login'
+    },
   ];
-  constructor( private router: Router) { }
+
+  constructor(private router: Router, private jwtService: JwtService) {
+  }
 
   ngOnInit(): void {
   }
 
-  onClick(route): any{
-    return this.router.navigateByUrl(`${route}`);
+  onClick(route): any {
+    if (route === '/login') {
+      this.jwtService.removeToken();
+    }
+    this.router.navigateByUrl(`${route}`);
   }
-  }
+}
 

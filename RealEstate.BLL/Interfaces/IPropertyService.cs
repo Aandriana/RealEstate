@@ -13,7 +13,8 @@ namespace RealEstate.BLL.Interfaces
         Task RestoreProperty(int id);
         Task UpdatePhotos(int id, PropertyUpdatePhotosDto photosDto);
         Task AddNewQuestions(int propertyId, AddQuestionDto questionsDto);
-        Task<GetPropertyDto> GetPropertyById(int id);
+        Task<GetPropertyDto> GetPropertyByIdForUser(int id);
+        Task<GetPropertyDto> GetPropertyByIdForAgent(int id);
         Task<IEnumerable<PropertyListDto>> GetPropertiesForUser(PropertyListFilter filter);
         Task<IEnumerable<PropertyListDto>> GetPropertiesForAgent(PaginationParameters paginationParameters);
         Task<List<OfferDto>> GetPropertyOffers(int id, OfferListFilter offerFilter);
