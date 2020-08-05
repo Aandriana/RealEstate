@@ -1,0 +1,15 @@
+@import "../../../../app.component";
+mat-card{
+  background:$primary-color-blue-purple;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  border-radius: 10px;
+  color: white;
+  font-family: Montserrat;
+  padding-left: 50px;
+  margin: 15px;
+}
+mat-card:hover{
+  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+}

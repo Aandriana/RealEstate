@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
-export const statuses = {
+export const propertyStatuses = {
   0 : 'Frozen',
   1: 'Looking for agent',
   2 : 'Found agent',
@@ -10,6 +10,6 @@ export const statuses = {
 })
 export class PropertyStatusPipe implements PipeTransform {
   transform(status: number): string {
-    return statuses[status];
+    return propertyStatuses[status];
   }
 }

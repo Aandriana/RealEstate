@@ -71,7 +71,7 @@ namespace RealEstate.BLL.Services
             agent.AgentProfile.Id = agent.Id;
             var result = await _userManager.CreateAsync(agent, agentRegister.Password);
 
-             if (result.Succeeded)
+            if (result.Succeeded)
             {
                 var currentUser = await _userManager.FindByNameAsync(agent.UserName);
                 await _userManager.AddToRoleAsync(currentUser, "Agent");
@@ -172,20 +172,22 @@ namespace RealEstate.BLL.Services
             var agent = await _unitOfWork.Repository<AgentProfile>().GetAsync(a => a.Id == agentId);
             var userAgent = await _userManager.FindByIdAsync(agentId);
             var agentDto = _mapper.Map<GetAgentByIdInfoDto>(agent);
-
             var feedbacks = await _unitOfWork.Repository<Feedback>().GetAllAsync(o => o.AgentId == agentId);
             if (feedbacks != null)
             {
-                var feedbacksDto = agentDto.FeedBacks;
                 foreach (var feedback in feedbacks)
                 {
                     var feedbackDto = _mapper.Map<FeedbackListDto>(feedback);
-                    var user = await _userManager.FindByIdAsync(feedback.UserId);
-                    feedbackDto.FirstName = user.FirstName;
-                    feedbackDto.LastName = user.LastName;
-                    feedbackDto.ImagePath = user.ImagePath;
-                    feedbacksDto.Add(feedbackDto);
+                    agentDto.FeedBacks.Add(feedbackDto);
                 }
+                foreach(var feedback in agentDto.FeedBacks)
+                {
+                    var user = await GetUser(feedback.UserId);
+                    feedback.FirstName = user.FirstName;
+                    feedback.LastName = user.LastName;
+                    feedback.ImagePath = user.Image;
+                }
+
             }
 
             agentDto.ImagePath = userAgent.ImagePath;
@@ -196,6 +198,16 @@ namespace RealEstate.BLL.Services
             return agentDto;
         }
 
+        private async Task<GetUser> GetUser(string id)
+        {
+            var user = await _unitOfWork.Repository<User>().GetAsync(u => u.Id == id);
+            var getUser = new GetUser();
+            getUser.FirstName = user.FirstName;
+            getUser.LastName = user.LastName;
+            getUser.Image = user.ImagePath;
+            return getUser;
+
+        }
         public async Task AddFeedBackForAgent(FeedBackDto feedBackDto)
         {
             var user = await _authentication.GetCurrentUserAsync();
@@ -213,6 +225,7 @@ namespace RealEstate.BLL.Services
             await _unitOfWork.Repository<Feedback>().AddAsync(feedback);
             await _unitOfWork.SaveChangesAsync();
         }
+  
 
         public async Task<GetAgentByIdInfoDto> GetCurrentAgent()
         {

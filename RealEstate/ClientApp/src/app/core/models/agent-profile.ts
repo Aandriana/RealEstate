@@ -1,5 +1,3 @@
-import {FeedbackList} from './feedback-list';
-
 export interface AgentById {
   firstName: string;
   lastName: string;
@@ -15,4 +13,12 @@ export interface AgentById {
   failedSales: number;
   feedBacks: FeedbackList[];
 }
-
+export interface FeedbackList {
+  userId: string;
+  comment: string;
+  date: Date;
+  rating: number;
+  firstName: string;
+  lastName: string;
+  imagePath: string;
+}
