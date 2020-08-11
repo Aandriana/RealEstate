@@ -21,4 +21,7 @@ export class ApiService {
   put(url, data): any {
     return this.http.put(url, data);
   }
+  patch(url): any{
+    return this.http.patch(url, null);
+  }
 }

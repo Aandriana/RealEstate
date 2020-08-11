@@ -21,6 +21,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
 import {StarRatingModule} from 'angular-star-rating';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import * as __ from './index';
+import { OffersCardComponent } from './components/property-components/offers-card/offers-card.component';
 
 
 @NgModule({
@@ -66,7 +67,9 @@ import * as __ from './index';
     __.MatErrorComponent,
     __.AgentProfilePageComponent,
     __.FeedbackCardComponent,
-    __.NotFoundPageComponent
+    __.NotFoundPageComponent,
+    __.SliderRowComponent,
+    OffersCardComponent,
   ],
   exports: [
     __.PropertCardComponent,
@@ -78,7 +81,9 @@ import * as __ from './index';
     __.OfferStatusPipe,
     __.MatErrorComponent,
     __.AgentProfilePageComponent,
-    __.FeedbackCardComponent
+    __.FeedbackCardComponent,
+    __.SliderRowComponent,
+    OffersCardComponent,
   ],
   providers: [],
 })

@@ -108,6 +108,16 @@ namespace RealEstate.BLL.Services
             await _unitOfWork.Repository<Property>().UpdateAsync(propertyToUpdate);
             await _unitOfWork.SaveChangesAsync();
         }
+        public async Task<List<string>> GetPhotos(int id)
+        {
+            var photos = new List<string>();
+            var propertyPhotos = await _unitOfWork.Repository<PropertyPhoto>().GetAllAsync(p => p.PropertyId == id);
+            foreach(var photo in propertyPhotos)
+            {
+                photos.Add(photo.Path);
+            }
+            return photos;
+        }
 
         public async Task UpdatePhotos(int id, PropertyUpdatePhotosDto photosDto)
         {
@@ -217,6 +227,7 @@ namespace RealEstate.BLL.Services
                 offer.FirstName = agent.FirstName;
                 offer.LastName = agent.LastName;
             }
+            propertyDto.OfferDtos = propertyDto.OfferDtos.Take(5).ToList();
             return propertyDto;
         }
 
@@ -244,6 +255,14 @@ namespace RealEstate.BLL.Services
                 offerDto.Image = agent.ImagePath;
                 offerDto.FirstName = agent.FirstName;
                 offerDto.LastName = agent.LastName;
+                offerDto.AgentProfileId = agent.Id;
+                var answers = await _unitOfWork.Repository<Answer>().GetAllAsync(a => a.OfferId == offer.Id);
+                foreach (var answer in answers)
+                {
+                   var answerDto = _mapper.Map<AnswerDto>(answer);
+                    offerDto.Answers.Add(answerDto);
+
+                }
                 offerDtos.Add(offerDto);
             }
             return offerDtos;

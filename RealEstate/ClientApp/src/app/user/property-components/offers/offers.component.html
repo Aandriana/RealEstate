@@ -1,0 +1,10 @@
+
+  <div class = "main">
+<app-offers-card *ngFor="let offer of offers" [offer]="offer"></app-offers-card>
+  </div>
+<mat-paginator [length]="100"
+               [pageSize]="this.pageSize"
+               [pageIndex]="this.pageNumber"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               (page)="onPageFired($event)">
+</mat-paginator>

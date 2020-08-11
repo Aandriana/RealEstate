@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PropertyByIdModel} from '../../../../core/models';
 
 @Component({
@@ -8,11 +8,26 @@ import {PropertyByIdModel} from '../../../../core/models';
 })
 export class PropertyPageComponent implements OnInit {
   @Input() property: PropertyByIdModel;
+  @Input() button: string;
+  @Output() public onComplete: EventEmitter<any> = new EventEmitter();
+  @Output() public photoEdit: EventEmitter<any> = new EventEmitter();
+  @Output() public delete: EventEmitter<any> = new EventEmitter();
+  @Output() public showOffers: EventEmitter<any> = new EventEmitter();
   ngOnInit(): void {
-    console.log(this.property.id);
   }
-
   buildUrl(slide: string): string {
     return `${slide}`;
+  }
+  runOnComplete(): void {
+    this.onComplete.emit();
+  }
+  editor(): void {
+    this.photoEdit.emit();
+  }
+  deleting(): void{
+    this.delete.emit();
+  }
+  offersShow(): void{
+    this.showOffers.emit();
   }
 }

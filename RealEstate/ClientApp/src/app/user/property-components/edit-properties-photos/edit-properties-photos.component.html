@@ -1,0 +1,22 @@
+<div class="main" fxLayout="column" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+  <form  class = "form"[formGroup]="editPropertyForm" autocomplete="off">
+    <mat-form-field>
+      <ngx-mat-file-input multiple="true" formControlName="addedContentImages" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add photos">
+      </ngx-mat-file-input>
+      <span matSuffix class="material-icons">add_a_photo</span>
+    </mat-form-field>
+  </form>
+<div class="main"  fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+  <div fxFlex="0 1 calc(25% - 30px)"
+        fxFlex.lt-md="0 1 calc(50% - 32px)"
+        fxFlex.lt-sm="100%" *ngFor="let photo of photos">
+    <div class = "img">
+    <mat-icon class="clear" (click)="onRemove(photo)">clear</mat-icon>
+    <img  style="width: 400px;  border-radius: 8px;" src="{{photo}}">
+    </div>
+  </div>
+</div>
+  <div class ="confirm">
+  <button (click)="submit()">Confirm</button>
+  </div>
+</div>

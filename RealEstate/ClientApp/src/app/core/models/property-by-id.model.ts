@@ -11,7 +11,7 @@ export interface PropertyByIdModel {
   image: string;
   status: number;
   offers: Offers[];
-  photos: Photos;
+  photos: Photos[];
   questions: Questions[];
 }
 export interface Offers {

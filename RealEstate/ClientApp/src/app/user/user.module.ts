@@ -21,6 +21,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import {StarRatingModule} from 'angular-star-rating';
 import * as __ from './index';
+import { OffersComponent } from './property-components/offers/offers.component';
 
 
 @NgModule({
@@ -36,7 +37,10 @@ import * as __ from './index';
         __.MyProfileComponent,
         __.MyProfileEditComponent,
         __.PropertyForUserComponent,
-        __.AgentByIdComponent
+        __.AgentByIdComponent,
+        __.EditPropertyComponent,
+        __.EditPropertiesPhotosComponent,
+        OffersComponent
   ],
     imports: [
         CommonModule,

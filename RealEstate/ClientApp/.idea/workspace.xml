@@ -2,125 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c98d1b4-73ab-485f-8d8a-c730f22d81ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/shared/components/shared-components/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/shared/components/shared-components/mat-error/mat-error.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/shared/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/shared/pipes/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/user/agent-components/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/user/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/user/main-components/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/user/main-components/main/main.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/user/profile components/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/user/property-components/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/user/property-components/property-for-user/property-for-user.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../RealEstate.BLL/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.BLL/Services/UserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/core/models/offers-list.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.BLL/DTO/OfferDtos/OfferDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.BLL/DTO/OfferDtos/OfferDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.BLL/Interfaces/IPropertyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.BLL/Interfaces/IPropertyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.BLL/Services/PropertyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.BLL/Services/PropertyService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/models/agent-profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/agent-profile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/models/feedback-list.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/models/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/login-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/agent-card/agent-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-card/agent-card.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/agent-card/agent-card.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-card/agent-card.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/agent-card/agent-card.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-card/agent-card.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/agent-card/agent-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-card/agent-card.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/agent-profile-page/agent-profile-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-profile-page/agent-profile-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/agent-profile-page/agent-profile-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-profile-page/agent-profile-page.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/agent-profile-page/agent-profile-page.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-profile-page/agent-profile-page.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/agent-profile-page/agent-profile-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-profile-page/agent-profile-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/dialog-property-filter/dialog-property-filter.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/dialog-property-filter/dialog-property-filter.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/dialog-property-filter/dialog-property-filter.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/dialog-property-filter/dialog-property-filter.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/dialog-property-filter/dialog-property-filter.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/dialog-property-filter/dialog-property-filter.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/dialog-property-filter/dialog-property-filter.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/dialog-property-filter/dialog-property-filter.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/feedback-card/feedback-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/feedback-card/feedback-card.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/feedback-card/feedback-card.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/feedback-card/feedback-card.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/feedback-card/feedback-card.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/feedback-card/feedback-card.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/feedback-card/feedback-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/feedback-card/feedback-card.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/mat-error/mat-error.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/shared-components/mat-error/mat-error.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/mat-error/mat-error.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/mat-error/mat-error.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/shared-components/mat-error/mat-error.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/mat-error/mat-error.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/shared-components/mat-error/mat-error.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/not-found-page/not-found-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/shared-components/not-found-page/not-found-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/not-found-page/not-found-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/shared-components/not-found-page/not-found-page.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/not-found-page/not-found-page.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/shared-components/not-found-page/not-found-page.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/not-found-page/not-found-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/shared-components/not-found-page/not-found-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/offer-card/offer-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/offer-card/offer-card.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/offer-card/offer-card.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/offer-card/offer-card.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/offer-card/offer-card.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/offer-card/offer-card.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/offer-card/offer-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/offer-card/offer-card.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/pipes/property-status-pipe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/pipes/property-status-pipe.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/propert-card/propert-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/propert-card/propert-card.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/propert-card/propert-card.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/propert-card/propert-card.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/propert-card/propert-card.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/propert-card/propert-card.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/propert-card/propert-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/propert-card/propert-card.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/property-page/property-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/property-page/property-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/property-page/property-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/property-page/property-page.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/property-page/property-page.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/property-page/property-page.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/property-page/property-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/property-page/property-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/question-card/question-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/question-card/question-card.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/question-card/question-card.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/question-card/question-card.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/question-card/question-card.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/question-card/question-card.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/question-card/question-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/question-card/question-card.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/rating/rating.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/rating/rating.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/rating/rating.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/rating/rating.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/rating/rating.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/rating/rating.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/rating/rating.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/rating/rating.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/models/property-by-id.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/property-by-id.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/services/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/services/property.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/property.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/offer-card/offer-card.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/offer-card/offer-card.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/property-page/property-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/property-page/property-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/property-page/property-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/property-page/property-page.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/property-page/property-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/property-page/property-page.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/shared.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/shared.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/user-profile-page/user-profile-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/profile-components/user-profile-page/user-profile-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/user-profile-page/user-profile-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/profile-components/user-profile-page/user-profile-page.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/user-profile-page/user-profile-page.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/profile-components/user-profile-page/user-profile-page.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/user-profile-page/user-profile-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/profile-components/user-profile-page/user-profile-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/add-property/add-agents/add-agents.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/agent-components/add-agents/add-agents.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/add-property/add-agents/add-agents.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/agent-components/add-agents/add-agents.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/add-property/add-agents/add-agents.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/agent-components/add-agents/add-agents.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/add-property/add-agents/add-agents.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/agent-components/add-agents/add-agents.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/add-property/add-property.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/add-property/add-property.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/add-property/add-property.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/add-property/add-property.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/add-property/add-property.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/add-property/add-property.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/add-property/add-property.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/add-property/add-property.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/agent-by-id/agent-by-id.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/agent-components/agent-details/agent-by-id.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/agent-by-id/agent-by-id.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/agent-components/agent-details/agent-by-id.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/agent-by-id/agent-by-id.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/agent-components/agent-details/agent-by-id.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/agent-by-id/agent-by-id.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/agent-components/agent-details/agent-by-id.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/agent-list/agent-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/agent-components/agent-list/agent-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/agent-list/agent-list.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/agent-components/agent-list/agent-list.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/agent-list/agent-list.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/agent-components/agent-list/agent-list.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/agent-list/agent-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/agent-components/agent-list/agent-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/footer/footer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/footer/footer.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/footer/footer.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/footer/footer.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/footer/footer.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/footer/footer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/footer/footer.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/home/home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/home/home.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/home/home.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/home/home.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/main/main.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/main/main.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/main/main.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/main/main.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/main/main.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/main/main.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/main/main.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/my-profile-edit/my-profile-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/profile components/my-profile-edit/my-profile-edit.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/my-profile-edit/my-profile-edit.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/profile components/my-profile-edit/my-profile-edit.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/my-profile-edit/my-profile-edit.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/profile components/my-profile-edit/my-profile-edit.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/my-profile-edit/my-profile-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/profile components/my-profile-edit/my-profile-edit.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/my-profile/my-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/profile components/my-profile/my-profile.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/my-profile/my-profile.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/profile components/my-profile/my-profile.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/my-profile/my-profile.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/profile components/my-profile/my-profile.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/my-profile/my-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/profile components/my-profile/my-profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/property-for-user/property-for-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/property-for-user/property-for-user.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/property-for-user/property-for-user.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/profile-components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/property-for-user/property-for-user.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/property-for-user/property-for-user.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/property-for-user/property-for-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/property-for-user/property-for-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/property-list/property-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/property-list/property-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/property-list/property-list.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/property-list/property-list.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/property-list/property-list.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/property-list/property-list.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/property-list/property-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/property-list/property-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/toolbar/toolbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/toolbar/toolbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/toolbar/toolbar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/toolbar/toolbar.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/toolbar/toolbar.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/toolbar/toolbar.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/toolbar/toolbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/main-components/toolbar/toolbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/user/property-components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/user/property-components/property-for-user/property-for-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/property-for-user/property-for-user.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/user/property-components/property-for-user/property-for-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/property-for-user/property-for-user.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/user/user-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/user-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/user/user.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/user.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Controllers/PropertyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Controllers/PropertyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mapping/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Mapping/MappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModels/OfferViewModels/OfferViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ViewModels/OfferViewModels/OfferViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewModels/PropertyViewModels/PropertyUpdateViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ViewModels/PropertyViewModels/PropertyUpdateViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wwwroot/fileuploads/2cd25bae-28b8-40a5-97dd-1ab4bc916339.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wwwroot/fileuploads/324351ff-9b05-489b-b2cf-18224ead3ac9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wwwroot/fileuploads/69355c1f-5739-4d19-9837-83625a08c0e0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wwwroot/fileuploads/83b44c17-e871-4202-b3bf-3c558586d17b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wwwroot/fileuploads/8e0c1c7b-2cc9-4bf2-b3a3-71c731875ed2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wwwroot/fileuploads/9d1b6f80-dda7-478c-a14b-1707d9025168.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wwwroot/fileuploads/e84fd54d-f689-4eca-9cd5-a4c93544f388.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,11 +83,11 @@
       <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstateIdentity\ClientApp\src\app\user" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\shared\components\shared-components" />
-      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\shared\components\profile-components" />
-      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\shared\components\agent-components" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\user\property-components" />
       <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\shared\components\property-components" />
       <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\shared\components" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\shared\components\shared-components" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\shared\components\profile-components" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -234,7 +148,7 @@
       <workItem from="1595837724493" duration="25994000" />
       <workItem from="1595945610076" duration="102204000" />
       <workItem from="1596530429319" duration="162000" />
-      <workItem from="1596530592996" duration="18960000" />
+      <workItem from="1596530592996" duration="77048000" />
     </task>
     <servers />
   </component>
@@ -351,10 +265,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="252" width="737" height="606" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596218458899" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1596370853708">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1596660730354">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596370853708" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596660730354" />
     <state x="623" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1596626809816">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

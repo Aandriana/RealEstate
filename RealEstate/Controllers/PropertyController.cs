@@ -64,11 +64,6 @@ namespace RealEstateIdentity.Controllers
             if (ModelState.IsValid)
             {
                 var propertyDto = _mapper.Map<PropertyUpdateDto>(property);
-                foreach (var question in property.Questions)
-                {
-                    var questionDto = _mapper.Map<QuestionsDto>(question);
-                    propertyDto.QuestionsDtos.Add(questionDto);
-                }
                 await _propertyService.UpdateProperty(id, propertyDto);
                 return Ok();
             }
@@ -84,10 +79,19 @@ namespace RealEstateIdentity.Controllers
             return Ok();
         }
 
-        [HttpPut("{id}/photos")]
+        [HttpGet("{id}/photos")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> GetPropertyPhotos(int id)
+        {
+           var photos = await _propertyService.GetPhotos(id);
+            return Ok(photos);
+        }
+
+
+        [HttpPut("photos/{id}")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> UpdatePropertyPhotos(int id, PropertyUpdatePhotosViewModel updatePhotos)
-        {
+            {
             var updatePhotosDto = _mapper.Map<PropertyUpdatePhotosDto>(updatePhotos);
             await _propertyService.UpdatePhotos(id, updatePhotosDto);
             return Ok();

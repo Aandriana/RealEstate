@@ -11,6 +11,7 @@ namespace RealEstate.BLL.Interfaces
         Task DeleteProperty(int id);
         Task UpdateProperty(int id, PropertyUpdateDto property);
         Task RestoreProperty(int id);
+        Task<List<string>> GetPhotos(int id);
         Task UpdatePhotos(int id, PropertyUpdatePhotosDto photosDto);
         Task AddNewQuestions(int propertyId, AddQuestionDto questionsDto);
         Task<GetPropertyDto> GetPropertyByIdForUser(int id);

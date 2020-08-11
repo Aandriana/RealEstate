@@ -31,7 +31,9 @@
   background: $primary-color-background-dark;
   color: white;
   font-family: Montserrat;
-  margin-bottom: 40px;
+}
+.margin{
+  padding-bottom: 50px !important;
 }
 .char{
   font-size: 20px;
@@ -79,9 +81,9 @@ app-offer-card{
   font-family: Montserrat;
 }
 .edit{
-  width: 300px;
+  width: 200px;
  height: 50px;
-  margin: 60px;
+  margin: 120px 30px;
   border-radius: 10px;
   border: unset;
   color: white;
@@ -94,9 +96,36 @@ app-offer-card{
   box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
 }
 .empty{
-  height: 45px;
   background: $primary-color-background-dark;
 }
+.edit-photos{
+  background: $primary-color-background;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+}
+.show{
+  align-content: center;
+  justify-content: center;
+  display: flex;
+}
+.show-button{
+  margin-top: 80px;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  border: unset;
+  color: white;
+  font-size: 20px;
+  font-family: Montserrat;
+  background: linear-gradient(-90deg, $primary-color-background, $primary-color-background-dark);
+}
+.show-button:hover{
+  background: $primary-color-aqua;
+  color: black;
+  box-shadow: 0px 0px 40px rgba(36,46,66, 0.7);
+}
+
 
 
 

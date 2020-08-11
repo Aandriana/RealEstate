@@ -3,12 +3,13 @@ import {ApiService} from './api.service';
 import {Injectable} from '@angular/core';
 import {HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {PropertyByIdModel, PropertyListModel} from '../models';
+import {OffersListModel, PropertyByIdModel, PropertyListModel} from '../models';
+import {FileInput} from 'ngx-material-file-input';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PropertyService {
+export class  PropertyService {
   readonly baseUrl = propertyUrl;
   propertyForm = new FormData();
   constructor(
@@ -58,5 +59,45 @@ export class PropertyService {
   }
   getPropertyById(Id): Observable<PropertyByIdModel>{
     return this.http.get(`${this.baseUrl}/${Id}`);
+  }
+  editProperty(id, updatePropertyForm): Observable<any> {
+   const form = new FormData();
+    for (const property in updatePropertyForm) {
+      form.append(property, updatePropertyForm[property]);
+    }
+   return this.http.put(`${this.baseUrl}/${id}`, form);
+  }
+  getPhotos(id): Observable<string[]>{
+    return this.http.get(`${this.baseUrl}/${id}/photos`);
+  }
+  editPhotos(id, editPhotosForm, photos): Observable<any>{
+    const form = new FormData();
+    const images: FileInput = editPhotosForm.get('addedContentImages').value;
+    let files: File[] = [];
+    if (images) {
+      files = images.files;
+    }
+    for (let i = 0; i < files.length; i++) {
+      form.append(`addedContentImages`, files[i]);
+    }
+    for (let i = 0; i < photos.length; i++) {
+      form.append(`notDeletedContentImageUrls[${i}]`, photos[i]);
+    }
+    return this.http.put(`${this.baseUrl}/photos/${id}`, form);
+  }
+  deleteProperty(id): Observable<any>{
+    return this.http.patch(`${this.baseUrl}/${id}/delete`);
+  }
+  restoreProperty(id): Observable<any>{
+    return this.http.patch(`${this.baseUrl}/${id}/restore`);
+  }
+  getOffersToProperty(id, pageNumber, pageSize, status): Observable<OffersListModel[]> {
+    let params = new HttpParams();
+    params = params.append('pageNumber', pageNumber);
+    params = params.append('pageSize', pageSize);
+    if (status !== null){
+      params = params.append('Status', status);
+    }
+    return this.http.getWithParams(`${this.baseUrl}/${id}/offers`, params);
   }
 }

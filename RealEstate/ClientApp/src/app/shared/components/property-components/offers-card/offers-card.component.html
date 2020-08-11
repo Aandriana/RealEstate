@@ -1,0 +1,27 @@
+<div class="main-block">
+  <mat-card  fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+    <mat-card-title>
+      <a [routerLink]="['/users', offer.agentProfileId]">
+        <img  *ngIf="offer.image"
+              class = "photo"
+              style="width: 250px"
+              src="{{offer.image}}"
+              alt=""
+        />
+        <img *ngIf="!offer.image"
+             class = "photo"
+             style="width: 250px"
+             src="./assets/img/defaultuser.jpg"
+             alt=""
+        />
+      </a>
+    </mat-card-title>
+    <mat-card-content>
+      <p class = "name">{{offer.firstName}} {{offer.lastName}}</p>
+      <p class = "rating">Rating: {{offer.toLocaleString()}}</p>
+      <p>{{offer.status}}</p>
+      <p class = "comment">{{offer.comment}}</p>
+      <p class = "date">{{offer.status}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

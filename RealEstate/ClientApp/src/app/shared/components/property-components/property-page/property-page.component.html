@@ -1,4 +1,8 @@
-<div class = "empty"></div>
+<div class = "empty">
+</div>
+<div class = "card">
+  <button class="edit" (click)="editor()">Edit photos</button>
+</div>
 <mat-carousel
   timings="250ms ease-in"
   [autoplay]="true"
@@ -6,7 +10,7 @@
   color="primary"
   maxWidth="auto"
   proportion="60"
-  slides="5"
+  slides="{{property.photos.length}}"
   slideHeight="1000px"
   [loop]="true"
   [hideArrows]="false"
@@ -24,8 +28,8 @@
     slideHeight="1000px"
   ></mat-carousel-slide>
 </mat-carousel>
-<div class="status main">
-  <p>{{property.status | propertyStatus}}</p>
+<div class="status main margin">
+  <p class ="margin">{{property.status | propertyStatus}}</p>
 </div>
 <div class = "main" fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column" >
   <div fxFlex="50" class = "card">
@@ -41,7 +45,8 @@
     <p> <span class="material-icons">calendar_today</span><span class = "char">&nbsp;Build year: </span>{{property.buildYear}}</p>
 </div>
   <div class = "card">
-  <button class="edit">Edit property</button>
+  <button class="edit" (click)="runOnComplete()">Edit</button>
+    <button class="edit" (click)="deleting()">{{button}}</button>
   </div>
 </div>
 <div class = "offers">
@@ -49,11 +54,14 @@
     <p class="offer">Offers</p>
   </div>
 <div  class = "cards"fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
-  <app-offer-card  fxFlex="0 1 calc(25% - 32px)"
+  <app-offer-card  fxFlex="0 1 calc(20% - 32px)"
                    fxFlex.lt-md="0 1 calc(50% - 32px)"
                    fxFlex.lt-sm="100%" *ngFor="let offer of property.offers"
                   [offer]="offer"></app-offer-card>
 </div>
+  <div class = "show">
+    <button class="show-button" (click)="offersShow()">Show more</button>
+  </div>
 </div>
 <div class="questions">
   <div class ="question"*ngIf="property.questions.length>0"><p class = "question">Questions</p></div>

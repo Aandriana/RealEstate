@@ -1,4 +1,6 @@
-﻿namespace RealEstateIdentity.ViewModels.OfferViewModels
+﻿using System.Collections.Generic;
+
+namespace RealEstateIdentity.ViewModels.OfferViewModels
 {
     public class OfferViewModel
     {
@@ -11,5 +13,6 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Image { get; set; }
+        public virtual ICollection<AnswerViewModel> Answers { get; set; }
     }
 }

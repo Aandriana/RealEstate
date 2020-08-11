@@ -23,8 +23,7 @@ namespace RealEstateIdentity.Mapping
                 .ForMember(p => p.AgentsId, opt => opt.MapFrom(vm => vm.AgentsId.AsQueryable()))
                 .ForMember(p => p.QuestionsDtos, map => map.MapFrom(vm => vm.Questions.AsQueryable()));
 
-            CreateMap<PropertyUpdateViewModel, PropertyUpdateDto>()
-                .ForMember(p => p.QuestionsDtos, map => map.MapFrom(p => p.Questions.AsQueryable()));
+            CreateMap<PropertyUpdateViewModel, PropertyUpdateDto>();
 
             CreateMap<PropertyUpdatePhotosViewModel, PropertyUpdatePhotosDto>()
                 .ForMember(p => p.NotDeletedContentImageUrls, map => map.MapFrom(vm => vm.NotDeletedContentImageUrls))
