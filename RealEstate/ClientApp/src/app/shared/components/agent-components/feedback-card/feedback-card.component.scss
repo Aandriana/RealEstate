@@ -5,15 +5,15 @@ mat-card{
   align-content: center;
  flex-flow: unset!important;
   margin-top: 50px;
-}
-mat-card:hover{
-  box-shadow: 3px 0px 40px rgba(36,46,66, 1);
+  &.mat-card:hover{
+    box-shadow: 3px 0px 40px rgba(36,46,66, 1);
+  }
 }
 mat-card-content{
   padding-left: 40px;
 }
 p{
-  font-family: Montserrat;
+  font-family: $font-stack;
   padding: 15px;
   color: $primary-color-background-dark;
 }

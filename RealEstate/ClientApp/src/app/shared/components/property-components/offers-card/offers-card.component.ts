@@ -8,6 +8,7 @@ import {OffersListModel} from '../../../../core/models';
 })
 export class OffersCardComponent implements OnInit {
   @Input() offer: OffersListModel;
+  panelOpenState = false;
   constructor() { }
 
   ngOnInit(): void {

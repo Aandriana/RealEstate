@@ -49,6 +49,8 @@ namespace RealEstate.BLL.Mapping
 
             CreateMap<QuestionsDto, Question>();
             CreateMap<Question, QuestionsDto>();
+            CreateMap<Question, GetQuestionDto>()
+                .ForMember(q => q.Question, map => map.MapFrom(q => q.QuestionText));
 
             CreateMap<QuestionUpdateDto, Question>()
                 .ForMember(q => q.QuestionText, map => map.MapFrom(q => q.Question));

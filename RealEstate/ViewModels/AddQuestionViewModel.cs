@@ -4,6 +4,6 @@ namespace RealEstateIdentity.ViewModels
 {
     public class AddQuestionViewModel
     {
-        public ICollection<QuestionUpdateViewModel> Questions { get; set; }
+        public QuestionUpdateViewModel Question { get; set; }
     }
 }

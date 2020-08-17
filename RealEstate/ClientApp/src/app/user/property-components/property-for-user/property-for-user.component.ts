@@ -48,6 +48,9 @@ export class PropertyForUserComponent implements OnInit {
   showOffers(): any{
     this.router.navigateByUrl(`/properties/${this.propertyId}/offers`);
   }
+  showQuestions(): any{
+    this.router.navigateByUrl(`/properties/${this.propertyId}/questions`);
+  }
   getButton(): string {
     if (this.deleted) {
       return 'Restore';

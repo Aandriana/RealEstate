@@ -1,8 +1,6 @@
 @import "../../../app.component";
 .main{
-  justify-content: center;
-  align-content: center;
-  display: flex;
+  @extend %flexAlights;
   background:url("/assets/img/bacg.png") $primary-color-background-dark;
   background-position:center;
   background-repeat:no-repeat;

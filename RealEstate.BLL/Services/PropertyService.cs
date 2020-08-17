@@ -112,7 +112,7 @@ namespace RealEstate.BLL.Services
         {
             var photos = new List<string>();
             var propertyPhotos = await _unitOfWork.Repository<PropertyPhoto>().GetAllAsync(p => p.PropertyId == id);
-            foreach(var photo in propertyPhotos)
+            foreach (var photo in propertyPhotos)
             {
                 photos.Add(photo.Path);
             }
@@ -149,20 +149,17 @@ namespace RealEstate.BLL.Services
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task AddNewQuestions(int propertyId, AddQuestionDto questionsDto)
+        public async Task AddNewQuestions(int propertyId, QuestionUpdateDto questionsDto)
         {
             var propertyToUpdate = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == propertyId);
             var user = await _authentication.GetCurrentUserAsync();
             if (propertyToUpdate.UserId != user.Id) throw new FieldAccessException();
 
-            foreach (var questionDto in questionsDto.Questions)
-            {
-                var question = _mapper.Map<Question>(questionDto);
-                question.PropertyId = propertyId;
-                question.CreatedById = user.Id;
-                await _unitOfWork.Repository<Question>().AddAsync(question);
-            }
-
+            var question = _mapper.Map<Question>(questionsDto);
+            question.CreatedById = user.Id;
+            question.PropertyId = propertyId;
+            question.CreatedDateUtc = DateTime.Now;
+            await _unitOfWork.Repository<Question>().AddAsync(question);
             await _unitOfWork.SaveChangesAsync();
         }
 
@@ -191,8 +188,8 @@ namespace RealEstate.BLL.Services
             {
                 var propertyDto = _mapper.Map<PropertyListDto>(property);
                 var photo = await _unitOfWork.Repository<PropertyPhoto>().GetAsync(p => p.PropertyId == property.Id);
-                if(photo != null)
-                propertyDto.Image = photo.Path;
+                if (photo != null)
+                    propertyDto.Image = photo.Path;
                 propertiesDto.Add(propertyDto);
             }
 
@@ -211,6 +208,13 @@ namespace RealEstate.BLL.Services
                 propertiesDto.Add(propertyDto);
             }
 
+            foreach(var property in propertiesDto)
+            {
+                var photo = await _unitOfWork.Repository<PropertyPhoto>().GetAsync(p => p.PropertyId == property.Id);
+                if (photo != null)
+                    property.Image = photo.Path;
+            }
+
             return propertiesDto;
         }
 
@@ -220,7 +224,7 @@ namespace RealEstate.BLL.Services
             var property = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id);
             if (property.UserId != user.Id) throw new FieldAccessException();
             var propertyDto = _mapper.Map<GetPropertyDto>(property);
-            foreach(var offer in propertyDto.OfferDtos)
+            foreach (var offer in propertyDto.OfferDtos)
             {
                 var agent = await _unitOfWork.Repository<User>().GetAsync(u => u.Id == offer.AgentProfileId);
                 offer.Image = agent.ImagePath;
@@ -259,13 +263,30 @@ namespace RealEstate.BLL.Services
                 var answers = await _unitOfWork.Repository<Answer>().GetAllAsync(a => a.OfferId == offer.Id);
                 foreach (var answer in answers)
                 {
-                   var answerDto = _mapper.Map<AnswerDto>(answer);
+                    var answerDto = _mapper.Map<AnswerDto>(answer);
                     offerDto.Answers.Add(answerDto);
 
                 }
                 offerDtos.Add(offerDto);
             }
             return offerDtos;
+        }
+
+        public async Task<List<GetQuestionDto>> GetQuestions(int id)
+        {
+            var user = await _authentication.GetCurrentUserAsync();
+            var propepty = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == id);
+            if (propepty.UserId != user.Id) throw new FieldAccessException();
+
+            var questions = await _unitOfWork.Repository<Question>().GetAllAsync(q => q.PropertyId == id);
+            var questionsDto = new List<GetQuestionDto>();
+
+            foreach (var question in questions)
+            {
+                var questionDto = _mapper.Map<GetQuestionDto>(question);
+                questionsDto.Add(questionDto);
+            }
+            return questionsDto;
         }
 
         private async Task<List<Property>> GetFilteredProperties(PropertyListFilter filter, string userId)

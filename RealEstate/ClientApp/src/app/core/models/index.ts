@@ -8,3 +8,4 @@ export * from './property-by-id.model';
 export * from './error-item';
 export * from './agent-profile';
 export * from './offers-list.model';
+export * from './get-question.model';

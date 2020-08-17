@@ -1,0 +1,12 @@
+<mat-dialog-content class="main" [formGroup]="data">
+    <mat-form-field>
+        <input matInput placeholder="question" formControlName="question"/>
+      <mat-error
+        *ngIf="data.get('question').errors?.required">
+        required data</mat-error>
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions class="main">
+  <button class="mat-raised-button"(click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+</mat-dialog-actions>

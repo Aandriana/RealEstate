@@ -13,14 +13,14 @@ color: black;
 mat-card-content{
   margin: 12px;
   padding: 100px;
-  font-family: Montserrat;
+  font-family: $font-stack;
   color: white;
   font-size: 15px;
 }
 .title
 {
   color:$primary-color-aqua;
-  font-family: Montserrat;
+  font-family: $font-stack;
   font-size: 20px;
 }
 

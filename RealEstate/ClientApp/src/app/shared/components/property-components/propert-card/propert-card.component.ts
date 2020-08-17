@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PropertyListModel} from '../../../../core/models';
 import {Router} from '@angular/router';
 
@@ -9,11 +9,11 @@ import {Router} from '@angular/router';
 })
 export class PropertCardComponent implements OnInit {
   @Input() property: PropertyListModel;
-  constructor(private router: Router) { }
+  @Output() public onComplete: EventEmitter<any> = new EventEmitter();
+  constructor() { }
   ngOnInit(): void {
   }
-
-  chooseProperty(): void{
-    this.router.navigateByUrl(`properties/${this.property.id}`);
+  runOnComplete(): void {
+    this.onComplete.emit();
   }
 }

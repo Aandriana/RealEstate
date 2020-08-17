@@ -50,29 +50,26 @@ button{
   height: 100px;
   border: none !important;
   background:linear-gradient(45deg, $primary-color-blue-purple, $primary-color-purple);
-  font-family: Montserrat;
+  font-family: $font-stack;
   color: white;
   font-size: 20px;
   border-radius: 30px;
+  &:hover{
+    background:linear-gradient(45deg, $primary-color-purple, $primary-color-purple-dark);
+    box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+  }
 }
 
-button:hover{
-  background:linear-gradient(45deg, $primary-color-purple, $primary-color-purple-dark);
-  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
-}
 .next
 {
   background:linear-gradient( $primary-color-background, $primary-color-background-dark) !important;
 
 }
 .button{
-  justify-content: center;
-  align-content: center;
-
+  @extend %alights;
 }
 .content {
-  justify-content: center;
-  align-content: center;
+  @extend %alights;
 }
 .bottom{
   background: $primary-color-background;

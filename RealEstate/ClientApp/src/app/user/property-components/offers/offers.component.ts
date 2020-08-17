@@ -10,10 +10,11 @@ import {PropertyService} from '../../../core/services/property.service';
 })
 export class OffersComponent implements OnInit {
   propertyId: any;
-  offers: any;
+  offers: OffersListModel[];
   pageSize = 5;
   pageNumber = 0;
-  status: string;
+  status = 0;
+  offerStatuses = ['To agent', 'From agent', 'Confirmed', 'Declined', 'Sold', 'Failed'];
   constructor(private route: ActivatedRoute, private propertyService: PropertyService) { }
 
   onPageFired(event): any {
@@ -29,5 +30,8 @@ export class OffersComponent implements OnInit {
       });
     });
   }
-
+filter(offerStatus): any{
+    this.status = offerStatus.index;
+    this.ngOnInit();
+  }
 }

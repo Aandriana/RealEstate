@@ -10,7 +10,6 @@ export class AgentCardComponent implements OnInit {
   @Input() user: AgentListModel;
   @Input() button: string;
   @Output() public onComplete: EventEmitter<any> = new EventEmitter();
-  @Input() completedParam;
   toggle = true;
   status = 'Enable';
 
@@ -20,7 +19,7 @@ export class AgentCardComponent implements OnInit {
   }
   constructor() { }
   runOnComplete(): void {
-    this.onComplete.emit(this.completedParam);
+    this.onComplete.emit();
   }
   ngOnInit(): void {
   }

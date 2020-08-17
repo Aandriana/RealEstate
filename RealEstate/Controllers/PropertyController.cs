@@ -83,7 +83,7 @@ namespace RealEstateIdentity.Controllers
         [Authorize(Roles = "User")]
         public async Task<IActionResult> GetPropertyPhotos(int id)
         {
-           var photos = await _propertyService.GetPhotos(id);
+            var photos = await _propertyService.GetPhotos(id);
             return Ok(photos);
         }
 
@@ -91,7 +91,7 @@ namespace RealEstateIdentity.Controllers
         [HttpPut("photos/{id}")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> UpdatePropertyPhotos(int id, PropertyUpdatePhotosViewModel updatePhotos)
-            {
+        {
             var updatePhotosDto = _mapper.Map<PropertyUpdatePhotosDto>(updatePhotos);
             await _propertyService.UpdatePhotos(id, updatePhotosDto);
             return Ok();
@@ -101,7 +101,7 @@ namespace RealEstateIdentity.Controllers
         [HttpGet("user")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> GetPropertiesForUser([FromQuery]PropertyListFilter filter)
-            {
+        {
             var propertiesDto = await _propertyService.GetPropertiesForUser(filter);
             var propertiesVM = new List<PropertyListViewModel>();
             foreach (var propertyDto in propertiesDto)
@@ -128,7 +128,7 @@ namespace RealEstateIdentity.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize(Roles ="User")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> GetPropertyByIdForUser(int id)
         {
             var property = await _propertyService.GetPropertyByIdForUser(id);
@@ -137,7 +137,7 @@ namespace RealEstateIdentity.Controllers
         }
 
         [HttpGet("agent/{id}")]
-        [Authorize(Roles="Agent")]
+        [Authorize(Roles = "Agent")]
         public async Task<IActionResult> GetPropertyByIdForAgent(int id)
         {
             var property = await _propertyService.GetPropertyByIdForAgent(id);
@@ -153,18 +153,34 @@ namespace RealEstateIdentity.Controllers
             return Ok(offers);
         }
 
+        [HttpGet("{id}/questions")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> GetQuestions(int id)
+        {
+            var questions = await _propertyService.GetQuestions(id);
+            var questionsVm = new List<GetQuestionViewModel>();
+
+            foreach (var question in questions)
+            {
+                var questionVm = _mapper.Map<GetQuestionViewModel>(question);
+                questionsVm.Add(questionVm);
+            }
+
+            return Ok(questionsVm);
+        }
+
         [HttpPost("{id}/questions")]
         [Authorize(Roles = "User")]
-        public async Task<IActionResult> AddQuestions(int id, [FromBody] AddQuestionViewModel questionsVm)
+        public async Task<IActionResult> AddQuestions(int id, [FromBody] QuestionUpdateViewModel questionsVm)
         {
             if (ModelState.IsValid)
             {
-                var questionsDto = _mapper.Map<AddQuestionDto>(questionsVm);
+                var questionsDto = _mapper.Map<QuestionUpdateDto>(questionsVm);
                 await _propertyService.AddNewQuestions(id, questionsDto);
                 return Ok();
             }
 
-            return BadRequest();
+            return BadRequest();    
         }
 
         [HttpDelete("question/{id}")]

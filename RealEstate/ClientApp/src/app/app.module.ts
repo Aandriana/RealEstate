@@ -1,12 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';
-import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { AppRoutingModule } from './app-routing.module';
+import {AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {LoginModule} from './login/login.module';
 import {UserModule} from './user/user.module';
@@ -15,10 +14,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {AuthGuard} from './shared/auth';
 import {MaterialFileInputModule} from 'ngx-material-file-input';
 import {SharedModule} from './shared/shared.module';
-import {AgentModule} from './agent/agent.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {StarRatingModule} from 'angular-star-rating';
+import {MatInputModule} from '@angular/material/input';
+import {AgentModule} from './agent/agent.module';
+import {AppComponent} from './app.component';
 export function tokenGetter(): string {
   return localStorage.getItem('jwt');
 }
@@ -38,12 +38,12 @@ export function tokenGetter(): string {
     BrowserModule,
     HttpClientModule,
     LoginModule,
+    MatInputModule,
     UserModule,
     HttpClientModule,
     FlexLayoutModule,
     SharedModule,
     AgentModule,
-    StarRatingModule.forRoot(),
     MDBBootstrapModule.forRoot(),
     JwtModule.forRoot({
       config: {},

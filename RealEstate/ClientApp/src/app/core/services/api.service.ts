@@ -24,4 +24,7 @@ export class ApiService {
   patch(url): any{
     return this.http.patch(url, null);
   }
+  delete(url): any{
+    return this.http.delete(url);
+  }
 }

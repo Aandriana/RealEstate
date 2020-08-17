@@ -1,18 +1,14 @@
 @import "../../../app.component";
 .main{
   background: $primary-color-background-dark;
-  justify-content: center;
-  align-content: center;
-  display: flex;
+  @extend %flexAlights;
 }
 app-propert-card{
-  justify-content: center;
-  align-content: center;
-  display: flex;
+  @extend %flexAlights;
 }
 :host ::ng-deep.mat-paginator .mat-paginator-container{
   background:linear-gradient(45deg,$primary-color-blue-purple , $primary-color-purple);
   color: white;
-  font-family: Montserrat;
+  font-family: $font-stack;
 }
 

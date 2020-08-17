@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-title>
-          <a [routerLink]="['/users', user.id]">
+          <a (click)="runOnComplete()"  [routerLink]="['/users', user.id]">
             <img  *ngIf="user.imagePath"
                  class = "photo"
                  style="width: 200px"
@@ -18,7 +18,7 @@
   <mat-card-title>
             <mat-icon class = "icon">perm_identity</mat-icon>
             <span> <a
-                      [routerLink]="['/users', user.id]">
+                      [routerLink]="['/agents', user.id]">
                  {{ user.firstName }} {{ user.lastName }}</a>
                </span>
   </mat-card-title>
@@ -29,12 +29,13 @@
               {{ user.agentProfile.city.substring(0, 400) }}
             </p>
             <p class = "info">
+            <star-rating class = "rating" [value]="user.agentProfile.rating" [totalstars]="5" checkedcolor="aqua" uncheckedcolor="black" size="30px" [readonly]="true"></star-rating>
+            </p>
+            <p class = "info">
             <span class="material-icons purple">attach_money</span>{{user.agentProfile.defaultRate}} %
             </p>
           </div>
           <button (click)="runOnComplete(); enableDisableRule()"  [ngClass]="{'button' : toggle, 'isClicked': !toggle}">{{button}}</button>
   </mat-card-content>
 </mat-card>
-
-<star-rating [starType]="'icon'"></star-rating>
 

@@ -4,6 +4,7 @@ import {Filter, PropertyListModel} from '../../../core/models';
 import { MatPaginator } from '@angular/material/paginator';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogPropertyFilterComponent} from '../../../shared/components/property-components/dialog-property-filter/dialog-property-filter.component';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-property-list',
   templateUrl: './property-list.component.html',
@@ -17,7 +18,7 @@ export class PropertyListComponent implements OnInit {
   category: string;
   status: string;
 
-  constructor(private propertyService: PropertyService, public dialog: MatDialog) {
+  constructor(private propertyService: PropertyService, public dialog: MatDialog, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -46,6 +47,9 @@ export class PropertyListComponent implements OnInit {
         this.status = item.status;
         this.getProperties();
       });
+  }
+  chooseProperty(id): void{
+    this.router.navigateByUrl(`properties/${id}`);
   }
 }
 

@@ -1,0 +1,33 @@
+@import "../../../app.component";
+.main{
+  background: $primary-color-background-dark;
+  @extend %flexAlights;
+}
+.not-found{
+  background: $primary-color-background-dark;
+  @extend %flexAlights;
+  height: 50%;
+}
+.title{
+  margin: 150px;
+  font-family: $font-stack;
+  font-size: 30px;
+  color: $primary-color-blue-purple;
+}
+app-propert-card{
+  @extend %flexAlights;
+  margin-bottom: 80px;
+}
+:host ::ng-deep.mat-paginator .mat-paginator-container{
+  background:linear-gradient(45deg,$primary-color-blue-purple , $primary-color-purple);
+  color: white;
+  font-family: $font-stack;
+}
+.list{
+  height: 100%;
+}
+
+
+
+
+

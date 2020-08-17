@@ -1,4 +1,4 @@
-export * from './agent-components/index';
-export * from './main-components/index';
-export * from './profile components/index';
-export * from './property-components/index';
+export * from './agent-components';
+export * from './main-components';
+export * from './profile components';
+export * from './property-components';

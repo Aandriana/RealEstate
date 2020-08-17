@@ -9,7 +9,7 @@
   background-color: $primary-color-aqua !important;
 }
 .radio{
-  font-family: Montserrat !important;
+  font-family: $font-stack !important;
 }
 
 /deep/ .mat-radio-outer-circle {
@@ -17,5 +17,8 @@
 .main{
   width: inherit !important;
   height: inherit !important;
+}
+.mat-radio-label {
+  white-space: normal;
 }
 

@@ -14,14 +14,14 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
-import {BrowserModule} from '@angular/platform-browser';
-import {AppRoutingModule} from '../app-routing.module';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
-import {StarRatingModule} from 'angular-star-rating';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import * as __ from './index';
-import { OffersCardComponent } from './components/property-components/offers-card/offers-card.component';
+import * as __ from './';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {RatingModule} from 'ng-starrating';
+import {MatInputModule} from '@angular/material/input';
+import {RouterModule} from '@angular/router';
+import { AgentPropertyComponent } from './components/property-components/agent-property/agent-property.component';
 
 
 @NgModule({
@@ -42,15 +42,15 @@ import { OffersCardComponent } from './components/property-components/offers-car
     MatRadioModule,
     MatDialogModule,
     MDBBootstrapModule,
-    BrowserModule,
-    AppRoutingModule,
     MatCarouselModule,
     MatIconModule,
     MatButtonModule,
-    BrowserAnimationsModule,
     MatCarouselModule.forRoot(),
-    StarRatingModule.forChild(),
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatExpansionModule,
+    RatingModule,
+    MatInputModule,
+    RouterModule
   ],
   declarations: [
     __.PropertCardComponent,
@@ -69,7 +69,13 @@ import { OffersCardComponent } from './components/property-components/offers-car
     __.FeedbackCardComponent,
     __.NotFoundPageComponent,
     __.SliderRowComponent,
-    OffersCardComponent,
+    __.OffersCardComponent,
+    __.QuestionAnswerComponent,
+    __.QuestionsCardComponent,
+    __.DialogDeletingSureComponent,
+    __.DialogEditQuestionComponent,
+    __.DialogAddQuestionComponent,
+    AgentPropertyComponent,
   ],
   exports: [
     __.PropertCardComponent,
@@ -83,7 +89,9 @@ import { OffersCardComponent } from './components/property-components/offers-car
     __.AgentProfilePageComponent,
     __.FeedbackCardComponent,
     __.SliderRowComponent,
-    OffersCardComponent,
+    __.OffersCardComponent,
+    __.QuestionsCardComponent,
+    AgentPropertyComponent,
   ],
   providers: [],
 })

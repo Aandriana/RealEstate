@@ -3,3 +3,22 @@
   background: $primary-color-blue-purple;
   padding: 50px;
 }
+::ng-deep .mat-tab-label {
+  font-family: $font-stack;
+  font-size: 17px;
+}
+.no-offers{
+ @extend %flexAlights;
+  height: 580px;
+  p{
+    font-family: $font-stack;
+    font-size: 25px;
+    color: $primary-color-background;
+    margin-top: 260px;
+  }
+  }
+:host ::ng-deep.mat-paginator .mat-paginator-container{
+  background: #7C67EDFF;
+  color: white;
+  font-family: $font-stack;
+}

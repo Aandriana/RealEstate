@@ -1,0 +1,11 @@
+<div class="main">
+  <div *ngIf="!questions.length" class="no-questions">
+  <p>No questions yet</p>
+  </div>
+  <div *ngFor="let question of questions">
+<app-questions-card [question]="question" (delete)="openDeleteDialog(question.id)" (update)="openUpdateDialog(question.id, question.question)"></app-questions-card>
+  </div>
+  <div class = "button">
+  <button (click)="openAddDialog()" class ="add">Add question</button>
+  </div>
+</div>

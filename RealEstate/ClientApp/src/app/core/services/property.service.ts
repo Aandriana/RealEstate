@@ -3,7 +3,7 @@ import {ApiService} from './api.service';
 import {Injectable} from '@angular/core';
 import {HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {OffersListModel, PropertyByIdModel, PropertyListModel} from '../models';
+import {GetQuestionModel, OffersListModel, PropertyByIdModel, PropertyListModel} from '../models';
 import {FileInput} from 'ngx-material-file-input';
 
 @Injectable({
@@ -96,8 +96,29 @@ export class  PropertyService {
     params = params.append('pageNumber', pageNumber);
     params = params.append('pageSize', pageSize);
     if (status !== null){
-      params = params.append('Status', status);
+      params = params.append('offerStatus', status);
     }
     return this.http.getWithParams(`${this.baseUrl}/${id}/offers`, params);
+  }
+  getQuestions(id): Observable<GetQuestionModel[]> {
+    return this.http.get(`${this.baseUrl}/${id}/questions`);
+  }
+  updateQuestion(id, questionUpdateForm): Observable<any>{
+    return this.http.put(`${this.baseUrl}/question/${id}`, questionUpdateForm);
+  }
+  deleteQuestion(id): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/question/${id}`);
+  }
+  addQuestion(propertyId, addQuestionForm): Observable<any> {
+    return this.http.post(`${this.baseUrl}/${propertyId}/questions`, addQuestionForm);
+  }
+  getPropertiesforAgent(pageNumber, pageSize): Observable<PropertyListModel[]> {
+    let params = new HttpParams();
+    params = params.append('pageNumber', pageNumber);
+    params = params.append('pageSize', pageSize);
+    return this.http.getWithParams(`${this.baseUrl}/agent`, params);
+  }
+  getPropertyForAgent(id): Observable<PropertyByIdModel> {
+  return this.http.get(`${this.baseUrl}/agent/${id}`);
   }
 }

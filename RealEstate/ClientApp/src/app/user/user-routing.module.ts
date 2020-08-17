@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from '../shared/auth';
-import * as __ from './index';
-import * as ___ from '../shared/index';
+import * as __ from './';
+import * as ___ from '../shared/';
 
 
 const routes: Routes = [
@@ -11,6 +11,7 @@ const routes: Routes = [
       {path: 'properties/edit/:id', component: __.EditPropertyComponent},
       {path: 'properties/add/agent', component: __.AddAgentsComponent},
       {path: 'properties/:id/offers', component: __.OffersComponent},
+      {path: 'properties/:id/questions', component: __.QuestionsEditComponent},
       {path: 'properties/add', component: __.AddPropertyComponent},
       {path: 'properties/:id', component: __.PropertyForUserComponent},
       {path: 'properties', component: __.PropertyListComponent},

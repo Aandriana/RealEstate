@@ -3,19 +3,14 @@
 <div mat-dialog-content>
   <p>Filter by category:</p>
   <p>
-    <mat-radio-group class = "radio" aria-label="Select an option" name="category">
-      <mat-radio-button (change)="onCategoryChange($event)" value="0">Flat&nbsp;&nbsp;&nbsp;</mat-radio-button>
-      <mat-radio-button (change)="onCategoryChange($event)" value="1">House&nbsp;&nbsp;&nbsp;</mat-radio-button>
-      <mat-radio-button  (change)="onCategoryChange($event)" value="2">Сortege</mat-radio-button>
+    <mat-radio-group class = "radio" aria-label="Select an option" name="category" *ngFor="let currentStatus of propertyStatuses">
+      <mat-radio-button (change)="onCategoryChange($event)" value="{{propertyStatuses.indexOf(currentStatus)}}">{{currentStatus}}&nbsp;&nbsp;</mat-radio-button>
     </mat-radio-group>
   </p>
   <p>Filter by status:</p>
   <p>
-    <mat-radio-group class = "radio" aria-label="Select an option" name="status">
-      <mat-radio-button (change)="onStatusChange($event)" value="0">Frozen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-radio-button>
-      <mat-radio-button (change)="onStatusChange($event)" value="1">Looking for agent&nbsp;&nbsp;&nbsp;</mat-radio-button>
-      <mat-radio-button  (change)="onStatusChange($event)" value="2">Found agent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-radio-button>
-      <mat-radio-button  (change)="onStatusChange($event)" value="3">Sold</mat-radio-button>
+    <mat-radio-group class = "radio" aria-label="Select an option" name="status" *ngFor="let currentCategory of propertyCategories">
+      <mat-radio-button (change)="onStatusChange($event)" value="{{propertyCategories.indexOf(currentCategory)}}">{{currentCategory}}&nbsp;&nbsp;</mat-radio-button>
     </mat-radio-group>
   </p>
 </div>

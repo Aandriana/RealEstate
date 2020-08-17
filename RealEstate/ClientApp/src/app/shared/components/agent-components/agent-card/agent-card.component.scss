@@ -1,16 +1,14 @@
 @import "../../../../app.component";
 mat-card {
+  @extend %alights;
   background: $primary-color-background;
   border-radius: unset;
   margin: 20px;
-  justify-content: center;
-  align-content: center;;
   padding-bottom: 40px;
-  font-family: Montserrat;
   width: 280px;
 }
 .photo {
-  width: 253px;
+  width: 250px;
   height: 200px;
   object-fit: cover;
   border-radius: 4px;
@@ -23,13 +21,13 @@ button{
   border-radius: 8px;
   background:linear-gradient(45deg, $primary-color-blue-purple, $primary-color-purple);
   color: white;
+  &.button:hover{
+    border: unset;
+    box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+    background:linear-gradient(45deg,$primary-color-blue-purple , $primary-color-aqua);
+  }
 }
 
-button:hover{
-  border: unset;
-  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
-  background:linear-gradient(45deg,$primary-color-blue-purple , $primary-color-aqua);
-}
 .isClicked{
   border: unset;
   color: black;
@@ -37,27 +35,21 @@ button:hover{
 }
 
 mat-card-title{
+  @extend %flexAlights;
   color: $primary-color-aqua;
-  font-family: Montserrat;
-  justify-content: center;
-  align-content: center;
-  display: flex;
   padding-top: 40px
 }
 
 mat-card-content{
   justify-content: center;
-  font-family: Montserrat;
+  font-family:  $font-stack;
   color: white;
   font-size: 15px;
 }
 .price{
+  @extend %flexAlights;
   color: $primary-color-aqua;
-  font-family: Montserrat;
   font-size: 25px;
-  justify-content: center;
-  align-content: center;
-  display: flex;
   margin-bottom: 40px;
 }
 .status
@@ -67,7 +59,7 @@ mat-card-content{
 }
 a{
   color: $primary-color-aqua;
-  font-family: Montserrat;
+  font-family: $font-stack;
 }
 
 .rating{
@@ -83,18 +75,12 @@ a{
   color: $primary-color-purple;
 }
 p{
-  font-family: Montserrat;
+  font-family: $font-stack;
 }
 @media screen and (max-width: 960px) {
-mat-card{
+  mat-card{
   width: unset;
 }
- .rating{
-   align-content: center;
-   justify-content: center;
-   display: flex;
- }
-
   .info {
     margin-right: 50px;
     text-align: center;
@@ -104,3 +90,4 @@ button{
 height:65px; }
 
 }
+

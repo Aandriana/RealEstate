@@ -18,7 +18,9 @@
     </mat-card-title>
     <mat-card-content>
       <p class = "name">{{feedback.firstName}} {{feedback.lastName}}</p>
-      <p clas = "rating">Rating: {{feedback.rating}}</p>
+      <p>
+        <star-rating [value]="feedback.rating" [totalstars]="5" checkedcolor="white" uncheckedcolor="black" size="30px" [readonly]="true"></star-rating>
+      </p>
       <p class = "comment">{{feedback.comment}}</p>
       <p class = "date">{{feedback.date | date:'medium'}}</p>
     </mat-card-content>

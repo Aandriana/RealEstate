@@ -4,10 +4,10 @@ mat-card{
   margin: 10px;
   background: $primary-color-background;
   color: white;
-  font-family: Montserrat;
-}
-mat-card:hover{
-  box-shadow: 0px 0px 40px rgba(47,59,82, 1);
+  font-family: $font-stack;
+  &:hover{
+    box-shadow: 0px 0px 40px rgba(47,59,82, 1);
+  }
 }
 
 .photo {
@@ -19,7 +19,7 @@ mat-card:hover{
 
 mat-card-title{
   color: $primary-color-aqua;
-  font-family: Montserrat;
+  font-family: $font-stack;
   justify-content: center;
   align-content: center;
   display: flex;
@@ -28,7 +28,7 @@ mat-card-title{
 
 mat-card-content{
   justify-content: center;
-  font-family: Montserrat;
+  font-family: $font-stack;
   color: white;
   font-size: 15px;
   margin: 60px;
@@ -41,11 +41,10 @@ mat-card-content{
 }
 a{
   color: $primary-color-aqua;
-  font-family: Montserrat;
-  font-family: Montserrat;
+  font-family: $font-stack;
 }
 
 p{
-  font-family: Montserrat;
+  font-family: $font-stack;
 }
 

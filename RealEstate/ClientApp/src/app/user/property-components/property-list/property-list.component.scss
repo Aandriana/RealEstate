@@ -1,33 +1,27 @@
 @import "../../../app.component";
 .main{
   background: $primary-color-background-dark;
-  justify-content: center;
-  align-content: center;
-  display: flex;
+  @extend %flexAlights;
 }
 .not-found{
   background: $primary-color-background-dark;
-  justify-content: center;
-  align-content: center;
-  display: flex;
+  @extend %flexAlights;
   height: 50%;
 }
 .title{
   margin: 150px;
-  font-family: Montserrat;
+  font-family: $font-stack;
    font-size: 30px;
   color: $primary-color-blue-purple;
 }
 app-propert-card{
-  justify-content: center;
-  align-content: center;
-  display: flex;
+  @extend %flexAlights;
   margin-bottom: 80px;
 }
 :host ::ng-deep.mat-paginator .mat-paginator-container{
   background:linear-gradient(45deg,$primary-color-blue-purple , $primary-color-purple);
   color: white;
-  font-family: Montserrat;
+  font-family: $font-stack;
 }
 .list{
   height: 100%;
@@ -42,13 +36,13 @@ app-propert-card{
   border-radius: 8px;
   background:linear-gradient(45deg, $primary-color-blue-purple, $primary-color-purple);
   color: white;
+  &:hover{
+    border: unset;
+    box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+    background:linear-gradient(45deg,$primary-color-blue-purple , $primary-color-aqua);
+  }
 }
 
-.filter:hover{
-  border: unset;
-  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
-  background:linear-gradient(45deg,$primary-color-blue-purple , $primary-color-aqua);
-}
 
 
 

@@ -13,7 +13,7 @@ mat-menu{
   background-color:$primary-color-background !important;
 }
 .info {
-  font-family: Montserrat;
+  font-family: $font-stack;
   font-size: 45px;
   display: flex;
   color: $primary-color-aqua;
@@ -26,7 +26,7 @@ mat-menu{
 .mat-menu-item{
   justify-content: center !important;
   color: white;
-  font-family: Montserrat;
+  font-family: $font-stack;
   font-size: 20px;
 }
 

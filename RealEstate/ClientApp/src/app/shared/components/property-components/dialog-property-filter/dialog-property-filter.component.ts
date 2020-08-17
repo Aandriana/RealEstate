@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {MatRadioChange} from '@angular/material/radio';
 import {Filter} from '../../../../core/models';
@@ -9,6 +9,8 @@ import {Filter} from '../../../../core/models';
   styleUrls: ['./dialog-property-filter.component.scss']
 })
 export class DialogPropertyFilterComponent{
+  propertyStatuses = ['Frozen', 'Looking for agent', 'Found agent', 'Sold'];
+  propertyCategories = ['Flat', 'House', 'Сortege'];
   constructor(
     public dialogRef: MatDialogRef<DialogPropertyFilterComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Filter) {}

@@ -1,0 +1,23 @@
+@import "../../../app.component";
+.content{
+  background: url("/assets/img/ahent-home-back.jpg ");
+  background-position: center;
+  height: 700px;
+  @extend %flexAlights;
+}
+button{
+  border: unset;
+  margin-top: 300px;
+  border-radius: 50px;
+  height: 100px;
+  width: 300px;
+  font-family: $font-stack;
+  color: white;
+  background: $primary-color-background;
+  font-size: 25px;
+  &:hover{
+    background:$primary-color-background-dark;
+    box-shadow: 0px 0px 40px rgba(47,59,82, 0.7) !important;
+  }
+}
+

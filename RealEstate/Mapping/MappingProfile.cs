@@ -33,6 +33,7 @@ namespace RealEstateIdentity.Mapping
             CreateMap<AnswerViewModel, AnswerDto>();
             CreateMap<QuestionViewModel, QuestionsDto>();
             CreateMap<QuestionsDto, QuestionViewModel>();
+            CreateMap<GetQuestionDto, GetQuestionViewModel>();
             CreateMap<AgentRegisterProfileViewModel, AgentRegisterProfileDto>()
                 .ForMember(a => a.DefaultRate, map => map.Ignore());
 
@@ -56,12 +57,6 @@ namespace RealEstateIdentity.Mapping
 
             CreateMap<QuestionUpdateDto, QuestionUpdateViewModel>()
                 .ForMember(q => q.Question, map => map.MapFrom(q => q.Question.AsQueryable()));
-
-            CreateMap<AddQuestionViewModel, AddQuestionDto>()
-                .ForMember(q => q.Questions, map => map.MapFrom(q => q.Questions.AsQueryable()));
-
-            CreateMap<AddQuestionDto, AddQuestionViewModel>()
-                .ForMember(q => q.Questions, map => map.MapFrom(q => q.Questions.AsQueryable()));
 
             CreateMap<AgentOfferResponseViewModel, AgentOfferResponseDto>()
                 .ForMember(o => o.Answers, map => map.MapFrom(o => o.Answers.AsQueryable()));

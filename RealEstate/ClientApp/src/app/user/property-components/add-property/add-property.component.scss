@@ -33,7 +33,7 @@ mat-horizontal-stepper{
 ::ng-deep .mat-form-field{
   align-items: center;
   color:white !important;
-  font-family: Montserrat;
+  font-family: $font-stack;
   width: 550px;
 }
 
@@ -87,20 +87,17 @@ mat-card-title{
   align-items: start;
   justify-content: start;
 }
-
-mat-card{
+mat-card {
   align-items: center;
   justify-content: center;
   background-color: $primary-color-background;
-
 }
-
 ::ng-deep .mat-form-field-underline{
   background-color:$primary-color-aqua !important;
 }
 ::ng-deep .mat-form-field-label{
   color:$primary-color-aqua !important;
-  font-family: Montserrat;
+  font-family: $font-stack;
 }
 ::ng-deep .mat-form-field-underline .mat-form-field-ripple{
   background-color: $primary-color-aqua;
@@ -116,7 +113,7 @@ mat-card-content {
   width: 550px;
   justify-content: normal;
   padding-left: 70px;
-  font-family: Montserrat;
+  font-family: $font-stack;
   align-content: center;
   font-size: 45px;
   display: flex;
@@ -124,7 +121,7 @@ mat-card-content {
 }
 mat-card-subtitle{
   width: 550px;
-  font-family: Montserrat;
+  font-family: $font-stack;
   color: white;
   display: flex;
   font-size: 13px;
@@ -135,7 +132,7 @@ mat-card-subtitle{
   width: 550px;
   height: 40px;
   background:linear-gradient(45deg, $primary-color-purple,$primary-color-purple-dark);
-  font-family: Montserrat;
+  font-family: $font-stack;
   border: none;
   border-radius: 5px;
   color: white;
@@ -151,7 +148,7 @@ a{
 }
 mat-card-footer
 {
-  font-family: Montserrat;
+  font-family: $font-stack;
   padding-left: 40px;
   padding-bottom: 20px;
   padding-top: 5px;
@@ -175,16 +172,16 @@ mat-step {
   width: 70px;
   height: 30px;
   background:linear-gradient(45deg, $primary-color-purple,$primary-color-purple-dark) !important;
-  font-family: Montserrat;
+  font-family: $font-stack;
   border: none;
   border-radius: 5px;
   color: white;
   align-content: end;
   margin-top: 15px;
   margin-left: 410px;
-}
-.next-button:hover{
-  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+  &:hover{
+    box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+  }
 }
 .first{
   width: 130px;
@@ -193,20 +190,20 @@ mat-step {
   width: 70px;
   height: 30px;
   background:linear-gradient(45deg, $primary-color-purple,$primary-color-purple-dark)!important;
-  font-family: Montserrat;
+  font-family: $font-stack;
   border: none;
   border-radius: 5px;
   color: white;
   align-content: start;
   margin-top: 15px;
-}
-.back-button:hover{
-  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+  &:hover{
+    box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+  }
 }
 :host ::ng-deep.mat-paginator .mat-paginator-container{
   background: $primary-color-background;
   color: white;
-  font-family: Montserrat;
+  font-family: $font-stack;
 }
 .addQuestions{
   width: 100px;
@@ -215,14 +212,14 @@ mat-step {
   justify-content: center;
   align-content: center;
   display: flex;
-  font-family: Montserrat;
+  font-family: $font-stack;
   font-size: 20px;
   border: unset !important;
   border-radius: 8px;
-}
-.addQuestions:hover{
-  background:linear-gradient(45deg, $primary-color-aqua,$primary-color-purple);
-  box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+  &:hover{
+    background:linear-gradient(45deg, $primary-color-aqua,$primary-color-purple);
+    box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+  }
 }
 /deep/ .mat-radio-outer-circle {
   .mat-radio-checked & {
@@ -235,7 +232,7 @@ mat-step {
 }
 .radio{
   color: white !important;
-  font-family: Montserrat !important;
+  font-family: $font-stack !important;
 }
 
 /deep/ .mat-radio-outer-circle {

@@ -1,0 +1,119 @@
+@import "../../../../app.component";
+
+.main{
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background: $primary-color-background-dark;
+  @extend %flexAlights;
+  color: white;
+  font-family: $font-stack;
+  font-size: 20px;
+}
+.material-icons{
+  color: $primary-color-aqua;
+  font-size: 20px;
+}
+.status{
+  @extend %flexAlights;
+  color: $primary-color-blue-purple;
+  font-size: 20px;
+  font-family: $font-stack;
+}
+.card{
+  text-align: center;
+  vertical-align: middle;
+  justify-content: center;
+  align-content: center;
+  background: $primary-color-background-dark;
+  color: white;
+  font-family: $font-stack;
+}
+.margin{
+  padding-bottom: 50px !important;
+}
+.char{
+  font-size: 20px;
+  font-family: $font-stack;
+  color: $primary-color-blue-purple;
+}
+p{
+  padding: 30px;
+  font-size: 20px;
+}
+.offers{
+  padding-bottom: 120px;
+  padding-top: 120px;
+  background: linear-gradient(-90deg, $primary-color-blue-purple, #7C67EDFF);
+}
+app-offer-card{
+ @extend %flexAlights;
+}
+.cards{
+  @extend %flexAlights;
+}
+.offer{
+  @extend %flexAlights;
+  color: $primary-color-background-dark;
+  font-size: 40px;
+  font-family: $font-stack;
+}
+.questions{
+  padding-top: 120px;
+  background: $primary-color-background-dark;
+  padding-bottom: 120px;
+}
+.question{
+  @extend %flexAlights;
+  color: $primary-color-blue-purple;
+  font-size: 30px;
+  font-family: $font-stack;
+}
+.edit{
+  width: 200px;
+ height: 50px;
+  margin: 50px 30px;
+  border-radius: 10px;
+  border: unset;
+  color: white;
+  font-size: 20px;
+  font-family: $font-stack;
+  background: linear-gradient(-90deg, $primary-color-blue-purple, #7C67EDFF);
+  &:hover{
+    background:linear-gradient(-45deg, $primary-color-blue-purple, $primary-color-aqua);
+    box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+  }
+}
+.empty{
+  background: $primary-color-background-dark;
+}
+.edit-photos{
+  background: $primary-color-background;
+ @extend %flexAlights;
+}
+.show{
+  @extend %flexAlights;
+}
+.show-button{
+  margin-top: 80px;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  border: unset;
+  color: white;
+  font-size: 20px;
+  font-family: $font-stack;
+  background: linear-gradient(-90deg, $primary-color-background, $primary-color-background-dark);
+  &:hover{
+    background: $primary-color-aqua;
+    color: black;
+    box-shadow: 0px 0px 40px rgba(36,46,66, 0.7);
+  }
+}
+
+
+
+
+
+
+
+

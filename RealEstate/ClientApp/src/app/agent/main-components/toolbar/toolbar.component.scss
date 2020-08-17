@@ -1,0 +1,64 @@
+@import "../../../app.component";
+mat-toolbar{
+  height: 123px !important;
+  background: $primary-color-background-dark !important;
+  justify-content: flex-end !important;
+  align-content: flex-end !important;
+  padding-right: 80px;
+}
+mat-menu{
+  background: $primary-color-background!important;
+  justify-content: center;
+}
+::ng-deep .mat-menu-content{
+  background-color:$primary-color-background !important;
+}
+.info {
+  font-family: $font-stack;
+  font-size: 45px;
+  display: flex;
+  color: $primary-color-aqua;
+}
+
+.real-estate{
+  font-size: 35px !important;
+}
+
+.mat-menu-item{
+  justify-content: center !important;
+  color: white;
+  font-family: $font-stack;
+  font-size: 20px;
+}
+
+.toolbar-items {
+  width: 100%;
+}
+
+.fill-toolbar-space {
+  height: 7vh;
+}
+
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  padding: 0 !important;
+}
+@media screen and (max-width: 1000px) {
+  mat-toolbar{
+    padding-right: unset;
+    justify-content: center !important;
+    align-content: center !important;
+  }
+  .mat-menu-item{
+    margin: 0px;
+  }
+  .info{
+    font-size: 27px !important;
+  }
+
+}
+

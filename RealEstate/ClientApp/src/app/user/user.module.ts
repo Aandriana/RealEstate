@@ -14,15 +14,13 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
 import {MatStepperModule} from '@angular/material/stepper';
-import {AnimateModule} from '../animate/animate.module';
 import {MaterialFileInputModule} from 'ngx-material-file-input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
-import {StarRatingModule} from 'angular-star-rating';
-import * as __ from './index';
-import { OffersComponent } from './property-components/offers/offers.component';
-
+import * as __ from './';
+import {MatTabsModule} from '@angular/material/tabs';
+import {RatingModule} from 'ng-starrating';
 
 @NgModule({
   declarations: [
@@ -40,32 +38,33 @@ import { OffersComponent } from './property-components/offers/offers.component';
         __.AgentByIdComponent,
         __.EditPropertyComponent,
         __.EditPropertiesPhotosComponent,
-        OffersComponent
+        __.OffersComponent,
+        __.QuestionsEditComponent
   ],
-    imports: [
-        CommonModule,
-        UserRoutingModule,
-        MatMenuModule,
-        MatIconModule,
-        MatToolbarModule,
-        MatDividerModule,
-        ExtendedModule,
-        FlexModule,
-        MatButtonModule,
-        NgsRevealModule,
-        MatPaginatorModule,
-        MatCardModule,
-        MatGridListModule,
-        ReactiveFormsModule,
-        SharedModule,
-        MatStepperModule,
-        MatFormFieldModule,
-        AnimateModule,
-        MaterialFileInputModule,
-        MatInputModule,
-        MatRadioModule,
-        StarRatingModule.forChild()
-    ],
+  imports: [
+    CommonModule,
+    UserRoutingModule,
+    MatMenuModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatDividerModule,
+    ExtendedModule,
+    FlexModule,
+    MatButtonModule,
+    NgsRevealModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatGridListModule,
+    ReactiveFormsModule,
+    SharedModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MaterialFileInputModule,
+    MatInputModule,
+    MatRadioModule,
+    MatTabsModule,
+    RatingModule
+  ],
   providers: [],
 })
 

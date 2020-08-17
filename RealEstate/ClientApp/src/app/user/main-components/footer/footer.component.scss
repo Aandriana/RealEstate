@@ -12,7 +12,7 @@ footer{
 }
 
 .color-black {
-  font-family: Montserrat;
+  font-family: $font-stack;
   color: white;
 }
 
@@ -21,7 +21,7 @@ footer{
   border: 1px solid white;
 }
 .info {
-  font-family: Montserrat;
+  font-family: $font-stack;
   font-size: 45px;
   padding-left: 45px;
 ;
@@ -47,7 +47,7 @@ footer{
 }
 
 .contacts {
-  font-family: Montserrat;
+  font-family: $font-stack;
   padding-right: 60px;
   color: white;
 }
@@ -66,6 +66,6 @@ footer{
 
 }
 .bottom-line{
-  font-family: Montserrat;
+  font-family: $font-stack;
 }
 

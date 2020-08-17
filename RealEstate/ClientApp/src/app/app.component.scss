@@ -5,3 +5,14 @@ $primary-color-background: #2F3B52FF;
 $primary-color-background-dark: #242E42FF;
 $primary-color-blue-purple: #7275EBFF;
 $primary-color-blue: #98EAF1FF;
+$font-stack:Montserrat;
+%alights {
+  justify-content: center;
+  align-content: center;
+  font-family:  $font-stack;
+}
+%flexAlights {
+  justify-content: center;
+  align-content: center;
+  display: flex;
+}
