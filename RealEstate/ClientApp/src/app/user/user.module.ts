@@ -21,6 +21,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import * as __ from './';
 import {MatTabsModule} from '@angular/material/tabs';
 import {RatingModule} from 'ng-starrating';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import {RatingModule} from 'ng-starrating';
         __.EditPropertyComponent,
         __.EditPropertiesPhotosComponent,
         __.OffersComponent,
-        __.QuestionsEditComponent
+        __.QuestionsEditComponent,
+        __.SendOfferComponent
   ],
   imports: [
     CommonModule,
@@ -63,7 +66,8 @@ import {RatingModule} from 'ng-starrating';
     MatInputModule,
     MatRadioModule,
     MatTabsModule,
-    RatingModule
+    RatingModule,
+    NoopAnimationsModule
   ],
   providers: [],
 })

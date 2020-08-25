@@ -53,4 +53,8 @@ mat-card-content{
   object-fit: cover;
   border-radius: 4px;
 }
-
+.isClicked{
+  border: unset;
+  color: black;
+  background:$primary-color-aqua;
+}

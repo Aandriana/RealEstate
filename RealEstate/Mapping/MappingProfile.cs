@@ -30,6 +30,7 @@ namespace RealEstateIdentity.Mapping
                 .ForMember(p => p.AddedContentImages, map => map.MapFrom(vm => vm.AddedContentImages));
 
             CreateMap<PropertyListDto, PropertyListViewModel>();
+            CreateMap<AnswerDto, AnswerViewModel>();
             CreateMap<AnswerViewModel, AnswerDto>();
             CreateMap<QuestionViewModel, QuestionsDto>();
             CreateMap<QuestionsDto, QuestionViewModel>();

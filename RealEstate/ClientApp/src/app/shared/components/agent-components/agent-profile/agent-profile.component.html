@@ -28,7 +28,7 @@
     <div>
     <p class = "title">Personal information</p>
     <p> <span class="material-icons">location_on</span> {{agentProfile.city}}</p>
-    <p> <span class="material-icons">calendar_today </span> {{agentProfile.birthDate}}</p>
+    <p> <span class="material-icons">calendar_today </span> {{agentProfile.birthDate | date:'mediumDate'}}</p>
     </div>
     <div>
       <p class = "title">Statistics</p>

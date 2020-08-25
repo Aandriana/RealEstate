@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {GetQuestionModel} from '../../../core/models';
 import {PropertyService} from '../../../core/services/property.service';
 import {ActivatedRoute} from '@angular/router';
-import {DialogDeletingSureComponent, DialogEditQuestionComponent} from '../../../shared/components/shared-components';
-import {MatDialog} from '@angular/material/dialog';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {DialogAddQuestionComponent} from '../../../shared/components/shared-components/dialog-add-question/dialog-add-question.component';
+import {DialogService} from '../../../core/services/dialog.service';
 
 @Component({
   selector: 'app-questions-edit',
@@ -18,7 +16,7 @@ propertyId: any;
   editQuestionForm = new FormGroup({
     question: new FormControl('', Validators.required),
   });
-  constructor(private propertyService: PropertyService, private route: ActivatedRoute, public dialog: MatDialog) { }
+  constructor(private propertyService: PropertyService, private route: ActivatedRoute, public dialog: DialogService) { }
   ngOnInit(): void {
     this.route.params.subscribe(value => {
       this.propertyId = value.id;
@@ -42,27 +40,23 @@ propertyId: any;
     );
   }
   openDeleteDialog(id): void {
-    const dialogRef = this.dialog.open(DialogDeletingSureComponent, {
-      width: '300px',
-    }).afterClosed()
+    const dialogRef = this.dialog.openDialog()
+      .afterClosed()
       .subscribe((item: boolean) => {
         if (item) {
           this.delete(id);
         }
       });
   }
-  formInit(qustrionText): FormGroup{
+  formInit(qustrionText): FormGroup {
     this.editQuestionForm.setValue({
       question: qustrionText
     });
     return this.editQuestionForm;
   }
   openUpdateDialog(id, text): void {
-    const dialogRef = this.dialog.open(DialogEditQuestionComponent, {
-      data: this.formInit(text),
-      width: '700px',
-      height: '150px'
-    }).afterClosed()
+    const dialogRef = this.dialog.openDialog(this.formInit(text))
+      .afterClosed()
       .subscribe((item: any) => {
         this.editQuestionForm.setValue({
           question: item.question
@@ -71,10 +65,8 @@ propertyId: any;
       });
   }
   openAddDialog(): void {
-    const dialogRef = this.dialog.open(DialogAddQuestionComponent, {
-      width: '700px',
-      height: '150px'
-    }).afterClosed()
+    const dialogRef = this.dialog.openDialog()
+      .afterClosed()
       .subscribe((item: any) => {
         this.editQuestionForm.setValue({
           question: item.question

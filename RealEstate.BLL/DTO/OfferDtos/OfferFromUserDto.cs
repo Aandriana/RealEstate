@@ -1,8 +1,10 @@
-﻿namespace RealEstate.BLL.DTO
+﻿using System.Collections.Generic;
+
+namespace RealEstate.BLL.DTO
 {
     public class OfferFromUserDto
     {
-        public int PropertyId { get; set; }
+        public virtual ICollection<int> PropertyId { get; set; }
         public string AgentProfileId { get; set; }
     }
 }

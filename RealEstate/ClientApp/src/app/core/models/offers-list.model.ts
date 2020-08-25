@@ -3,6 +3,7 @@ export interface OffersListModel {
   comment: string;
   rate: number;
   status: number;
+  propertyId: number;
   agentProfileId: string;
   image: string;
   firstName: string;

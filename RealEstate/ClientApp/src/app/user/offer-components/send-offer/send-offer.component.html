@@ -1,0 +1,17 @@
+<div class="main"> <p class = "choose">Choose properties to offer</p></div>
+<div class="main" fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+  <app-propert-card fxFlex="0 1 calc(25% - 32px)"
+                    fxFlex.lt-md="0 1 calc(50% - 32px)"
+                    fxFlex.lt-sm="100%" *ngFor="let property of PropertyListModel"
+                    [property]="property" (onComplete)="chooseProperty(property.id)" buttonName="{{button}}"> </app-propert-card>
+</div>
+<div class = "not-found"*ngIf="PropertyListModel?.length==0">
+  <p class = "title">Properties not found</p>
+</div>
+<div class="main"><button mat-raised-button class="send" (click)="addOffer()"> Add offers </button></div>
+<mat-paginator [length]="100"
+               [pageSize]="this.pageSize"
+               [pageIndex]="this.pageNumber"
+               [pageSizeOptions]="[16, 32, 64, 96]"
+               (page)="onPageFired($event)">
+</mat-paginator>

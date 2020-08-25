@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PropertyByIdModel} from '../../../core/models';
 import {PropertyService} from '../../../core/services/property.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-property',
@@ -11,7 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 export class PropertyComponent implements OnInit {
   propertyId: any;
   propertyDetails: PropertyByIdModel;
-  constructor(private route: ActivatedRoute, private properyService: PropertyService) { }
+  constructor(private route: ActivatedRoute, private properyService: PropertyService, private router: Router) { }
 
   getPropertyById(): any{
     this.properyService.getPropertyForAgent(this.propertyId).subscribe((data: PropertyByIdModel) => {
@@ -23,5 +23,8 @@ export class PropertyComponent implements OnInit {
       this.propertyId = value.id;
       this.getPropertyById();
     });
+  }
+  sendOffer(): any{
+    this.router.navigateByUrl(`agent/send/offer/${this.propertyId}`);
   }
 }

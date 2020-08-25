@@ -13,15 +13,16 @@ export class AgentCardComponent implements OnInit {
   toggle = true;
   status = 'Enable';
 
-  enableDisableRule(): any {
-    this.toggle = !this.toggle;
-    this.status = this.toggle ? 'Enable' : 'Disable';
-  }
   constructor() { }
   runOnComplete(): void {
     this.onComplete.emit();
   }
   ngOnInit(): void {
+  }
+  enableDisableRule(): any {
+    debugger;
+    this.toggle = !this.toggle;
+    this.status = this.toggle ? 'Enable' : 'Disable';
   }
 
 }

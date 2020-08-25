@@ -10,10 +10,17 @@ import {Router} from '@angular/router';
 export class PropertCardComponent implements OnInit {
   @Input() property: PropertyListModel;
   @Output() public onComplete: EventEmitter<any> = new EventEmitter();
+  @Input() buttonName: string;
+  toggle = true;
+  status = 'Enable';
   constructor() { }
   ngOnInit(): void {
   }
   runOnComplete(): void {
     this.onComplete.emit();
+  }
+  enableDisableRule(): any {
+    this.toggle = !this.toggle;
+    this.status = this.toggle ? 'Enable' : 'Disable';
   }
 }

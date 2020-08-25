@@ -129,7 +129,7 @@ namespace RealEstateIdentity.Controllers
         [HttpPut("agent")]
         [Authorize(Roles = "Agent")]
         public async Task<IActionResult> EditAgentProfile([FromForm]EditUserProfileViewModel editUser)
-        {
+            {
             if (ModelState.IsValid)
             {
                 var editDto = _mapper.Map<EditUserProfileDto>(editUser);

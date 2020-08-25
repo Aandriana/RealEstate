@@ -14,7 +14,6 @@ export class RegistrationComponent implements OnInit {
   returnUrl: string;
 
   constructor( private fb: FormBuilder, private authService: AuthService, private router: Router, private route: ActivatedRoute, private notificationService: NotificationService) { }
-
   registrationForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]),

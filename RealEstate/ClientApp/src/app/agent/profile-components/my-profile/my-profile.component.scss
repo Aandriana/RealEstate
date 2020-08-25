@@ -1,0 +1,16 @@
+@import "../../../app.component";
+
+.feedback{
+  background: $primary-color-blue-purple;
+  padding: 50px;
+}
+p {
+  @extend %flexAlights;
+  color: $primary-color-background-dark;
+  font-size: 40px;
+  font-family: $font-stack;
+}
+.title{
+  padding: 60px;
+  @extend %flexAlights;
+}

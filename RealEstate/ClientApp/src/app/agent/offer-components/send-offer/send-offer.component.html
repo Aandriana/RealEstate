@@ -1,0 +1,42 @@
+<div class = "main">
+  <mat-card>
+  <mat-card-title><p class = "title">Fill out this form to send offer!</p></mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="offerForm">
+      <p>
+        <mat-form-field>
+          <span class="material-icons">comment_bank</span>
+          <input  matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comment" formControlName="comment">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <span class="material-icons">rate_review</span>
+          <input matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rate" formControlName="rate">
+        </mat-form-field>
+      </p>
+    </form>
+  </mat-card-content>
+  <mat-card-content>
+    <form [formGroup]="offerForm" autocomplete="off">
+      <div>
+        <div formArrayName="answers">
+          <div *ngFor="let answer of answers.controls; index as i">
+          <p class="question">{{questions[i].question}}</p>
+            <mat-form-field>
+              <span class="material-icons">question_answer</span>
+              <label>
+                <input [formControlName]="i" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer" />
+              </label>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+  <div class = 'button'>
+    <button (click)="send()" type="submit" mat-button>Send</button>
+  </div>
+</mat-card>
+</div>

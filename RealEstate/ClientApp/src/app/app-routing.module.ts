@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AppComponent} from './app.component';
+import {AppGuard} from './shared';
 const routes: Routes = [
-  { path: '', component: AppComponent},
-  { path: '', loadChildren: () => import('./agent/agent.module').then(m => m.AgentModule), },
+  { path: '', component: AppComponent, canActivate: [AppGuard]},
 ];
 
 @NgModule({

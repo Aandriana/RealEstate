@@ -9,7 +9,7 @@ namespace RealEstate.DAL.Configuration
         public void Configure(EntityTypeBuilder<AgentProfile> builder)
         {
             builder.ToTable("AgentProfile");
-            builder.HasKey(a => a.Id);
+            builder.HasKey(o => o.Id);
             builder
                 .HasOne(a => a.User)
                 .WithOne(u => u.AgentProfile)

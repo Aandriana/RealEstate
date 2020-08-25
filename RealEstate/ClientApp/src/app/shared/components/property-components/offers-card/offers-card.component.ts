@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {OffersListModel} from '../../../../core/models';
+import {OfferResponseViewModel, OffersListModel} from '../../../../core/models';
+import {OfferService} from '../../../../core/services/offer.service';
+import {Router} from '@angular/router';
+import {NotificationService} from '../../../../core/services/notificationService';
 
 @Component({
   selector: 'app-offers-card',
@@ -9,9 +12,15 @@ import {OffersListModel} from '../../../../core/models';
 export class OffersCardComponent implements OnInit {
   @Input() offer: OffersListModel;
   panelOpenState = false;
-  constructor() { }
+  constructor(private offerService: OfferService, private router: Router, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
-
+  sendResponse(status, id, propertyId): any{
+    const responce = new OfferResponseViewModel(status);
+    return this.offerService.responseFromUser(id, responce).subscribe(res => {
+      this.router.navigateByUrl(`properties/${propertyId}/offers`);
+      this.notificationService.success('Response has been sent');
+    });
+  }
 }

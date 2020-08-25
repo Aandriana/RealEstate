@@ -143,11 +143,11 @@ namespace RealEstate.BLL.Services
                 var imagePath = await _fileService.SaveFile(editUser.Image.OpenReadStream(), Path.GetExtension(editUser.Image.FileName));
                 if (user.ImagePath != null) await _fileService.RemoveFile(user.ImagePath);
                 user.ImagePath = imagePath.ToString();
-                user.FirstName = editUser.FirstName;
-                user.LastName = editUser.LastName;
-                user.Email = editUser.Email;
-                user.PhoneNumber = editUser.PhoneNumber;
             }
+            user.FirstName = editUser.FirstName;
+            user.LastName = editUser.LastName;
+            user.Email = editUser.Email;
+            user.PhoneNumber = editUser.PhoneNumber;
 
             await _userManager.UpdateAsync(user);
 
@@ -236,6 +236,8 @@ namespace RealEstate.BLL.Services
             agentDto.ImagePath = agent.ImagePath;
             agentDto.FirstName = agent.FirstName;
             agentDto.LastName = agent.LastName;
+            agentDto.Email = agent.Email;
+            agentDto.PhoneNumber = agent.PhoneNumber;
             return agentDto;
         }
 

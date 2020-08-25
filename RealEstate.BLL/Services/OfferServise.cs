@@ -28,16 +28,22 @@ namespace RealEstate.BLL.Services
 
         public async Task OfferFromUser(OfferFromUserDto offerDto)
         {
-            var offer = _mapper.Map<Offer>(offerDto);
-            offer.Status = (int)OfferStatus.FromUser;
-            var user = await _authenticationService.GetCurrentUserAsync();
-            offer.CreatedById = user.Id;
-            await _unitOfWork.Repository<Offer>().AddAsync(offer);
+            foreach(var ppropertyId in offerDto.PropertyId)
+            {
+                var offer = new Offer();
+                offer.Status = (int)OfferStatus.FromUser;
+                var user = await _authenticationService.GetCurrentUserAsync();
+                offer.CreatedById = user.Id;
+                offer.PropertyId = ppropertyId;
+                offer.AgentProfileId = offerDto.AgentProfileId;
+                var agent = await _unitOfWork.Repository<AgentProfile>().GetAsync(a => a.Id == offerDto.AgentProfileId);
+                offer.Rate = agent.DefaultRate;
 
-            var property = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == offerDto.PropertyId);
-            if (property.UserId != user.Id) throw new FieldAccessException();
-            await _unitOfWork.Repository<Offer>().AddAsync(offer);
-            await _unitOfWork.SaveChangesAsync();
+                var property = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == ppropertyId);
+                if (property.UserId != user.Id) throw new FieldAccessException();
+                await _unitOfWork.Repository<Offer>().AddAsync(offer);
+                await _unitOfWork.SaveChangesAsync();
+            }
         }
 
         public async Task OfferFromAdmin(OfferFromAgentDto offerDto)
@@ -47,6 +53,7 @@ namespace RealEstate.BLL.Services
             offer.AgentProfileId = agent.Id;
             offer.Status = (int)OfferStatus.FromAgent;
             offer.CreatedById = agent.Id;
+       
 
             await _unitOfWork.Repository<Offer>().AddAsync(offer);
             await _unitOfWork.SaveChangesAsync();
@@ -87,6 +94,11 @@ namespace RealEstate.BLL.Services
             await _unitOfWork.Repository<Offer>().UpdateAsync(offer);
             await _unitOfWork.SaveChangesAsync();
         }
+        public async Task<int> GetPropertyId(int Id)
+        {
+            var offer = await _unitOfWork.Repository<Offer>().GetAsync(o => o.Id == Id);
+            return offer.PropertyId;
+        }
 
         public async Task AgentResponse(int id, AgentOfferResponseDto response)
         {
@@ -121,6 +133,16 @@ namespace RealEstate.BLL.Services
             foreach (var offer in offers)
             {
                 var offerDto = _mapper.Map<OfferDto>(offer);
+                var answers = await _unitOfWork.Repository<Answer>().GetAllAsync(a => a.OfferId == offer.Id);
+                if (answers != null)
+                {
+                    foreach (var answer in answers)
+                    {
+                        var answerDto = _mapper.Map<AnswerDto>(answer);
+                        offerDto.Answers.Add(answerDto);
+
+                    }
+                }
                 offerDtos.Add(offerDto);
             }
             return offerDtos;

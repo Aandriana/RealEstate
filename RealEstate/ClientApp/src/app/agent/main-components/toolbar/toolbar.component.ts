@@ -15,28 +15,28 @@ export class ToolbarComponent implements OnInit {
       showOnMobile: false,
       showOnTablet: true,
       showOnDesktop: true,
-      click: '/home'
+      click: 'agent/home'
     },
     {
       label: 'Properties',
       showOnMobile: false,
       showOnTablet: false,
       showOnDesktop: true,
-      click: '/home'
+      click: 'agent/properties'
     },
     {
-      label: 'Requests',
+      label: 'Offers',
       showOnMobile: false,
       showOnTablet: false,
       showOnDesktop: true,
-      click: '/home'
+      click: 'agent/offers'
     },
     {
       label: 'Account',
       showOnMobile: false,
       showOnTablet: false,
       showOnDesktop: true,
-      click: '/profile'
+      click: 'agent/profile'
     },
     {
       label: 'Logout',

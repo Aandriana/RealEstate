@@ -25,13 +25,6 @@ export class ToolbarComponent implements OnInit {
       click: '/properties'
     },
     {
-      label: 'Requests',
-      showOnMobile: false,
-      showOnTablet: false,
-      showOnDesktop: true,
-      click: '/home'
-    },
-    {
       label: 'Account',
       showOnMobile: false,
       showOnTablet: false,

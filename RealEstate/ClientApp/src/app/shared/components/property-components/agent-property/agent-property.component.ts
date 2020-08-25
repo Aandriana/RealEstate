@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PropertyByIdModel} from '../../../../core/models';
 
 @Component({
@@ -10,10 +10,13 @@ export class AgentPropertyComponent implements OnInit {
 
   constructor() { }
   @Input() property: PropertyByIdModel;
+  @Output() public onComplete: EventEmitter<any> = new EventEmitter();
   ngOnInit(): void {
   }
   buildUrl(slide: string): string {
     return `${slide}`;
   }
-
+  runOnComplete(): void {
+    this.onComplete.emit();
+  }
 }

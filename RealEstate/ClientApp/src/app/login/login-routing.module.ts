@@ -4,7 +4,7 @@ import {LoginComponent} from './login/login.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {AgentRegistrationComponent} from './agent-registration/agent-registration.component';
 import {ChooseRegistrationComponent} from './choose-registration/choose-registration.component';
-import {LoginGuard} from '../shared/login.guard';
+import {LoginGuard} from '../shared/guards/login.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard]},

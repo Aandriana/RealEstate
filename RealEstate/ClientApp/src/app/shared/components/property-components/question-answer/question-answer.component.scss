@@ -11,11 +11,11 @@ span{
   padding: 18px;
 }
 .main{
-background: $primary-color-background;
+background: $primary-color-background-dark;
   @extend %position;
 }
 .question{
-  background: $primary-color-background-dark;
+  background: $primary-color-background;
   border-radius: 15px;
   @extend %position;
   @extend %padding;

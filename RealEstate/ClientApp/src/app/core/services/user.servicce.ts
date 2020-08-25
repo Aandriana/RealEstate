@@ -33,4 +33,7 @@ export class UserService {
   getAgentById(id): Observable<AgentById> {
     return this.http.get(`${this.baseUrl}/agent/${id}`);
   }
+  addFeedback(data): Observable<any>{
+    return this.http.post(`${this.baseUrl}/feedback`, data);
+  }
 }

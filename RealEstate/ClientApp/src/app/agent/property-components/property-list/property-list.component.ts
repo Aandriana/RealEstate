@@ -16,6 +16,7 @@ export class PropertyListComponent implements OnInit {
   PropertyListModel: PropertyListModel[];
   pageSize = 16;
   pageNumber = 0;
+  button = 'More details';
 
   constructor(private propertyService: PropertyService, public dialog: MatDialog, private router: Router) {
   }

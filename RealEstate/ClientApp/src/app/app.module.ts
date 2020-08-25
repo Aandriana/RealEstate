@@ -11,7 +11,6 @@ import {LoginModule} from './login/login.module';
 import {UserModule} from './user/user.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {AuthGuard} from './shared/auth';
 import {MaterialFileInputModule} from 'ngx-material-file-input';
 import {SharedModule} from './shared/shared.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -39,11 +38,11 @@ export function tokenGetter(): string {
     HttpClientModule,
     LoginModule,
     MatInputModule,
+    AgentModule,
     UserModule,
     HttpClientModule,
     FlexLayoutModule,
     SharedModule,
-    AgentModule,
     MDBBootstrapModule.forRoot(),
     JwtModule.forRoot({
       config: {},
@@ -58,7 +57,6 @@ export function tokenGetter(): string {
     }),
   ],
   providers: [
-    AuthGuard,
     MatSnackBar
   ],
   bootstrap: [AppComponent]

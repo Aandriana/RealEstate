@@ -39,7 +39,7 @@ namespace RealEstateIdentity.Controllers
 
         [HttpPost("agent")]
         [Authorize(Roles = "Agent")]
-        public async Task<IActionResult> SendOfferAsAnAgent([FromBody]OfferFromAgentViewModel offer)
+        public async Task<IActionResult> SendOfferAsAnAgent([FromForm] OfferFromAgentViewModel offer)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace RealEstateIdentity.Controllers
 
         [HttpPut("agent/{id}")]
         [Authorize(Roles = "Agent")]
-        public async Task<IActionResult> AgentResponse(int id, [FromBody]AgentOfferResponseViewModel responseVm)
+        public async Task<IActionResult> AgentResponse(int id, [FromForm]AgentOfferResponseViewModel responseVm)
         {
             if (ModelState.IsValid)
             {
@@ -81,16 +81,24 @@ namespace RealEstateIdentity.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Agent")]
-        public async Task<IActionResult> GetOffersForAgent(OfferListFilter filter)
+        public async Task<IActionResult> GetOffersForAgent([FromQuery]OfferListFilter filter)
         {
             var offers = await _offerService.GetAllOffersForAgent(filter);
             var offersVm = new List<OfferViewModel>();
-            foreach(var offer in offers)
+            foreach (var offer in offers)
             {
                 var offerVm = _mapper.Map<OfferViewModel>(offer);
                 offersVm.Add(offerVm);
             }
             return Ok(offersVm);
+        }
+
+        [HttpGet("{id}/property")]
+        [Authorize]
+        public async Task<IActionResult> GetPropertyId(int id)
+        {
+            var propertyId = await _offerService.GetPropertyId(id);
+            return Ok(propertyId);
         }
 
     }

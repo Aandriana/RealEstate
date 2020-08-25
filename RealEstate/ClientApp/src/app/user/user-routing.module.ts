@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AuthGuard} from '../shared/auth';
+import {UserGuard} from '../shared';
 import * as __ from './';
 import * as ___ from '../shared/';
 
 
 const routes: Routes = [
-  { path: '', component: __.MainComponent, canActivate: [AuthGuard],  data: { expectedRole: 'User'}, children: [
+  { path: '', component: __.MainComponent, canActivate: [UserGuard], children: [
       {path: 'properties/edit/photos/:id', component: __.EditPropertiesPhotosComponent},
       {path: 'properties/edit/:id', component: __.EditPropertyComponent},
       {path: 'properties/add/agent', component: __.AddAgentsComponent},
@@ -17,9 +17,10 @@ const routes: Routes = [
       {path: 'properties', component: __.PropertyListComponent},
       {path: 'profile/edit', component: __.MyProfileEditComponent},
       {path: 'profile', component: __.MyProfileComponent},
+      {path: 'agents/offer/:id', component: __.SendOfferComponent},
       {path: 'agents/:id', component: __.AgentByIdComponent},
       {path: 'agents', component: __.AgentListComponent},
-      { path: 'home', component: __.HomeComponent}
+      { path: 'home', component: __.HomeComponent},
       ]
   },
   {path: '404', component: ___.NotFoundPageComponent},

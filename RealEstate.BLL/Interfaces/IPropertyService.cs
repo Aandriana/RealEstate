@@ -20,5 +20,6 @@ namespace RealEstate.BLL.Interfaces
         Task<IEnumerable<PropertyListDto>> GetPropertiesForUser(PropertyListFilter filter);
         Task<IEnumerable<PropertyListDto>> GetPropertiesForAgent(PaginationParameters paginationParameters);
         Task<List<OfferDto>> GetPropertyOffers(int id, OfferListFilter offerFilter);
+
     }
 }

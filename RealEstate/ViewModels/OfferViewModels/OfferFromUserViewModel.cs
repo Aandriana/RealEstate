@@ -1,8 +1,10 @@
-﻿namespace RealEstateIdentity.ViewModels
+﻿using System.Collections.Generic;
+
+namespace RealEstateIdentity.ViewModels
 {
     public class OfferFromUserViewModel
     {
-        public int PropertyId { get; set; }
+        public virtual ICollection<int> PropertyId { get; set; }
         public string AgentProfileId { get; set; }
     }
 }

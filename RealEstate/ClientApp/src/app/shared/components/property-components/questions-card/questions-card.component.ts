@@ -1,7 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Filter, GetQuestionModel} from '../../../../core/models';
-import {DialogPropertyFilterComponent} from '..';
-import {DialogDeletingSureComponent} from '../../shared-components/dialog-deleting-sure/dialog-deleting-sure.component';
+import {GetQuestionModel} from '../../../../core/models';
 import {MatDialog} from '@angular/material/dialog';
 
 @Component({

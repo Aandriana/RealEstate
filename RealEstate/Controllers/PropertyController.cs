@@ -154,7 +154,7 @@ namespace RealEstateIdentity.Controllers
         }
 
         [HttpGet("{id}/questions")]
-        [Authorize(Roles = "User")]
+        [Authorize]
         public async Task<IActionResult> GetQuestions(int id)
         {
             var questions = await _propertyService.GetQuestions(id);

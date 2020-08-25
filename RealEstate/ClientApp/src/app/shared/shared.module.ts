@@ -21,7 +21,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {RatingModule} from 'ng-starrating';
 import {MatInputModule} from '@angular/material/input';
 import {RouterModule} from '@angular/router';
-import { AgentPropertyComponent } from './components/property-components/agent-property/agent-property.component';
 
 
 @NgModule({
@@ -75,24 +74,26 @@ import { AgentPropertyComponent } from './components/property-components/agent-p
     __.DialogDeletingSureComponent,
     __.DialogEditQuestionComponent,
     __.DialogAddQuestionComponent,
-    AgentPropertyComponent,
+    __.AgentPropertyComponent,
+    __.GetOfferCardForAgentComponent,
   ],
-  exports: [
-    __.PropertCardComponent,
-    __.AgentCardComponent,
-    __.PropertyStatusPipe,
-    __.UserProfilePageComponent,
-    __.PropertyPageComponent,
-    __.PropertyCategoryPipe,
-    __.OfferStatusPipe,
-    __.MatErrorComponent,
-    __.AgentProfilePageComponent,
-    __.FeedbackCardComponent,
-    __.SliderRowComponent,
-    __.OffersCardComponent,
-    __.QuestionsCardComponent,
-    AgentPropertyComponent,
-  ],
+    exports: [
+        __.PropertCardComponent,
+        __.AgentCardComponent,
+        __.PropertyStatusPipe,
+        __.UserProfilePageComponent,
+        __.PropertyPageComponent,
+        __.PropertyCategoryPipe,
+        __.OfferStatusPipe,
+        __.MatErrorComponent,
+        __.AgentProfilePageComponent,
+        __.FeedbackCardComponent,
+        __.SliderRowComponent,
+        __.OffersCardComponent,
+        __.QuestionsCardComponent,
+        __.GetOfferCardForAgentComponent,
+        __.AgentPropertyComponent,
+    ],
   providers: [],
 })
 export class SharedModule { }

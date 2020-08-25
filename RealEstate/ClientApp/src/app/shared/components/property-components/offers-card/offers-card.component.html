@@ -21,6 +21,14 @@
       <p class = "comment">{{offer.comment}}</p>
       <p class> Rate: {{offer.rate}}%</p>
     </mat-card-content>
+    <div class = "choose" *ngIf="offer.status == 1" fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+      <button (click)="sendResponse(2, offer.id, offer.propertyId)">Accept</button>
+      <button (click)="sendResponse(3, offer.id, offer.propertyId)">Decline</button>
+    </div>
+    <div class = "choose" *ngIf="offer.status == 2" fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+      <button (click)="sendResponse(4, offer.id, offer.propertyId)">Sold</button>
+      <button (click)="sendResponse(5, offer.id, offer.propertyId)">Failed</button>
+    </div>
   </mat-card>
   <div *ngIf="offer.answers.length">
     <mat-expansion-panel style="border-radius: 0px 0px 15px 15px;" (opened)="panelOpenState = true"

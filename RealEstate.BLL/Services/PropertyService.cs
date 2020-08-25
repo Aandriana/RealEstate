@@ -242,8 +242,6 @@ namespace RealEstate.BLL.Services
             propertyDto.OfferDtos = null;
             return propertyDto;
         }
-
-
         public async Task<List<OfferDto>> GetPropertyOffers(int id, OfferListFilter offerFilter)
         {
             var user = await _authentication.GetCurrentUserAsync();
@@ -274,10 +272,6 @@ namespace RealEstate.BLL.Services
 
         public async Task<List<GetQuestionDto>> GetQuestions(int id)
         {
-            var user = await _authentication.GetCurrentUserAsync();
-            var propepty = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == id);
-            if (propepty.UserId != user.Id) throw new FieldAccessException();
-
             var questions = await _unitOfWork.Repository<Question>().GetAllAsync(q => q.PropertyId == id);
             var questionsDto = new List<GetQuestionDto>();
 

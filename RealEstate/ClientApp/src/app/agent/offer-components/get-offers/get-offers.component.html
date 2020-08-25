@@ -1,0 +1,14 @@
+<div class = "main">
+  <mat-tab-group mat-align-tabs="center" (selectedTabChange)="filter($event)" >
+    <mat-tab *ngFor ="let currentStatus of offerStatuses"  label="{{currentStatus}}">
+      <app-get-offer-card-for-agent  *ngFor="let offer of offers" [offer]="offer" (accept)="accept(offer.id)" (decline)="decline(offer.id)"></app-get-offer-card-for-agent>
+      <div class="no-offers" *ngIf="!offers.length"><p>No offers</p></div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+<mat-paginator [length]="100"
+               [pageSize]="this.pageSize"
+               [pageIndex]="this.pageNumber"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               (page)="onPageFired($event)">
+</mat-paginator>

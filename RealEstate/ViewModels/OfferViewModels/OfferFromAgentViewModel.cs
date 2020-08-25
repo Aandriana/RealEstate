@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace RealEstateIdentity.ViewModels
 {
@@ -7,6 +8,6 @@ namespace RealEstateIdentity.ViewModels
         public string Comment { get; set; }
         public double Rate { get; set; }
         public int PropertyId { get; set; }
-        public virtual ICollection<AnswerViewModel> Answers { get; set; }
+        public virtual ICollection<AnswerViewModel> Answers { get; set; }   
     }
 }

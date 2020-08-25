@@ -7,3 +7,4 @@ export * from './questions-card/questions-card.component';
 export * from './question-answer/question-answer.component';
 export * from './offers-card/offers-card.component';
 export * from './property/property.component';
+export * from './agent-property/agent-property.component';

@@ -9,3 +9,7 @@ export * from './error-item';
 export * from './agent-profile';
 export * from './offers-list.model';
 export * from './get-question.model';
+export * from './answers-array';
+export * from './user-response-model';
+
+

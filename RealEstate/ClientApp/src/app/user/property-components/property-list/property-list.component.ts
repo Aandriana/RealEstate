@@ -1,10 +1,10 @@
-import {Component, Inject, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {PropertyService} from '../../../core/services/property.service';
 import {Filter, PropertyListModel} from '../../../core/models';
 import { MatPaginator } from '@angular/material/paginator';
 import {MatDialog} from '@angular/material/dialog';
-import {DialogPropertyFilterComponent} from '../../../shared/components/property-components/dialog-property-filter/dialog-property-filter.component';
 import {Router} from '@angular/router';
+import {DialogPropertyFilterComponent} from '../../../shared/components/property-components';
 @Component({
   selector: 'app-property-list',
   templateUrl: './property-list.component.html',
@@ -17,6 +17,7 @@ export class PropertyListComponent implements OnInit {
   pageNumber = 0;
   category: string;
   status: string;
+  button = 'More details';
 
   constructor(private propertyService: PropertyService, public dialog: MatDialog, private router: Router) {
   }
