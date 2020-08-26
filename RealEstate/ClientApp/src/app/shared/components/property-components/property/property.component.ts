@@ -8,10 +8,10 @@ import {PropertyByIdModel} from '../../../../core/models';
 })
 export class PropertyPageComponent implements OnInit {
   @Input() property: PropertyByIdModel;
-  @Input() button: string;
   @Output() public onComplete: EventEmitter<any> = new EventEmitter();
   @Output() public photoEdit: EventEmitter<any> = new EventEmitter();
   @Output() public delete: EventEmitter<any> = new EventEmitter();
+  @Output() public restore: EventEmitter<any> = new EventEmitter();
   @Output() public showOffers: EventEmitter<any> = new EventEmitter();
   @Output() public showQuestions: EventEmitter<any> = new EventEmitter();
   ngOnInit(): void {
@@ -33,5 +33,8 @@ export class PropertyPageComponent implements OnInit {
   }
   questionsEdit(): void{
     this.showQuestions.emit();
+  }
+  restoring(): any{
+    this.restore.emit();
   }
 }

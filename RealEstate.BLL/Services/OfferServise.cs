@@ -94,10 +94,15 @@ namespace RealEstate.BLL.Services
             await _unitOfWork.Repository<Offer>().UpdateAsync(offer);
             await _unitOfWork.SaveChangesAsync();
         }
-        public async Task<int> GetPropertyId(int Id)
+        public async Task<int> GetPropertyId(int id)
         {
-            var offer = await _unitOfWork.Repository<Offer>().GetAsync(o => o.Id == Id);
+            var offer = await _unitOfWork.Repository<Offer>().GetAsync(o => o.Id == id);
             return offer.PropertyId;
+        }
+        public async Task<string> GetAgentId(int id)
+        {
+            var offer = await _unitOfWork.Repository<Offer>().GetAsync(o => o.Id == id);
+            return offer.AgentProfileId;
         }
 
         public async Task AgentResponse(int id, AgentOfferResponseDto response)

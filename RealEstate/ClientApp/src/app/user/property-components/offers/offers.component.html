@@ -2,7 +2,7 @@
     <mat-tab-group mat-align-tabs="center" (selectedTabChange)="filter($event)" >
       <mat-tab *ngFor ="let currentStatus of offerStatuses"  label="{{currentStatus}}">
         <app-offers-card  *ngFor="let offer of offers" [offer]="offer"></app-offers-card>
-        <div class="no-offers" *ngIf="!offers.length"><p>No offers</p></div>
+        <div class="no-offers" *ngIf="!offers.length" ><p>No offers</p></div>
       </mat-tab>
     </mat-tab-group>
   </div>

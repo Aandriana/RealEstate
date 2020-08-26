@@ -10,7 +10,7 @@ import {JwtService} from './jwt.service';
 })
 export class UserService {
   readonly baseUrl = accountUrl;
-
+  feedbackResponse: any;
   constructor(
     private http: ApiService,
     private jwtService: JwtService
@@ -32,6 +32,9 @@ export class UserService {
   }
   getAgentById(id): Observable<AgentById> {
     return this.http.get(`${this.baseUrl}/agent/${id}`);
+  }
+  addFeedbackResponse(status): void{
+    this.feedbackResponse = status;
   }
   addFeedback(data): Observable<any>{
     return this.http.post(`${this.baseUrl}/feedback`, data);

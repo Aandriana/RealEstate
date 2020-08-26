@@ -46,7 +46,8 @@
 </div>
   <div class = "card">
   <button class="edit" (click)="runOnComplete()">Edit</button>
-    <button class="edit" (click)="deleting()">{{button}}</button>
+    <button class="edit" *ngIf="property.status !== 0" (click)="deleting()">Delete</button>
+    <button class="edit" *ngIf="property.status === 0" (click)="restoring()">Restore</button>
   </div>
 </div>
 <div class = "offers">

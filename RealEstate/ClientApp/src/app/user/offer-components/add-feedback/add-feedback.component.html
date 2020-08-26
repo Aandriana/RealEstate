@@ -1,0 +1,24 @@
+<div class = "main">
+  <mat-card>
+    <mat-card-title><p class = "title">Please, leave feedback about this agent!</p></mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="feedbackForm">
+        <p>
+          <mat-form-field>
+            <span class="material-icons">rate_review</span>
+            <input matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rating" formControlName="rating">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <span class="material-icons">comment_bank</span>
+            <input  matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comment" formControlName="comment">
+          </mat-form-field>
+        </p>
+        <div class = 'button'>
+          <button (click)="sendFeedback()" type="submit" mat-button>Send</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -42,7 +42,8 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
         __.EditPropertiesPhotosComponent,
         __.OffersComponent,
         __.QuestionsEditComponent,
-        __.SendOfferComponent
+        __.SendOfferComponent,
+        __.AddFeedbackComponent
   ],
   imports: [
     CommonModule,

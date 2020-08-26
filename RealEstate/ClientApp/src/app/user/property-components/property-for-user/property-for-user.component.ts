@@ -11,7 +11,6 @@ import {PropertyService} from '../../../core/services/property.service';
 export class PropertyForUserComponent implements OnInit {
   propertyId: any;
   propertyDetails: PropertyByIdModel;
-  deleted = false;
 
   constructor(private route: ActivatedRoute, private properyService: PropertyService, private router: Router) { }
   getPropertyById(): any{
@@ -32,26 +31,19 @@ export class PropertyForUserComponent implements OnInit {
     this. router.navigateByUrl(`properties/edit/photos/${this.propertyId}`);
   }
   deleteProperty(): any {
-    if (!this.deleted) {
       return this.properyService.deleteProperty(this.propertyId).subscribe(res => {
-        this.deleted = true;
-        this.router.navigateByUrl(`/properties/${this.propertyId}`);
         this.ngOnInit();
       });
-    } else {
+  }
+  restoreProperty(): any {
       return this.properyService.restoreProperty(this.propertyId).subscribe(res => {
-        this.deleted = false;
         this.ngOnInit();
       });
     }
-  }
   showOffers(): any{
     this.router.navigateByUrl(`/properties/${this.propertyId}/offers`);
   }
   showQuestions(): any{
     this.router.navigateByUrl(`/properties/${this.propertyId}/questions`);
-  }
-  getButton(): string {
-    return this.deleted ? 'Restore' : 'Delete';
   }
 }

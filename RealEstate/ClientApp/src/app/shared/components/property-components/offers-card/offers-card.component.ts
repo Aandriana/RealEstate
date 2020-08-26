@@ -3,6 +3,7 @@ import {OfferResponseViewModel, OffersListModel} from '../../../../core/models';
 import {OfferService} from '../../../../core/services/offer.service';
 import {Router} from '@angular/router';
 import {NotificationService} from '../../../../core/services/notificationService';
+import {UserService} from '../../../../core/services/user.servicce';
 
 @Component({
   selector: 'app-offers-card',
@@ -12,7 +13,7 @@ import {NotificationService} from '../../../../core/services/notificationService
 export class OffersCardComponent implements OnInit {
   @Input() offer: OffersListModel;
   panelOpenState = false;
-  constructor(private offerService: OfferService, private router: Router, private notificationService: NotificationService) { }
+  constructor(private offerService: OfferService, private router: Router, private notificationService: NotificationService, private userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -22,5 +23,9 @@ export class OffersCardComponent implements OnInit {
       this.router.navigateByUrl(`properties/${propertyId}/offers`);
       this.notificationService.success('Response has been sent');
     });
+  }
+  addFeedback(status, agentId): void{
+    this.userService.addFeedbackResponse(status);
+    this.router.navigateByUrl( `agents/feedback/${agentId}`);
   }
 }

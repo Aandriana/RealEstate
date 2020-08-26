@@ -10,7 +10,8 @@ namespace RealEstate.BLL.Interfaces
         Task OfferFromUser(OfferFromUserDto offerDto);
         Task OfferFromAdmin(OfferFromAgentDto offerDto);
         Task UserResponse(int id, OfferResponseDto response);
-        Task<int> GetPropertyId(int Id);
+        Task<int> GetPropertyId(int id);
+        Task<string> GetAgentId(int id);
         Task AgentResponse(int id, AgentOfferResponseDto response);
         Task<List<OfferDto>> GetAllOffersForAgent(OfferListFilter filter);
     }

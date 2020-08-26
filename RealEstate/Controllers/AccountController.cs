@@ -70,7 +70,7 @@ namespace RealEstateIdentity.Controllers
         [HttpPost("agent")]
         public async Task<IActionResult> AgentRegister([FromForm] AgentRegisterViewModel agentRegister)
         {
-                if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var agent = _mapper.Map<AgentRegisterDto>(agentRegister);
                 agent.AgentProfile.DefaultRate = Convert.ToDouble(agentRegister.AgentProfile.DefaultRate);
@@ -129,7 +129,7 @@ namespace RealEstateIdentity.Controllers
         [HttpPut("agent")]
         [Authorize(Roles = "Agent")]
         public async Task<IActionResult> EditAgentProfile([FromForm]EditUserProfileViewModel editUser)
-            {
+        {
             if (ModelState.IsValid)
             {
                 var editDto = _mapper.Map<EditUserProfileDto>(editUser);
@@ -151,7 +151,7 @@ namespace RealEstateIdentity.Controllers
 
         [HttpPost("feedback")]
         [Authorize(Roles = "User")]
-        public async Task<IActionResult> AddFeedback([FromBody]FeedBackViewModel feedBack)
+        public async Task<IActionResult> AddFeedback([FromBody] FeedBackViewModel feedBack)
         {
             if (ModelState.IsValid)
             {
@@ -161,7 +161,7 @@ namespace RealEstateIdentity.Controllers
             }
             return BadRequest();
         }
-
+        
         [HttpGet("agent")]
         [Authorize(Roles = "Agent")]
         public async Task<IActionResult> GetMyAgentProfile()

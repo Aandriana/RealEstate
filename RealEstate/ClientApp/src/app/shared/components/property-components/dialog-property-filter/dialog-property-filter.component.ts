@@ -17,8 +17,8 @@ export class DialogPropertyFilterComponent{
 
   onNoClick(): void {
     this.dialogRef.close({
-      status: null,
       category: null,
+      status: null,
     });
   }
   onCategoryChange(mrChange: MatRadioChange): any{

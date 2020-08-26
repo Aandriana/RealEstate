@@ -17,6 +17,7 @@ const routes: Routes = [
       {path: 'properties', component: __.PropertyListComponent},
       {path: 'profile/edit', component: __.MyProfileEditComponent},
       {path: 'profile', component: __.MyProfileComponent},
+      {path: 'agents/feedback/:id', component: __.AddFeedbackComponent},
       {path: 'agents/offer/:id', component: __.SendOfferComponent},
       {path: 'agents/:id', component: __.AgentByIdComponent},
       {path: 'agents', component: __.AgentListComponent},

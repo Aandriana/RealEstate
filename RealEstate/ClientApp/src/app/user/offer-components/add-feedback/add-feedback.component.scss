@@ -1,0 +1,70 @@
+@import "../../../app.component";
+mat-card{
+  @extend %alights;
+  margin: 120px 0px;
+  width: 600px;
+  background: $primary-color-background;
+  color: white;
+}
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:$primary-color-background-dark;
+  background-size: cover;
+}
+.title{
+  margin: 20px;
+  color: #81A4EBFF;
+  @extend %flexAlights;
+  font-size: 20px;
+}
+.material-icons{
+  color: $primary-color-aqua;
+}
+::ng-deep .mat-form-field-underline{
+  background-color:$primary-color-aqua !important;
+}
+::ng-deep .mat-form-field-label{
+  color:#81A4EBFF !important;
+  font-family: $font-stack;
+}
+::ng-deep .mat-form-field-underline .mat-form-field-ripple{
+  background-color: $primary-color-aqua;
+}
+::ng-deep .mat-form-field{
+  align-items: center;
+  font-family: $font-stack;
+  width: 350px;
+  margin: 10px;
+}
+mat-card-content{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.question{
+  background: $primary-color-background-dark;
+  padding: 15px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+.button{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+button{
+  padding: 5px;
+  margin: 20px;
+  width: 350px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, $primary-color-blue-purple,#81A4EBFF);
+  &:hover{
+    background: linear-gradient(45deg, #81A4EBFF,$primary-color-aqua);
+    color: black;
+  }
+}
+
+
+
