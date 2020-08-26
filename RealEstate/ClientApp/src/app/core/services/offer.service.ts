@@ -52,9 +52,9 @@ export class OfferService {
   getPropertyId(id): Observable<any>{
     return this.http.get(`${this.baseUrl}/${id}/property`);
   }
-  declineAgentResponse(id, data): Observable<any>{
+  agentResponse(id, data): Observable<any>{
     const form = new FormData();
-    form.append(`response`, data.response);
+    form.append(`response`, data.response.value);
     return this.http.put(`${this.baseUrl}/agent/${id}`, form);
   }
 }

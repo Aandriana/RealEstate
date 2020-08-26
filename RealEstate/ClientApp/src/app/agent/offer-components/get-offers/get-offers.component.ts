@@ -31,11 +31,15 @@ export class GetOffersComponent implements OnInit {
       .subscribe(data => this.offers = data);
   }
   accept(id): any{
-    this.router.navigateByUrl(`agent/offers/response/${id}`);
+    const response = new OfferResponseViewModel(2);
+    return this.offerService.agentResponse(id, response).subscribe(res => {
+      this.router.navigateByUrl(`agent/offers`);
+      this.notificationService.success('Response has been sent');
+    });
   }
   decline(id): any{
     const response = new OfferResponseViewModel(3);
-    return this.offerService.declineAgentResponse(id, response).subscribe(res => {
+    return this.offerService.agentResponse(id, response).subscribe(res => {
       this.router.navigateByUrl(`agent/offers`);
       this.notificationService.success('Response has been sent');
     });

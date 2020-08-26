@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,6 +44,7 @@ export function tokenGetter(): string {
     HttpClientModule,
     FlexLayoutModule,
     SharedModule,
+    BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     JwtModule.forRoot({
       config: {},

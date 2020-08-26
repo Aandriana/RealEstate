@@ -3,12 +3,11 @@
     <mat-card-title><p class = "title">Please, leave feedback about this agent!</p></mat-card-title>
     <mat-card-content>
       <form [formGroup]="feedbackForm">
-        <p>
-          <mat-form-field>
-            <span class="material-icons">rate_review</span>
-            <input matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rating" formControlName="rating">
-          </mat-form-field>
+        <p>Add rating:</p>
+        <p class = "rate">
+          <star-rating [value]="0" [totalstars]="5" checkedcolor="aqua" uncheckedcolor="black" size="50px" (rate)="onRate($event)"></star-rating>
         </p>
+        <p>Add some comment:</p>
         <p>
           <mat-form-field>
             <span class="material-icons">comment_bank</span>

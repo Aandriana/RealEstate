@@ -26,8 +26,8 @@
       <button (click)="sendResponse(3, offer.id, offer.propertyId)">Decline</button>
     </div>
     <div class = "choose" *ngIf="offer.status == 2" fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
-      <button (click)="addFeedback(4, offer.agentProfileId)">Sold</button>
-      <button (click)="addFeedback(5, offer.agentProfileId)">Failed</button>
+      <button (click)="addFeedback(4, offer.id, offer.agentProfileId)">Sold</button>
+      <button (click)="addFeedback(5, offer.id, offer.agentProfileId)">Failed</button>
     </div>
   </mat-card>
   <div *ngIf="offer.answers.length">

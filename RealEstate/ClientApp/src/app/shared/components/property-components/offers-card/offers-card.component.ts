@@ -24,8 +24,10 @@ export class OffersCardComponent implements OnInit {
       this.notificationService.success('Response has been sent');
     });
   }
-  addFeedback(status, agentId): void{
-    this.userService.addFeedbackResponse(status);
+  addFeedback(status, id, agentId): any{
+    const responce = new OfferResponseViewModel(status);
+    return this.offerService.responseFromUser(id, responce).subscribe(() => {
     this.router.navigateByUrl( `agents/feedback/${agentId}`);
+  });
   }
 }

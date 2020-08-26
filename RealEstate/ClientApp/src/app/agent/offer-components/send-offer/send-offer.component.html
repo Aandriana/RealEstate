@@ -14,6 +14,8 @@
         <mat-form-field>
           <span class="material-icons">rate_review</span>
           <input matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rate" formControlName="rate">
+          <mat-error *ngIf="offerForm.get('rate').errors?.pattern">
+            should be float number</mat-error>
         </mat-form-field>
       </p>
     </form>
