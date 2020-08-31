@@ -47,9 +47,9 @@ namespace RealEstate.BLL.Services
             {
                 url = "http://localhost:4200";
             }
-
+            var codeHtmlVersion = HttpUtility.UrlEncode(code);
             body = body.Replace("{ID}", user.Id);
-            body = body.Replace("{CODE}", code);
+            body = body.Replace("{CODE}", codeHtmlVersion);
             body = body.Replace("{FIRSTNAME}", user.FirstName);
             body = body.Replace("{URL}", url);  
 
@@ -71,8 +71,7 @@ namespace RealEstate.BLL.Services
             {
                 return false;
             }
-            var code = HttpUtility.UrlEncode(confirmUser.Code);
-            var result = await _userManager.ConfirmEmailAsync(user, code);
+            var result = await _userManager.ConfirmEmailAsync(user, confirmUser.Code);
             if (result.Succeeded)
             {
                 return true;
