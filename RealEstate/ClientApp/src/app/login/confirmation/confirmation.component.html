@@ -1,4 +1,7 @@
-<h1 *ngIf="confirmed">Your account is confirmed
-  <a href="/login">Move to login</a>
-</h1>
-<h1 *ngIf="!confirmed">Confirmation was failed</h1>
+<div class = "main">
+  <div *ngIf="confirmed">
+  <p class = "title">Your account is confirmed&nbsp;&nbsp;&nbsp;</p>
+  <p><a href="/login">Move to login</a></p>
+  </div>
+<p class ="title" *ngIf="!confirmed">Confirmation was failed</p>
+</div>

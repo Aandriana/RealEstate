@@ -1,0 +1,21 @@
+@import "src/app/app.component.scss";
+.main{
+  height: 100%;
+  @extend %flexAlights;
+  background-color: $primary-color-background-dark;
+}
+.title{
+  padding-top: 400px;
+  @extend %flexAlights;
+  font-family: $font-stack;
+  font-size: 40px;
+  color: $primary-color-blue-purple;
+}
+a{
+  padding-top: 400px;
+  color: $primary-color-aqua;
+  @extend %flexAlights;
+  font-family: $font-stack;
+  font-size: 25px;
+  cursor: pointer;
+}

@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7c98d1b4-73ab-485f-8d8a-c730f22d81ed" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/agent-registration/agent-registration.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/agent-registration/agent-registration.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/login-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/login.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/registration/registration.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration/registration.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Controllers/OfferController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Controllers/OfferController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RealEstate.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../RealEstate.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/confirmation/confirmation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/confirmation/confirmation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/confirmation/confirmation.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/confirmation/confirmation.component.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +130,7 @@
       <workItem from="1598083224013" duration="8766000" />
       <workItem from="1598180694983" duration="32209000" />
       <workItem from="1598443374855" duration="8010000" />
-      <workItem from="1598811863417" duration="6351000" />
+      <workItem from="1598811863417" duration="7757000" />
     </task>
     <servers />
   </component>
