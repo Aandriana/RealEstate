@@ -16,11 +16,12 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatStepperModule} from '@angular/material/stepper';
 import {LoginRoutingModule} from './login-routing.module';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, RegistrationComponent, AgentRegistrationComponent, ChooseRegistrationComponent],
+  declarations: [LoginComponent, RegistrationComponent, AgentRegistrationComponent, ChooseRegistrationComponent, ConfirmationComponent],
     imports: [
         CommonModule,
         MatCardModule,

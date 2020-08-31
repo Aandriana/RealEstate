@@ -52,14 +52,7 @@ export class AuthService {
       formData.append(user, registerForm[user]);
     }
     formData.append('image', file);
-    return this.http.post(`${this.baseUrl}`, formData).pipe(map((response: JwtResponseModel) => {
-      this.jwtService.addTokenToLS(response.token);
-      if (!this.jwtService.checkToken()) {
-        return false;
-      }
-      this.isLoggedIn = true;
-      return true;
-    }));
+    return this.http.post(`${this.baseUrl}`, formData);
   }
 
   firstStep(registerForm): void{
@@ -80,14 +73,14 @@ export class AuthService {
     const Img: FileInput = registerForm.image;
     const file = Img.files[0];
     this.agentRegister.append('Image', file);
-    return this.http.post(`${this.baseUrl}/agent`, this.agentRegister).pipe(map((response: JwtResponseModel)  => {
-      this.jwtService.addTokenToLS(response.token);
-      if (!this.jwtService.checkToken()) { return false; }
-      this.isLoggedIn = true;
-      return true;
-    }));
+    return this.http.post(`${this.baseUrl}/agent`, this.agentRegister);
   }
-
+  confirmUser(code: string, id: string): Observable<any>{
+    return this.http.post(`${this.baseUrl}/confirmation`, {
+      id,
+      code
+    });
+  }
   getRole(): string{
    const role = this.jwtService.getRole();
    return role;

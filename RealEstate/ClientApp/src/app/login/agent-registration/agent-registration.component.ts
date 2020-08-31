@@ -42,7 +42,7 @@ export class AgentRegistrationComponent implements OnInit {
   }
   onSubmit(): void {
     this.authService.registerAgent(this.imageForm.value).subscribe(res => {
-      this.router.navigateByUrl('/agent/home');
+      this.notificationService.success('Check your email to confirm your account.');
     }, err => {
       console.log(err);
       this.notificationService.warn('Some data must be incorrect. Please, check.');

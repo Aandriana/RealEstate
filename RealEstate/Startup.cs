@@ -1,4 +1,5 @@
 using AutoMapper;
+using Common.Configurations;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +12,7 @@ using RealEstate.BLL.Infrastructure;
 using RealEstate.BLL.Interfaces;
 using RealEstate.BLL.Services;
 using RealEstateIdentity.Mapping;
+using SendGrid;
 
 namespace RealEstateIdentity
 {
@@ -62,6 +64,14 @@ namespace RealEstateIdentity
             services.AddTransient<IOfferService, OfferServise>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IQuestionService, QuestionService>();
+            services.AddTransient<IConfirmationService, ConfirmationService>();
+            services.Configure<EmailSettings>(Configuration.GetSection("email_settings"));
+
+            AddSendGrid(services);
+        }
+        protected virtual void AddSendGrid(IServiceCollection services)
+        {
+            services.AddTransient<ISendGridClient>(provider => new SendGridClient(Configuration.GetSection("send_grip_api_key").Value));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

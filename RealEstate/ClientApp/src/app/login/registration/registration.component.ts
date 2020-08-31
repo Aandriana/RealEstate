@@ -29,7 +29,7 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit(): void {
     this.authService.registerUser(this.registrationForm.value).subscribe(res => {
-      this.router.navigateByUrl('/home');
+      this.notificationService.success('Check your email to confirm your account.');
     }, err => {
         console.log(err);
         this.notificationService.warn('Some data must be incorrect. Please, check.');

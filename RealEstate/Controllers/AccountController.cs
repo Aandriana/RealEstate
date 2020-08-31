@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using RealEstate.BLL.DTO;
 using RealEstate.BLL.DTO.UserDtos;
 using RealEstate.BLL.Interfaces;
+using RealEstate.ViewModels;
 using RealEstateIdentity.ViewModels;
 using RealEstateIdentity.ViewModels.UserViewModels;
 using System;
@@ -21,18 +22,21 @@ namespace RealEstateIdentity.Controllers
         private readonly IMapper _mapper;
         private readonly IFileService _fileService;
         private readonly IUserService _userService;
+        private readonly IConfirmationService _confirmation;
 
         public AccountController(
             IAuthenticationService authentication,
             IMapper mapper,
             IFileService fileService,
-            IUserService userService
+            IUserService userService,
+            IConfirmationService confirmation
             )
         {
             _authentication = authentication;
             _mapper = mapper;
             _fileService = fileService;
             _userService = userService;
+            _confirmation = confirmation;
         }
 
         [HttpPost("login")]
@@ -60,8 +64,8 @@ namespace RealEstateIdentity.Controllers
                         Path.GetExtension(model.Image.FileName));
                     user.ImagePath = imagePath.ToString();
                 }
-                var token = await _userService.Register(user);
-                if (!string.IsNullOrEmpty(token)) return Ok(new { Token = token });
+                await _userService.Register(user);
+                return Ok();
             }
 
             return BadRequest();
@@ -82,10 +86,23 @@ namespace RealEstateIdentity.Controllers
                     agent.ImagePath = imagePath.ToString();
                 }
 
-                var token = await _userService.AgentRegister(agent);
-                if (!string.IsNullOrEmpty(token)) return Ok(new { Token = token });
+                 await _userService.AgentRegister(agent);
+                return Ok();
             }
 
+            return BadRequest();
+        }
+
+        [HttpPost("confirmation")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail([FromBody]ConfirmUserViewModel confirmUser)
+        {
+            var confirm = _mapper.Map<ConfirmUserDto>(confirmUser);
+            var res = await _confirmation.ConfirmUser(confirm);
+            if (res)
+            {
+                return Ok();
+            }
             return BadRequest();
         }
 

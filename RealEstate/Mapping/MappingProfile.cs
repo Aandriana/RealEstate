@@ -31,6 +31,7 @@ namespace RealEstateIdentity.Mapping
 
             CreateMap<PropertyListDto, PropertyListViewModel>();
             CreateMap<AnswerDto, AnswerViewModel>();
+            CreateMap<ConfirmUserViewModel, ConfirmUserDto>();
             CreateMap<AnswerViewModel, AnswerDto>();
             CreateMap<QuestionViewModel, QuestionsDto>();
             CreateMap<QuestionsDto, QuestionViewModel>();

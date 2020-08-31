@@ -54,7 +54,7 @@ namespace RealEstateIdentity.Controllers
         [HttpPut("{id}")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> UserResponse(int id, [FromBody] OfferResponseViewModel responseVm)
-        {
+            {
             if (ModelState.IsValid)
             {
                 var responseDto = _mapper.Map<OfferResponseDto>(responseVm);

@@ -22,8 +22,9 @@ namespace RealEstate.BLL.Services
         private readonly IMapper _mapper;
         private readonly IFileService _fileService;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IConfirmationService _confirmationService;
 
-        public UserService(UserManager<User> userManager, SignInManager<User> signInManager, IAuthenticationService authentication, IMapper mapper, IFileService fileService, IUnitOfWork unitOfWork)
+        public UserService(UserManager<User> userManager, SignInManager<User> signInManager, IAuthenticationService authentication, IMapper mapper, IFileService fileService, IUnitOfWork unitOfWork, IConfirmationService confirmationService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -31,6 +32,7 @@ namespace RealEstate.BLL.Services
             _mapper = mapper;
             _fileService = fileService;
             _unitOfWork = unitOfWork;
+            _confirmationService = confirmationService;
         }
 
         public async Task<string> Login(LoginDto model)
@@ -54,11 +56,8 @@ namespace RealEstate.BLL.Services
 
             if (result.Succeeded)
             {
-                var currentUser = await _userManager.FindByNameAsync(user.UserName);
-                await _userManager.AddToRoleAsync(currentUser, "User");
-                await _signInManager.SignInAsync(user, false);
-                var token = await _authentication.GenerateJwtToken(user);
-                return token;
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                await _confirmationService.SendEmail(code, user.Email, "welcome.html");
             }
 
             return null;

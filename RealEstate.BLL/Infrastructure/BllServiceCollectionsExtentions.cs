@@ -26,7 +26,7 @@ namespace RealEstate.BLL.Infrastructure
         public static IServiceCollection AddIdentityFromBll(this IServiceCollection services)
         {
             services.AddIdentity<User, IdentityRole>()
-                  .AddEntityFrameworkStores<ApplicationDbContext>();
+                  .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
             return services;
         }
