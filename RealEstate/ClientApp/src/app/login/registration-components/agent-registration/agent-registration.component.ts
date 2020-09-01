@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import {AuthService} from '../../core/services/auth.service';
+import {AuthService} from '../../../core/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import {NotificationService} from '../../core/services/notificationService';
+import {NotificationService} from '../../../core/services/notificationService';
 @Component({
   selector: 'app-agent-registration',
   templateUrl: './agent-registration.component.html',
@@ -44,7 +44,6 @@ export class AgentRegistrationComponent implements OnInit {
     this.authService.registerAgent(this.imageForm.value).subscribe(res => {
       this.notificationService.success('Check your email to confirm your account.');
     }, err => {
-      console.log(err);
       this.notificationService.warn('Some data must be incorrect. Please, check.');
     });
   }

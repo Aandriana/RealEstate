@@ -1,8 +1,12 @@
 ﻿using AutoMapper;
+using Common.Configurations;
 using Common.FilterClasses;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 using RealEstate.BLL.DTO;
 using RealEstate.BLL.DTO.UserDtos;
+using RealEstate.BLL.Helpers;
 using RealEstate.BLL.Interfaces;
 using RealEstate.DAL.Entities;
 using RealEstate.DAL.UnitOfWork;
@@ -22,9 +26,11 @@ namespace RealEstate.BLL.Services
         private readonly IMapper _mapper;
         private readonly IFileService _fileService;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IConfirmationService _confirmationService;
+        private readonly IEmailService _confirmationService;
+        private readonly IHostingEnvironment _env;
+        private readonly EmailSettings _emailSettings;
 
-        public UserService(UserManager<User> userManager, SignInManager<User> signInManager, IAuthenticationService authentication, IMapper mapper, IFileService fileService, IUnitOfWork unitOfWork, IConfirmationService confirmationService)
+        public UserService(UserManager<User> userManager, SignInManager<User> signInManager, IAuthenticationService authentication, IMapper mapper, IFileService fileService, IUnitOfWork unitOfWork, IEmailService confirmationService, IHostingEnvironment env, IOptions<EmailSettings> emailSettings)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -33,10 +39,14 @@ namespace RealEstate.BLL.Services
             _fileService = fileService;
             _unitOfWork = unitOfWork;
             _confirmationService = confirmationService;
+            _env = env;
+            _emailSettings = emailSettings.Value;
         }
 
         public async Task<string> Login(LoginDto model)
         {
+            var user = await _unitOfWork.Repository<User>().GetAsync(u => u.Email == model.Email);
+            if (!user.EmailConfirmed) return null;
             var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
 
             if (result.Succeeded)
@@ -48,7 +58,7 @@ namespace RealEstate.BLL.Services
             return null;
         }
 
-        public async Task<string> Register(RegisterDto model)
+        public async Task Register(RegisterDto model)
         {
             var user = _mapper.Map<User>(model);
             user.ImagePath = model.ImagePath;
@@ -56,14 +66,27 @@ namespace RealEstate.BLL.Services
 
             if (result.Succeeded)
             {
-                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                await _confirmationService.SendEmail(code, user.Email, "welcome.html");
-            }
+                var currentUser = await _userManager.FindByNameAsync(user.UserName);
+                await _userManager.AddToRoleAsync(currentUser, "User");
+                string body = string.Empty;
+                using (StreamReader reader =
+                new StreamReader(Path.Combine(_env.ContentRootPath, "Templates", "Welcome.html")))
+                {
+                    body = await reader.ReadToEndAsync();
+                }
+                var url = "https://realestate20200708014452.azurewebsites.net";
 
-            return null;
+                if (_env.IsDevelopment())
+                {
+                    url = "http://localhost:4200";
+                }
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var email = EmailSendingHelper.RegisterEmail(code, body, user, _emailSettings.Email, url);
+                await _confirmationService.SendEmail(email);
+            }
         }
 
-        public async Task<string> AgentRegister(AgentRegisterDto agentRegister)
+        public async Task AgentRegister(AgentRegisterDto agentRegister)
         {
             var agent = _mapper.Map<User>(agentRegister);
             agent.ImagePath = agentRegister.ImagePath;
@@ -74,12 +97,73 @@ namespace RealEstate.BLL.Services
             {
                 var currentUser = await _userManager.FindByNameAsync(agent.UserName);
                 await _userManager.AddToRoleAsync(currentUser, "Agent");
-                await _signInManager.SignInAsync(agent, false);
-                var token = await _authentication.GenerateJwtToken(agent);
-                return token;
-            }
+                string body = string.Empty;
+                using (StreamReader reader =
+                new StreamReader(Path.Combine(_env.ContentRootPath, "Templates", "Welcome.html")))
+                {
+                    body = await reader.ReadToEndAsync();
+                }
+                var url = "https://realestate20200708014452.azurewebsites.net";
 
-            return null;
+                if (_env.IsDevelopment())
+                {
+                    url = "http://localhost:4200";
+                }
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(agent);
+                var email = EmailSendingHelper.RegisterEmail(code, body, agent, _emailSettings.Email, url);
+                await _confirmationService.SendEmail(email);
+            }
+        }
+
+        public async Task<bool> ConfirmUser(ConfirmUserDto confirmUser)
+        {
+            if (confirmUser.Id == null || confirmUser.Code == null)
+            {
+                return false;
+            }
+            var user = await _unitOfWork.Repository<User>().GetAsync(u => u.Id == confirmUser.Id);
+            if (user == null)
+            {
+                return false;
+            }
+            var result = await _userManager.ConfirmEmailAsync(user, confirmUser.Code);
+            return result.Succeeded;
+        }
+
+        public async Task<bool> ForgotPassword(ForgotPasswordDto forgotPasswordDto)
+        {
+            var user = await _unitOfWork.Repository<User>().GetAsync(u => u.Email == forgotPasswordDto.Email);
+            if (user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
+            {
+                return false;
+            }
+            string body = string.Empty;
+            using (StreamReader reader =
+            new StreamReader(Path.Combine(_env.ContentRootPath, "Templates", "password.html")))
+            {
+                body = await reader.ReadToEndAsync();
+            }
+            var url = "https://realestate20200708014452.azurewebsites.net";
+
+            if (_env.IsDevelopment())
+            {
+                url = "http://localhost:4200";
+            }
+            var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var email = EmailSendingHelper.RegisterEmail(code, body, user, _emailSettings.Email, url);
+            await _confirmationService.SendEmail(email);
+            return true;
+        }
+
+        public async Task<bool> ResetPassword(ResetPasswordDto resetPassword)
+        {
+            var user = await _userManager.FindByIdAsync(resetPassword.Id);
+            if (user == null)
+            {
+                return false;
+            }
+            var result = await _userManager.ResetPasswordAsync(user, resetPassword.Code, resetPassword.Password);
+            return result.Succeeded;
         }
 
         public async Task<string> EditUser(UserDetailsDto editUser)
@@ -179,7 +263,7 @@ namespace RealEstate.BLL.Services
                     var feedbackDto = _mapper.Map<FeedbackListDto>(feedback);
                     agentDto.FeedBacks.Add(feedbackDto);
                 }
-                foreach(var feedback in agentDto.FeedBacks)
+                foreach (var feedback in agentDto.FeedBacks)
                 {
                     var user = await GetUser(feedback.UserId);
                     feedback.FirstName = user.FirstName;
@@ -224,7 +308,7 @@ namespace RealEstate.BLL.Services
             await _unitOfWork.Repository<Feedback>().AddAsync(feedback);
             await _unitOfWork.SaveChangesAsync();
         }
-  
+
 
         public async Task<GetAgentByIdInfoDto> GetCurrentAgent()
         {

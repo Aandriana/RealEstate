@@ -9,8 +9,11 @@ namespace RealEstate.BLL.Interfaces
     public interface IUserService
     {
         Task<string> Login(LoginDto model);
-        Task<string> Register(RegisterDto model);
-        Task<string> AgentRegister(AgentRegisterDto agentRegister);
+        Task Register(RegisterDto model);
+        Task AgentRegister(AgentRegisterDto agentRegister);
+        Task<bool> ConfirmUser(ConfirmUserDto confirmUser);
+        Task<bool> ForgotPassword(ForgotPasswordDto forgotPasswordDto);
+        Task<bool> ResetPassword(ResetPasswordDto resetPassword);
         Task<string> EditUser(UserDetailsDto editUser);
         Task<UserDetailsDto> GetMyInfo();
         Task<List<UsersListDto>> GetAllAgents(PaginationParameters pagination);

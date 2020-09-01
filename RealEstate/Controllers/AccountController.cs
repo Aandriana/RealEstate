@@ -22,14 +22,14 @@ namespace RealEstateIdentity.Controllers
         private readonly IMapper _mapper;
         private readonly IFileService _fileService;
         private readonly IUserService _userService;
-        private readonly IConfirmationService _confirmation;
+        private readonly IEmailService _confirmation;
 
         public AccountController(
             IAuthenticationService authentication,
             IMapper mapper,
             IFileService fileService,
             IUserService userService,
-            IConfirmationService confirmation
+            IEmailService confirmation
             )
         {
             _authentication = authentication;
@@ -98,7 +98,33 @@ namespace RealEstateIdentity.Controllers
         public async Task<IActionResult> ConfirmEmail([FromBody]ConfirmUserViewModel confirmUser)
         {
             var confirm = _mapper.Map<ConfirmUserDto>(confirmUser);
-            var res = await _confirmation.ConfirmUser(confirm);
+            var res = await _userService.ConfirmUser(confirm);
+            if (res)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpPost("password/forgot")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ForgotPassword([FromBody]ForgotPasswordViewModel forgotPassword)
+        {
+            var forgotPasswordDto = _mapper.Map<ForgotPasswordDto>(forgotPassword);
+            var res = await _userService.ForgotPassword(forgotPasswordDto);
+            if (res)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpPost("password/reset")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordViewModel resetPassword)
+        {
+            var resetPasswordDto = _mapper.Map<ResetPasswordDto>(resetPassword);
+            var res = await _userService.ResetPassword(resetPasswordDto);
             if (res)
             {
                 return Ok();

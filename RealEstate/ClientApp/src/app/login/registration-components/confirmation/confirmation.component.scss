@@ -1,4 +1,4 @@
-@import "src/app/app.component.scss";
+@import "../../../app.component";
 .main{
   height: 100%;
   @extend %flexAlights;
@@ -8,11 +8,10 @@
   padding-top: 400px;
   @extend %flexAlights;
   font-family: $font-stack;
-  font-size: 40px;
+  font-size: 25px;
   color: $primary-color-blue-purple;
 }
 a{
-  padding-top: 400px;
   color: $primary-color-aqua;
   @extend %flexAlights;
   font-family: $font-stack;

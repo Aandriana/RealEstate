@@ -8,7 +8,7 @@
   background-size: cover;
 }
 mat-card{
-  height: 400px;
+  height: 200px;
   width: 300px;
   padding: 100px 50px;
   background-color: #2F3B52FF;
@@ -29,7 +29,6 @@ mat-card-title{
 .mat-form-field {
   min-width: 300px;
 }
-
 .info {
   font-family: $font-stack;
   font-size: 45px;
@@ -49,7 +48,6 @@ mat-card-title{
 
   background-color: $primary-color-aqua;
 }
-
 mat-card-title,
 mat-card-content {
   display: flex;
@@ -59,13 +57,7 @@ mat-card-content {
 mat-card-title{
   padding-bottom: 16px;
 }
-mat-card-subtitle{
-  font-family: $font-stack;
-  color: white;
-  font-size: 13px;
-  padding-bottom: 35px;
-}
-button {
+button{
   width: 300px;
   height: 35px;
   background:linear-gradient(45deg, $primary-color-purple,$primary-color-purple-dark);
@@ -79,24 +71,8 @@ button {
     box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
   }
 }
-mat-card-footer
-{
-  font-family: $font-stack;
-  padding-top: 30px;
-  padding-left: 20px;
-  display: flex;
+mat-card-subtitle{
   color: white;
-}
-a{
-  color: $primary-color-aqua;
-}
-.real-estate{
-  color: $primary-color-blue-purple;
-}
-.forgot{
   font-family: $font-stack;
-  color: white;
-  text-decoration: none;
-  margin-bottom: 20px;
+  margin: 20px;
 }
-

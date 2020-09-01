@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
 import {MatCardModule} from '@angular/material/card';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { RegistrationComponent } from './registration/registration.component';
-import { AgentRegistrationComponent } from './agent-registration/agent-registration.component';
 import {MatIconModule} from '@angular/material/icon';
-import {ChooseRegistrationComponent} from './choose-registration/choose-registration.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {FlexModule} from '@angular/flex-layout';
 import {MaterialFileInputModule} from 'ngx-material-file-input';
@@ -16,27 +12,34 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatStepperModule} from '@angular/material/stepper';
 import {LoginRoutingModule} from './login-routing.module';
-import { ConfirmationComponent } from './confirmation/confirmation.component';
-
-
+import * as __ from './';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
-  declarations: [LoginComponent, RegistrationComponent, AgentRegistrationComponent, ChooseRegistrationComponent, ConfirmationComponent],
-    imports: [
-        CommonModule,
-        MatCardModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        LoginRoutingModule,
-        MatInputModule,
-        MatIconModule,
-        MatGridListModule,
-        FlexModule,
-        MaterialFileInputModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatStepperModule
-    ],
+  declarations: [
+    __.LoginComponent,
+    __.RegistrationComponent,
+    __.AgentRegistrationComponent,
+    __.ChooseRegistrationComponent,
+    __.ConfirmationComponent,
+    __.ForgotComponent,
+    __.ResetComponent],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    LoginRoutingModule,
+    MatInputModule,
+    MatIconModule,
+    MatGridListModule,
+    FlexModule,
+    MaterialFileInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatStepperModule,
+    MatButtonModule
+  ],
   exports: [
     MatDatepickerModule
   ]

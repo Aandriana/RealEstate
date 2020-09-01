@@ -64,7 +64,7 @@ namespace RealEstateIdentity
             services.AddTransient<IOfferService, OfferServise>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IQuestionService, QuestionService>();
-            services.AddTransient<IConfirmationService, ConfirmationService>();
+            services.AddTransient<IEmailService, EmailService>();
             services.Configure<EmailSettings>(Configuration.GetSection("email_settings"));
 
             AddSendGrid(services);

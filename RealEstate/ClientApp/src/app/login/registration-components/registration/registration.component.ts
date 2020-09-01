@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../../core/services/auth.service';
+import {AuthService} from '../../../core/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import {NotificationService} from '../../core/services/notificationService';
+import {NotificationService} from '../../../core/services/notificationService';
 
 @Component({
   selector: 'app-registration',
@@ -31,7 +31,6 @@ export class RegistrationComponent implements OnInit {
     this.authService.registerUser(this.registrationForm.value).subscribe(res => {
       this.notificationService.success('Check your email to confirm your account.');
     }, err => {
-        console.log(err);
         this.notificationService.warn('Some data must be incorrect. Please, check.');
       });
   }

@@ -77,6 +77,9 @@ namespace RealEstateIdentity.Mapping
 
             CreateMap<FeedbackListDto, FeedBackListViewModel>();
 
+            CreateMap<ForgotPasswordViewModel, ForgotPasswordDto>();
+            CreateMap<ResetPasswordViewModel, ResetPasswordDto>();
+
         }
     }
 }

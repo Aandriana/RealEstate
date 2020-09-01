@@ -39,4 +39,12 @@ export class UserService {
   addFeedback(data): Observable<any>{
     return this.http.post(`${this.baseUrl}/feedback`, data);
   }
+  forgotPassword(email: string): Observable<any>{
+    return this.http.post(`${this.baseUrl}/password/forgot`, {
+      email
+    });
+  }
+  resetPassword(data): Observable<any>{
+    return this.http.post(`${this.baseUrl}/password/reset`, data);
+  }
 }

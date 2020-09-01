@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LoginComponent} from './login/login.component';
-import {RegistrationComponent} from './registration/registration.component';
-import {AgentRegistrationComponent} from './agent-registration/agent-registration.component';
-import {ChooseRegistrationComponent} from './choose-registration/choose-registration.component';
-import {ConfirmationComponent} from './confirmation/confirmation.component';
 import {LoginGuard} from '../shared/guards';
+import * as __ from './';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
-  {path: 'registration/confirm', component: ConfirmationComponent, canActivate: [LoginGuard]},
-  { path: 'registration/user', component: RegistrationComponent, canActivate: [LoginGuard]},
-  { path: 'registration/agent', component: AgentRegistrationComponent, canActivate: [LoginGuard]},
-  { path: 'registration', component: ChooseRegistrationComponent, canActivate: [LoginGuard]}
+  { path: 'login', component: __.LoginComponent, canActivate: [LoginGuard]},
+  { path: 'registration/confirm', component: __.ConfirmationComponent, canActivate: [LoginGuard]},
+  { path: 'registration/user', component: __.RegistrationComponent, canActivate: [LoginGuard]},
+  { path: 'registration/agent', component: __.AgentRegistrationComponent, canActivate: [LoginGuard]},
+  { path: 'registration', component: __.ChooseRegistrationComponent, canActivate: [LoginGuard]},
+  { path: 'password/forgot', component: __.ForgotComponent, canActivate: [LoginGuard]},
+  { path: 'password/reset', component: __.ResetComponent, canActivate: [LoginGuard]}
 ];
 
 @NgModule({

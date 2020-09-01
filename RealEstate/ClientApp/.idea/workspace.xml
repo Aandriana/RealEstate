@@ -2,9 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c98d1b4-73ab-485f-8d8a-c730f22d81ed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/login/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/login/password-components/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/login/registration-components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.BLL/Interfaces/IConfirmationService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.BLL/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.BLL/Interfaces/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.BLL/Services/ConfirmationService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.BLL/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.BLL/Services/UserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/confirmation/confirmation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/confirmation/confirmation.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/confirmation/confirmation.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/confirmation/confirmation.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/services/user.servicce.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/user.servicce.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/agent-registration/agent-registration.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/agent-registration/agent-registration.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/agent-registration/agent-registration.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/agent-registration/agent-registration.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/agent-registration/agent-registration.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/agent-registration/agent-registration.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/agent-registration/agent-registration.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/agent-registration/agent-registration.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/choose-registration/choose-registration.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/choose-registration/choose-registration.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/choose-registration/choose-registration.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/choose-registration/choose-registration.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/choose-registration/choose-registration.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/choose-registration/choose-registration.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/choose-registration/choose-registration.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/choose-registration/choose-registration.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/confirmation/confirmation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/confirmation/confirmation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/confirmation/confirmation.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/confirmation/confirmation.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/confirmation/confirmation.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/confirmation/confirmation.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/confirmation/confirmation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/confirmation/confirmation.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login/login.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/registration/registration.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/registration/registration.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/registration/registration.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/registration/registration.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/registration/registration.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/registration/registration.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/registration/registration.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/registration-components/registration/registration.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mapping/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Mapping/MappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,17 +76,17 @@
     <property name="ts.external.directory.path" value="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\agent\profile-components" />
-      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\shared\guards" />
-      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\shared\components\property-components" />
-      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\agent\property-components" />
-      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\agent\main-components" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\assets\img" />
       <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstateIdentity\ClientApp\src\assets\img" />
       <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstateIdentity\ClientApp\src\app\user" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\login\registration-components" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\login\registration-components\registration" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\login\password-components" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\agent\profile-components" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\shared\guards" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -130,7 +159,8 @@
       <workItem from="1598083224013" duration="8766000" />
       <workItem from="1598180694983" duration="32209000" />
       <workItem from="1598443374855" duration="8010000" />
-      <workItem from="1598811863417" duration="7757000" />
+      <workItem from="1598811863417" duration="9113000" />
+      <workItem from="1598873184910" duration="6445000" />
     </task>
     <servers />
   </component>
@@ -251,10 +281,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="252" width="737" height="606" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598461183509" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1598024188945">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1598964351144">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598024188945" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598964351144" />
     <state x="623" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1597738198208">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
