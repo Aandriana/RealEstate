@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Common.Enums;
+using Common.Exceptions;
 using Common.FilterClasses;
 using Microsoft.EntityFrameworkCore;
 using RealEstate.BLL.DTO;
@@ -36,11 +37,11 @@ namespace RealEstate.BLL.Services
                 offer.CreatedById = user.Id;
                 offer.PropertyId = ppropertyId;
                 offer.AgentProfileId = offerDto.AgentProfileId;
-                var agent = await _unitOfWork.Repository<AgentProfile>().GetAsync(a => a.Id == offerDto.AgentProfileId);
+                var agent = await _unitOfWork.Repository<AgentProfile>().GetAsync(a => a.Id == offerDto.AgentProfileId) ?? throw new NotFoundException("agent");
                 offer.Rate = agent.DefaultRate;
 
-                var property = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == ppropertyId);
-                if (property.UserId != user.Id) throw new FieldAccessException();
+                var property = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == ppropertyId) ?? throw new NotFoundException("property");
+                if (property.UserId != user.Id) throw new NoPermissionsException("You don't have permission for this action");
                 await _unitOfWork.Repository<Offer>().AddAsync(offer);
                 await _unitOfWork.SaveChangesAsync();
             }
@@ -61,10 +62,10 @@ namespace RealEstate.BLL.Services
 
         public async Task UserResponse(int id, OfferResponseDto response)
         {
-            var offer = await _unitOfWork.Repository<Offer>().GetAsync(o => o.Id == id);
+            var offer = await _unitOfWork.Repository<Offer>().GetAsync(o => o.Id == id) ?? throw new NotFoundException("Offer");
             var user = await _authenticationService.GetCurrentUserAsync();
-            var property = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == offer.PropertyId);
-            var agent = await _unitOfWork.Repository<AgentProfile>().GetAsync(a => a.Id == offer.AgentProfileId);
+            var property = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == offer.PropertyId) ?? throw new NotFoundException("Property");
+            var agent = await _unitOfWork.Repository<AgentProfile>().GetAsync(a => a.Id == offer.AgentProfileId) ?? throw new NotFoundException("Agent");
             if (property.UserId != user.Id) throw new FieldAccessException();
 
             offer.Status = response.Response;
@@ -96,20 +97,20 @@ namespace RealEstate.BLL.Services
         }
         public async Task<int> GetPropertyId(int id)
         {
-            var offer = await _unitOfWork.Repository<Offer>().GetAsync(o => o.Id == id);
+            var offer = await _unitOfWork.Repository<Offer>().GetAsync(o => o.Id == id) ?? throw new NotFoundException("Property");
             return offer.PropertyId;
         }
         public async Task<string> GetAgentId(int id)
         {
-            var offer = await _unitOfWork.Repository<Offer>().GetAsync(o => o.Id == id);
+            var offer = await _unitOfWork.Repository<Offer>().GetAsync(o => o.Id == id) ?? throw new NotFoundException("Agent");
             return offer.AgentProfileId;
         }
 
         public async Task AgentResponse(int id, AgentOfferResponseDto response)
         {
-            var offer = await _unitOfWork.Repository<Offer>().GetAsync(o => o.Id == id);
+            var offer = await _unitOfWork.Repository<Offer>().GetAsync(o => o.Id == id) ?? throw new NotFoundException("Offer");
             var agent = await _authenticationService.GetCurrentUserAsync();
-            if (offer.AgentProfileId != agent.Id) throw new FieldAccessException();
+            if (offer.AgentProfileId != agent.Id) throw new NoPermissionsException("You don't have permission for this action");
 
             offer.Status = response.Response;
             offer.UpdatedById = agent.Id;
@@ -132,7 +133,7 @@ namespace RealEstate.BLL.Services
         public async Task<List<OfferDto>> GetAllOffersForAgent(OfferListFilter filter)
         {
             var agent = await _authenticationService.GetCurrentUserAsync();
-            var offers = await GetFilteredOffersForAgent(filter, agent.Id);
+            var offers = await GetFilteredOffersForAgent(filter, agent.Id) ?? throw new NotFoundException("Offers");
             var offerDtos = new List<OfferDto>();
 
             foreach (var offer in offers)

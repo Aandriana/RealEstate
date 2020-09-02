@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Common.Enums;
+using Common.Exceptions;
 using Common.FilterClasses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -221,15 +222,18 @@ namespace RealEstate.BLL.Services
         public async Task<GetPropertyDto> GetPropertyByIdForUser(int id)
         {
             var user = await _authentication.GetCurrentUserAsync();
-            var property = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id);
-            if (property.UserId != user.Id) throw new FieldAccessException();
+            var property = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id) ?? throw new NotFoundException("Property");
+            if (property.UserId != user.Id) throw new NoPermissionsException("You don't have permission for get this priperty as you dont't own");
             var propertyDto = _mapper.Map<GetPropertyDto>(property);
-            foreach (var offer in propertyDto.OfferDtos)
+            if (propertyDto.OfferDtos != null)
             {
-                var agent = await _unitOfWork.Repository<User>().GetAsync(u => u.Id == offer.AgentProfileId);
-                offer.Image = agent.ImagePath;
-                offer.FirstName = agent.FirstName;
-                offer.LastName = agent.LastName;
+                foreach (var offer in propertyDto.OfferDtos)
+                {
+                    var agent = await _unitOfWork.Repository<User>().GetAsync(u => u.Id == offer.AgentProfileId);
+                    offer.Image = agent.ImagePath;
+                    offer.FirstName = agent.FirstName;
+                    offer.LastName = agent.LastName;
+                }
             }
             propertyDto.OfferDtos = propertyDto.OfferDtos.Take(5).ToList();
             return propertyDto;
@@ -237,7 +241,7 @@ namespace RealEstate.BLL.Services
 
         public async Task<GetPropertyDto> GetPropertyByIdForAgent(int id)
         {
-            var property = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id);
+            var property = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id) ?? throw new NotFoundException("Property");
             var propertyDto = _mapper.Map<GetPropertyDto>(property);
             propertyDto.OfferDtos = null;
             return propertyDto;
@@ -245,7 +249,7 @@ namespace RealEstate.BLL.Services
         public async Task<List<OfferDto>> GetPropertyOffers(int id, OfferListFilter offerFilter)
         {
             var user = await _authentication.GetCurrentUserAsync();
-            var propepty = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == id);
+            var propepty = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == id) ?? throw new NotFoundException("Property");
             if (propepty.UserId != user.Id) throw new FieldAccessException();
 
             var offers = await GetFilteredOffersForUser(offerFilter, id);
