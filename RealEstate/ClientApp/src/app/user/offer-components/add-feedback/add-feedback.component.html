@@ -1,0 +1,23 @@
+<div class = "main">
+  <mat-card>
+    <mat-card-title><p class = "title">Please, leave feedback about this agent!</p></mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="feedbackForm">
+        <p>Add rating:</p>
+        <p class = "rate">
+          <star-rating [value]="0" [totalstars]="5" checkedcolor="aqua" uncheckedcolor="black" size="50px" (rate)="onRate($event)"></star-rating>
+        </p>
+        <p>Add some comment:</p>
+        <p>
+          <mat-form-field>
+            <span class="material-icons">comment_bank</span>
+            <input  matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comment" formControlName="comment">
+          </mat-form-field>
+        </p>
+        <div class = 'button'>
+          <button (click)="sendFeedback()" type="submit" mat-button>Send</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

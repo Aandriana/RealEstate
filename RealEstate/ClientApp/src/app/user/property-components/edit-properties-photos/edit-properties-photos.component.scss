@@ -1,0 +1,65 @@
+@import "../../../app.component";
+.clear{
+  position: absolute;
+  cursor: pointer;
+  margin-left: 365px;
+  font-size: 25px;
+  color: $primary-color-background-dark !important;
+  border-radius: 50%;
+  background: rgba(49,217,228, 0.3);
+}
+.img{
+  @extend %flexAlights;
+  margin: 30px;
+}
+.main{
+  background: $primary-color-background-dark;
+  @extend %flexAlights;
+}
+.form{
+  @extend %flexAlights;
+}
+
+
+.material-icons{
+  color: $primary-color-aqua;
+  size: 3px;
+}
+
+::ng-deep .mat-form-field{
+  align-items: center;
+  color:white !important;
+  font-family: $font-stack;
+  width: 400px !important;
+  margin: 30px;
+}
+::ng-deep .mat-form-field-underline{
+  background-color:$primary-color-aqua !important;
+}
+::ng-deep .mat-form-field-label{
+  color:$primary-color-aqua !important;
+  font-family: $font-stack;
+}
+::ng-deep .mat-form-field-underline .mat-form-field-ripple{
+  background-color: $primary-color-aqua;
+}
+.confirm{
+  @extend %flexAlights;
+  margin: 70px;
+}
+button{
+  width: 300px;
+  height: 50px;
+  margin: 60px;
+  border-radius: 10px;
+  border: unset;
+  color: white;
+  font-size: 20px;
+  font-family: $font-stack;
+  background: linear-gradient(-90deg, $primary-color-blue-purple, $primary-color-purple);
+  &:hover{
+    background:linear-gradient(-45deg, $primary-color-blue-purple, #7C67EDFF);
+    box-shadow: 0px 0px 20px rgba(114,117,235, 0.5);
+  }
+}
+

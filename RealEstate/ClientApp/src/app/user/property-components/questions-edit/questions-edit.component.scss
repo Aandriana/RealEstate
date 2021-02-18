@@ -1,0 +1,45 @@
+@import "../../../app.component";
+.main{
+  background: $primary-color-background-dark;
+  margin: 0;
+  padding: 50px;
+  min-height: 570px;
+  @extend %alights;
+}
+.button{
+  @extend %flexAlights;
+  margin: 60px;
+  padding: 60px;
+}
+
+.add{
+  width: 200px;
+  height: 50px;
+  margin: 50px 30px;
+  border-radius: 10px;
+  border: unset;
+  color: white;
+  font-size: 20px;
+  font-family: $font-stack;
+  background: linear-gradient(-90deg, $primary-color-blue-purple, #7C67EDFF);
+  &:hover{
+    background:linear-gradient(-45deg, $primary-color-blue-purple, $primary-color-aqua);
+    box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+  }
+}
+
+
+@media screen and (max-width: 750px){
+  .main{
+    padding: 15px;
+  }
+  .add{
+    font-size: 15px;
+  }
+}
+.no-questions{
+  @extend %flexAlights;
+  color: $primary-color-aqua;
+  font-size: 30px;
+  font-family: $font-stack;
+}

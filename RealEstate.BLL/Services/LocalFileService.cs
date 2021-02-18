@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Hosting;
+using RealEstate.BLL.Interfaces;
+using System;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using RealEstate.BLL.Interfaces;
 
 namespace RealEstate.BLL.Services
 {
@@ -43,7 +43,7 @@ namespace RealEstate.BLL.Services
             File.Delete(fullPath);
             return Task.CompletedTask;
         }
-         
+
         private string GetDirectory(string baseFolder)
         {
             var folder = Path.Combine(baseFolder, "fileuploads");

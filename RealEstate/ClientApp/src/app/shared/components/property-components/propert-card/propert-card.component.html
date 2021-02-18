@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title>
+    <p>{{property.city}}</p>
+  </mat-card-title>
+  <mat-card-title>
+    <img class = "photo" *ngIf="property.image" style="width: 400px" src="{{getPhoto()}}"/>
+    <img class = "photo" *ngIf="!property.image"  style="width: 400px" src="assets/img/DefaultHousePhoto.png"/>
+  </mat-card-title>
+  <mat-card-content>
+    <p>{{property.size}} m<sup>2</sup></p>
+    <p class="status">{{property.status | propertyStatus}}</p>
+    <p class="price"><span class="material-icons">
+attach_money
+</span>{{property.price}}</p>
+    <button (click)="runOnComplete(); enableDisableRule()" [ngClass]="{'button' : toggle, 'isClicked': !toggle}">{{buttonName}}</button>
+  </mat-card-content>
+</mat-card>

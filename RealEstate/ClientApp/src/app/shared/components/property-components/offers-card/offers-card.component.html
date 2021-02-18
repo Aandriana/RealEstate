@@ -1,0 +1,48 @@
+<div class="main-block">
+  <mat-card  fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+    <mat-card-title>
+      <a [routerLink]="['/users', offer.agentProfileId]">
+        <img  *ngIf="offer.image"
+              class = "photo"
+              style="width: 250px;"
+              src="{{getPhoto()}}"
+              alt=""
+        />
+        <img *ngIf="!offer.image"
+             class = "photo"
+             style="width: 250px;"
+             src="./assets/img/defaultuser.jpg"
+             alt=""
+        />
+      </a>
+    </mat-card-title>
+    <mat-card-content>
+      <p class = "name">{{offer.firstName}} {{offer.lastName}}</p>
+      <p class = "comment">{{offer.comment}}</p>
+      <p class> Rate: {{offer.rate}}%</p>
+    </mat-card-content>
+    <div class = "choose" *ngIf="offer.status == 1" fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+      <button (click)="sendResponse(2, offer.id, offer.propertyId)">Accept</button>
+      <button (click)="sendResponse(3, offer.id, offer.propertyId)">Decline</button>
+    </div>
+    <div class = "choose" *ngIf="offer.status == 2" fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+      <button (click)="addFeedback(4, offer.id, offer.agentProfileId)">Sold</button>
+      <button (click)="addFeedback(5, offer.id, offer.agentProfileId)">Failed</button>
+    </div>
+  </mat-card>
+  <div *ngIf="offer.answers.length">
+    <mat-expansion-panel style="border-radius: 0px 0px 15px 15px;" (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-description style="color: white; font-family: Montserrat;">
+          {{panelOpenState ? 'Hide answers' : 'Show answers'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div  fxLayout="column" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+      <app-question-answer fxFlex="0 1 calc(100%)"
+                           fxFlex.lt-md="0 1 calc(100%)"
+                           fxFlex.lt-sm="100%" *ngFor="let answer of offer.answers" [answers]="answer"></app-question-answer>
+      </div>
+    </mat-expansion-panel>
+  </div>
+</div>

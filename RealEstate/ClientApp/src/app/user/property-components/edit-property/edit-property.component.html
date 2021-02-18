@@ -1,0 +1,61 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="editPropertyForm" autocomplete="off">
+      <p class = "title">Fill out the form to edit property</p>
+      <p>
+        <mat-form-field>
+          <span class="material-icons">unfold_more</span>
+          <input matInput required formControlName="size" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Size">
+          <app-mat-error [control]="editPropertyForm.get('size')" [patternMessage]="'should be float'"></app-mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <span class="material-icons">layers</span>
+          <input required  formControlName="floorsNumber" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Floors number">
+          <app-mat-error [control]="editPropertyForm.get('floorsNumber')" [patternMessage]="'should be integer'"></app-mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <span class="material-icons">format_line_spacing</span>
+          <input formControlName="floors" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Floor" >
+          <app-mat-error [control]="editPropertyForm.get('floors')" [patternMessage]="'should be integer'"></app-mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <span class="material-icons">attach_money</span>
+          <input formControlName="price"  matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price">
+          <app-mat-error [control]="editPropertyForm.get('price')" [patternMessage]="'should be float'"></app-mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <span class="material-icons">location_on</span>
+          <input matInput formControlName="city" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City">
+          <app-mat-error [control]="editPropertyForm.get('city')" [patternMessage]="'should be integer'"></app-mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <span class="material-icons">location_searching</span>
+          <input  formControlName="address" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address">
+          <app-mat-error [control]="editPropertyForm.get('address')"></app-mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <span class="material-icons">calendar_today</span>
+          <label>
+            <input  formControlName="buildYear" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build year">
+          </label>
+          <app-mat-error [control]="editPropertyForm.get('buildYear')"></app-mat-error>
+        </mat-form-field>
+      </p>
+      <p class = "button">
+        <button class="submit" [disabled]="!editPropertyForm.valid" (click)="confirm()">Confirm</button>
+      </p>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace RealEstate.BLL.DTO
+﻿namespace RealEstate.BLL.DTO
 {
     public class QuestionUpdateDto
     {
-        public string  Question { get; set; }
+        public string Question { get; set; }
     }
 }

@@ -1,0 +1,29 @@
+ <div [fxShow]="true"  [fxShow.sm]="false" [fxShow.xs]="false" fxFlex="25" fxFlex.lt-md="100%"
+       fxFlex.lt-sm="100%">
+<div *ngFor="let chat of chatList" class = "main" fxLayout="row wrap" fxLayout.lt-md="row wrap" fxLayout.lt-sm="row wrap"
+     (click)="changeChat(chat.chatId)">
+  <div class = "image">
+  <img  *ngIf="chat.imagePath"
+        class = "photo"
+        src="{{getPhoto(chat.imagePath)}}"
+        alt=""
+  />
+  <img *ngIf="!chat.imagePath"
+       class = "photo"
+       src="./assets/img/defaultuser.jpg"
+       alt=""
+  />
+    </div>
+  <span class ="date">
+      <span *ngIf="isTodayMesssage(chat.createdDateUtc)">{{chat.createdDateUtc | date:'shortTime'}}</span>
+      <span *ngIf="!isTodayMesssage(chat.createdDateUtc)"> {{chat.createdDateUtc | date:'mediumDate'}}</span>
+      </span>
+  <div class = "info">
+    <span class = "name">{{chat.firstName}} {{chat.lastName}}
+    </span>
+    <br>
+    <br>
+<!--    <span > {{ (chat.lastMessage.length > 30)? (chat.lastMessage | slice:0:40)+'...':(chat.lastMessage) }}</span>-->
+  </div>
+</div>
+  </div>

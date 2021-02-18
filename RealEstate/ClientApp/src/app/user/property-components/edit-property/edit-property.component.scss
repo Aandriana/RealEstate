@@ -1,0 +1,180 @@
+@import "../../../app.component";
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:linear-gradient($primary-color-aqua,$primary-color-purple-dark);
+  background-size: cover;
+  height: 100%;
+}
+input{
+  @extend %alights;
+  padding-left: 20px;
+  width: 400px;
+}
+
+.material-icons{
+  color: $primary-color-aqua;
+  size: 3px;
+}
+
+>>> .mat-datepicker-toggle {
+  color: $primary-color-aqua !important;
+  size: 5px !important;
+}
+
+::ng-deep .mat-form-field{
+  align-items: center;
+  color:white !important;
+  font-family: $font-stack;
+  width: 550px;
+}
+
+@media screen and (max-width: 750px) {
+  .mat-card {
+    box-shadow: 0px 0px 0px 0px;
+  }
+  .sign-up-button{
+    width: 350px !important;
+    height: 35px !important;
+  }
+  :host {
+    background: $primary-color-background;
+    height: 100%;
+    background-size: cover;
+  }
+  ::ng-deep .mat-form-field{
+    width: 350px;
+  }
+  .info, mat-card-subtitle, mat-card-footer{
+    padding-left: unset;
+    justify-content: center !important;
+  }
+  mat-card-footer{
+    background: $primary-color-background;
+  }
+  mat-stepper-horizontal{
+    align-content: start;
+    justify-content: center;
+  }
+  ::ng-deep .mat-horizontal-stepper-header-container {
+    display: none !important;
+  }
+  .next-button{
+    margin-left: unset !important;
+  }
+
+  .back-button{
+    margin-left: unset !important;
+  }
+  .first{
+    width: unset;
+  }
+}
+
+.mat-form-field {
+  align-items: start;
+  justify-content: start;
+}
+
+mat-card{
+  background-color: $primary-color-background;
+}
+
+::ng-deep .mat-form-field-underline{
+  background-color:$primary-color-aqua !important;
+}
+::ng-deep .mat-form-field-label{
+  color:$primary-color-aqua !important;
+  font-family: $font-stack;
+}
+::ng-deep .mat-form-field-underline .mat-form-field-ripple{
+  background-color: $primary-color-aqua;
+}
+mat-card-content {
+  @extend %flexAlights;
+}
+.info {
+  align-items: center;
+  width: 550px;
+  justify-content: normal;
+  padding-left: 70px;
+  font-family: $font-stack;
+  align-content: center;
+  font-size: 45px;
+  display: flex;
+  color: $primary-color-aqua;
+}
+mat-card-subtitle{
+  width: 550px;
+  font-family: $font-stack;
+  color: white;
+  display: flex;
+  font-size: 13px;
+  padding-bottom: 15px;
+  padding-left: 70px;
+}
+.submit{
+  width: 200px;
+  height: 40px;
+  background:linear-gradient(45deg, $primary-color-purple,$primary-color-purple-dark);
+  font-family: $font-stack;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  align-content: center;
+  margin-top: 15px;
+  &:hover{
+    background:linear-gradient(45deg, $primary-color-aqua,$primary-color-purple);
+    box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+  }
+}
+a{
+  color: $primary-color-aqua;
+}
+
+
+::ng-deep .mat-horizontal-stepper-header-container {
+  margin-left: 50px !important;
+}
+
+
+:host ::ng-deep.mat-paginator .mat-paginator-container{
+  background: $primary-color-background;
+  color: white;
+  font-family: $font-stack;
+}
+
+/deep/ .mat-radio-outer-circle {
+  .mat-radio-checked & {
+    border-color: $primary-color-aqua !important;
+  }
+}
+
+/deep/ .mat-radio-inner-circle {
+  background-color: $primary-color-aqua !important;
+}
+.radio{
+  color: white !important;
+  font-family: $font-stack !important;
+}
+
+/deep/ .mat-radio-outer-circle {
+  border-color: white !important;
+}
+p{
+  margin: 20px;
+}
+.title{
+ @extend %alights;
+  display: flex;
+  color: white;
+}
+
+.button{
+@extend %flexAlights;
+}
+
+
+
+

@@ -1,0 +1,72 @@
+<div class="main">
+<mat-card>
+  <form [formGroup]="editProfileForm" autocomplete="off">
+  <mat-card-title>
+    <img  *ngIf="!user.imagePath || imageSrc"
+          class = "photo"
+          style="width: 200px"
+          [src]="imageSrc || './assets/img/defaultuser.jpg'"
+          alt=""
+          (click)="avatarChange()"
+    />
+    <img *ngIf="user.imagePath && !imageSrc"
+         class = "photo"
+         style="width: 200px"
+         src="{{getPhoto()}}"
+         alt=""
+    (click)="avatarChange()"
+    />
+    <input id="input-file-id" type="file" autofocus (change)="onFileChange($event)" hidden>
+  </mat-card-title>
+  <mat-card-content>
+    <p>
+      <mat-form-field>
+        <span class="material-icons">person</span>
+        <input formControlName="firstName" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First Name">
+        <mat-error *ngIf="editProfileForm.get('firstName').errors?.required">
+          required field</mat-error>
+        <mat-error
+          *ngIf="editProfileForm.get('firstName').errors?.minlength || editProfileForm.get('firstName').errors?.maxlength">
+          incorrect data</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <span class="material-icons">person</span>
+        <input formControlName="lastName" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last Name">
+        <mat-error *ngIf="editProfileForm.get('lastName').errors?.required">
+          required field</mat-error>
+        <mat-error
+          *ngIf="editProfileForm.get('lastName').errors?.minlength || editProfileForm.get('lastName').errors?.maxlength">
+          incorrect data</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <span class="material-icons">call</span>
+        <input formControlName="phoneNumber" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phone number">
+        <mat-error *ngIf="editProfileForm.get('phoneNumber').errors?.required">
+          required field</mat-error>
+        <mat-error
+          *ngIf="editProfileForm.get('phoneNumber').errors?.minlength || editProfileForm.get('phoneNumber').errors?.maxlength">
+          incorrect data</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <span class="material-icons">mail_outline</span>
+        <input formControlName="email" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail Address" >
+        <mat-error *ngIf="editProfileForm.get('email').errors?.required">
+          required field</mat-error>
+        <mat-error
+          *ngIf="editProfileForm.get('email').errors?.minlength || editProfileForm.get('email').errors?.maxlength">
+          incorrect data</mat-error>
+      </mat-form-field>
+    </p>
+  </mat-card-content>
+  <mat-card-content class = "button">
+    <button (click)="editProfile()">Save changes</button>
+  </mat-card-content>
+  </form>
+</mat-card>
+</div>

@@ -1,0 +1,7 @@
+@import "../../../app.component";
+.main{
+  @extend %flexAlights;
+  background:url("/assets/img/bacg.png") $primary-color-background-dark;
+  background-position:center;
+  background-repeat:no-repeat;
+}

@@ -1,0 +1,5 @@
+ <app-agent-profile-page [agentProfile] = agent [buttonTitle]=button (onComplete)="sendOffret()"></app-agent-profile-page>
+ <div class="feedback" *ngIf = "agent.feedBacks && agent.feedBacks.length > 0">
+  <div  class = "title feedback "><p>Feedback</p></div>
+<app-feedback-card *ngFor="let feedback of agent.feedBacks" [feedback]="feedback" ></app-feedback-card>
+</div>

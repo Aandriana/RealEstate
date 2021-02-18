@@ -1,0 +1,20 @@
+@import "../../../app.component";
+.main{
+  height: 100%;
+  @extend %flexAlights;
+  background-color: $primary-color-background-dark;
+}
+.title{
+  padding-top: 400px;
+  @extend %flexAlights;
+  font-family: $font-stack;
+  font-size: 25px;
+  color: $primary-color-blue-purple;
+}
+a{
+  color: $primary-color-aqua;
+  @extend %flexAlights;
+  font-family: $font-stack;
+  font-size: 25px;
+  cursor: pointer;
+}

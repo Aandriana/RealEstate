@@ -1,0 +1,31 @@
+<div class="main-block">
+  <mat-card  fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+    <mat-card-content>
+      <p class = "comment">{{offer.comment}}</p>
+      <p class> Rate: {{offer.rate}}%</p>
+      <div *ngIf="offer.status == 0" fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+        <button (click)="accepting()">Accept</button>
+        <button (click)="goToProperty(offer.propertyId)">Property</button>
+        <button (click)="declining()">Decline</button>
+      </div>
+      <div *ngIf="offer.status !== 0">
+        <button (click)="goToProperty(offer.propertyId)" class = "property">Property</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div *ngIf="offer.answers.length">
+    <mat-expansion-panel style="border-radius: 0px 0px 15px 15px;" (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-description style="color: white; font-family: Montserrat;">
+          {{panelOpenState ? 'Hide answers' : 'Show answers'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div  fxLayout="column" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+        <app-question-answer fxFlex="0 1 calc(100%)"
+                             fxFlex.lt-md="0 1 calc(100%)"
+                             fxFlex.lt-sm="100%" *ngFor="let answer of offer.answers" [answers]="answer"></app-question-answer>
+      </div>
+    </mat-expansion-panel>
+  </div>
+</div>

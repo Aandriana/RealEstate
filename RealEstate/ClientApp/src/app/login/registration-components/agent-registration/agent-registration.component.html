@@ -1,0 +1,168 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="registrationForm">
+    <mat-card-title class = "info">
+      <span class="material-icons real-estate">home_work</span>Real estate
+    </mat-card-title>
+    <mat-card-subtitle><span>Want to sign up fill out this form!</span></mat-card-subtitle>
+    <mat-card>
+      <mat-card-content>
+      <form [formGroup]="registrationForm" autocomplete="off">
+        <p>
+          <mat-form-field>
+            <span class="material-icons">person</span>
+            <input formControlName="firstName" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First Name">
+            <mat-error *ngIf="registrationForm.get('firstName').errors?.required">
+              required field</mat-error>
+            <mat-error
+              *ngIf="registrationForm.get('firstName').errors?.minlength || registrationForm.get('firstName').errors?.maxlength">
+              incorrect data</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <span class="material-icons">person</span>
+            <input formControlName="lastName" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last Name">
+            <mat-error *ngIf="registrationForm.get('lastName').errors?.required">
+              required field</mat-error>
+            <mat-error
+              *ngIf="registrationForm.get('lastName').errors?.minlength || registrationForm.get('lastName').errors?.maxlength">
+              incorrect data</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <span class="material-icons">call</span>
+            <input formControlName="phoneNumber" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phone number">
+            <mat-error *ngIf="registrationForm.get('phoneNumber').errors?.required">
+              required field</mat-error>
+            <mat-error
+              *ngIf="registrationForm.get('phoneNumber').errors?.minlength || registrationForm.get('phoneNumber').errors?.maxlength">
+              incorrect data</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <span class="material-icons">mail_outline</span>
+            <input formControlName="email" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail Address" >
+            <mat-error *ngIf="registrationForm.get('email').errors?.required">
+              required field</mat-error>
+            <mat-error
+              *ngIf="registrationForm.get('email').errors?.minlength || registrationForm.get('email').errors?.maxlength">
+              incorrect data</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <span class="material-icons">lock</span>
+            <input formControlName="password"  matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password"  matInput [type]="hide ? 'password' : 'text'">
+
+            <mat-error *ngIf="registrationForm.get('password').errors?.required">
+              required field </mat-error>
+            <mat-error
+              *ngIf="registrationForm.get('password').errors?.minlength || registrationForm.get('password').errors?.maxlength">
+              incorrect data</mat-error>
+
+            <button class ="hide" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+                    [attr.aria-pressed]="'hide'">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <span class="material-icons">lock</span>
+            <input type="password" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Re-type password" formControlName="confirmPassword" matInput [type]="hide ? 'password' : 'text'">
+            <mat-error *ngIf="registrationForm.get('confirmPassword').errors?.required">
+              requried field </mat-error>
+            <mat-error
+              *ngIf="registrationForm.get('confirmPassword').errors?.minlength || registrationForm.get('confirmPassword').errors?.maxlength">
+              incorrect data</mat-error>
+
+            <button mat-icon-button matSuffix class = "hide" (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+                    [attr.aria-pressed]="'hide'">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </p>
+        <div>
+          <button [disabled]="!registrationForm.valid" (click)="onFirstSubmit()" mat-button matStepperNext class = "next-button first">Next</button>
+        </div>
+      </form>
+      </mat-card-content>
+      <mat-card-footer>
+        <p>Already have an account? <a href="/login"> Log in</a></p>
+      </mat-card-footer>
+    </mat-card>
+  </mat-step>
+  <mat-step  [stepControl]="agentProfile">
+<mat-card>
+  <mat-card-content>
+        <form [formGroup]="agentProfile" autocomplete="off">
+          <p>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" matInput [max]="maxDate" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Birthday date (mm/dd/yy)" formControlName="birthDate">
+            <mat-error *ngIf="agentProfile.get('birthDate').errors?.required">
+              required field</mat-error>
+            <mat-datepicker-toggle class="calendar" matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker  #picker></mat-datepicker>
+          </mat-form-field>
+          </p>
+
+          <p>
+            <mat-form-field>
+              <span class="material-icons">location_on</span>
+              <input formControlName="city" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City">
+            </mat-form-field>
+          </p>
+
+          <p>
+            <mat-form-field>
+              <span class="material-icons">description</span>
+              <input formControlName="description" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A few words about you for customers">
+            </mat-form-field>
+          </p>
+
+          <p>
+            <mat-form-field>
+              <span class="material-icons">rate_review</span>
+              <input formControlName="defaultRate" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default rate">
+              <mat-error *ngIf="agentProfile.get('defaultRate').errors?.pattern">
+                 should be float number</mat-error>
+              <mat-error *ngIf="agentProfile.get('defaultRate').errors?.required">
+                required field</mat-error>
+            </mat-form-field>
+          </p>
+          <div>
+            <button mat-button matStepperPrevious class = "back-button">Back</button>
+            <button mat-button  [disabled]="!agentProfile.valid" matStepperNext class = "next-button" (click)="onSecondSubmit()">Next</button>
+          </div>
+        </form>
+  </mat-card-content>
+  </mat-card>
+  </mat-step>
+  <mat-step>
+    <mat-card>
+      <mat-card-content>
+    <form [formGroup]="imageForm" autocomplete="off">
+      <mat-form-field>
+        <ngx-mat-file-input formControlName="image" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add photo">
+        </ngx-mat-file-input>
+        <span matSuffix class="material-icons">add_a_photo</span>
+      </mat-form-field>
+    <div>
+      <button mat-button matStepperPrevious class = "back-button">Back</button>
+      <button mat-button (click)="stepper.reset()" class = "next-button">Reset</button>
+    </div>
+
+        <div class="button">
+          <button mat-raised-button  class="sign-up-button" type="submit"
+                  [disabled]="!agentProfile.valid || !imageForm.valid ||!registrationForm.valid" (click)="onSubmit()">Sign up</button>
+        </div>
+      </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-step>
+
+</mat-horizontal-stepper>
+
+

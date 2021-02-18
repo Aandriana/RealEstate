@@ -4,7 +4,7 @@ using RealEstate.DAL.Entities;
 
 namespace RealEstate.DAL.Configuration
 {
-    class FeedbackConfiguration: IEntityTypeConfiguration<Feedback>
+    class FeedbackConfiguration : IEntityTypeConfiguration<Feedback>
     {
         public void Configure(EntityTypeBuilder<Feedback> builder)
         {

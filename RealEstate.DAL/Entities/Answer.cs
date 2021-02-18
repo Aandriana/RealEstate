@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RealEstate.DAL.Entities
+﻿namespace RealEstate.DAL.Entities
 {
     public class Answer : BaseEntity
     {

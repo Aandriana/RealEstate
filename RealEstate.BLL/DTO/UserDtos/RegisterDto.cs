@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-
-namespace RealEstate.BLL.DTO.UserDtos
+﻿namespace RealEstate.BLL.DTO.UserDtos
 {
     public class RegisterDto
     {

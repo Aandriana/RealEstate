@@ -1,0 +1,89 @@
+@import "../../../app.component";
+svg {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 15%;
+  vertical-align: middle;
+  overflow: hidden;
+  background:linear-gradient( $primary-color-aqua, $primary-color-blue-purple);
+  justify-content: center;
+}
+.image{
+  padding-left: 40px;
+  padding-top: 220px;
+  max-height: 700px;
+}
+.nextimage{
+  max-height: 800px;
+}
+
+@media screen and (max-width: 1400px)
+{
+  .image{
+   max-height: 500px!important;
+  }
+  button
+  {
+    width: 250px !important;
+    height: 70px !important;
+    margin-top: 300px !important;
+    margin-left: unset !important;
+  }
+  .button{
+    justify-content: center !important;
+    display: flex;
+  }
+}
+
+button{
+  margin-top: 550px;
+  margin-left: 170px;
+  align-content: center;
+  justify-content: center !important;
+  width: 300px;
+  height: 100px;
+  border: none !important;
+  background:linear-gradient(45deg, $primary-color-blue-purple, $primary-color-purple);
+  font-family: $font-stack;
+  color: white;
+  font-size: 20px;
+  border-radius: 30px;
+  &:hover{
+    background:linear-gradient(45deg, $primary-color-purple, $primary-color-purple-dark);
+    box-shadow: 0px 0px 40px rgba(114,117,235, 0.5);
+  }
+}
+.dark{
+  background: $primary-color-background;
+  &:hover{
+    background: $primary-color-background-dark;
+  }
+}
+
+.next
+{
+  background:linear-gradient( $primary-color-background, $primary-color-background-dark) !important;
+
+}
+.button{
+  @extend %alights;
+}
+.content {
+  @extend %alights;
+}
+.bottom{
+  background: $primary-color-background;
+}
+
+
+
+
+
+
+

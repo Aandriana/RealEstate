@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Common.Enums;
+using Common.Exceptions;
 using Common.FilterClasses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RealEstate.BLL.DTO;
 using RealEstate.BLL.Interfaces;
 using RealEstate.DAL.Entities;
@@ -10,9 +12,8 @@ using RealEstate.DAL.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace RealEstate.BLL.Services
 {
@@ -22,15 +23,13 @@ namespace RealEstate.BLL.Services
         private readonly IFileService _fileService;
         private readonly IAuthenticationService _authentication;
         private readonly IMapper _mapper;
-        private readonly IOfferService _offerService;
 
-        public PropertyService(IUnitOfWork unitOfWork, IFileService fileService, IAuthenticationService authentication, IMapper mapper, IOfferService offerService)
+        public PropertyService(IUnitOfWork unitOfWork, IFileService fileService, IAuthenticationService authentication, IMapper mapper)
         {
             _authentication = authentication;
             _fileService = fileService;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            _offerService = offerService;
         }
 
         public async Task AddProperty([FromForm]PropertyCreateDto propertyDto)
@@ -53,10 +52,12 @@ namespace RealEstate.BLL.Services
 
             foreach (var agentId in propertyDto.AgentsId)
             {
+                var agent = await _unitOfWork.Repository<AgentProfile>().GetAsync(a => a.Id == agentId);
                 var offer = new Offer();
                 offer.AgentProfileId = agentId;
                 offer.PropertyId = property.Id;
                 offer.CreatedById = user.Id;
+                offer.Rate = agent.DefaultRate;
                 await _unitOfWork.Repository<Offer>().AddAsync(offer);
             }
 
@@ -98,13 +99,23 @@ namespace RealEstate.BLL.Services
             propertyToUpdate.FloorsNumber = property.FloorsNumber;
             propertyToUpdate.Price = property.Price;
             propertyToUpdate.Size = property.Size;
-            propertyToUpdate.Сategory = property.Сategory;
+            propertyToUpdate.Category = property.Сategory;
             propertyToUpdate.Floors = property.Floors;
             propertyToUpdate.UpdatedById = user.Id;
             propertyToUpdate.UpdatedDateUtc = DateTime.Now;
 
             await _unitOfWork.Repository<Property>().UpdateAsync(propertyToUpdate);
             await _unitOfWork.SaveChangesAsync();
+        }
+        public async Task<List<string>> GetPhotos(int id)
+        {
+            var photos = new List<string>();
+            var propertyPhotos = await _unitOfWork.Repository<PropertyPhoto>().GetAllAsync(p => p.PropertyId == id);
+            foreach (var photo in propertyPhotos)
+            {
+                photos.Add(photo.Path);
+            }
+            return photos;
         }
 
         public async Task UpdatePhotos(int id, PropertyUpdatePhotosDto photosDto)
@@ -137,20 +148,17 @@ namespace RealEstate.BLL.Services
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task AddNewQuestions(int propertyId, AddQuestionDto questionsDto)
+        public async Task AddNewQuestions(int propertyId, QuestionUpdateDto questionsDto)
         {
             var propertyToUpdate = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == propertyId);
             var user = await _authentication.GetCurrentUserAsync();
             if (propertyToUpdate.UserId != user.Id) throw new FieldAccessException();
 
-            foreach(var questionDto in questionsDto.Questions)
-            {
-                var question = _mapper.Map<Question>(questionDto);
-                question.PropertyId = propertyId;
-                question.CreatedById = user.Id;
-                await _unitOfWork.Repository<Question>().AddAsync(question);
-            }
-
+            var question = _mapper.Map<Question>(questionsDto);
+            question.CreatedById = user.Id;
+            question.PropertyId = propertyId;
+            question.CreatedDateUtc = DateTime.Now;
+            await _unitOfWork.Repository<Question>().AddAsync(question);
             await _unitOfWork.SaveChangesAsync();
         }
 
@@ -178,6 +186,9 @@ namespace RealEstate.BLL.Services
             foreach (var property in properties)
             {
                 var propertyDto = _mapper.Map<PropertyListDto>(property);
+                var photo = await _unitOfWork.Repository<PropertyPhoto>().GetAsync(p => p.PropertyId == property.Id);
+                if (photo != null)
+                    propertyDto.Image = photo.Path;
                 propertiesDto.Add(propertyDto);
             }
 
@@ -196,42 +207,82 @@ namespace RealEstate.BLL.Services
                 propertiesDto.Add(propertyDto);
             }
 
+            foreach(var property in propertiesDto)
+            {
+                var photo = await _unitOfWork.Repository<PropertyPhoto>().GetAsync(p => p.PropertyId == property.Id);
+                if (photo != null)
+                    property.Image = photo.Path;
+            }
+
             return propertiesDto;
         }
 
-        public async Task<GetPropertyDto> GetPropertyById(int id)
+        public async Task<GetPropertyDto> GetPropertyByIdForUser(int id)
         {
             var user = await _authentication.GetCurrentUserAsync();
-            var userRoles = await _authentication.GetCurrentUserRolesAsync(user);
-            var userIsAgent = false;
-
-            foreach (var role in userRoles)
-            {
-                if (role == "Agent") userIsAgent = true;
-            }
-
-            var property = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id);
-
-            if (!userIsAgent && property.UserId != user.Id) throw new FieldAccessException();
+            var property = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id) ?? throw new NotFoundException("Property");
+            if (property.UserId != user.Id) throw new NoPermissionsException("You don't have permission for get this priperty as you dont't own");
             var propertyDto = _mapper.Map<GetPropertyDto>(property);
-
+            if (propertyDto.OfferDtos != null)
+            {
+                foreach (var offer in propertyDto.OfferDtos)
+                {
+                    var agent = await _unitOfWork.Repository<User>().GetAsync(u => u.Id == offer.AgentProfileId);
+                    offer.Image = agent.ImagePath;
+                    offer.FirstName = agent.FirstName;
+                    offer.LastName = agent.LastName;
+                }
+            }
+            propertyDto.OfferDtos = propertyDto.OfferDtos.Take(5).ToList();
             return propertyDto;
         }
 
+        public async Task<GetPropertyDto> GetPropertyByIdForAgent(int id)
+        {
+            var property = await _unitOfWork.Repository<Property>().GetIncludingAll(p => p.Id == id) ?? throw new NotFoundException("Property");
+            var propertyDto = _mapper.Map<GetPropertyDto>(property);
+            propertyDto.OfferDtos = null;
+            return propertyDto;
+        }
         public async Task<List<OfferDto>> GetPropertyOffers(int id, OfferListFilter offerFilter)
         {
             var user = await _authentication.GetCurrentUserAsync();
-            var propepty = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == id);
+            var propepty = await _unitOfWork.Repository<Property>().GetAsync(p => p.Id == id) ?? throw new NotFoundException("Property");
             if (propepty.UserId != user.Id) throw new FieldAccessException();
 
             var offers = await GetFilteredOffersForUser(offerFilter, id);
             var offerDtos = new List<OfferDto>();
             foreach (var offer in offers)
             {
+                var agent = await _unitOfWork.Repository<User>().GetAsync(a => a.Id == offer.AgentProfileId);
                 var offerDto = _mapper.Map<OfferDto>(offer);
+                offerDto.Image = agent.ImagePath;
+                offerDto.FirstName = agent.FirstName;
+                offerDto.LastName = agent.LastName;
+                offerDto.AgentProfileId = agent.Id;
+                var answers = await _unitOfWork.Repository<Answer>().GetAllAsync(a => a.OfferId == offer.Id);
+                foreach (var answer in answers)
+                {
+                    var answerDto = _mapper.Map<AnswerDto>(answer);
+                    offerDto.Answers.Add(answerDto);
+
+                }
                 offerDtos.Add(offerDto);
             }
             return offerDtos;
+        }
+
+        public async Task<List<GetQuestionDto>> GetQuestions(int id)
+        {
+            var questions = await _unitOfWork.Repository<Question>().GetAllAsync(q => q.PropertyId == id);
+            var questionsDto = new List<GetQuestionDto>();
+
+            foreach (var question in questions)
+            {
+                var questionDto = _mapper.Map<GetQuestionDto>(question);
+                questionsDto.Add(questionDto);
+            }
+            return questionsDto;
         }
 
         private async Task<List<Property>> GetFilteredProperties(PropertyListFilter filter, string userId)
@@ -239,19 +290,18 @@ namespace RealEstate.BLL.Services
             var properties = await _unitOfWork.Repository<Property>().GetAllAsync(p => p.UserId == userId);
             if (filter.Status != null && filter.Category != null)
             {
-                properties = properties.Where(p => p.Status == filter.Status && p.Сategory == filter.Category);
+                properties = properties.Where(p => p.Status == filter.Status && p.Category == filter.Category);
             }
 
             if (filter.Status == null && filter.Category != null)
             {
-                properties = properties.Where(p => p.Сategory == filter.Category);
+                properties = properties.Where(p => p.Category == filter.Category);
             }
 
             if (filter.Status != null && filter.Category == null)
             {
                 properties = properties.Where(p => p.Status == filter.Status);
             }
-
             return await properties.Skip(filter.Skip).Take(filter.Take).ToListAsync();
         }
 

@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-title>
+      <img  *ngIf="user.imagePath"
+            class = "photo"
+            style="width: 200px"
+            src="{{getPhoto()}}"
+            alt=""
+      />
+      <img *ngIf="!user.imagePath"
+           class = "photo"
+           style="width: 200px"
+           src="./assets/img/defaultuser.jpg"
+           alt=""
+      />
+  </mat-card-title>
+  <mat-card-title>
+    <mat-icon class = "icon">perm_identity</mat-icon>
+    <span>{{ user.firstName }} {{ user.lastName }}</span>
+  </mat-card-title>
+  <mat-card-content>
+    <div>
+      <p *ngIf="user.email != null"><span class="material-icons">mail_outline</span>&nbsp;{{user.email}}</p>
+      <p *ngIf="user.phoneNumber != null"><span class="material-icons">call</span>&nbsp;{{user.phoneNumber}}</p>
+    </div>
+  </mat-card-content>
+  <mat-card-content>
+    <button (click)="runOnComplete();"><span class="material-icons">edit</span>{{button}}</button>
+  </mat-card-content>
+</mat-card>

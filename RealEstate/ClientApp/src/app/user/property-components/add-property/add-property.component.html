@@ -1,0 +1,159 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="addPropertyForm">
+    <mat-card-title class = "info">
+      <span class="material-icons real-estate">home_work</span>Real estate
+    </mat-card-title>
+    <mat-card-subtitle><span>Fill out the form to add property</span></mat-card-subtitle>
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="addPropertyForm" autocomplete="off">
+          <p>
+            <mat-radio-group class = "radio" aria-label="Select an option" name="category">
+              <mat-radio-button (change)="onChange($event)" value=0>Flat&nbsp;&nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button (change)="onChange($event)" value=1>House&nbsp;&nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button  (change)="onChange($event)" value=3>Сortege</mat-radio-button>
+            </mat-radio-group>
+          </p>
+          <p>
+            <mat-form-field>
+             <span class="material-icons">unfold_more</span>
+              <input matInput required formControlName="size" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Size">
+              <mat-error *ngIf="addPropertyForm.get('size').errors?.required">
+                required field</mat-error>
+              <mat-error *ngIf="addPropertyForm.get('size').errors?.pattern">
+                should be float number</mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+              <span class="material-icons">layers</span>
+                <input required  formControlName="floorsNumber" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Floors number">
+              <mat-error *ngIf="addPropertyForm.get('floorsNumber').errors?.required">
+                required field</mat-error>
+              <mat-error *ngIf="addPropertyForm.get('floorsNumber').errors?.pattern">
+                should be integer</mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+              <span class="material-icons">format_line_spacing</span>
+              <input formControlName="floors" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Floor" >
+              <app-mat-error [control]="addPropertyForm.get('floors')" [patternMessage]="'should be integer'"></app-mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+             <span class="material-icons">attach_money</span>
+              <input formControlName="price"  matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price">
+              <mat-error *ngIf="addPropertyForm.get('price').errors?.required">
+                required field </mat-error>
+              <mat-error *ngIf="addPropertyForm.get('price').errors?.pattern">
+                should be float number</mat-error>
+            </mat-form-field>
+          </p>
+          <div>
+            <button [disabled]="!addPropertyForm.valid" (click)="onFirstSubmit()" mat-button matStepperNext class = "next-button first">Next</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-step>
+  <mat-step [stepControl]="propertyPriceForm">
+    <mat-card-title class = "info">
+      <span class="material-icons real-estate">home_work</span>Real estate
+    </mat-card-title>
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="propertyPriceForm" autocomplete="off">
+          <p>
+            <mat-form-field>
+              <span class="material-icons">location_on</span>
+              <input matInput formControlName="city" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City">
+<!--              <mat-error *ngIf="propertyPriceForm.get('city').errors?.required">-->
+<!--                required field</mat-error>-->
+              <app-mat-error [control]="propertyPriceForm.get('city')"></app-mat-error>
+              </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+              <span class="material-icons">location_searching</span>
+              <input  formControlName="address" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address">
+              <mat-error *ngIf="propertyPriceForm.get('address').errors?.required">
+                required field</mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+              <span class="material-icons">calendar_today</span>
+              <label>
+                <input  formControlName="buildYear" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build year">
+              </label>
+              <mat-error *ngIf="propertyPriceForm.get('buildYear').errors?.required">
+                required field</mat-error>
+            </mat-form-field>
+          </p>
+          <div>
+            <button mat-button matStepperPrevious class = "back-button">Back</button>
+            <button mat-button [disabled]="!propertyPriceForm.valid"  matStepperNext class = "next-button" (click)="onSecondSubmit()">Next</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-step>
+  <mat-step  [stepControl]="addPropertyForm">
+    <mat-card>
+      <mat-card-subtitle>
+        You can add some questions to agents
+      </mat-card-subtitle>
+      <mat-card-content>
+        <form [formGroup]="addPropertyForm" autocomplete="off">
+      <div>
+        <div formArrayName="questions">
+          <button class="addQuestions" (click)="addQuestions()">Add</button>
+          <div *ngFor="let question of questionsArray.controls; index as i">
+            <mat-form-field>
+            <span class="material-icons">question_answer</span>
+            <label>
+            <input [formControlName]="i" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Question" />
+            </label>
+              </mat-form-field>
+          </div>
+      </div>
+      </div>
+        </form>
+      </mat-card-content>
+      <mat-card-content>
+          <div>
+            <button mat-button matStepperPrevious class = "back-button">Back</button>
+            <button mat-button matStepperNext [disabled]="!propertyPriceForm.valid" class = "next-button" (click)="onThirdSubmit()">Next</button>
+          </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-step>
+  <mat-step [stepControl]="propertyImages">
+    <mat-card>
+      <mat-card-subtitle>
+        Add property photos
+      </mat-card-subtitle>
+      <mat-card-content>
+        <form [formGroup]="propertyImages" autocomplete="off">
+          <mat-form-field>
+            <ngx-mat-file-input multiple="true" formControlName="photos" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add photos">
+            </ngx-mat-file-input>
+            <span matSuffix class="material-icons">add_a_photo</span>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious class = "back-button">Back</button>
+            <button mat-button (click)="stepper.reset()" class = "next-button">Reset</button>
+          </div>
+          <div class="button">
+            <button mat-raised-button [disabled]="!propertyPriceForm.valid || !addPropertyForm.valid || !propertyImages.valid"  class="sign-up-button" type="button"
+                    (click)="onFourthStep()">Move to next step</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-step>
+</mat-horizontal-stepper>
+
+

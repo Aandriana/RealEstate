@@ -4,8 +4,8 @@ namespace RealEstate.DAL.Entities
 {
     public class Property : BaseEntity
     {
-        public double Size { get; set;}
-        public int Сategory { get; set; }
+        public double Size { get; set; }
+        public int Category { get; set; }
         public int FloorsNumber { get; set; }
         public int Floors { get; set; }
         public double Price { get; set; }
@@ -18,6 +18,6 @@ namespace RealEstate.DAL.Entities
         public virtual ICollection<Offer> Offers { get; set; }
         public virtual ICollection<PropertyPhoto> Photos { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
-        
+
     }
 }

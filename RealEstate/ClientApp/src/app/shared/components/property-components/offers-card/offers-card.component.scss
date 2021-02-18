@@ -1,0 +1,121 @@
+@import "../../../../app.component";
+mat-card{
+  padding-top: 60px;
+  background: linear-gradient(-90deg, $primary-color-blue-purple, #7C67EDFF);
+  display: flex;
+  align-content: center;
+  flex-flow: unset!important;
+  margin: 50px 100px 0px 100px;
+&:hover{
+  box-shadow: 3px 0px 40px rgba(36,46,66, 1);
+}
+}
+.photo{
+  width: 253px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+::ng-deep .mat-expansion-panel{
+  background: $primary-color-background-dark;
+  color: white;
+  margin: 0px 100px 50px 100px !important;
+}
+
+mat-card-content{
+  padding-left: 40px;
+}
+p{
+  font-family:  $font-stack;
+  padding: 10px;
+  font-size: 18px;
+  color: $primary-color-background-dark;
+}
+.name{
+  font-size: 27px;
+}
+.comment{
+  font-family:'Thasadith', sans-serif;
+  font-size: 20px;
+  color: white;
+}
+
+@media screen and (max-width: 900px)
+{
+  mat-card{
+    margin: 20px 20px 0px 20px !important;
+  }
+  ::ng-deep .mat-expansion-panel{
+    margin: 0px 20px !important;
+  }
+  .photo{
+    width: 200px !important;
+    justify-content: center !important;
+    align-content: center !important;
+    display: flex !important;
+  }
+  .comment{
+    font-size: 14px;
+  }
+  .name{
+    font-size: 20px;
+    justify-content: center !important;
+    align-content: center !important;
+    display: flex !important;
+  }
+  mat-card{
+    flex-flow: column!important;
+  }
+  mat-card-content {
+    padding-left: 30px;
+    flex-flow: column!important;
+    justify-content: center !important;
+    align-content: center !important;
+    display: flex !important;
+  }
+  mat-card-title{
+    display: flex !important;
+    align-content: center !important;
+    justify-content: center !important;
+  }
+  .choose{
+    margin-left: unset !important;
+  }
+  button{
+    width: 100% !important;
+    height: 50px !important;
+  }
+}
+.choose{
+  margin-left: 160px;
+@extend %flexAlights;
+}
+@media screen and (max-width: 1300px)
+{
+  .choose{
+    margin-left: 45px;
+    flex-flow: column!important;
+  }
+}
+@media screen and (max-width: 1200px){
+  .choose{
+    margin-left: 30px;
+  }
+}
+
+button{
+  width: 160px;
+  height: 40px;
+  background: $primary-color-background;
+  color: white;
+  font-family: $font-stack;
+  border: $primary-color-blue-purple;
+  margin: 5px;
+  border-radius: 8px;
+  &:hover{
+    background: $primary-color-background-dark;
+    color:  $primary-color-blue-purple;
+    border: $primary-color-background-dark;
+  }
+}
+

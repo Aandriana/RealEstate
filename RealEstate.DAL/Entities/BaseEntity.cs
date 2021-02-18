@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RealEstate.DAL.Entities
 {
-   public abstract class BaseEntity
+    public abstract class BaseEntity
     {
         public int Id { get; set; }
 

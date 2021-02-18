@@ -1,18 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
-using RealEstate.DAL.Data;
+﻿using Common.Configurations;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RealEstate.DAL.Entities;
-using Microsoft.AspNetCore.Identity;
-using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using System;
-using Common.Configurations;
-using AutoMapper;
+using RealEstate.DAL.Data;
+using RealEstate.DAL.Entities;
 using RealEstate.DAL.UnitOfWork;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using RealEstate.BLL.Mapping;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace RealEstate.BLL.Infrastructure
 {
@@ -27,8 +26,8 @@ namespace RealEstate.BLL.Infrastructure
 
         public static IServiceCollection AddIdentityFromBll(this IServiceCollection services)
         {
-           services.AddIdentity<User, IdentityRole>()
-                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<User, IdentityRole>()
+                  .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
             return services;
         }
@@ -61,6 +60,23 @@ namespace RealEstate.BLL.Infrastructure
                         ValidateIssuer = true,
                         ValidateAudience = true
                     };
+                    cfg.Events = new JwtBearerEvents
+                    {
+                        OnMessageReceived = context =>
+                        {
+                            var accessToken = context.Request.Query["access_token"];
+
+                            // если запрос направлен хабу
+                            var path = context.HttpContext.Request.Path;
+                            if (!string.IsNullOrEmpty(accessToken) &&
+                                (path.StartsWithSegments("/chatHub")))
+                            {
+                                // получаем токен из строки запроса
+                                context.Token = accessToken;
+                            }
+                            return Task.CompletedTask;
+                        }
+                    };
                 });
 
             return services;
@@ -69,7 +85,7 @@ namespace RealEstate.BLL.Infrastructure
         public static IServiceCollection AddUnitOfWork(this IServiceCollection services)
         {
 
-           return  services.AddTransient<IUnitOfWork, UnitOfWork>(provider =>
+            return services.AddTransient<IUnitOfWork, UnitOfWork>(provider =>
                 new UnitOfWork(provider.GetRequiredService<ApplicationDbContext>()));
         }
     }

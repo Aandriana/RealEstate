@@ -1,0 +1,48 @@
+<div class = "main" fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+  <div fxFlex="0 1 calc(50% - 32px)"
+       fxFlex.lt-md="100%"
+       fxFlex.lt-sm="100%"
+  class = "image">
+      <img  *ngIf="agentProfile.imagePath"
+            class = "photo"
+            style="width: 700px"
+            src="{{getPhoto()}}"
+            alt=""
+      />
+      <img *ngIf="!agentProfile.imagePath"
+           class = "photo"
+           style="width: 700px"
+           src="./assets/img/defaultuser.jpg"
+           alt=""
+           />
+  </div>
+  <div fxFlex="0 1 calc(50% - 32px)"
+       fxFlex.lt-md="100%"
+       fxFlex.lt-sm="100%" class = "info">
+    <p class = "name">{{agentProfile.firstName}} {{agentProfile.lastName}}</p>
+    <p class = "description">{{agentProfile.description}}</p>
+    <p>
+    <star-rating [value]="agentProfile.rating" [totalstars]="5" checkedcolor="aqua" uncheckedcolor="black" size="50px" [readonly]="true"></star-rating>
+  </p>
+    <p> <span class="material-icons">rate_review</span> Rate: {{agentProfile.defaultRate}}</p>
+    <div>
+    <p class = "title">Personal information</p>
+    <p> <span class="material-icons">location_on</span> {{agentProfile.city}}</p>
+    <p> <span class="material-icons">calendar_today </span> {{agentProfile.birthDate | date:'mediumDate'}}</p>
+    </div>
+    <div>
+      <p class = "title">Statistics</p>
+      <p> <span class="material-icons">star_rate</span> {{agentProfile.rating}}</p>
+      <p> <span class="material-icons">check</span> Success sales: {{agentProfile.successSales}}</p>
+      <p> <span class="material-icons">close</span> Failed sales: {{agentProfile.failedSales}}</p>
+    </div>
+    <div>
+      <p class = "title">Contacts</p>
+      <p> <span class="material-icons">call</span> {{agentProfile.phoneNumber}}</p>
+      <p> <span class="material-icons">mail_outline</span> {{agentProfile.email}}</p>
+    </div>
+    <div>
+      <button class = "main-button" (click)="runOnComplete()">{{buttonTitle}}</button>
+    </div>
+  </div>
+</div>

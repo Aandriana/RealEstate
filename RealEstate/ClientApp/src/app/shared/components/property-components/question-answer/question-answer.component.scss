@@ -1,0 +1,26 @@
+@import "../../../../app.component";
+span{
+  color: white;
+}
+%position{
+  @extend %flexAlights;
+  font-family: $font-stack;
+  font-size: 18px;
+}
+%padding{
+  padding: 18px;
+}
+.main{
+background: $primary-color-background-dark;
+  @extend %position;
+}
+.question{
+  background: $primary-color-background;
+  border-radius: 15px;
+  @extend %position;
+  @extend %padding;
+}
+.answer{
+  @extend %position;
+  @extend %padding;
+}

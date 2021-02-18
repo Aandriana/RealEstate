@@ -1,0 +1,1062 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\aandr\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\aandr\.Rider2019.3\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\aandr\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\aandr\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_RealEstateIdentity.-818913232.00" t="ExcludeRecursive" />
+    <e p="D:\RealEstateIdentity" t="IncludeFlat">
+      <e p="Common" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Common.csproj" t="IncludeRecursive" />
+        <e p="Configurations" t="Include">
+          <e p="EmailSettings.cs" t="Include" />
+          <e p="TokenManagement.cs" t="Include" />
+        </e>
+        <e p="Enums" t="Include">
+          <e p="OfferStatus.cs" t="Include" />
+          <e p="PropertyCategory.cs" t="Include" />
+          <e p="PropertyStatus.cs" t="Include" />
+        </e>
+        <e p="Exceptions" t="Include">
+          <e p="ApiException.cs" t="Include" />
+          <e p="InvalidArgumentException.cs" t="Include" />
+          <e p="NoPermissionsException.cs" t="Include" />
+          <e p="NotFoundException.cs" t="Include" />
+        </e>
+        <e p="FilterClasses" t="Include">
+          <e p="OfferListFilter.cs" t="Include" />
+          <e p="PaginationParameters.cs" t="Include" />
+          <e p="PropertyListFilter.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Common.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="RealEstate" t="IncludeRecursive">
+        <e p=".gitignore" t="Include" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ClientApp" t="Include">
+          <e p=".editorconfig" t="Include" />
+          <e p=".gitignore" t="Include" />
+          <e p="angular.json" t="Include" />
+          <e p="dist" t="Include">
+            <e p="3rdpartylicenses.txt" t="Include" />
+            <e p="assets" t="Include">
+              <e p="img" t="Include">
+                <e p="3571325.jpg" t="Include" />
+                <e p="4030322.jpg" t="Include" />
+                <e p="agent-home.jpg" t="Include" />
+                <e p="ahent-home-back.jpg" t="Include" />
+                <e p="bacg.png" t="Include" />
+                <e p="bachhr.png" t="Include" />
+                <e p="back.png" t="Include" />
+                <e p="ce788ddbcc605d9f7dcf2716d4205332.jpg" t="Include" />
+                <e p="DefaultHousePhoto.png" t="Include" />
+                <e p="defaultuser.jpg" t="Include" />
+                <e p="lookforagent.png" t="Include" />
+                <e p="newpsadge.png" t="Include" />
+                <e p="pageNotFound.png" t="Include" />
+                <e p="resssultпкмке.png" t="Include" />
+                <e p="search.jpg" t="Include" />
+                <e p="star-rating.icons.svg" t="Include" />
+                <e p="Theodore.jpg" t="Include" />
+                <e p="userPageBacground.png" t="Include" />
+              </e>
+            </e>
+            <e p="favicon.ico" t="Include" />
+            <e p="index.html" t="Include" />
+            <e p="main-es2015.5a5fcda345528aca9a37.js" t="Include" />
+            <e p="main-es5.5a5fcda345528aca9a37.js" t="Include" />
+            <e p="polyfills-es2015.937910a0d1b7e7f5146c.js" t="Include" />
+            <e p="polyfills-es5.190dd143c6e08be85907.js" t="Include" />
+            <e p="runtime-es2015.409e6590615fb48d139f.js" t="Include" />
+            <e p="runtime-es5.409e6590615fb48d139f.js" t="Include" />
+            <e p="styles.6bfd42ccef6e0fa22580.css" t="Include" />
+          </e>
+          <e p="e2e" t="Include">
+            <e p="protractor.conf.js" t="Include" />
+            <e p="src" t="Include">
+              <e p="app.e2e-spec.ts" t="Include" />
+              <e p="app.po.ts" t="Include" />
+            </e>
+            <e p="tsconfig.json" t="Include" />
+          </e>
+          <e p="karma.conf.js" t="Include" />
+          <e p="package-lock.json" t="Include" />
+          <e p="package.json" t="Include" />
+          <e p="README.md" t="Include" />
+          <e p="report.20200817.121334.8984.0.001.json" t="Include" />
+          <e p="report.20200817.150529.11788.0.001.json" t="Include" />
+          <e p="report.20200819.145247.31884.0.001.json" t="Include" />
+          <e p="report.20200819.165142.2992.0.001.json" t="Include" />
+          <e p="report.20200821.120900.12548.0.001.json" t="Include" />
+          <e p="report.20200821.142346.13160.0.001.json" t="Include" />
+          <e p="report.20200822.114256.9372.0.001.json" t="Include" />
+          <e p="report.20200822.121848.8408.0.001.json" t="Include" />
+          <e p="report.20200822.123254.15480.0.001.json" t="Include" />
+          <e p="report.20200823.151832.9732.0.001.json" t="Include" />
+          <e p="report.20200823.161438.30968.0.001.json" t="Include" />
+          <e p="report.20200824.223635.12080.0.001.json" t="Include" />
+          <e p="report.20200824.230023.21540.0.001.json" t="Include" />
+          <e p="report.20200826.145141.27576.0.001.json" t="Include" />
+          <e p="report.20200901.162911.31544.0.001.json" t="Include" />
+          <e p="src" t="Include">
+            <e p="app" t="Include">
+              <e p="agent" t="Include">
+                <e p="agent-routing.module.ts" t="Include" />
+                <e p="agent.module.ts" t="Include" />
+                <e p="index.ts" t="Include" />
+                <e p="main-components" t="Include">
+                  <e p="agent-home" t="Include">
+                    <e p="agent-home.component.html" t="Include" />
+                    <e p="agent-home.component.scss" t="Include" />
+                    <e p="agent-home.component.spec.ts" t="Include" />
+                    <e p="agent-home.component.ts" t="Include" />
+                  </e>
+                  <e p="footer" t="Include">
+                    <e p="footer.component.html" t="Include" />
+                    <e p="footer.component.scss" t="Include" />
+                    <e p="footer.component.spec.ts" t="Include" />
+                    <e p="footer.component.ts" t="Include" />
+                  </e>
+                  <e p="index.ts" t="Include" />
+                  <e p="main" t="Include">
+                    <e p="main.component.html" t="Include" />
+                    <e p="main.component.scss" t="Include" />
+                    <e p="main.component.spec.ts" t="Include" />
+                    <e p="main.component.ts" t="Include" />
+                  </e>
+                  <e p="toolbar" t="Include">
+                    <e p="toolbar.component.html" t="Include" />
+                    <e p="toolbar.component.scss" t="Include" />
+                    <e p="toolbar.component.spec.ts" t="Include" />
+                    <e p="toolbar.component.ts" t="Include" />
+                  </e>
+                </e>
+                <e p="offer-components" t="Include">
+                  <e p="get-offers" t="Include">
+                    <e p="get-offers.component.html" t="Include" />
+                    <e p="get-offers.component.scss" t="Include" />
+                    <e p="get-offers.component.spec.ts" t="Include" />
+                    <e p="get-offers.component.ts" t="Include" />
+                  </e>
+                  <e p="index.ts" t="Include" />
+                  <e p="offer-response" t="Include">
+                    <e p="offer-response.component.html" t="Include" />
+                    <e p="offer-response.component.scss" t="Include" />
+                    <e p="offer-response.component.spec.ts" t="Include" />
+                    <e p="offer-response.component.ts" t="Include" />
+                  </e>
+                  <e p="send-offer" t="Include">
+                    <e p="send-offer.component.html" t="Include" />
+                    <e p="send-offer.component.scss" t="Include" />
+                    <e p="send-offer.component.spec.ts" t="Include" />
+                    <e p="send-offer.component.ts" t="Include" />
+                  </e>
+                </e>
+                <e p="profile-components" t="Include">
+                  <e p="index.ts" t="Include" />
+                  <e p="my-profile" t="Include">
+                    <e p="my-profile.component.html" t="Include" />
+                    <e p="my-profile.component.scss" t="Include" />
+                    <e p="my-profile.component.spec.ts" t="Include" />
+                    <e p="my-profile.component.ts" t="Include" />
+                  </e>
+                  <e p="my-profile-edit" t="Include">
+                    <e p="my-profile-edit.component.html" t="Include" />
+                    <e p="my-profile-edit.component.scss" t="Include" />
+                    <e p="my-profile-edit.component.spec.ts" t="Include" />
+                    <e p="my-profile-edit.component.ts" t="Include" />
+                  </e>
+                </e>
+                <e p="property-components" t="Include">
+                  <e p="index.ts" t="Include" />
+                  <e p="property" t="Include">
+                    <e p="property.component.html" t="Include" />
+                    <e p="property.component.scss" t="Include" />
+                    <e p="property.component.spec.ts" t="Include" />
+                    <e p="property.component.ts" t="Include" />
+                  </e>
+                  <e p="property-list" t="Include">
+                    <e p="property-list.component.html" t="Include" />
+                    <e p="property-list.component.scss" t="Include" />
+                    <e p="property-list.component.spec.ts" t="Include" />
+                    <e p="property-list.component.ts" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="app-routing.module.ts" t="Include" />
+              <e p="app.component.html" t="Include" />
+              <e p="app.component.scss" t="Include" />
+              <e p="app.component.ts" t="Include" />
+              <e p="app.module.ts" t="Include" />
+              <e p="app.server.module.ts" t="Include" />
+              <e p="configs" t="Include">
+                <e p="api-endpoint.constants.ts" t="Include" />
+              </e>
+              <e p="core" t="Include">
+                <e p="models" t="Include">
+                  <e p="agent-list.model.ts" t="Include" />
+                  <e p="agent-profile.ts" t="Include" />
+                  <e p="answers-array.ts" t="Include" />
+                  <e p="error-item.ts" t="Include" />
+                  <e p="get-question.model.ts" t="Include" />
+                  <e p="index.ts" t="Include" />
+                  <e p="jwt-response.model.ts" t="Include" />
+                  <e p="menu-item.ts" t="Include" />
+                  <e p="offers-list.model.ts" t="Include" />
+                  <e p="property-by-id.model.ts" t="Include" />
+                  <e p="property-filter.model.ts" t="Include" />
+                  <e p="property-list.model.ts" t="Include" />
+                  <e p="user-profile-model.ts" t="Include" />
+                  <e p="user-response-model.ts" t="Include" />
+                </e>
+                <e p="services" t="Include">
+                  <e p="agent.service.ts" t="Include" />
+                  <e p="api.service.ts" t="Include" />
+                  <e p="auth.service.ts" t="Include" />
+                  <e p="dialog.service.spec.ts" t="Include" />
+                  <e p="dialog.service.ts" t="Include" />
+                  <e p="jwt.service.ts" t="Include" />
+                  <e p="notificationService.ts" t="Include" />
+                  <e p="offer.service.spec.ts" t="Include" />
+                  <e p="offer.service.ts" t="Include" />
+                  <e p="property.service.ts" t="Include" />
+                  <e p="user.servicce.ts" t="Include" />
+                </e>
+              </e>
+              <e p="login" t="Include">
+                <e p="index.ts" t="Include" />
+                <e p="login" t="Include">
+                  <e p="login.component.html" t="Include" />
+                  <e p="login.component.scss" t="Include" />
+                  <e p="login.component.spec.ts" t="Include" />
+                  <e p="login.component.ts" t="Include" />
+                </e>
+                <e p="login-routing.module.ts" t="Include" />
+                <e p="login.module.ts" t="Include" />
+                <e p="password-components" t="Include">
+                  <e p="forgot" t="Include">
+                    <e p="forgot.component.html" t="Include" />
+                    <e p="forgot.component.scss" t="Include" />
+                    <e p="forgot.component.spec.ts" t="Include" />
+                    <e p="forgot.component.ts" t="Include" />
+                  </e>
+                  <e p="index.ts" t="Include" />
+                  <e p="reset" t="Include">
+                    <e p="reset.component.html" t="Include" />
+                    <e p="reset.component.scss" t="Include" />
+                    <e p="reset.component.spec.ts" t="Include" />
+                    <e p="reset.component.ts" t="Include" />
+                  </e>
+                </e>
+                <e p="registration-components" t="Include">
+                  <e p="agent-registration" t="Include">
+                    <e p="agent-registration.component.html" t="Include" />
+                    <e p="agent-registration.component.scss" t="Include" />
+                    <e p="agent-registration.component.spec.ts" t="Include" />
+                    <e p="agent-registration.component.ts" t="Include" />
+                  </e>
+                  <e p="choose-registration" t="Include">
+                    <e p="choose-registration.component.html" t="Include" />
+                    <e p="choose-registration.component.scss" t="Include" />
+                    <e p="choose-registration.component.spec.ts" t="Include" />
+                    <e p="choose-registration.component.ts" t="Include" />
+                  </e>
+                  <e p="confirmation" t="Include">
+                    <e p="confirmation.component.html" t="Include" />
+                    <e p="confirmation.component.scss" t="Include" />
+                    <e p="confirmation.component.spec.ts" t="Include" />
+                    <e p="confirmation.component.ts" t="Include" />
+                  </e>
+                  <e p="index.ts" t="Include" />
+                  <e p="registration" t="Include">
+                    <e p="registration.component.html" t="Include" />
+                    <e p="registration.component.scss" t="Include" />
+                    <e p="registration.component.spec.ts" t="Include" />
+                    <e p="registration.component.ts" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="shared" t="Include">
+                <e p="components" t="Include">
+                  <e p="agent-components" t="Include">
+                    <e p="agent-card" t="Include">
+                      <e p="agent-card.component.html" t="Include" />
+                      <e p="agent-card.component.scss" t="Include" />
+                      <e p="agent-card.component.spec.ts" t="Include" />
+                      <e p="agent-card.component.ts" t="Include" />
+                    </e>
+                    <e p="agent-profile" t="Include">
+                      <e p="agent-profile.component.html" t="Include" />
+                      <e p="agent-profile.component.scss" t="Include" />
+                      <e p="agent-profile.component.spec.ts" t="Include" />
+                      <e p="agent-profile.component.ts" t="Include" />
+                    </e>
+                    <e p="feedback-card" t="Include">
+                      <e p="feedback-card.component.html" t="Include" />
+                      <e p="feedback-card.component.scss" t="Include" />
+                      <e p="feedback-card.component.spec.ts" t="Include" />
+                      <e p="feedback-card.component.ts" t="Include" />
+                    </e>
+                    <e p="index.ts" t="Include" />
+                    <e p="rating" t="Include">
+                      <e p="rating.component.html" t="Include" />
+                      <e p="rating.component.scss" t="Include" />
+                      <e p="rating.component.spec.ts" t="Include" />
+                      <e p="rating.component.ts" t="Include" />
+                    </e>
+                  </e>
+                  <e p="index.ts" t="Include" />
+                  <e p="offer-components" t="Include">
+                    <e p="get-offer-card-for-agent" t="Include">
+                      <e p="get-offer-card-for-agent.component.html" t="Include" />
+                      <e p="get-offer-card-for-agent.component.scss" t="Include" />
+                      <e p="get-offer-card-for-agent.component.spec.ts" t="Include" />
+                      <e p="get-offer-card-for-agent.component.ts" t="Include" />
+                    </e>
+                    <e p="index.ts" t="Include" />
+                  </e>
+                  <e p="profile-components" t="Include">
+                    <e p="index.ts" t="Include" />
+                    <e p="user-profile" t="Include">
+                      <e p="user-profile.component.html" t="Include" />
+                      <e p="user-profile.component.scss" t="Include" />
+                      <e p="user-profile.component.spec.ts" t="Include" />
+                      <e p="user-profile.component.ts" t="Include" />
+                    </e>
+                  </e>
+                  <e p="property-components" t="Include">
+                    <e p="agent-property" t="Include">
+                      <e p="agent-property.component.html" t="Include" />
+                      <e p="agent-property.component.scss" t="Include" />
+                      <e p="agent-property.component.spec.ts" t="Include" />
+                      <e p="agent-property.component.ts" t="Include" />
+                    </e>
+                    <e p="dialog-property-filter" t="Include">
+                      <e p="dialog-property-filter.component.html" t="Include" />
+                      <e p="dialog-property-filter.component.scss" t="Include" />
+                      <e p="dialog-property-filter.component.spec.ts" t="Include" />
+                      <e p="dialog-property-filter.component.ts" t="Include" />
+                    </e>
+                    <e p="index.ts" t="Include" />
+                    <e p="offer-card" t="Include">
+                      <e p="offer-card.component.html" t="Include" />
+                      <e p="offer-card.component.scss" t="Include" />
+                      <e p="offer-card.component.spec.ts" t="Include" />
+                      <e p="offer-card.component.ts" t="Include" />
+                    </e>
+                    <e p="offers-card" t="Include">
+                      <e p="offers-card.component.html" t="Include" />
+                      <e p="offers-card.component.scss" t="Include" />
+                      <e p="offers-card.component.spec.ts" t="Include" />
+                      <e p="offers-card.component.ts" t="Include" />
+                    </e>
+                    <e p="propert-card" t="Include">
+                      <e p="propert-card.component.html" t="Include" />
+                      <e p="propert-card.component.scss" t="Include" />
+                      <e p="propert-card.component.spec.ts" t="Include" />
+                      <e p="propert-card.component.ts" t="Include" />
+                    </e>
+                    <e p="property" t="Include">
+                      <e p="property.component.html" t="Include" />
+                      <e p="property.component.scss" t="Include" />
+                      <e p="property.component.spec.ts" t="Include" />
+                      <e p="property.component.ts" t="Include" />
+                    </e>
+                    <e p="question-answer" t="Include">
+                      <e p="question-answer.component.html" t="Include" />
+                      <e p="question-answer.component.scss" t="Include" />
+                      <e p="question-answer.component.spec.ts" t="Include" />
+                      <e p="question-answer.component.ts" t="Include" />
+                    </e>
+                    <e p="question-card" t="Include">
+                      <e p="question-card.component.html" t="Include" />
+                      <e p="question-card.component.scss" t="Include" />
+                      <e p="question-card.component.spec.ts" t="Include" />
+                      <e p="question-card.component.ts" t="Include" />
+                    </e>
+                    <e p="questions-card" t="Include">
+                      <e p="questions-card.component.html" t="Include" />
+                      <e p="questions-card.component.scss" t="Include" />
+                      <e p="questions-card.component.spec.ts" t="Include" />
+                      <e p="questions-card.component.ts" t="Include" />
+                    </e>
+                    <e p="slider-row" t="Include">
+                      <e p="slider-row.component.html" t="Include" />
+                      <e p="slider-row.component.scss" t="Include" />
+                      <e p="slider-row.component.spec.ts" t="Include" />
+                      <e p="slider-row.component.ts" t="Include" />
+                    </e>
+                  </e>
+                  <e p="shared-components" t="Include">
+                    <e p="dialog-add-question" t="Include">
+                      <e p="dialog-add-question.component.html" t="Include" />
+                      <e p="dialog-add-question.component.scss" t="Include" />
+                      <e p="dialog-add-question.component.spec.ts" t="Include" />
+                      <e p="dialog-add-question.component.ts" t="Include" />
+                    </e>
+                    <e p="dialog-deleting-sure" t="Include">
+                      <e p="dialog-deleting-sure.component.html" t="Include" />
+                      <e p="dialog-deleting-sure.component.scss" t="Include" />
+                      <e p="dialog-deleting-sure.component.spec.ts" t="Include" />
+                      <e p="dialog-deleting-sure.component.ts" t="Include" />
+                    </e>
+                    <e p="dialog-edit-question" t="Include">
+                      <e p="dialog-edit-question.component.html" t="Include" />
+                      <e p="dialog-edit-question.component.scss" t="Include" />
+                      <e p="dialog-edit-question.component.spec.ts" t="Include" />
+                      <e p="dialog-edit-question.component.ts" t="Include" />
+                    </e>
+                    <e p="index.ts" t="Include" />
+                    <e p="mat-error" t="Include">
+                      <e p="mat-error.component.html" t="Include" />
+                      <e p="mat-error.component.scss" t="Include" />
+                      <e p="mat-error.component.spec.ts" t="Include" />
+                      <e p="mat-error.component.ts" t="Include" />
+                    </e>
+                    <e p="not-found-page" t="Include">
+                      <e p="not-found-page.component.html" t="Include" />
+                      <e p="not-found-page.component.scss" t="Include" />
+                      <e p="not-found-page.component.spec.ts" t="Include" />
+                      <e p="not-found-page.component.ts" t="Include" />
+                    </e>
+                  </e>
+                </e>
+                <e p="guards" t="Include">
+                  <e p="agent.guard.ts" t="Include" />
+                  <e p="app.guard.ts" t="Include" />
+                  <e p="index.ts" t="Include" />
+                  <e p="login.guard.ts" t="Include" />
+                  <e p="user.guard.ts" t="Include" />
+                </e>
+                <e p="index.ts" t="Include" />
+                <e p="pipes" t="Include">
+                  <e p="index.ts" t="Include" />
+                  <e p="offer-status.pipe.ts" t="Include" />
+                  <e p="property-category.pipe.ts" t="Include" />
+                  <e p="property-status-pipe.ts" t="Include" />
+                </e>
+                <e p="shared.module.ts" t="Include" />
+              </e>
+              <e p="user" t="Include">
+                <e p="agent-components" t="Include">
+                  <e p="add-agents" t="Include">
+                    <e p="add-agents.component.html" t="Include" />
+                    <e p="add-agents.component.scss" t="Include" />
+                    <e p="add-agents.component.spec.ts" t="Include" />
+                    <e p="add-agents.component.ts" t="Include" />
+                  </e>
+                  <e p="agent-details" t="Include">
+                    <e p="agent-details.component.spec.ts" t="Include" />
+                    <e p="agent-details.component.ts" t="Include" />
+                    <e p="agent-details.html" t="Include" />
+                    <e p="agent-details.scss" t="Include" />
+                  </e>
+                  <e p="agent-list" t="Include">
+                    <e p="agent-list.component.html" t="Include" />
+                    <e p="agent-list.component.scss" t="Include" />
+                    <e p="agent-list.component.spec.ts" t="Include" />
+                    <e p="agent-list.component.ts" t="Include" />
+                  </e>
+                  <e p="index.ts" t="Include" />
+                </e>
+                <e p="index.ts" t="Include" />
+                <e p="main-components" t="Include">
+                  <e p="footer" t="Include">
+                    <e p="footer.component.html" t="Include" />
+                    <e p="footer.component.scss" t="Include" />
+                    <e p="footer.component.spec.ts" t="Include" />
+                    <e p="footer.component.ts" t="Include" />
+                  </e>
+                  <e p="home" t="Include">
+                    <e p="home.component.html" t="Include" />
+                    <e p="home.component.scss" t="Include" />
+                    <e p="home.component.spec.ts" t="Include" />
+                    <e p="home.component.ts" t="Include" />
+                  </e>
+                  <e p="index.ts" t="Include" />
+                  <e p="main" t="Include">
+                    <e p="main.component.html" t="Include" />
+                    <e p="main.component.scss" t="Include" />
+                    <e p="main.component.spec.ts" t="Include" />
+                    <e p="main.component.ts" t="Include" />
+                  </e>
+                  <e p="toolbar" t="Include">
+                    <e p="toolbar.component.html" t="Include" />
+                    <e p="toolbar.component.scss" t="Include" />
+                    <e p="toolbar.component.spec.ts" t="Include" />
+                    <e p="toolbar.component.ts" t="Include" />
+                  </e>
+                </e>
+                <e p="offer-components" t="Include">
+                  <e p="add-feedback" t="Include">
+                    <e p="add-feedback.component.html" t="Include" />
+                    <e p="add-feedback.component.scss" t="Include" />
+                    <e p="add-feedback.component.spec.ts" t="Include" />
+                    <e p="add-feedback.component.ts" t="Include" />
+                  </e>
+                  <e p="index.ts" t="Include" />
+                  <e p="send-offer" t="Include">
+                    <e p="send-offer.component.html" t="Include" />
+                    <e p="send-offer.component.scss" t="Include" />
+                    <e p="send-offer.component.spec.ts" t="Include" />
+                    <e p="send-offer.component.ts" t="Include" />
+                  </e>
+                </e>
+                <e p="profile components" t="Include">
+                  <e p="index.ts" t="Include" />
+                  <e p="my-profile" t="Include">
+                    <e p="my-profile.component.html" t="Include" />
+                    <e p="my-profile.component.scss" t="Include" />
+                    <e p="my-profile.component.spec.ts" t="Include" />
+                    <e p="my-profile.component.ts" t="Include" />
+                  </e>
+                  <e p="my-profile-edit" t="Include">
+                    <e p="my-profile-edit.component.html" t="Include" />
+                    <e p="my-profile-edit.component.scss" t="Include" />
+                    <e p="my-profile-edit.component.spec.ts" t="Include" />
+                    <e p="my-profile-edit.component.ts" t="Include" />
+                  </e>
+                </e>
+                <e p="property-components" t="Include">
+                  <e p="add-property" t="Include">
+                    <e p="add-property.component.html" t="Include" />
+                    <e p="add-property.component.scss" t="Include" />
+                    <e p="add-property.component.spec.ts" t="Include" />
+                    <e p="add-property.component.ts" t="Include" />
+                  </e>
+                  <e p="edit-properties-photos" t="Include">
+                    <e p="edit-properties-photos.component.html" t="Include" />
+                    <e p="edit-properties-photos.component.scss" t="Include" />
+                    <e p="edit-properties-photos.component.spec.ts" t="Include" />
+                    <e p="edit-properties-photos.component.ts" t="Include" />
+                  </e>
+                  <e p="edit-property" t="Include">
+                    <e p="edit-property.component.html" t="Include" />
+                    <e p="edit-property.component.scss" t="Include" />
+                    <e p="edit-property.component.spec.ts" t="Include" />
+                    <e p="edit-property.component.ts" t="Include" />
+                  </e>
+                  <e p="index.ts" t="Include" />
+                  <e p="offers" t="Include">
+                    <e p="offers.component.html" t="Include" />
+                    <e p="offers.component.scss" t="Include" />
+                    <e p="offers.component.spec.ts" t="Include" />
+                    <e p="offers.component.ts" t="Include" />
+                  </e>
+                  <e p="property-for-user" t="Include">
+                    <e p="property-for-user.component.html" t="Include" />
+                    <e p="property-for-user.component.scss" t="Include" />
+                    <e p="property-for-user.component.spec.ts" t="Include" />
+                    <e p="property-for-user.component.ts" t="Include" />
+                  </e>
+                  <e p="property-list" t="Include">
+                    <e p="property-list.component.html" t="Include" />
+                    <e p="property-list.component.scss" t="Include" />
+                    <e p="property-list.component.spec.ts" t="Include" />
+                    <e p="property-list.component.ts" t="Include" />
+                  </e>
+                  <e p="questions-edit" t="Include">
+                    <e p="questions-edit.component.html" t="Include" />
+                    <e p="questions-edit.component.scss" t="Include" />
+                    <e p="questions-edit.component.spec.ts" t="Include" />
+                    <e p="questions-edit.component.ts" t="Include" />
+                  </e>
+                </e>
+                <e p="user-routing.module.ts" t="Include" />
+                <e p="user.module.ts" t="Include" />
+              </e>
+            </e>
+            <e p="assets" t="Include">
+              <e p=".gitkeep" t="Include" />
+              <e p="img" t="Include">
+                <e p="3571325.jpg" t="Include" />
+                <e p="4030322.jpg" t="Include" />
+                <e p="agent-home.jpg" t="Include" />
+                <e p="ahent-home-back.jpg" t="Include" />
+                <e p="bacg.png" t="Include" />
+                <e p="bachhr.png" t="Include" />
+                <e p="back.png" t="Include" />
+                <e p="ce788ddbcc605d9f7dcf2716d4205332.jpg" t="Include" />
+                <e p="DefaultHousePhoto.png" t="Include" />
+                <e p="defaultuser.jpg" t="Include" />
+                <e p="lookforagent.png" t="Include" />
+                <e p="newpsadge.png" t="Include" />
+                <e p="pageNotFound.png" t="Include" />
+                <e p="resssultпкмке.png" t="Include" />
+                <e p="search.jpg" t="Include" />
+                <e p="star-rating.icons.svg" t="Include" />
+                <e p="Theodore.jpg" t="Include" />
+                <e p="userPageBacground.png" t="Include" />
+              </e>
+            </e>
+            <e p="custom-theme.scss" t="Include" />
+            <e p="environments" t="Include">
+              <e p="environment.prod.ts" t="Include" />
+              <e p="environment.ts" t="Include" />
+            </e>
+            <e p="favicon.ico" t="Include" />
+            <e p="index.html" t="Include" />
+            <e p="karma.conf.js" t="Include" />
+            <e p="main.ts" t="Include" />
+            <e p="polyfills.ts" t="Include" />
+            <e p="proxy.conf.json" t="Include" />
+            <e p="styles.scss" t="Include" />
+            <e p="test.ts" t="Include" />
+            <e p="tsconfig.app.json" t="Include" />
+            <e p="tsconfig.server.json" t="Include" />
+            <e p="tsconfig.spec.json" t="Include" />
+            <e p="tslint.json" t="Include" />
+          </e>
+          <e p="tsconfig.app.json" t="Include" />
+          <e p="tsconfig.base.json" t="Include" />
+          <e p="tsconfig.json" t="Include" />
+          <e p="tsconfig.spec.json" t="Include" />
+          <e p="tslint.json" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="AccountController.cs" t="Include" />
+          <e p="ChatController.cs" t="Include" />
+          <e p="OfferController.cs" t="Include" />
+          <e p="PropertyController.cs" t="Include" />
+          <e p="RolesController.cs" t="Include" />
+        </e>
+        <e p="Hubs" t="Include">
+          <e p="ChatHub.cs" t="Include" />
+        </e>
+        <e p="Mapping" t="Include">
+          <e p="MappingProfile.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="RealEstate.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="package-lock.json" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="FolderProfile.pubxml" t="Include" />
+            <e p="RealEstate20200708014452 - Web Deploy.pubxml" t="Include" />
+          </e>
+        </e>
+        <e p="RealEstate.csproj" t="IncludeRecursive" />
+        <e p="Startup.cs" t="Include" />
+        <e p="Templates" t="Include">
+          <e p="password.html" t="Include" />
+          <e p="Welcome.html" t="Include" />
+        </e>
+        <e p="validators" t="Include">
+          <e p="AgentRegisterProfileViewModelValidator.cs" t="Include" />
+          <e p="AgentRegisterViewModelValidator.cs" t="Include" />
+          <e p="ChatViewModelValidator.cs" t="Include" />
+          <e p="EditAgentProfileViewModelValidator.cs" t="Include" />
+          <e p="EditUserProfileViewModelValidator.cs" t="Include" />
+          <e p="FeedBackViewModelValidator.cs" t="Include" />
+          <e p="LoginViewModelValidator.cs" t="Include" />
+          <e p="MessageViewModelValidator.cs" t="Include" />
+          <e p="OfferFromAdminViewModelValidator.cs" t="Include" />
+          <e p="PropertyCreateViewModelValidator.cs" t="Include" />
+          <e p="PropertyListViewModelValidator.cs" t="Include" />
+          <e p="PropertyUpdateViewModelValidator.cs" t="Include" />
+          <e p="RegisterViewModelValidator.cs" t="Include" />
+          <e p="ResetPasswordViewModelValidator.cs" t="Include" />
+          <e p="UserDetailsViewModelValidator.cs" t="Include" />
+        </e>
+        <e p="ViewModels" t="Include">
+          <e p="AddQuestionViewModel.cs" t="Include" />
+          <e p="AnswerViewModel.cs" t="Include" />
+          <e p="ChatViewModels" t="Include">
+            <e p="AddChatViewModel.cs" t="Include" />
+            <e p="AddMessageViewModel.cs" t="Include" />
+            <e p="GetChatViewModel.cs" t="Include" />
+            <e p="GetMessageViewModel.cs" t="Include" />
+          </e>
+          <e p="FeedBackListViewModel.cs" t="Include" />
+          <e p="FeedBackViewModel.cs" t="Include" />
+          <e p="GetQuestionViewModel.cs" t="Include" />
+          <e p="OfferViewModels" t="Include">
+            <e p="AgentOfferResponseViewModel.cs" t="Include" />
+            <e p="OfferFromAgentViewModel.cs" t="Include" />
+            <e p="OfferFromUserViewModel.cs" t="Include" />
+            <e p="OfferResponseViewModel.cs" t="Include" />
+            <e p="OfferViewModel.cs" t="Include" />
+          </e>
+          <e p="PropertyViewModels" t="Include">
+            <e p="GetPropertyViewMode.cs" t="Include" />
+            <e p="PropertyCreateViewModel.cs" t="Include" />
+            <e p="PropertyListViewModel.cs" t="Include" />
+            <e p="PropertyUpdatePhotosViewModel.cs" t="Include" />
+            <e p="PropertyUpdateViewModel.cs" t="Include" />
+          </e>
+          <e p="QuestionUpdateViewModel.cs" t="Include" />
+          <e p="QuestionViewModel.cs" t="Include" />
+          <e p="UserViewModels" t="Include">
+            <e p="AgentRegisterProfileViewModel.cs" t="Include" />
+            <e p="AgentRegisterViewModel.cs" t="Include" />
+            <e p="AgentsListViewModel.cs" t="Include" />
+            <e p="ConfirmUserViewModel.cs" t="Include" />
+            <e p="EditAgentProfileViewModel.cs" t="Include" />
+            <e p="EditUserProfileViewModel.cs" t="Include" />
+            <e p="ForgotPasswordViewModel.cs" t="Include" />
+            <e p="GetAgentByIdInfoViewModel.cs" t="Include" />
+            <e p="LoginViewModel.cs" t="Include" />
+            <e p="RegisterViewModel.cs" t="Include" />
+            <e p="ResetPasswordViewModel.cs" t="Include" />
+            <e p="UserDetailsViewModel.cs" t="Include" />
+            <e p="UsersListViewModel.cs" t="Include" />
+          </e>
+        </e>
+        <e p="wwwroot" t="Include">
+          <e p="css" t="Include">
+            <e p="site.css" t="Include" />
+          </e>
+          <e p="favicon.ico" t="Include" />
+          <e p="fileuploads" t="Include">
+            <e p="01da294d-ea79-4b7f-b819-e539e6ce28fb.jpg" t="Include" />
+            <e p="024e2c40-0f10-460c-9d5c-bfd95980d001.jpg" t="Include" />
+            <e p="06a477cc-8afb-47a2-9ae3-64d711396ad0.jpg" t="Include" />
+            <e p="08e6bc55-2902-431e-abfb-20e3ac2baa5f.jpg" t="Include" />
+            <e p="09252755-bdd8-4952-90c7-1649afb1b156.jpg" t="Include" />
+            <e p="0ce00f81-d089-4a3e-9e7c-bf7eb7cdf059.jpg" t="Include" />
+            <e p="0e9b36a3-eb12-462f-ad1d-606ffb9e58a7.jpg" t="Include" />
+            <e p="1009f9ef-58a2-4141-8bed-0da694cbdef6.jpg" t="Include" />
+            <e p="126efff5-6482-4e43-ae47-b5df80f16f4b.jpg" t="Include" />
+            <e p="136032e4-c074-4e22-b9ca-0b1998734d74.jpg" t="Include" />
+            <e p="13d7d797-4cd5-4a04-8f12-b3b5a03964e6.jpg" t="Include" />
+            <e p="15547cc4-8831-48a1-8047-3e9f81829ae9.jpg" t="Include" />
+            <e p="159f047f-baf2-4de0-b14c-68b87798f056.jpg" t="Include" />
+            <e p="15badbd4-ff57-4396-8b81-3937bee9ed60.jpg" t="Include" />
+            <e p="178c59df-f0c6-42c3-adc3-068ca8e41a91.jpg" t="Include" />
+            <e p="197ce7cc-e241-4d1f-b360-2d62c642a849.jpg" t="Include" />
+            <e p="1dd6676c-b9e3-4431-a58d-14590e12bc3b.jpg" t="Include" />
+            <e p="1e43a0fc-e581-40d6-b09e-362984f3ce92.jpg" t="Include" />
+            <e p="20a046b6-b0b3-4d55-a6af-a8fc1f652eba.jpg" t="Include" />
+            <e p="24a9a86f-2a9e-4604-a4c3-bdd40aec3e84.jpg" t="Include" />
+            <e p="2658cdf7-50b7-4998-8d13-f56dbcb8e119.jpg" t="Include" />
+            <e p="27748e4a-0b7a-4f70-8d30-efd81e23e7fd.jpg" t="Include" />
+            <e p="291eb0ba-3959-4585-82e1-3f3a0347e96c.jpg" t="Include" />
+            <e p="2bf88d05-e37c-4f30-ab87-9a0583855e85.jpg" t="Include" />
+            <e p="2c7f1e8d-d3f4-4986-b3c2-e057e4457661.jpg" t="Include" />
+            <e p="32158c8e-2d96-4fc5-a597-e4bb104d2b30.jpg" t="Include" />
+            <e p="32858d05-a7b1-42ad-ac8f-3122efd536ec.jpg" t="Include" />
+            <e p="33389f6b-fa58-45c3-844c-6610ee29cfaf.jpg" t="Include" />
+            <e p="3420311e-b8e0-46fd-9053-47d8f9c29896.jpg" t="Include" />
+            <e p="34789db6-0bfd-4c60-b8c6-1b06cc4108fb.jpg" t="Include" />
+            <e p="348f9ba5-0ff0-41c6-b4fe-2cdd0b0ae7dc.jpg" t="Include" />
+            <e p="35a1661d-eba3-4b46-9499-ea959b7b4797.jpg" t="Include" />
+            <e p="3608b691-2b22-4d0f-a717-878234825655.jpg" t="Include" />
+            <e p="38552717-38aa-4c80-997d-702484a7603a.jpg" t="Include" />
+            <e p="39297a2e-e989-4544-a6f4-e878ae9c4cf3.jpg" t="Include" />
+            <e p="394eb56e-a71d-46cd-b7f5-d5e8489b4ec2.jpg" t="Include" />
+            <e p="3bf35016-3b85-49ba-8fdf-720bd0873709.jpg" t="Include" />
+            <e p="3c2d270a-f66c-4561-bfc4-621f580efbe9.jpg" t="Include" />
+            <e p="3dae28af-6d85-4d13-bb9d-5f33c9593381.jpg" t="Include" />
+            <e p="3fa1f31a-ca28-4b0e-ab35-a7d5365f5fa5.jpg" t="Include" />
+            <e p="418c3d83-cca5-473c-b806-7d7e168bbf00.jpg" t="Include" />
+            <e p="41a2051d-aa2a-4b81-a779-e969f14e7628.jpg" t="Include" />
+            <e p="458b77bf-33f9-4859-9c55-f687a977f3a6.jpg" t="Include" />
+            <e p="4844cd20-a8fa-43d9-9517-75776112b416.jpg" t="Include" />
+            <e p="4908bdcd-2870-4b5f-95fb-ee0e9bc606d2.jpg" t="Include" />
+            <e p="4ec9ce6a-5121-413e-8433-a254dff1056a.jpg" t="Include" />
+            <e p="508e6479-7384-43da-8187-df8e7c5ba429.jpg" t="Include" />
+            <e p="540d1ee4-9129-4f2a-af2f-05100429efae.jpg" t="Include" />
+            <e p="5647de7d-1fbc-44bd-b08b-e197fa3d3e23.jpg" t="Include" />
+            <e p="56dbd4fe-05b7-4825-b2b8-77fc96305eb6.jpg" t="Include" />
+            <e p="5a5cbbda-ed04-4709-906b-ecbe6cdf466c.jpg" t="Include" />
+            <e p="5fa01040-f0f9-483d-8c3f-9bcab51b62ac.jpg" t="Include" />
+            <e p="6046a743-f9a3-48e2-9a52-c46d3054e062.jpg" t="Include" />
+            <e p="617378bd-6acb-4382-8311-b8a38eda549a.jpg" t="Include" />
+            <e p="623fd3d2-47af-40d0-b5cc-ec8275d6a8b9.jpg" t="Include" />
+            <e p="62c8b1af-01b1-4a1a-b910-4f22a53b530f.jpg" t="Include" />
+            <e p="6426a616-29f4-4135-9024-991e875af72d.jpg" t="Include" />
+            <e p="646f2f1d-b375-40cc-ac9b-887a535a3cf2.jpg" t="Include" />
+            <e p="666bcfe9-49a3-4f0f-91b6-a5952fab1a7c.jpg" t="Include" />
+            <e p="6be9d473-4ea4-40f0-af0e-9a53aa77803e.jpg" t="Include" />
+            <e p="6c36edb0-ccd6-467b-a0ac-918c65a1786c.jpg" t="Include" />
+            <e p="7f2dfea6-7b83-48dd-b585-eb9662fb3476.jpg" t="Include" />
+            <e p="80d25153-7333-4d9e-b1e0-7bb39e33d63a.jpg" t="Include" />
+            <e p="80f386f0-c31a-4cf8-9196-9654dd4ccb8e.jpg" t="Include" />
+            <e p="8610d61b-eb4a-4dc7-a079-34d9e8c3f16e.jpg" t="Include" />
+            <e p="86ea709b-ae51-4866-a754-f8a623af14d5.jpg" t="Include" />
+            <e p="8a0fb1b6-dc24-4b0b-82ec-98fe020b3e08.jpg" t="Include" />
+            <e p="8a8cb1c7-2c6c-40fd-ace3-372e0ac4f118.jpg" t="Include" />
+            <e p="8a9c17d5-0539-4a37-aa99-9e8229f2665b.jpg" t="Include" />
+            <e p="9469673b-9671-433a-889a-c9b653b6d131.jpg" t="Include" />
+            <e p="9628954c-7df8-40fb-a215-0127bf3a7cab.jpg" t="Include" />
+            <e p="9698b696-57fb-4475-9a7a-42e0622a8f7a.jpg" t="Include" />
+            <e p="96b2a2d3-49d0-4677-92d6-9f99a5cb92e7.jpg" t="Include" />
+            <e p="96cacebb-9f0a-48d7-b660-14f34e3a4116.jpg" t="Include" />
+            <e p="9ab98897-7c2d-403d-b595-6a8dc3d0e17e.jpg" t="Include" />
+            <e p="9ccb9496-e6aa-4c0d-9d8f-f6dc0a6c7901.jpg" t="Include" />
+            <e p="9d172478-b49b-48f8-b504-ec72482ea786.jpg" t="Include" />
+            <e p="9ff005e7-d52f-41b0-b518-5b411ed81058.jpg" t="Include" />
+            <e p="a0c33720-7f25-44de-9ecc-edf27a1f2060.jpg" t="Include" />
+            <e p="a0d22bcc-8e39-4a9c-a367-4957e98c21ee.jpg" t="Include" />
+            <e p="a1eeb49d-ccc9-41a5-870c-306300ae3671.jpg" t="Include" />
+            <e p="a5c265fe-0579-4171-a626-095b47af3ac2.jpg" t="Include" />
+            <e p="a624885c-72c8-45a0-a094-c8fb7b0fd912.jpg" t="Include" />
+            <e p="a76fe6ca-4609-4d6f-a125-d1f00e35672c.jpg" t="Include" />
+            <e p="aa69e659-0c43-443c-811e-5b15ddbc2c9a.jpg" t="Include" />
+            <e p="aba1e141-31bc-4cc2-9cc5-90f49e943d54.jpg" t="Include" />
+            <e p="ad78902a-65e9-4813-9b0a-9a1ca69cdee3.jpg" t="Include" />
+            <e p="b0ac0017-c530-445d-b5ad-ea9af589bdf5.jpg" t="Include" />
+            <e p="b144723c-8d70-4840-a0fd-1ef4a782a378.jpg" t="Include" />
+            <e p="b5425c29-8297-4f6a-a438-7623fdbd0f2c.jpg" t="Include" />
+            <e p="b55fa2fe-be39-4941-9bd0-c091ac5a75dd.jpg" t="Include" />
+            <e p="b5995d1f-a6e0-4996-8a52-09c5097864dc.jpg" t="Include" />
+            <e p="b59eedca-483f-4bd3-ab33-555033a0c73d.jpg" t="Include" />
+            <e p="b5be3332-1112-4465-b049-c258f87a0ce8.jpg" t="Include" />
+            <e p="ba81ab6d-0494-44b1-b31d-809c1299372c.jpg" t="Include" />
+            <e p="bb672000-94a0-480e-8f87-0af30ec04bfb.jpg" t="Include" />
+            <e p="bd125ae9-73b3-411d-ab49-5d4a9af05b0f.jpg" t="Include" />
+            <e p="bd620b5d-afea-4be1-ab24-01c60d0db910.jpg" t="Include" />
+            <e p="c02549ee-5505-40c3-8ef4-76636bea637a.jpg" t="Include" />
+            <e p="c025536c-bc82-4c38-a98e-c5d7528d4d2b.jpg" t="Include" />
+            <e p="c0759a07-4ab8-4c0a-b3f3-572301e648f7.jpeg" t="Include" />
+            <e p="c14d6b03-fecb-47d8-b51d-2717ef57a6ac.jpg" t="Include" />
+            <e p="c233efd8-d26a-44c5-a5d2-57e6a3ade2ba.jpg" t="Include" />
+            <e p="c7acd12b-86e1-472c-a809-6adc2537264c.jpg" t="Include" />
+            <e p="c7d7a3e5-2e43-4eea-94e0-1cf16fbc32d4.jpg" t="Include" />
+            <e p="ccbc2da6-d97c-48ed-a2c8-0033bba00b24.jpg" t="Include" />
+            <e p="cea71116-c859-4ace-afea-77d10187ab7a.jpg" t="Include" />
+            <e p="cebf435b-652c-4bb3-861b-dd55b1cd4195.jpg" t="Include" />
+            <e p="d6503a55-fc9b-4c45-ae08-28cb6dc10bfa.jpg" t="Include" />
+            <e p="d6bb1b45-4e06-4d29-b1e5-e75bad506f7d.jpg" t="Include" />
+            <e p="d90609bb-6c53-4e1b-81b6-34050a6391ff.jpg" t="Include" />
+            <e p="dc05f0bd-1ffb-4a9c-87e7-e3c47f8514e9.jpg" t="Include" />
+            <e p="dd91b205-a05e-4250-b2f7-78811c065e3d.jpg" t="Include" />
+            <e p="dd93dc12-aa26-4a95-aa6e-d9778188baa0.jpg" t="Include" />
+            <e p="e37e3d6d-1575-488e-9dad-3a11e5732513.jpg" t="Include" />
+            <e p="e4d2d6e8-00dc-4920-8c56-b1e8e365e61c.jpg" t="Include" />
+            <e p="e6d46e6a-8445-4e68-9bdc-4ca96e6b6d55.jpg" t="Include" />
+            <e p="eb348afd-fb12-488a-ad29-c1b865247d1d.jpg" t="Include" />
+            <e p="eb565697-02af-4299-b791-cbf1c56d6b35.jpg" t="Include" />
+            <e p="ed6d732f-dec0-48b0-866c-00b3aeaaecc3.jpg" t="Include" />
+            <e p="eec77b0d-1823-42c9-b000-8d828563e6ce.jpg" t="Include" />
+            <e p="f24f1f3d-c292-4416-be86-8d4b827f4ad7.jpg" t="Include" />
+            <e p="f5705522-4837-42da-ab7c-6898ed8b6b96.jpg" t="Include" />
+            <e p="f74c2701-ee57-4434-ba7e-bed4633be289.jpg" t="Include" />
+            <e p="fbcc54d8-9f09-446e-9ba6-b2d011236e68.jpg" t="Include" />
+            <e p="fdebccbb-47e3-447d-953b-af00d2bcbf8c.jpg" t="Include" />
+          </e>
+          <e p="js" t="Include">
+            <e p="site.js" t="Include" />
+          </e>
+          <e p="lib" t="Include">
+            <e p="bootstrap" t="Include">
+              <e p="dist" t="Include">
+                <e p="css" t="Include">
+                  <e p="bootstrap-grid.css" t="Include" />
+                  <e p="bootstrap-grid.css.map" t="Include" />
+                  <e p="bootstrap-grid.min.css" t="Include" />
+                  <e p="bootstrap-grid.min.css.map" t="Include" />
+                  <e p="bootstrap-reboot.css" t="Include" />
+                  <e p="bootstrap-reboot.css.map" t="Include" />
+                  <e p="bootstrap-reboot.min.css" t="Include" />
+                  <e p="bootstrap-reboot.min.css.map" t="Include" />
+                  <e p="bootstrap.css" t="Include" />
+                  <e p="bootstrap.css.map" t="Include" />
+                  <e p="bootstrap.min.css" t="Include" />
+                  <e p="bootstrap.min.css.map" t="Include" />
+                </e>
+                <e p="js" t="Include">
+                  <e p="bootstrap.bundle.js" t="Include" />
+                  <e p="bootstrap.bundle.js.map" t="Include" />
+                  <e p="bootstrap.bundle.min.js" t="Include" />
+                  <e p="bootstrap.bundle.min.js.map" t="Include" />
+                  <e p="bootstrap.js" t="Include" />
+                  <e p="bootstrap.js.map" t="Include" />
+                  <e p="bootstrap.min.js" t="Include" />
+                  <e p="bootstrap.min.js.map" t="Include" />
+                </e>
+              </e>
+              <e p="LICENSE" t="Include" />
+            </e>
+            <e p="jquery" t="Include">
+              <e p="dist" t="Include">
+                <e p="jquery.js" t="Include" />
+                <e p="jquery.min.js" t="Include" />
+                <e p="jquery.min.map" t="Include" />
+              </e>
+              <e p="LICENSE.txt" t="Include" />
+            </e>
+            <e p="jquery-validation" t="Include">
+              <e p="dist" t="Include">
+                <e p="additional-methods.js" t="Include" />
+                <e p="additional-methods.min.js" t="Include" />
+                <e p="jquery.validate.js" t="Include" />
+                <e p="jquery.validate.min.js" t="Include" />
+              </e>
+              <e p="LICENSE.md" t="Include" />
+            </e>
+            <e p="jquery-validation-unobtrusive" t="Include">
+              <e p="jquery.validate.unobtrusive.js" t="Include" />
+              <e p="jquery.validate.unobtrusive.min.js" t="Include" />
+              <e p="LICENSE.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="RealEstate.BLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DTO" t="Include">
+          <e p="AddQuestionDto.cs" t="Include" />
+          <e p="AnswerDto.cs" t="Include" />
+          <e p="ChatDto" t="Include">
+            <e p="AddChatDto.cs" t="Include" />
+            <e p="AddMessageDto.cs" t="Include" />
+            <e p="GetChatDto.cs" t="Include" />
+            <e p="GetMessageDto.cs" t="Include" />
+          </e>
+          <e p="FeedBackDto.cs" t="Include" />
+          <e p="FeedbackListDto.cs" t="Include" />
+          <e p="GetQuestionDto.cs" t="Include" />
+          <e p="OfferDtos" t="Include">
+            <e p="AgentOfferResponseDto.cs" t="Include" />
+            <e p="OfferDto.cs" t="Include" />
+            <e p="OfferFromAgentDto.cs" t="Include" />
+            <e p="OfferFromUserDto.cs" t="Include" />
+            <e p="OfferResponseDto.cs" t="Include" />
+          </e>
+          <e p="PropertyDtos" t="Include">
+            <e p="GetPropertyDto.cs" t="Include" />
+            <e p="PropertyCreateDto.cs" t="Include" />
+            <e p="PropertyListDto.cs" t="Include" />
+            <e p="PropertyPhotosDto.cs" t="Include" />
+            <e p="PropertyUpdateDto.cs" t="Include" />
+            <e p="PropertyUpdatePhotosDto.cs" t="Include" />
+          </e>
+          <e p="QuestionsDto.cs" t="Include" />
+          <e p="QuestionsUpdateDto.cs" t="Include" />
+          <e p="UserDtos" t="Include">
+            <e p="AgentRegisterDto.cs" t="Include" />
+            <e p="AgentRegisterProfileDto.cs" t="Include" />
+            <e p="AgentsListDto.cs" t="Include" />
+            <e p="ConfirmUserDto.cs" t="Include" />
+            <e p="EditAgentProfileDto.cs" t="Include" />
+            <e p="EditUserProfileDto.cs" t="Include" />
+            <e p="EmailDto.cs" t="Include" />
+            <e p="ForgotPasswordDto.cs" t="Include" />
+            <e p="GetAgentByIdInfoDto.cs" t="Include" />
+            <e p="GetUser.cs" t="Include" />
+            <e p="LoginDto.cs" t="Include" />
+            <e p="RegisterDto.cs" t="Include" />
+            <e p="ResetPasswordDto.cs" t="Include" />
+            <e p="UserDetailsDto.cs" t="Include" />
+            <e p="UsersListDto.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="EmailSendingHelper.cs" t="Include" />
+        </e>
+        <e p="Infrastructure" t="Include">
+          <e p="BllServiceCollectionsExtentions.cs" t="Include" />
+        </e>
+        <e p="interfaces" t="Include">
+          <e p="IAuthenticationService.cs" t="Include" />
+          <e p="IChatService.cs" t="Include" />
+          <e p="IEmailService.cs" t="Include" />
+          <e p="IFileService.cs" t="Include" />
+          <e p="IOfferService.cs" t="Include" />
+          <e p="IPropertyService.cs" t="Include" />
+          <e p="IQuestionService.cs" t="Include" />
+          <e p="IUserService.cs" t="Include" />
+        </e>
+        <e p="Mapping" t="Include">
+          <e p="MappingProfileBll.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="RealEstate.BLL.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="RealEstate.BLL.csproj" t="IncludeRecursive" />
+        <e p="services" t="Include">
+          <e p="AuthenticationService.cs" t="Include" />
+          <e p="ChatService.cs" t="Include" />
+          <e p="EmailService.cs" t="Include" />
+          <e p="LocalFileService.cs" t="Include" />
+          <e p="OfferServise.cs" t="Include" />
+          <e p="PropertyService.cs" t="Include" />
+          <e p="QuestionService.cs" t="Include" />
+          <e p="UserService.cs" t="Include" />
+        </e>
+      </e>
+      <e p="RealEstate.DAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Configuration" t="Include">
+          <e p="AgentProfileConfiguration.cs" t="Include" />
+          <e p="AnswerConfiguration.cs" t="Include" />
+          <e p="BaseEntityConfiguration.cs" t="Include" />
+          <e p="ChatConfiguration.cs" t="Include" />
+          <e p="ChatUserConfiguration.cs" t="Include" />
+          <e p="FeedbackConfiguration.cs" t="Include" />
+          <e p="MessageConfiguration.cs" t="Include" />
+          <e p="OfferConfiguration.cs" t="Include" />
+          <e p="PropertyConfiguration.cs" t="Include" />
+          <e p="PropertyPhotoConfiguration.cs" t="Include" />
+          <e p="QuestionConfiguration.cs" t="Include" />
+          <e p="UserConfiguration.cs" t="Include" />
+        </e>
+        <e p="data" t="Include">
+          <e p="ApplicationDbContext.cs" t="Include" />
+        </e>
+        <e p="entities" t="Include">
+          <e p="AgentProfile.cs" t="Include" />
+          <e p="Answer.cs" t="Include" />
+          <e p="BaseEntity.cs" t="Include" />
+          <e p="Chat.cs" t="Include" />
+          <e p="ChatUser.cs" t="Include" />
+          <e p="Feedback.cs" t="Include" />
+          <e p="Message.cs" t="Include" />
+          <e p="Offer.cs" t="Include" />
+          <e p="Property.cs" t="Include" />
+          <e p="PropertyPhoto.cs" t="Include" />
+          <e p="Question.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+        </e>
+        <e p="migrations" t="Include">
+          <e p="20201028163358_Initial.cs" t="Include" />
+          <e p="20201028163358_Initial.Designer.cs" t="Include" />
+          <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="RealEstate.DAL.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="RealEstate.DAL.csproj" t="IncludeRecursive" />
+        <e p="Repository" t="Include">
+          <e p="Implementations" t="Include">
+            <e p="Repository.cs" t="Include" />
+          </e>
+          <e p="interfaces" t="Include">
+            <e p="IRepository.cs" t="Include" />
+          </e>
+        </e>
+        <e p="UnitOfWork" t="Include">
+          <e p="IUnitOfWork.cs" t="Include" />
+          <e p="UnitOfWork.cs" t="Include" />
+        </e>
+      </e>
+      <e p="RealEstateIdentity.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>

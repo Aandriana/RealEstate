@@ -1,0 +1,80 @@
+<div class = "empty">
+</div>
+<div class = "card">
+  <button class="edit" (click)="editor()">Edit photos</button>
+</div>
+<mat-carousel
+  timings="250ms ease-in"
+  [autoplay]="true"
+  interval="2000"
+  color="primary"
+  maxWidth="auto"
+  proportion="50"
+  slides="{{property.photos.length}}"
+  slideHeight="1000px"
+  [loop]="true"
+  [hideArrows]="false"
+  [hideIndicators]="false"
+  [useKeyboard]="true"
+  [useMouseWheel]="false"
+  orientation="ltr"
+>
+  <mat-carousel-slide
+    #matCarouselSlide
+    *ngFor="let slide of property.photos; let i = index"
+    [image]=buildUrl(getPhoto(slide))
+    overlayColor="#00000040"
+    [hideOverlay]="false"
+    slideHeight="1000px"
+  ></mat-carousel-slide>
+</mat-carousel>
+<div class="status main margin">
+  <p>{{property.status | propertyStatus}}</p>
+</div>
+<div class = "main" fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column" >
+  <div fxFlex="50" class = "card">
+      <p> <span class="material-icons">unfold_more</span><span class = "char">&nbsp;Size: </span>{{property.size}}</p>
+      <p> <span class="material-icons">house</span><span class = "char">&nbsp;Category: </span>{{property.category | propertyCategory}}</p>
+      <p> <span class="material-icons">layers</span><span class = "char">&nbsp;Number of floors: </span>{{property.floorsNumber}}</p>
+      <p> <span class="material-icons">format_line_spacing</span><span class = "char">&nbsp;Floor: </span>{{property.floors}}</p>
+  </div>
+<div fxFlex="50" class = "card">
+    <p> <span class="material-icons">attach_money</span><span class = "char">&nbsp;Price:</span> {{property.price}}</p>
+    <p> <span class="material-icons">location_on</span><span class = "char">&nbsp;City:</span> {{property.city}}</p>
+    <p> <span class="material-icons">location_searching</span><span class = "char">&nbsp;Address: </span>{{property.address}}</p>
+    <p> <span class="material-icons">calendar_today</span><span class = "char">&nbsp;Build year: </span>{{property.buildYear}}</p>
+</div>
+  <div class = "card">
+  <button class="edit" (click)="runOnComplete()">Edit</button>
+    <button class="edit" *ngIf="property.status !== 0" (click)="deleting()">Delete</button>
+    <button class="edit" *ngIf="property.status === 0" (click)="restoring()">Restore</button>
+  </div>
+</div>
+<div class = "offers">
+  <div class="offer">
+    <p class="offer">Offers</p>
+  </div>
+<div  class = "cards"fxLayout="row wrap" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+  <app-offer-card  fxFlex="0 1 calc(20% - 32px)"
+                   fxFlex.lt-md="0 1 calc(50% - 32px)"
+                   fxFlex.lt-sm="100%" *ngFor="let offer of property.offers"
+                  [offer]="offer"></app-offer-card>
+</div>
+  <div class = "show">
+    <button class="show-button" (click)="offersShow()">Show more</button>
+  </div>
+</div>
+<div class="questions">
+  <div class ="question"*ngIf="property.questions.length>0"><p class = "question">Questions</p></div>
+  <div class ="cards" fxLayout="column" fxLayout.lt-md="column" fxLayout.lt-sm="column">
+  <app-question-card   *ngFor="let question of property.questions"
+                      [question]="question"></app-question-card>
+  </div>
+  <div class ="card">
+    <button class="edit" *ngIf="property.questions.length" (click)="questionsEdit()">Edit questions</button>
+    <button class="edit" *ngIf="!property.questions.length" (click)="questionsEdit()">Add questions</button>
+  </div>
+</div>
+
+
+

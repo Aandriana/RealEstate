@@ -2,7 +2,7 @@
 
 namespace RealEstate.DAL.Entities
 {
-   public class Offer : BaseEntity
+    public class Offer : BaseEntity
     {
         public string Comment { get; set; }
         public double Rate { get; set; }
