@@ -47,7 +47,7 @@ namespace RealEstate.BLL.Services
         public async Task<string> Login(LoginDto model)
         {
             var user = await _unitOfWork.Repository<User>().GetAsync(u => u.Email == model.Email);
-            if (!user.EmailConfirmed) return null;
+          //  if (!user.EmailConfirmed) return null;
             var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
 
             if (result.Succeeded)
@@ -63,6 +63,7 @@ namespace RealEstate.BLL.Services
         {
             var user = _mapper.Map<User>(model);
             user.ImagePath = model.ImagePath;
+            user.EmailConfirmed = true;
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
@@ -92,6 +93,7 @@ namespace RealEstate.BLL.Services
             var agent = _mapper.Map<User>(agentRegister);
             agent.ImagePath = agentRegister.ImagePath;
             agent.AgentProfile.Id = agent.Id;
+            agent.EmailConfirmed = true;
             var result = await _userManager.CreateAsync(agent, agentRegister.Password);
 
             if (result.Succeeded)

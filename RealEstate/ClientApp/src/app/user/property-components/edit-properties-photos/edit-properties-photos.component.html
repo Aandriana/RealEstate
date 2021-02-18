@@ -12,7 +12,7 @@
         fxFlex.lt-sm="100%" *ngFor="let photo of photos">
     <div class = "img">
     <mat-icon class="clear" (click)="onRemove(photo)">clear</mat-icon>
-    <img  style="width: 400px;  border-radius: 8px;" src="{{photo}}">
+    <img  style="width: 400px;  border-radius: 8px;" src="{{getPhoto(photo)}}">
     </div>
   </div>
 </div>

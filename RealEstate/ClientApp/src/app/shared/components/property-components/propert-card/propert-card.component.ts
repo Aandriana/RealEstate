@@ -23,4 +23,7 @@ export class PropertCardComponent implements OnInit {
     this.toggle = !this.toggle;
     this.status = this.toggle ? 'Enable' : 'Disable';
   }
+  getPhoto(): string {
+    return 'http://localhost:52833/' + this.property.image;
+  }
 }

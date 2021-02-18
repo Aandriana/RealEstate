@@ -2,8 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {PropertyService} from '../../../core/services/property.service';
 import {MatDialog} from '@angular/material/dialog';
-import {DialogPropertyFilterComponent} from '../../../shared/components/property-components';
-import {Filter, PropertyListModel} from '../../../core/models';
+import {PropertyListModel} from '../../../core/models';
 import {Router} from '@angular/router';
 
 @Component({

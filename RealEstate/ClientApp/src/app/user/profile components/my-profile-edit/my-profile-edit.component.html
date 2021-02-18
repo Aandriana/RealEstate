@@ -12,7 +12,7 @@
     <img *ngIf="user.imagePath && !imageSrc"
          class = "photo"
          style="width: 200px"
-         src="{{user.imagePath}}"
+         src="{{getPhoto()}}"
          alt=""
     (click)="avatarChange()"
     />

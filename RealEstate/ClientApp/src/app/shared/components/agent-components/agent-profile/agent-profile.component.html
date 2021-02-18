@@ -6,7 +6,7 @@
       <img  *ngIf="agentProfile.imagePath"
             class = "photo"
             style="width: 700px"
-            src="{{agentProfile.imagePath}}"
+            src="{{getPhoto()}}"
             alt=""
       />
       <img *ngIf="!agentProfile.imagePath"

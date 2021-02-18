@@ -1,0 +1,17 @@
+@import "../../../app.component";
+.empty{
+  padding-top: 240px;
+  @extend %flexAlights;
+  font-family: $font-stack;
+}
+.title{
+  @extend %flexAlights;
+  background-color: grey;
+  padding: 10px;
+}
+.photo{
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 100%;
+}

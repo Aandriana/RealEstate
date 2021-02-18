@@ -21,7 +21,9 @@ const routes: Routes = [
       {path: 'agents/offer/:id', component: __.SendOfferComponent},
       {path: 'agents/:id', component: __.AgentByIdComponent},
       {path: 'agents', component: __.AgentListComponent},
-      { path: 'home', component: __.HomeComponent},
+      {path: 'home', component: __.HomeComponent},
+      {path: 'chat', component: __.ChatComponent},
+      {path: 'chat/:id', component: __.ChatComponent}
       ]
   },
   {path: '404', component: ___.NotFoundPageComponent},

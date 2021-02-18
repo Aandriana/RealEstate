@@ -30,4 +30,7 @@ export class OffersCardComponent implements OnInit {
     this.router.navigateByUrl( `agents/feedback/${agentId}`);
   });
   }
+  getPhoto(): string {
+    return 'http://localhost:52833/' + this.offer.image;
+  }
 }

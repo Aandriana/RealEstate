@@ -53,7 +53,9 @@ export class MyProfileEditComponent implements OnInit {
       });
     }
   }
-
+  getPhoto(): string {
+    return 'http://localhost:52833/' + this.user.imagePath;
+  }
   avatarChange(): any {
     document.getElementById('input-file-id').click();
   }

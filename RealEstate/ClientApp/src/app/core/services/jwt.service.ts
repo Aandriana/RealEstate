@@ -31,5 +31,14 @@ export class JwtService {
       }
       return null;
     }
+  public getCurrentUserId(): any {
+    const token: string = localStorage.getItem('jwt');
+    if (token && !this.jwtHelper.isTokenExpired(token)) {
+      const jwtData = this.jwtHelper.decodeToken(token);
+      const userId = jwtData.Id;
+      return userId;
+    }
+    return undefined;
+  }
 }
 

@@ -1,4 +1,5 @@
-﻿using RealEstate.BLL.DTO;
+﻿using RealEstate.BLL;
+using RealEstate.BLL.DTO;
 using RealEstate.BLL.DTO.UserDtos;
 using RealEstate.BLL.Mapping;
 using RealEstate.ViewModels;
@@ -79,6 +80,13 @@ namespace RealEstateIdentity.Mapping
 
             CreateMap<ForgotPasswordViewModel, ForgotPasswordDto>();
             CreateMap<ResetPasswordViewModel, ResetPasswordDto>();
+
+            CreateMap<AddMessageViewModel, AddMessageDto>();
+            CreateMap<AddChatViewModel, AddChatDto>();
+
+            CreateMap<GetMessageDto, GetMessageViewModel>();
+            CreateMap<GetChatDto, GetChatViewModel>();
+            CreateMap<GetChatsDto, GetChatsViewModel>();
 
         }
     }

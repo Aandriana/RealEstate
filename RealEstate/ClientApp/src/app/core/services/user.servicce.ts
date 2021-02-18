@@ -21,7 +21,7 @@ export class UserService {
   }
   editMyProfile(value): Observable<boolean>{
     const formData = new FormData();
-    for (const user in value)
+    for(const user in value)
     {
       formData.append(user, value[user]);
     }

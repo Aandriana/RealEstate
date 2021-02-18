@@ -46,4 +46,5 @@ export class PropertyForUserComponent implements OnInit {
   showQuestions(): any{
     this.router.navigateByUrl(`/properties/${this.propertyId}/questions`);
   }
+
 }

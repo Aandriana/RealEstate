@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Common.FilterClasses;
 using RealEstate.BLL.DTO;
 using RealEstate.BLL.DTO.UserDtos;
 using RealEstate.DAL.Entities;
+using System;
 using System.Linq;
 
 namespace RealEstate.BLL.Mapping
@@ -78,6 +80,15 @@ namespace RealEstate.BLL.Mapping
 
             CreateMap<Feedback, FeedbackListDto>();
 
+            CreateMap<Message, GetMessageDto>();
+            CreateMap<Chat, GetChatDto>()
+                .ForMember(c => c.Messages, map => map.Ignore())
+                   .ForMember(m => m.PagesCount, opt => opt
+                        .MapFrom(m => (int)Math.Ceiling((double)m.Messages.Count() / PaginationConstants.MessagesPerPage)));
+
+            CreateMap<AddChatDto, Chat>();
+            CreateMap<AddMessageDto, Message>();
+            CreateMap<User, GetChatsDto>();
         }
     }
 }

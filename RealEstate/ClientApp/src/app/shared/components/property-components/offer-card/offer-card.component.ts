@@ -12,5 +12,8 @@ export class OfferCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  getPhoto(photo: string): string{
+    return 'http://localhost:52833/' + photo;
+  }
 
 }

@@ -11,6 +11,7 @@ using Microsoft.OpenApi.Models;
 using RealEstate.BLL.Infrastructure;
 using RealEstate.BLL.Interfaces;
 using RealEstate.BLL.Services;
+using RealEstate.Hubs;
 using RealEstateIdentity.Mapping;
 using SendGrid;
 
@@ -32,6 +33,7 @@ namespace RealEstateIdentity
             services.AddMainContext("DefaultConnection", Configuration);
             services.AddIdentityFromBll();
             services.AddAuthenticationFromBll(Configuration);
+            services.AddSignalR();
 
             services.AddSpaStaticFiles(configuration =>
             {
@@ -65,6 +67,7 @@ namespace RealEstateIdentity
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IQuestionService, QuestionService>();
             services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<IChatService, ChatService>();
             services.Configure<EmailSettings>(Configuration.GetSection("email_settings"));
 
             AddSendGrid(services);
@@ -75,6 +78,7 @@ namespace RealEstateIdentity
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        [System.Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -87,7 +91,7 @@ namespace RealEstateIdentity
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseCors(builder => builder.WithOrigins("http://localhost:4200", "http://localhost:52833").AllowAnyHeader().AllowAnyMethod());
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200", "http://localhost:52833").AllowCredentials().AllowAnyHeader().AllowAnyMethod());
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
@@ -106,6 +110,10 @@ namespace RealEstateIdentity
                     "{controller=home}/{action=index}/{id?}");
 
             });
+             app.UseSignalR(routes =>
+              {
+                  routes.MapHub<ChatHub>("/chatHub");
+              });
 
 
 

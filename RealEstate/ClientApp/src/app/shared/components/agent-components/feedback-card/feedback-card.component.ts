@@ -13,5 +13,8 @@ export class FeedbackCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  getPhoto(): string {
+    return 'http://localhost:52833/' + this.feedback.imagePath;
+  }
 
 }

@@ -1,0 +1,35 @@
+@import "../../../app.component";
+.photo{
+    height: 95px;
+     width: 95px;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+.info{
+  padding: 10px;
+  position: inherit;
+}
+.name{
+  font-size: 20px;
+}
+.date{
+  position: absolute;
+  font-size: 10px;
+  margin-left: 350px;
+  padding-top: 5px;
+}
+.main{
+  width: 450px;
+  padding: 5px;
+}
+.main:hover{
+  background-color: aquamarine;
+}
+.page{
+  min-height: 624px!important;
+  padding: 30px;
+  font-family: $font-stack;
+}
+.chat{
+  background-color: aqua;
+}

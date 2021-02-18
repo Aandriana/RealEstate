@@ -5,7 +5,7 @@
         <img  *ngIf="feedback.imagePath"
               class = "photo"
               style="width: 200px"
-              src="{{feedback.imagePath}}"
+              src="{{getPhoto()}}"
               alt=""
         />
         <img *ngIf="!feedback.imagePath"

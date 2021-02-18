@@ -1,0 +1,41 @@
+<div class = "page" fxLayout="row wrap" fxLayout.lt-md="row wrap" fxLayout.lt-sm="column">
+  <app-chat-list></app-chat-list>
+</div>
+<div  class = "chat" fxFlex="75" [fxShow]="true"  [fxShow.sm]="false" [fxShow.xs]="false">
+<div *ngIf="!currentChat">
+  <p class="empty">Select a chat to start messaging</p>
+</div>
+<div *ngIf="currentChat">
+  <div class="title">
+    <p>{{currentChat.name}}</p>
+  </div>
+<!--  <div  #chatScroller (scroll)="onScroll()">-->
+  <div *ngFor="let message of currentChat.messages">
+    <div class="message"
+         [ngClass]="currentUserId == message.createdById ? 'message-owner' : 'message'">
+      <p>
+        <img  *ngIf="message.imagePath"
+              class = "photo"
+              src="{{getPhoto(message.imagePath)}}"
+              alt=""
+        />
+        <img *ngIf="!message.imagePath"
+             class = "photo"
+             src="./assets/img/defaultuser.jpg"
+             alt=""
+        />
+      <span>{{message.text}}</span>
+      <span>{{message.createdDateUtc}}</span>
+    </p>
+  </div>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="sendMessage()" autocomplete="off" fxLayout="row">
+      <input class="message-input" formControlName="text" type="text"
+             placeholder="Send message">
+      <button type="submit" id="send" mat-raised-button
+              color="primary">Send message</button>
+    </form>
+  </div>
+  </div>
+</div>

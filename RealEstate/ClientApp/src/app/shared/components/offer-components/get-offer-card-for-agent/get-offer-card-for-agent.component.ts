@@ -28,3 +28,4 @@ export class GetOfferCardForAgentComponent implements OnInit {
     this.decline.emit();
   }
 }
+

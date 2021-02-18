@@ -11,5 +11,7 @@ export * from './offers-list.model';
 export * from './get-question.model';
 export * from './answers-array';
 export * from './user-response-model';
-
-
+export * from './chat-list.model';
+export * from './chat.model';
+export * from './message.model';
+export * from './paginationParams.model';

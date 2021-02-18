@@ -69,4 +69,7 @@ export class MyProfileEditComponent implements OnInit {
   avatarChange(): any {
     document.getElementById('input-file-id').click();
   }
+  getPhoto(): string{
+    return 'http://localhost:52833/' + this.agent.imagePath;
+  }
 }

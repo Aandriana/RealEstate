@@ -18,4 +18,7 @@ export class UserProfilePageComponent implements OnInit {
   runOnComplete(): void {
     this.onComplete.emit(this.completedParam);
   }
+  getPhoto(): string {
+    return 'http://localhost:52833/' + this.user.imagePath;
+  }
 }

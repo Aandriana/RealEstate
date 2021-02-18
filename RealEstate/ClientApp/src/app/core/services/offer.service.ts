@@ -54,7 +54,7 @@ export class OfferService {
   }
   agentResponse(id, data): Observable<any>{
     const form = new FormData();
-    form.append(`response`, data.response.value);
+    form.append(`response`, data.response);
     return this.http.put(`${this.baseUrl}/agent/${id}`, form);
   }
 }

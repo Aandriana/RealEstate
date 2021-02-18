@@ -3,7 +3,7 @@
     <p>{{property.city}}</p>
   </mat-card-title>
   <mat-card-title>
-    <img class = "photo" *ngIf="property.image" style="width: 400px" src="{{property.image}}"/>
+    <img class = "photo" *ngIf="property.image" style="width: 400px" src="{{getPhoto()}}"/>
     <img class = "photo" *ngIf="!property.image"  style="width: 400px" src="assets/img/DefaultHousePhoto.png"/>
   </mat-card-title>
   <mat-card-content>

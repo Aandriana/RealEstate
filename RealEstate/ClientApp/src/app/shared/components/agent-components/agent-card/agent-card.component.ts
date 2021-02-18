@@ -20,9 +20,11 @@ export class AgentCardComponent implements OnInit {
   ngOnInit(): void {
   }
   enableDisableRule(): any {
-    debugger;
     this.toggle = !this.toggle;
     this.status = this.toggle ? 'Enable' : 'Disable';
+  }
+  getPhoto(): string {
+    return 'http://localhost:52833/' + this.user.imagePath;
   }
 
 }

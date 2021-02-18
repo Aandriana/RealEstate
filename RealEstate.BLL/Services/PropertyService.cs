@@ -23,15 +23,13 @@ namespace RealEstate.BLL.Services
         private readonly IFileService _fileService;
         private readonly IAuthenticationService _authentication;
         private readonly IMapper _mapper;
-        private readonly IOfferService _offerService;
 
-        public PropertyService(IUnitOfWork unitOfWork, IFileService fileService, IAuthenticationService authentication, IMapper mapper, IOfferService offerService)
+        public PropertyService(IUnitOfWork unitOfWork, IFileService fileService, IAuthenticationService authentication, IMapper mapper)
         {
             _authentication = authentication;
             _fileService = fileService;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            _offerService = offerService;
         }
 
         public async Task AddProperty([FromForm]PropertyCreateDto propertyDto)

@@ -4,7 +4,6 @@ import {Injectable} from '@angular/core';
 import {HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AgentById, AgentListModel} from '../models';
-import {FileInput} from 'ngx-material-file-input';
 @Injectable({
   providedIn: 'root'
 })

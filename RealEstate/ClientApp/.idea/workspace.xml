@@ -2,9 +2,492 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c98d1b4-73ab-485f-8d8a-c730f22d81ed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../.idea/RealEstateIdentity.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Common/FilterClasses/PaginationConstants.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ConsoleApp1/ConsoleApp1.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ConsoleApp1/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../RealEstate.BLL/DTO/ChatDto/AddChatDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../RealEstate.BLL/DTO/ChatDto/AddMessageDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../RealEstate.BLL/DTO/ChatDto/GetChatDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../RealEstate.BLL/DTO/ChatDto/GetChatsDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../RealEstate.BLL/DTO/ChatDto/GetMessageDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../RealEstate.BLL/Interfaces/IChatService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../RealEstate.BLL/Services/ChatService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../RealEstate.DAL/Configuration/ChatConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../RealEstate.DAL/Configuration/ChatUserConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../RealEstate.DAL/Configuration/MessageConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../RealEstate.DAL/Entities/Chat.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../RealEstate.DAL/Entities/ChatUser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../RealEstate.DAL/Entities/Message.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/LICENSES.chromium.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/RealEstate.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/chrome_100_percent.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/chrome_200_percent.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/d3dcompiler_47.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/ffmpeg.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/icudtl.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/libEGL.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/libGLESv2.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/am.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/ar.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/bg.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/bn.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/ca.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/cs.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/da.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/de.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/el.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/en-GB.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/en-US.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/es-419.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/es.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/et.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/fa.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/fi.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/fil.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/fr.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/gu.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/he.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/hi.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/hr.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/hu.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/id.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/it.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/ja.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/kn.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/ko.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/lt.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/lv.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/ml.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/mr.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/ms.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/nb.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/nl.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/pl.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/pt-BR.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/pt-PT.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/ro.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/ru.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/sk.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/sl.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/sr.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/sv.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/sw.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/ta.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/te.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/th.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/tr.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/uk.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/vi.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/zh-CN.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/locales/zh-TW.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources.pak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/3571325.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/4030322.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/DefaultHousePhoto.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/Theodore.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/agent-home.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/ahent-home-back.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/bacg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/bachhr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/ce788ddbcc605d9f7dcf2716d4205332.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/defaultuser.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/lookforagent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/newpsadge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/pageNotFound.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/resssultпкмке.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/search.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/star-rating.icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/assets/img/userPageBacground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/main-es2015.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/main-es2015.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/main-es5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/main-es5.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/polyfills-es2015.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/polyfills-es2015.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/polyfills-es5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/polyfills-es5.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/runtime-es2015.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/runtime-es2015.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/runtime-es5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/runtime-es5.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/styles-es2015.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/styles-es2015.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/styles-es5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/styles-es5.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/vendor-es2015.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/vendor-es2015.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/vendor-es5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/resources/app/vendor-es5.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/snapshot_blob.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/swiftshader/libEGL.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/swiftshader/libGLESv2.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/v8_context_snapshot.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/version" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/vk_swiftshader.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/vk_swiftshader_icd.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RealEstate-win32-x64/vulkan-1.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/cordova.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/project.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/AuthenticationToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/BuildHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CallbackContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CallbackMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/ConfigXmlParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CordovaActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CordovaArgs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CordovaBridge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CordovaClientCertRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CordovaDialogsHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CordovaHttpAuthHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CordovaInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CordovaInterfaceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CordovaPlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CordovaPreferences.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CordovaResourceApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CordovaWebView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CordovaWebViewEngine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CordovaWebViewImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/CoreAndroid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/ExposedJsApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/ICordovaClientCertRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/ICordovaCookieManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/ICordovaHttpAuthHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/LOG.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/NativeToJsMessageQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/PermissionHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/PluginEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/PluginManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/PluginResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/ResumeCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/Whitelist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/engine/SystemCookieManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/engine/SystemExposedJsApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/engine/SystemWebChromeClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/engine/SystemWebView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/engine/SystemWebViewClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/engine/SystemWebViewEngine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/android.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/cordova-js-src/android/nativeapiprovider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/cordova-js-src/android/promptbasednativeapi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/cordova-js-src/exec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/cordova-js-src/platform.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/cordova-js-src/plugin/android/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/cordova.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/cordova_plugins.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/js/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/java/com/andrianainc/realestate/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/java/org/apache/cordova/whitelist/WhitelistPlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/drawable-land-hdpi/screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/drawable-land-ldpi/screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/drawable-land-mdpi/screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/drawable-land-xhdpi/screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/drawable-land-xxhdpi/screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/drawable-land-xxxhdpi/screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/drawable-port-hdpi/screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/drawable-port-ldpi/screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/drawable-port-mdpi/screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/drawable-port-xhdpi/screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/drawable-port-xxhdpi/screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/drawable-port-xxxhdpi/screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-hdpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-hdpi-v26/ic_launcher_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-hdpi-v26/ic_launcher_foreground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-ldpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-ldpi-v26/ic_launcher_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-ldpi-v26/ic_launcher_foreground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-ldpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-mdpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-mdpi-v26/ic_launcher_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-mdpi-v26/ic_launcher_foreground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-xhdpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-xhdpi-v26/ic_launcher_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-xhdpi-v26/ic_launcher_foreground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-xxhdpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-xxhdpi-v26/ic_launcher_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-xxhdpi-v26/ic_launcher_foreground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-xxxhdpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-xxxhdpi-v26/ic_launcher_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-xxxhdpi-v26/ic_launcher_foreground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/xml/config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/Api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/android_sdk_version" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/android_sdk_version.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/build" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/build.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/check_reqs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/check_reqs.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/clean" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/clean.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/defaults.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/Adb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/AndroidManifest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/AndroidProject.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/PackageType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/android_sdk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/build.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/builders/ProjectBuilder.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/builders/builders.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/check_reqs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/config/GradlePropertiesParser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/device.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/emulator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/getASPath.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/install-device" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/install-device.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/install-emulator" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/install-emulator.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/list-devices" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/list-devices.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/list-emulator-images" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/list-emulator-images.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/list-started-emulators" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/list-started-emulators.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/log.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/plugin-build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/pluginHandlers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/prepare.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/retry.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/run.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/start-emulator" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/start-emulator.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/lib/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/log.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/loggingHelper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/run" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/run.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/version" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/cordova/version.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/platform_www/cordova-js-src/android/nativeapiprovider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/platform_www/cordova-js-src/android/promptbasednativeapi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/platform_www/cordova-js-src/exec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/platform_www/cordova-js-src/platform.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/platform_www/cordova-js-src/plugin/android/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/platform_www/cordova.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/platform_www/cordova_plugins.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/project.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platforms/android/wrapper.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/android.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/NOTICE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/RELEASENOTES.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/src/android/WhitelistPlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/tests/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/tests/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/tests/plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/tests/scripts/remove-access.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/tests/src/android/WhitelistAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/tests/tests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/tests/www/whitelist.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/fetch.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/realestate/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/realestate/config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/realestate/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/realestate/www/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/realestate/www/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/realestate/www/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/realestate/www/js/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/core/models/chat-list.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/core/models/chat.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/core/models/message.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/core/models/paginationParams.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/core/services/chat.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/core/services/signalR.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/user/chat-components/chat-list/chat-list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/user/chat-components/chat-list/chat-list.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/user/chat-components/chat-list/chat-list.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/user/chat-components/chat-list/chat-list.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/user/chat-components/chat/chat.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/user/chat-components/chat/chat.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/user/chat-components/chat/chat.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/user/chat-components/chat/chat.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/user/chat-components/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/Theodore.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/js/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Controllers/ChatController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Hubs/ChatHub.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validators/ChatViewModelValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validators/MessageViewModelValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ViewModels/ChatViewModels/AddChatViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ViewModels/ChatViewModels/AddMessageViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ViewModels/ChatViewModels/GetChatViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ViewModels/ChatViewModels/GetChatsViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ViewModels/ChatViewModels/GetMessageViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/01da294d-ea79-4b7f-b819-e539e6ce28fb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/06a477cc-8afb-47a2-9ae3-64d711396ad0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/0ce00f81-d089-4a3e-9e7c-bf7eb7cdf059.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/0e9b36a3-eb12-462f-ad1d-606ffb9e58a7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/126efff5-6482-4e43-ae47-b5df80f16f4b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/13d7d797-4cd5-4a04-8f12-b3b5a03964e6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/15badbd4-ff57-4396-8b81-3937bee9ed60.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/178c59df-f0c6-42c3-adc3-068ca8e41a91.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/34789db6-0bfd-4c60-b8c6-1b06cc4108fb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/39297a2e-e989-4544-a6f4-e878ae9c4cf3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/3c2d270a-f66c-4561-bfc4-621f580efbe9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/3dae28af-6d85-4d13-bb9d-5f33c9593381.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/3fa1f31a-ca28-4b0e-ab35-a7d5365f5fa5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/4844cd20-a8fa-43d9-9517-75776112b416.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/4908bdcd-2870-4b5f-95fb-ee0e9bc606d2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/4ec9ce6a-5121-413e-8433-a254dff1056a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/5647de7d-1fbc-44bd-b08b-e197fa3d3e23.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/56dbd4fe-05b7-4825-b2b8-77fc96305eb6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/6046a743-f9a3-48e2-9a52-c46d3054e062.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/617378bd-6acb-4382-8311-b8a38eda549a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/6c36edb0-ccd6-467b-a0ac-918c65a1786c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/80d25153-7333-4d9e-b1e0-7bb39e33d63a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/8610d61b-eb4a-4dc7-a079-34d9e8c3f16e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/86ea709b-ae51-4866-a754-f8a623af14d5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/9628954c-7df8-40fb-a215-0127bf3a7cab.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/9698b696-57fb-4475-9a7a-42e0622a8f7a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/9d172478-b49b-48f8-b504-ec72482ea786.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/a0c33720-7f25-44de-9ecc-edf27a1f2060.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/ad78902a-65e9-4813-9b0a-9a1ca69cdee3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/b5be3332-1112-4465-b049-c258f87a0ce8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/bb672000-94a0-480e-8f87-0af30ec04bfb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/c02549ee-5505-40c3-8ef4-76636bea637a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/c025536c-bc82-4c38-a98e-c5d7528d4d2b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/c233efd8-d26a-44c5-a5d2-57e6a3ade2ba.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/c7d7a3e5-2e43-4eea-94e0-1cf16fbc32d4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/e6d46e6a-8445-4e68-9bdc-4ca96e6b6d55.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/eb348afd-fb12-488a-ad29-c1b865247d1d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/eec77b0d-1823-42c9-b000-8d828563e6ce.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wwwroot/fileuploads/fbcc54d8-9f09-446e-9ba6-b2d011236e68.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../UnitTests/UnitTest1.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../UnitTests/UnitTests.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/DefaultValues/DefaultValues.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/DefaultValues/UserDefaultValues.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/Mocks/FakeSignInManager .cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/Mocks/FakeUserManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/Mocks/RepositoryMock.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/Services/AuthenticationServiceTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/Services/ChatServiceTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/Services/OfferServiseTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/Services/PropertyServiceTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/Services/QuestionServiceTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/Services/UserServiceTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/SetupServices/AuthenticationServiceSetups.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/SetupServices/ChatServiceSetup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/SetupServices/OfferServiseSetup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/SetupServices/PropertyServiceSetup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/SetupServices/QuestionServiceSetup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/SetupServices/UserServiceSetup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../XUnitTestProject/XUnitTestProject.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/.idea.RealEstateIdentity/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/.idea.RealEstateIdentity/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Common/Common.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../Common/Common.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.BLL/Infrastructure/BllServiceCollectionsExtentions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.BLL/Infrastructure/BllServiceCollectionsExtentions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.BLL/Mapping/MappingProfileBll.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.BLL/Mapping/MappingProfileBll.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../RealEstate.BLL/Services/EmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.BLL/Services/EmailService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.BLL/Services/PropertyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.BLL/Services/PropertyService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../RealEstate.BLL/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.BLL/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.DAL/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.DAL/Data/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.DAL/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.DAL/Entities/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.DAL/Migrations/20200616191155_FirstMigration.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.DAL/Migrations/20200616191155_FirstMigration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.DAL/Migrations/20201028163358_Initial.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.DAL/Migrations/20200706144936_BirthdayMigration.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.DAL/Migrations/20201028163358_Initial.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.DAL/Migrations/20200706144936_BirthdayMigration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.DAL/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.DAL/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.DAL/RealEstate.DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.DAL/RealEstate.DAL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstate.DAL/Repository/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstate.DAL/Repository/Interfaces/IRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200817.121334.8984.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200817.150529.11788.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200819.145247.31884.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200819.165142.2992.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200821.120900.12548.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200821.142346.13160.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200822.114256.9372.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200822.121848.8408.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200822.123254.15480.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200823.151832.9732.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200823.161438.30968.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200824.223635.12080.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200824.230023.21540.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200826.145141.27576.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.20200901.162911.31544.0.001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/agent/profile-components/my-profile-edit/my-profile-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/agent/profile-components/my-profile-edit/my-profile-edit.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/agent/profile-components/my-profile-edit/my-profile-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/agent/profile-components/my-profile-edit/my-profile-edit.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/agent/property-components/property-list/property-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/agent/property-components/property-list/property-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/configs/api-endpoint.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/configs/api-endpoint.constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/models/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/services/agent.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/agent.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/services/dialog.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/services/jwt.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/jwt.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/services/offer.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/services/offer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/offer.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/services/user.servicce.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/user.servicce.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-card/agent-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-card/agent-card.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-card/agent-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-card/agent-card.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-profile/agent-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-profile/agent-profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-profile/agent-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/agent-profile/agent-profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/agent-components/feedback-card/feedback-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/feedback-card/feedback-card.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/agent-components/feedback-card/feedback-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/agent-components/feedback-card/feedback-card.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/offer-components/get-offer-card-for-agent/get-offer-card-for-agent.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/offer-components/get-offer-card-for-agent/get-offer-card-for-agent.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/profile-components/user-profile/user-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/profile-components/user-profile/user-profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/profile-components/user-profile/user-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/profile-components/user-profile/user-profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/agent-property/agent-property.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/agent-property/agent-property.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/agent-property/agent-property.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/agent-property/agent-property.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/offer-card/offer-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/offer-card/offer-card.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/offer-card/offer-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/offer-card/offer-card.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/offers-card/offers-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/offers-card/offers-card.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/offers-card/offers-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/offers-card/offers-card.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/propert-card/propert-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/propert-card/propert-card.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/propert-card/propert-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/propert-card/propert-card.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/property/property.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/property/property.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/property-components/property/property.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/property-components/property/property.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/guards/login.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/guards/login.guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/user/profile components/my-profile-edit/my-profile-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/profile components/my-profile-edit/my-profile-edit.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/user/profile components/my-profile-edit/my-profile-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/profile components/my-profile-edit/my-profile-edit.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/user/property-components/edit-properties-photos/edit-properties-photos.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/edit-properties-photos/edit-properties-photos.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/user/property-components/edit-properties-photos/edit-properties-photos.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/edit-properties-photos/edit-properties-photos.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/user/property-components/property-for-user/property-for-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/property-components/property-for-user/property-for-user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/user/user-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/user-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/user/user.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/user.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/environments/environment.prod.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mapping/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Mapping/MappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RealEstate.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../RealEstate.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../RealEstateIdentity.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../../RealEstateIdentity.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +500,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -34,7 +518,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/work/TheraLang/TheraLang.Web/ClientApp" />
+    <property name="last_opened_file_path" value="$USER_HOME$/source/repos/IGM_DataCollection/frontend" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -43,21 +527,22 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/node_modules/protractor" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
-    <property name="ts.external.directory.path" value="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\node_modules\typescript\lib" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="ts.external.directory.path" value="D:\RealEstateIdentity\RealEstate\ClientApp\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\assets\img" />
-      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstateIdentity\ClientApp\src\assets\img" />
-      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstateIdentity\ClientApp\src\app\user" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\RealEstateIdentity\RealEstate\ClientApp" />
       <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\login\registration-components" />
       <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\login\registration-components\registration" />
       <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\login\password-components" />
       <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\agent\profile-components" />
-      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\app\shared\guards" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\RealEstateIdentity\RealEstate\ClientApp" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstate\ClientApp\src\assets\img" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstateIdentity\ClientApp\src\assets\img" />
+      <recent name="C:\Users\aandr\source\repos\RealEstateIdentity\RealEstateIdentity\ClientApp\src\app\user" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -131,7 +616,44 @@
       <workItem from="1598180694983" duration="32209000" />
       <workItem from="1598443374855" duration="8010000" />
       <workItem from="1598811863417" duration="9113000" />
-      <workItem from="1598873184910" duration="9178000" />
+      <workItem from="1598873184910" duration="9789000" />
+      <workItem from="1599227609155" duration="451000" />
+      <workItem from="1601482575720" duration="7477000" />
+      <workItem from="1601572084893" duration="8559000" />
+      <workItem from="1602590420176" duration="3375000" />
+      <workItem from="1602749928287" duration="3664000" />
+      <workItem from="1602852425347" duration="599000" />
+      <workItem from="1602854469490" duration="1199000" />
+      <workItem from="1603107320615" duration="58000" />
+      <workItem from="1603377908066" duration="1491000" />
+      <workItem from="1603800737352" duration="6972000" />
+      <workItem from="1603978840303" duration="1130000" />
+      <workItem from="1603989424305" duration="3727000" />
+      <workItem from="1604913898022" duration="36079000" />
+      <workItem from="1605012000936" duration="587000" />
+      <workItem from="1607193828269" duration="43000" />
+      <workItem from="1608029611671" duration="2403000" />
+      <workItem from="1608032294082" duration="1749000" />
+      <workItem from="1608542965138" duration="21881000" />
+      <workItem from="1608728157482" duration="15746000" />
+      <workItem from="1609148468339" duration="4031000" />
+      <workItem from="1609242341790" duration="5865000" />
+      <workItem from="1609760245078" duration="285000" />
+      <workItem from="1610366259974" duration="1016000" />
+      <workItem from="1610711794649" duration="74000" />
+      <workItem from="1610724377871" duration="702000" />
+      <workItem from="1610797326266" duration="3821000" />
+      <workItem from="1610801619243" duration="635000" />
+      <workItem from="1610884655422" duration="99000" />
+      <workItem from="1611505571287" duration="1268000" />
+      <workItem from="1611521449854" duration="2049000" />
+      <workItem from="1611665470187" duration="11922000" />
+      <workItem from="1611824088595" duration="646000" />
+      <workItem from="1612616476316" duration="1914000" />
+      <workItem from="1612777758354" duration="7349000" />
+      <workItem from="1613490976028" duration="2362000" />
+      <workItem from="1613506521502" duration="4588000" />
+      <workItem from="1613568904473" duration="437000" />
     </task>
     <servers />
   </component>
@@ -144,131 +666,28 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="179" key="#Compass" timestamp="1594718435805">
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608590973321">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="179" key="#Compass/0.0.1920.1040@0.0.1920.1040" timestamp="1594718435805" />
-    <state x="729" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597406289898">
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608590973321" />
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1613569339828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="729" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1597406289898" />
-    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser" timestamp="1596475724047">
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1613569339828" />
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1612777797092" />
+    <state x="656" y="252" width="651" height="536" key="find.popup" timestamp="1613505673622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596475724047" />
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597838229993">
+    <state x="656" y="252" width="651" height="536" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1613505673622" />
+    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611673317109" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1608834098024">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597838229993" />
-    <state x="506" y="114" key="CommitChangelistDialog2" timestamp="1597412014633">
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1608643119473" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608834098024" />
+    <state x="623" y="225" key="search.everywhere.popup" timestamp="1612889943534">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="506" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1597412014633" />
-    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1598820263419">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1598820263419" />
-    <state width="1899" height="388" key="GridCell.Tab.0.bottom" timestamp="1597856809752">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="388" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597856809752" />
-    <state width="1899" height="388" key="GridCell.Tab.0.center" timestamp="1597856809751">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="388" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597856809751" />
-    <state width="1899" height="388" key="GridCell.Tab.0.left" timestamp="1597856809750">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="388" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597856809750" />
-    <state width="1899" height="388" key="GridCell.Tab.0.right" timestamp="1597856809751">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="388" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597856809751" />
-    <state width="949" height="348" key="GridCell.Tab.1.bottom" timestamp="1594482413402">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413402" />
-    <state width="949" height="348" key="GridCell.Tab.1.center" timestamp="1594482413402">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413402" />
-    <state width="949" height="348" key="GridCell.Tab.1.left" timestamp="1594482413401">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413401" />
-    <state width="949" height="348" key="GridCell.Tab.1.right" timestamp="1594482413402">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413402" />
-    <state width="949" height="348" key="GridCell.Tab.2.bottom" timestamp="1594482413405">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413405" />
-    <state width="949" height="348" key="GridCell.Tab.2.center" timestamp="1594482413404">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413404" />
-    <state width="949" height="348" key="GridCell.Tab.2.left" timestamp="1594482413404">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413403" />
-    <state width="949" height="348" key="GridCell.Tab.2.right" timestamp="1594482413404">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413404" />
-    <state width="949" height="348" key="GridCell.Tab.3.bottom" timestamp="1594482413406">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="348" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413406" />
-    <state width="949" height="348" key="GridCell.Tab.3.center" timestamp="1594482413406">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="348" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413406" />
-    <state width="949" height="348" key="GridCell.Tab.3.left" timestamp="1594482413406">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="348" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413406" />
-    <state width="949" height="348" key="GridCell.Tab.3.right" timestamp="1594482413406">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="949" height="348" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594482413406" />
-    <state x="752" y="232" key="RollbackChangesDialog" timestamp="1594405743674">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="752" y="232" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594405743674" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1594174093628">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594174093628" />
-    <state x="681" y="265" width="540" height="524" key="StructurePopup" timestamp="1597996793053">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="681" y="265" width="540" height="524" key="StructurePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1597996793053" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1593787311655">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1593787311655" />
-    <state x="656" y="252" width="737" height="606" key="find.popup" timestamp="1598461183509">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="656" y="252" width="737" height="606" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598461183509" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1598964351144">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598964351144" />
-    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1597738198208">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597738198208" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/app/core/services/property.service.ts</url>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="623" y="225" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612889943534" />
   </component>
 </project>

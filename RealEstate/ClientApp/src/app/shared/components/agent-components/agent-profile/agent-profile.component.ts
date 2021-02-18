@@ -17,4 +17,7 @@ export class AgentProfilePageComponent implements OnInit {
   runOnComplete(): void {
     this.onComplete.emit();
   }
+  getPhoto(): string {
+    return 'http://localhost:52833/' + this.agentProfile.imagePath;
+  }
 }

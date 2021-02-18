@@ -19,4 +19,7 @@ export class AgentPropertyComponent implements OnInit {
   runOnComplete(): void {
     this.onComplete.emit();
   }
+  getPhoto(photo: string): string{
+    return 'http://localhost:52833/' + photo;
+  }
 }

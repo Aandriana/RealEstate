@@ -37,4 +37,7 @@ export class PropertyPageComponent implements OnInit {
   restoring(): any{
     this.restore.emit();
   }
+  getPhoto(photo: string): string {
+    return 'http://localhost:52833/' + photo;
+  }
 }

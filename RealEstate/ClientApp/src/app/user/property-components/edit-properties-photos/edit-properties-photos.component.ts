@@ -36,4 +36,7 @@ export class EditPropertiesPhotosComponent implements OnInit {
       this.router.navigateByUrl(`/properties/${this.id}`);
     });
   }
+  getPhoto(photo: string): string {
+    return 'http://localhost:52833/' + photo;
+  }
 }

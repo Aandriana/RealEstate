@@ -9,12 +9,10 @@ namespace RealEstate.BLL.Services
 {
    public class EmailService : IEmailService
     {
-        private readonly IUnitOfWork _unitOfWork;
         private readonly ISendGridClient _emailClient;
 
-        public EmailService( IUnitOfWork unitOfWork, ISendGridClient emailClient)
+        public EmailService(ISendGridClient emailClient)
         {
-            _unitOfWork = unitOfWork;
             _emailClient = emailClient;
         }
 
