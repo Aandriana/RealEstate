@@ -45,7 +45,7 @@
     "ng-starrating": "^1.0.20",
     "ngx-material-file-input": "^2.1.1",
     "ngx-scrollreveal": "^3.0.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "rxjs": "~6.5.5",
     "scrollreveal": "^4.0.7",
     "slick-carousel": "^1.8.1",
